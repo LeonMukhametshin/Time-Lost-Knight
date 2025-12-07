@@ -5,7 +5,8 @@ namespace Players
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerHorizontalMove : MonoBehaviour
     {
-        [SerializeField] private float m_speed;
+        [SerializeField] private PlayerData m_data;
+
         [SerializeField] private Rigidbody2D m_rigidbody2D;
         [SerializeField] private Transform m_transform;
 
@@ -25,7 +26,7 @@ namespace Players
 
         public void Move(Vector2 moveDirection)
         {
-            Vector2 velocity = moveDirection.normalized * m_speed;
+            Vector2 velocity = moveDirection.normalized * m_data.Speed;
             m_rigidbody2D.linearVelocity = new Vector2(velocity.x, m_rigidbody2D.linearVelocityY);
 
             float horizontalInput = Mathf.Clamp(moveDirection.x, -1f, 1f);

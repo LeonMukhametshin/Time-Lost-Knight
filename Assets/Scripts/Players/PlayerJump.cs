@@ -1,17 +1,12 @@
-using Unity.VisualScripting;
-using UnityEditor;
+using Players;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float m_jumpForce;
+    [SerializeField] private PlayerData m_playerJump;
     [SerializeField] private Rigidbody2D m_rigidbody2D;
-    [SerializeField] private LayerMask _groundLayer;
-
     [SerializeField] private Transform m_groundChecker;
-    [SerializeField] private float m_checkDistance = 0.4f;
-
     [SerializeField] private PhysicsMaterial2D m_jumpMaterial;
 
     private bool m_isJumping = false;
@@ -20,7 +15,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (!m_isJumping)
         {
-            m_rigidbody2D.AddForce(Vector2.up * m_jumpForce, ForceMode2D.Impulse);
+            m_rigidbody2D.AddForce(Vector2.up * m_playerJump.JumpForce, ForceMode2D.Impulse);
             m_rigidbody2D.sharedMaterial = m_jumpMaterial;
 
             m_isJumping = true;
@@ -32,8 +27,8 @@ public class PlayerJump : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(
              m_groundChecker.position,
              Vector2.down,
-             m_checkDistance,
-             _groundLayer
+             m_playerJump.CheckDistance,
+             m_playerJump.GroundLayer
         );
 
         if (hit.collider is not null)
@@ -49,6 +44,6 @@ public class PlayerJump : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(m_groundChecker.position, m_checkDistance);
+        Gizmos.DrawSphere(m_groundChecker.position, m_playerJump.CheckDistance);
     }
 }
