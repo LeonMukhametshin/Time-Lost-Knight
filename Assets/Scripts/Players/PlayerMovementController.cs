@@ -38,7 +38,7 @@ namespace Players
 
         private void Update()
         {
-            m_groundCheck?.Update();
+            m_groundCheck.Update();
         }
 
         private void FixedUpdate()
