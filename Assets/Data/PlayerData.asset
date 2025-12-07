@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d28556bdfe781b848aed1abc30e2f801, type: 3}
-  m_Name: PlayerJump
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 5
-  <JumpForce>k__BackingField: 3
+  <Speed>k__BackingField: 4
+  <JumpForce>k__BackingField: 2
   <CheckDistance>k__BackingField: 0.4
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
+  <JumpMaterial>k__BackingField: {fileID: 6200000, guid: 4e51aabbfedfc224d894261325217625, type: 2}
