@@ -9,6 +9,8 @@ namespace Players
         [SerializeField] private Transform m_groundCheckPosition;
         [SerializeField] private Animator m_animator;
 
+        [SerializeField] private Attack m_attack;
+
         private PlayerInput m_playerInput;
         private GroundCheck m_groundCheck;
 
@@ -51,6 +53,11 @@ namespace Players
             if (m_playerInput.JumpReleasedThisFrame)
             {
                 m_jumpSystem.StopJump();
+            }
+
+            if(m_playerInput.IsAttacked)
+            {
+                m_attack.DoAttack();
             }
 
             m_animator.SetBool("Walking", Mathf.Abs(m_rigidbody.linearVelocityX) > 0.1f && m_groundCheck.IsGrounded);

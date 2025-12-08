@@ -72,11 +72,18 @@ namespace Players
             JumpReleasedThisFrame = true;
         }
 
-        private void OnAttackedPerformed(InputAction.CallbackContext context) =>
+        private void OnAttackedPerformed(InputAction.CallbackContext context)
+        {
             IsAttacked = true;
+            Debug.Log("Attack true");
+        }
+            
 
-        private void OnAttackedCanceled(InputAction.CallbackContext context) =>
+        private void OnAttackedCanceled(InputAction.CallbackContext context)
+        {
             IsAttacked = false;
+            Debug.Log("Attack false");
+        }
 
         private void ResetFrameInputs()
         {
