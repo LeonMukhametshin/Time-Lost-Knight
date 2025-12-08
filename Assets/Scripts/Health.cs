@@ -14,7 +14,7 @@ public class Health : IDamageable
         }
     }
 
-    public Health(int healthpoint)
+    public Health(float healthpoint)
     {
         Value = healthpoint;
     }
@@ -42,6 +42,6 @@ public class Health : IDamageable
 
     protected virtual void Die()
     {
-
+        
     }
 }

@@ -19,19 +19,19 @@ namespace Players
 
         public void Update()
         {
-            if (m_transform == null)
+            IsGrounded = Grounded();
+        }
+
+        private bool Grounded()
+        {
+            if(Physics2D.OverlapCircle(m_transform.position, m_checkDistance, m_groundLayer))
             {
-                return;
+                return true;
             }
-
-            var hit = Physics2D.OverlapCircle(m_transform.position, m_checkDistance, m_groundLayer);
-
-            IsGrounded = hit != null;
-
-            Debug.Log(IsGrounded);
-
-            Debug.DrawRay(m_transform.position, Vector2.down * m_checkDistance,
-                         IsGrounded ? Color.green : Color.red);
+            else
+            {
+                return false;
+            }
         }
     }
 }

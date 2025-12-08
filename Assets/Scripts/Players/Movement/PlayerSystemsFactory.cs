@@ -27,7 +27,9 @@ namespace Players
             var jumpSystem = new PlayerJumpSystem(
                 rigidbody,
                 groundCheck,
-                data.JumpForce
+                data.JumpForce,
+                data.JumpHoldForce,
+                data.MaxHoldTime
             );
 
             var movementSystem = new PlayerMovementSystem(

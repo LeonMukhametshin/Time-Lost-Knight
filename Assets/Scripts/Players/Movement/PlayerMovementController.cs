@@ -7,6 +7,7 @@ namespace Players
         [SerializeField] private PlayerData m_data;
         [SerializeField] private Rigidbody2D m_rigidbody;
         [SerializeField] private Transform m_groundCheckPosition;
+        [SerializeField] private Animator m_animator;
 
         private PlayerInput m_playerInput;
         private GroundCheck m_groundCheck;
@@ -39,16 +40,31 @@ namespace Players
         private void Update()
         {
             m_groundCheck.Update();
+
+            m_jumpSystem.Update(Time.deltaTime);
+
+            if (m_playerInput.JumpPressedThisFrame)
+            {
+                m_jumpSystem.StartJump();
+            }
+
+            if (m_playerInput.JumpReleasedThisFrame)
+            {
+                m_jumpSystem.StopJump();
+            }
+
+            m_animator.SetBool("Walking", Mathf.Abs(m_rigidbody.linearVelocityX) > 0.1f && m_groundCheck.IsGrounded);
+           
+        }
+
+        private void LateUpdate()
+        {
+            m_playerInput.Update();
         }
 
         private void FixedUpdate()
         {
             m_movementSystem.Update(m_playerInput.MoveInput.x);
-
-            if(m_playerInput.IsJumpPressed)
-            {
-                m_jumpSystem.Jump();
-            }
         }
     }
 }

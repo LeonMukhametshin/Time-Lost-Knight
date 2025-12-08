@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 4
-  <JumpForce>k__BackingField: 1.3
-  <CheckDistance>k__BackingField: 0.5
+  <JumpForce>k__BackingField: 10
+  <JumpHoldForce>k__BackingField: 5
+  <MaxHoldTime>k__BackingField: 4
+  <CheckDistance>k__BackingField: 0.2
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
