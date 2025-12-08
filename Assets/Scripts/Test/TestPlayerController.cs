@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,8 +32,10 @@ public class TestPlayerController : MonoBehaviour
     [SerializeField] private float m_dashSpeed;
     [SerializeField] private float m_dashTime;
     [SerializeField] private float m_dashCooldown;
+    [SerializeField] private GameObject m_dashEffect;
 
     private float xAxis;
+    private float yAxis;
     private float m_coyoteTimeCounter = 0;
     [SerializeField] float m_coyoteTime;
 
@@ -40,7 +43,19 @@ public class TestPlayerController : MonoBehaviour
     private bool m_canDash = true;
     private bool m_dashed;
 
-    [SerializeField] private GameObject m_dashEffect;
+    [Header("Attacking")]
+    private bool m_attack = false;
+    [SerializeField] private float m_timeBetweenAttack;
+    [SerializeField] private float m_timeSinceAttack;
+    [SerializeField] private Transform m_sideAttackTransform;
+    [SerializeField] private Transform m_upAttackTransform;
+    [SerializeField] private Transform m_downAttackTransform;
+    [SerializeField] private Vector2 m_sideAttackArea;
+    [SerializeField] private Vector2 m_downAttackArea;
+    [SerializeField] private Vector2 m_upAttackArea;
+    [SerializeField] private LayerMask m_attackableLayer;
+    [SerializeField] private float m_damage;
+    [SerializeField] private GameObject m_slashEffect;
 
     private void Start()
     {
@@ -56,11 +71,14 @@ public class TestPlayerController : MonoBehaviour
         Move();   
         Jump();
         StartDash();
+        Attack();
     }
 
     private void GetInput()
     {
         xAxis = Input.GetAxisRaw("Horizontal");
+        yAxis =  Input.GetAxisRaw("Vertical");
+        m_attack = Input.GetMouseButtonDown(0);
     }
 
     private void Flip()
@@ -116,6 +134,57 @@ public class TestPlayerController : MonoBehaviour
 
         m_canDash = true;
     }
+    
+    private void Attack()
+    {
+        m_timeSinceAttack += Time.deltaTime;
+        if(m_attack && m_timeSinceAttack >= m_timeBetweenAttack)
+        {
+            m_timeSinceAttack = 0;
+            m_animator.SetTrigger("Attacking");
+
+            if(yAxis == 0 || yAxis < 0 && Grounded())
+            {
+                Hit(m_sideAttackTransform, m_sideAttackArea);
+                Instantiate(m_slashEffect, m_sideAttackTransform);
+            }
+            else if(yAxis > 0)
+            {
+                Hit(m_upAttackTransform, m_upAttackArea);
+                SlashEffectAtAngle(m_slashEffect, 90, m_upAttackTransform);
+            }
+            else if(yAxis > 0 && !Grounded())
+            {
+                Hit(m_downAttackTransform, m_downAttackArea);
+                SlashEffectAtAngle(m_slashEffect, -90, m_downAttackTransform);
+            }
+        }
+    }
+
+    private void Hit(Transform attackTransform, Vector2 attackArea)
+    {
+        Collider2D[] objectsToHit = Physics2D.OverlapBoxAll(attackTransform.position, attackArea, 0, m_attackableLayer);
+    
+        if(objectsToHit.Length > 0)
+        {
+            print(objectsToHit[0].gameObject.name);
+        }
+        for(int i = 0; i < objectsToHit.Length; i++)
+        {
+            if(objectsToHit[i].GetComponent<Enemy>() is not null)
+            {
+                objectsToHit[i].GetComponent<Enemy>().Hit(m_damage);
+            }
+        }
+    }
+
+    private void SlashEffectAtAngle(GameObject shashEffect, int effectAngle, Transform attackTransform)
+    {
+        m_slashEffect = Instantiate(m_slashEffect, attackTransform);
+        m_slashEffect.transform.eulerAngles = new Vector3(0, 0, effectAngle);
+        m_slashEffect.transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+    }
+
     private void Jump()
     {
         if(Input.GetButtonUp("Jump") && m_rigidbody.linearVelocityX > 0)
@@ -185,7 +254,9 @@ public class TestPlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * m_groundCheckY);
+        Gizmos.DrawWireCube(m_sideAttackTransform.position, m_sideAttackArea);
+        Gizmos.DrawWireCube(m_upAttackTransform.position, m_upAttackArea);
+        Gizmos.DrawWireCube(m_downAttackTransform.position, m_downAttackArea);
     }
 }
