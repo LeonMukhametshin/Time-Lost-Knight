@@ -57,6 +57,7 @@ public class TestPlayerController : MonoBehaviour
     [SerializeField] private float m_damage;
     [SerializeField] private GameObject m_slashEffect;
 
+    private GameObject m_createdSlashEffect;
     private void Start()
     {
         m_gravity = m_rigidbody.gravityScale;
@@ -153,7 +154,7 @@ public class TestPlayerController : MonoBehaviour
                 Hit(m_upAttackTransform, m_upAttackArea);
                 SlashEffectAtAngle(m_slashEffect, 90, m_upAttackTransform);
             }
-            else if(yAxis > 0 && !Grounded())
+            else if(yAxis < 0 && !Grounded())
             {
                 Hit(m_downAttackTransform, m_downAttackArea);
                 SlashEffectAtAngle(m_slashEffect, -90, m_downAttackTransform);
@@ -180,9 +181,10 @@ public class TestPlayerController : MonoBehaviour
 
     private void SlashEffectAtAngle(GameObject shashEffect, int effectAngle, Transform attackTransform)
     {
-        m_slashEffect = Instantiate(m_slashEffect, attackTransform);
-        m_slashEffect.transform.eulerAngles = new Vector3(0, 0, effectAngle);
-        m_slashEffect.transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+        m_createdSlashEffect = Instantiate(shashEffect, attackTransform);
+        m_createdSlashEffect.gameObject.SetActive(true);
+        m_createdSlashEffect.transform.eulerAngles = new Vector3(0, 0, effectAngle);
+        m_createdSlashEffect.transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
     }
 
     private void Jump()
