@@ -579,6 +579,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f9685db6b94c6f43a09177bb77017f5, type: 3}
+--- !u!212 &1598611372 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6897531630430400820, guid: ad88b598c84b0304395169acfc1be281, type: 3}
+  m_PrefabInstance: {fileID: 5428817960675681270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1880532123
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +890,14 @@ PrefabInstance:
       propertyPath: m_maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8136177696909139771, guid: ad88b598c84b0304395169acfc1be281, type: 3}
+      propertyPath: m_hitFlashSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136177696909139771, guid: ad88b598c84b0304395169acfc1be281, type: 3}
+      propertyPath: m_spriteRenderer
+      value: 
+      objectReference: {fileID: 1598611372}
     - target: {fileID: 8136177696909139771, guid: ad88b598c84b0304395169acfc1be281, type: 3}
       propertyPath: <m_playerStateList>k__BackingField
       value: 

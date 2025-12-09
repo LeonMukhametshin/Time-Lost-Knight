@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
         if(collision.CompareTag("Player") && !collision.GetComponent<TestPlayerController>().m_playerStateList.Invincible)
         {
             Attack(collision.gameObject);
+            collision.GetComponent<TestPlayerController>().HitStopTime(0, 5, 0.5f);
         }
     }
 

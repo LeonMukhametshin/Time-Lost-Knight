@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -70,7 +69,13 @@ public class TestPlayerController : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] private float m_health;
     [SerializeField] private float m_maxHealth;
-    [SerializeField] [Range(0,5)] private float m_invincibleDuration = 2f; 
+    [SerializeField] [Range(0,5)] private float m_invincibleDuration = 2f;
+
+    private bool m_restoreTime;
+    private float m_restoreTimeSpeed;
+
+    [SerializeField] private float m_hitFlashSpeed;
+    [SerializeField] private SpriteRenderer m_spriteRenderer;
 
     public float Health
     {
@@ -98,6 +103,8 @@ public class TestPlayerController : MonoBehaviour
         Flip();
         StartDash();
         Attack();
+        RestoreTimeScale();
+        FlashWhileInvinvible();
     }
 
     private void FixedUpdate()
@@ -228,6 +235,12 @@ public class TestPlayerController : MonoBehaviour
         StartCoroutine(StopTakingDamage());
     }
 
+    private void FlashWhileInvinvible()
+    {
+        m_spriteRenderer.material.color = m_playerStateList.Invincible ? Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * m_hitFlashSpeed, 1.0f)) 
+            : Color.white;
+    }
+
     private IEnumerator StopTakingDamage()
     {
         m_playerStateList.Invincible = true;
@@ -236,6 +249,43 @@ public class TestPlayerController : MonoBehaviour
         m_playerStateList.Invincible = false;
     }
 
+    private void RestoreTimeScale()
+    {
+        if(m_restoreTime)
+        {
+            if(Time.timeScale < 1)
+            {
+                Time.timeScale += Time.deltaTime * m_restoreTimeSpeed;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                m_restoreTime = false;
+            }
+        }
+    }
+
+    public void HitStopTime(float newTimeScale, int restoreSpeed, float delay)
+    {
+        m_restoreTimeSpeed = restoreSpeed;
+        Time.timeScale = newTimeScale;
+
+        if(delay > 0)
+        {
+            StopCoroutine(StartTimeAgain(delay));
+            StartCoroutine(StartTimeAgain(delay));
+        }
+        else
+        {
+            m_restoreTime = true;
+        }
+    }
+
+    private IEnumerator StartTimeAgain(float delay)
+    {
+        m_restoreTime = true;
+        yield return new WaitForSeconds(delay);
+    }
 
     private void Recoil()
     {
