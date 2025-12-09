@@ -72,10 +72,22 @@ public class TestPlayerController : MonoBehaviour
     [SerializeField] private float m_maxHealth;
     [SerializeField] [Range(0,5)] private float m_invincibleDuration = 2f; 
 
+    public float Health
+    {
+        get => m_health;
+        set
+        {
+            if(m_health != value)
+            {
+                m_health = Mathf.Clamp(value, 0, m_health);
+            }
+        }
+    }
+
     private void Start()
     {
         m_gravity = m_rigidbody.gravityScale;
-        m_health = m_maxHealth;
+        Health = m_maxHealth;
     }   
 
     private void Update()
@@ -84,10 +96,15 @@ public class TestPlayerController : MonoBehaviour
         UpdateJumpVariables();
         if(m_playerStateList.Dashing) return;
         Flip();
-        Move();   
-        Jump();
         StartDash();
         Attack();
+    }
+
+    private void FixedUpdate()
+    {
+        if(m_playerStateList.Dashing) return;
+        Move();   
+        Jump();
         Recoil();
     }
 
@@ -95,7 +112,7 @@ public class TestPlayerController : MonoBehaviour
     {
         xAxis = Input.GetAxisRaw("Horizontal");
         yAxis =  Input.GetAxisRaw("Vertical");
-        m_attack = Input.GetMouseButtonDown(0);
+        m_attack = Input.GetButtonDown("Attack");
     }
 
     private void Flip()
@@ -207,7 +224,7 @@ public class TestPlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        m_health -= damage;
+        Health -= damage;
         StartCoroutine(StopTakingDamage());
     }
 
@@ -215,15 +232,10 @@ public class TestPlayerController : MonoBehaviour
     {
         m_playerStateList.Invincible = true;
         m_animator.SetTrigger("TakeDamage");
-        ClampHealth();
         yield return new WaitForSeconds(m_invincibleDuration);
         m_playerStateList.Invincible = false;
     }
 
-    private void ClampHealth()
-    {
-        m_health = Mathf.Clamp(m_health, 0, m_maxHealth);
-    }
 
     private void Recoil()
     {
