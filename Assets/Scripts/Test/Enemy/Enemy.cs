@@ -12,12 +12,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Transform m_target;
     [SerializeField] protected float m_speed = 5f;
     [SerializeField] protected float m_damage;
+
     protected float m_recoilTimer;
-
-    public virtual void Start()
-    {
-
-    }
 
     public virtual void Update()
     {
