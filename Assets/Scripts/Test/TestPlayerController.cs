@@ -24,7 +24,7 @@ public class TestPlayerController : MonoBehaviour
 
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
-    [SerializeField] private PlayerStateList m_playerStateList;
+    [field: SerializeField] public PlayerStateList m_playerStateList {get; set;}
     
     
     [Header("Dash Settings")]
@@ -58,9 +58,24 @@ public class TestPlayerController : MonoBehaviour
     [SerializeField] private GameObject m_slashEffect;
 
     private GameObject m_createdSlashEffect;
+
+    [Header("Recoil")]
+    [SerializeField] private int m_recoilXSteps = 5;
+    [SerializeField] private int m_recoilYSteps = 5;
+    [SerializeField] private int m_recoilXSpeed = 100;
+    [SerializeField] private int m_recoilYSpeed = 100;
+    private int m_stepsXRecoiled;
+    private int m_stepsYRecoiled;
+
+    [Header("Health Settings")]
+    [SerializeField] private float m_health;
+    [SerializeField] private float m_maxHealth;
+    [SerializeField] [Range(0,5)] private float m_invincibleDuration = 2f; 
+
     private void Start()
     {
         m_gravity = m_rigidbody.gravityScale;
+        m_health = m_maxHealth;
     }   
 
     private void Update()
@@ -73,6 +88,7 @@ public class TestPlayerController : MonoBehaviour
         Jump();
         StartDash();
         Attack();
+        Recoil();
     }
 
     private void GetInput()
@@ -87,10 +103,12 @@ public class TestPlayerController : MonoBehaviour
         if(xAxis < 0)
         {
             transform.localScale = new Vector2(-1, transform.localScale.y);
+            m_playerStateList.LookingRight = false;
         }
         else if(xAxis > 0)
         {
             transform.localScale = new Vector2(1, transform.localScale.y);
+            m_playerStateList.LookingRight = true;
         }
     }
 
@@ -146,35 +164,35 @@ public class TestPlayerController : MonoBehaviour
 
             if(yAxis == 0 || yAxis < 0 && Grounded())
             {
-                Hit(m_sideAttackTransform, m_sideAttackArea);
+                Hit(m_sideAttackTransform, m_sideAttackArea, ref m_playerStateList.RecoilingX, m_recoilXSpeed);
                 Instantiate(m_slashEffect, m_sideAttackTransform);
             }
             else if(yAxis > 0)
             {
-                Hit(m_upAttackTransform, m_upAttackArea);
+                Hit(m_upAttackTransform, m_upAttackArea,  ref m_playerStateList.RecoilingY, m_recoilYSpeed);
                 SlashEffectAtAngle(m_slashEffect, 90, m_upAttackTransform);
             }
             else if(yAxis < 0 && !Grounded())
             {
-                Hit(m_downAttackTransform, m_downAttackArea);
+                Hit(m_downAttackTransform, m_downAttackArea, ref m_playerStateList.RecoilingY, m_recoilYSpeed);
                 SlashEffectAtAngle(m_slashEffect, -90, m_downAttackTransform);
             }
         }
     }
 
-    private void Hit(Transform attackTransform, Vector2 attackArea)
+    private void Hit(Transform attackTransform, Vector2 attackArea, ref bool recoilDirection, float recoilStrength)
     {
         Collider2D[] objectsToHit = Physics2D.OverlapBoxAll(attackTransform.position, attackArea, 0, m_attackableLayer);
     
         if(objectsToHit.Length > 0)
         {
-            print(objectsToHit[0].gameObject.name);
+            recoilDirection = true;
         }
         for(int i = 0; i < objectsToHit.Length; i++)
         {
             if(objectsToHit[i].GetComponent<Enemy>() is not null)
             {
-                objectsToHit[i].GetComponent<Enemy>().Hit(m_damage);
+                objectsToHit[i].GetComponent<Enemy>().Hit(m_damage, (transform.position - objectsToHit[i].transform.position).normalized, recoilStrength);
             }
         }
     }
@@ -185,6 +203,92 @@ public class TestPlayerController : MonoBehaviour
         m_createdSlashEffect.gameObject.SetActive(true);
         m_createdSlashEffect.transform.eulerAngles = new Vector3(0, 0, effectAngle);
         m_createdSlashEffect.transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        m_health -= damage;
+        StartCoroutine(StopTakingDamage());
+    }
+
+    private IEnumerator StopTakingDamage()
+    {
+        m_playerStateList.Invincible = true;
+        m_animator.SetTrigger("TakeDamage");
+        ClampHealth();
+        yield return new WaitForSeconds(m_invincibleDuration);
+        m_playerStateList.Invincible = false;
+    }
+
+    private void ClampHealth()
+    {
+        m_health = Mathf.Clamp(m_health, 0, m_maxHealth);
+    }
+
+    private void Recoil()
+    {
+        if(m_playerStateList.RecoilingX)
+        {
+            if(m_playerStateList.LookingRight)
+            {
+                m_rigidbody.linearVelocity = new Vector2(-m_recoilXSpeed, 0);
+            }
+            else
+            {
+                m_rigidbody.linearVelocity = new Vector2(m_recoilXSpeed, 0);
+            }
+        }
+        if(m_playerStateList.RecoilingY)
+        {
+            m_rigidbody.gravityScale = 0;
+            if(yAxis < 0)
+            {
+                m_rigidbody.linearVelocity = new Vector2(m_rigidbody.linearVelocityX, m_recoilYSpeed);
+            }
+            else
+            {
+                m_rigidbody.linearVelocity = new Vector2(m_rigidbody.linearVelocityX, -m_recoilYSpeed);
+            }
+            m_airJumpCounter = 0;
+        }
+        else
+        {
+            m_rigidbody.gravityScale = m_gravity;
+        }
+
+        if(m_playerStateList.RecoilingX && m_stepsXRecoiled < m_recoilXSteps)
+        {
+            m_stepsXRecoiled++;
+        }
+        else
+        {
+            StopRectiolX();
+        }
+
+        if(m_playerStateList.RecoilingY && m_stepsYRecoiled < m_recoilYSteps)
+        {
+            m_stepsYRecoiled++;
+        }
+        else
+        {
+            StopRectiolY();
+        }
+        if(Grounded())
+        {
+            StopRectiolY();
+        }
+    }
+
+    private void StopRectiolX()
+    {
+        m_stepsXRecoiled = 0;
+        m_playerStateList.RecoilingX = false;
+    }
+
+    private void StopRectiolY()
+    {
+        m_stepsYRecoiled = 0;
+        m_playerStateList.RecoilingY = false;
     }
 
     private void Jump()
