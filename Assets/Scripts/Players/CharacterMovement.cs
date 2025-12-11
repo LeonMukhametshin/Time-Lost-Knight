@@ -3,8 +3,8 @@ using UnityEngine;
 public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
 {
     [SerializeField] private CharacterMovementConfig config;
-
     [SerializeField] private Rigidbody2D m_rigidbody;
+
     private Vector2 m_currentVelocity;
     private bool m_isGrounded;
     public float MaxHorizontalSpeed => config.MaxHorizontalSpeed;

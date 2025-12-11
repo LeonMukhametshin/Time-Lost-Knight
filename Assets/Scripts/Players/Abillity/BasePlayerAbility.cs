@@ -22,6 +22,4 @@ public abstract class BasePlayerAbility : MonoBehaviour, IPlayerAbility
     public virtual void HandleInput() { }
     public virtual void FixedUpdate() { }
     public virtual void Update() { }
-
-    
 }

@@ -17,7 +17,6 @@ public class DashAbility : BasePlayerAbility
         }
     }
 
-
     public void Initialize(ICharacterMovement movement, IPlayerInput input, DashAbilityConfig config)
     {
         base.Initialize(movement, input);
@@ -55,5 +54,4 @@ public class DashAbility : BasePlayerAbility
         yield return new WaitForSeconds(m_dashConfig.DashCooldown);
         m_canDash = true;
     }
-
 }
