@@ -12,5 +12,6 @@ public class CharacterMovementConfig : ScriptableObject
     [field: SerializeField] public float AirDrag { get; set; } = 0.05f;
     [field: SerializeField] public float MaxFallSpeed { get; set; } = -20f;
     [field: SerializeField] public float GroundCheckDistance { get; set; } = 0.1f;
+    [field: SerializeField] public float CeilingCheckDistance { get; set; } = 0.6f;
     [field: SerializeField] public LayerMask GroundLayer { get; set; }
 }

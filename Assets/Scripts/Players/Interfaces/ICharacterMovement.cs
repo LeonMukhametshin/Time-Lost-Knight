@@ -6,7 +6,6 @@ public interface ICharacterMovement
     float MaxHorizontalSpeed { get; }
     float CurrentHorizontalSpeed { get; }
     bool IsJumping { get; }
-    bool IsDashing { get; }
 
     void SetHorizontalVelocity(float velocity);
     void Jump(float jumpForce);

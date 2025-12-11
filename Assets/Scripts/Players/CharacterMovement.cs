@@ -11,7 +11,6 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
     public float CurrentHorizontalSpeed => Mathf.Abs(m_currentVelocity.x);
     public float Gravity { get; set; }
     public bool IsJumping => !m_isGrounded && m_currentVelocity.y > 0;
-    public bool IsDashing => true;
 
     private void OnValidate()
     {
@@ -29,6 +28,7 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
     private void FixedUpdate()
     {
         CheckGrounded();
+        HandleCeilingCollision();
         ApplyGravity();
         ClampVerticalSpeed();
         ApplyDrag();
@@ -39,7 +39,18 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,
             config.GroundCheckDistance, config.GroundLayer);
-        m_isGrounded = hit.collider != null;
+        m_isGrounded = hit.collider is not null;
+    }
+
+    private void HandleCeilingCollision()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up,
+            config.CeilingCheckDistance, config.GroundLayer);
+
+        if(hit.collider is not null)
+        {
+            m_currentVelocity.y = 0f;
+        }
     }
 
     private void ApplyGravity()
