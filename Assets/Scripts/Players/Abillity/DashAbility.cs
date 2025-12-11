@@ -28,22 +28,15 @@ public class DashAbility : BasePlayerAbility
 
     public override void HandleInput()
     {
-        Debug.Log("HandleInput Dash");
-
         if (!m_canDash || !m_input.IsDashPressed()) return;
-
-        Debug.Log("HandleInput Dash INPUT");
 
         if (m_movement.IsGrounded())
         {
-
-            Debug.Log("HandleInput Dash Grounded");
             m_dashed = false;
         }
 
         if (CanExecute)
         {
-            Debug.Log("HandleInput Dash CanExecute");
             StartCoroutine(Dash());
             m_dashed = true;
         }

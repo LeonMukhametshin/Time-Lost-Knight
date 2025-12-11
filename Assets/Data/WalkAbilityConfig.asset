@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WalkAbilityConfig
   m_EditorClassIdentifier: Assembly-CSharp::WalkAbilityConfig
   <IsEnabledByDefault>k__BackingField: 1
-  <Key>k__BackingField: Horizontal
+  <Key>k__BackingField: Walk
   <WalkSpeedMultiplier>k__BackingField: 2
   <AccelerationMultiplier>k__BackingField: 0.37
   <CanWalkInAir>k__BackingField: 1

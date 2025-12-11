@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JumpAbilityConfig
   m_EditorClassIdentifier: Assembly-CSharp::JumpAbilityConfig
   <IsEnabledByDefault>k__BackingField: 1
-  <Key>k__BackingField: Space
+  <Key>k__BackingField: Jump
   <JumpForceMultiplier>k__BackingField: 5
   <MaxJumpsInAir>k__BackingField: 1
   <JumpCooldown>k__BackingField: 0.2
