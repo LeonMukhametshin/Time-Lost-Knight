@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DashAbilityConfig
   <IsEnabledByDefault>k__BackingField: 0
   <Key>k__BackingField: Dash
-  <DashDistance>k__BackingField: 10
-  <DashDuration>k__BackingField: 0.5
-  <DashCooldown>k__BackingField: 1
+  <DashDistance>k__BackingField: 50
+  <DashDuration>k__BackingField: 1
+  <DashCooldown>k__BackingField: 0.1

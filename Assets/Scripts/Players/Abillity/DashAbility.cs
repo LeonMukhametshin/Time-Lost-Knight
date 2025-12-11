@@ -27,12 +27,12 @@ public class DashAbility : BasePlayerAbility
 
     public override void HandleInput()
     {
-        if (!m_canDash || !m_input.IsDashPressed()) return;
-
         if (m_movement.IsGrounded())
         {
             m_dashed = false;
         }
+
+        if (!m_canDash || !m_input.IsDashPressed()) return;
 
         if (CanExecute)
         {
@@ -45,9 +45,7 @@ public class DashAbility : BasePlayerAbility
     {
         m_canDash = false;
         m_movement.SetGravity(0f);
-
         Vector2 dashDirection = new Vector2(transform.localScale.x * m_dashConfig.DashSpeed, 0f);
-        Debug.Log(dashDirection);
         m_movement.Dash(dashDirection);
         yield return new WaitForSeconds(m_dashConfig.DashDuration);
         m_movement.SetGravity(-m_gravity);

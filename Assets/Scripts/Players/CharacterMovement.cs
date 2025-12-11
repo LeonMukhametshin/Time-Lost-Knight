@@ -89,6 +89,7 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
 
     public void Dash(Vector2 dashVelocity)
     {
+        Debug.Log(dashVelocity);
         AddHorizontalVilocity(dashVelocity.x);
     }
 

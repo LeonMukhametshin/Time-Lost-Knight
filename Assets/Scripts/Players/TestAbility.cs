@@ -15,6 +15,7 @@ public class TestAbility : MonoBehaviour
         {
             Debug.Log("Activate DASH!");
             abilityContainer.ActivateAbility("Dash");
+            Destroy(this);
         }
     }
 }
