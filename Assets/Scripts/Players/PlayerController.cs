@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private IPlayerInput m_input;
-    [SerializeField] private ICharacterMovement m_movement;
-    [SerializeField] private IAbilitiesContainer m_abilitiesContainer;
+    private IAbilitiesContainer m_abilitiesContainer;
 
-    private void Awake()
+    private void Start()
     {
-        m_input = GetComponent<IPlayerInput>();
-        m_movement = GetComponent<ICharacterMovement>();
         m_abilitiesContainer = GetComponent<IAbilitiesContainer>();
     }
 

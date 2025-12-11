@@ -17,4 +17,5 @@ public class KeyboardPlayerInput : MonoBehaviour, IPlayerInput
     public bool IsJumpPressed() => m_jumpPressed;
     public bool IsJumpHeld() => Input.GetKey(m_config.JumpButton);
     public void ClearJumpInput() => m_jumpPressed = false;
+    public bool IsDashPressed() => Input.GetKeyDown(m_config.DashButton);
 }

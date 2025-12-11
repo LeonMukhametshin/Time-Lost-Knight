@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4d0e95f8e17104c874678da26633f4, type: 3}
   m_Name: PlayerInputConfig
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputConfig
+  <HorizontalInputAxis>k__BackingField: Horizontal
+  <JumpButton>k__BackingField: 32
+  <DashButton>k__BackingField: 304
+  <UseGamepadInput>k__BackingField: 0

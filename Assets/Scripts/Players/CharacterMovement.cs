@@ -1,15 +1,17 @@
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour, ICharacterMovement
+public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
 {
     [SerializeField] private CharacterMovementConfig config;
 
-    private Rigidbody2D m_rigidbody;
+    [SerializeField] private Rigidbody2D m_rigidbody;
     private Vector2 m_currentVelocity;
     private bool m_isGrounded;
     public float MaxHorizontalSpeed => config.MaxHorizontalSpeed;
     public float CurrentHorizontalSpeed => Mathf.Abs(m_currentVelocity.x);
+    public float Gravity { get; set; }
     public bool IsJumping => !m_isGrounded && m_currentVelocity.y > 0;
+    public bool IsDashing => true;
 
     private void OnValidate()
     {
@@ -17,6 +19,11 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
         {
             m_rigidbody = GetComponent<Rigidbody2D>();
         }
+    }
+
+    private void Awake()
+    {
+        Gravity = config.GravityScale;
     }
 
     private void FixedUpdate()
@@ -66,15 +73,34 @@ public class CharacterMovement : MonoBehaviour, ICharacterMovement
 
     public void Jump(float jumpForce)
     {
-        if (m_isGrounded)
-        {
-            m_currentVelocity.y = jumpForce;
-        }
+        m_currentVelocity.y = jumpForce;
+    }
+
+    public void Dash(Vector2 dashVelocity)
+    {
+        AddHorizontalVilocity(dashVelocity.x);
     }
 
     public void AddVerticalVelocity(float velocityDelta) => m_currentVelocity.y += velocityDelta;
+    public void AddHorizontalVilocity(float veloityDelta) => m_currentVelocity.x += veloityDelta;
+
     public bool IsGrounded() => m_isGrounded;
+
     public Vector2 GetCurrentVelocity() => m_currentVelocity;
+
     public float GetHorizontalVelocity() => m_currentVelocity.x;
+
     public float GetVerticalVelocity() => m_currentVelocity.y;
+
+    public void SetGravity(float newGravity)
+    {
+        if (newGravity < 0.0f)
+        {
+            newGravity = 0.0f;
+        }
+        else
+        {
+            Gravity = newGravity;
+        }
+    }
 }

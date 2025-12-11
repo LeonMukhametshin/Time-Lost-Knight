@@ -4,6 +4,5 @@ using UnityEngine;
 public class AbilityConfig : ScriptableObject
 {
     [field: SerializeField] public bool IsEnabledByDefault { get; set; } = true;
-    [field: SerializeField] public string Key { get; set; } = "ability";
-    [TextArea] public string Description { get; set; } = "";
+    [field: SerializeField] public string Key { get; set; } = "Mouse0";
 }

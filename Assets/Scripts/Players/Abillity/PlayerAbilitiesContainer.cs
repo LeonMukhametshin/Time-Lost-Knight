@@ -12,7 +12,11 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
     {
         abilities[key] = ability;
         if (ability.IsActive)
+        {
             activeAbilities.Add(ability);
+        }
+
+        DeactivateAbility(key);
     }
 
     public IPlayerAbility GetAbility(string key) => abilities.ContainsKey(key) ? abilities[key] : null;
@@ -21,7 +25,7 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
     {
         var ability = GetAbility(key);
         if (ability != null && !ability.IsActive)
-        {
+        { 
             ability.OnEnable();
             activeAbilities.Add(ability);
         }
@@ -49,7 +53,9 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
     public void UpdateAllAbilitiesFixed()
     {
         foreach (var ability in activeAbilities)
+        {
             ability.FixedUpdate();
+        }
     }
 
     public List<IPlayerAbility> GetAllActiveAbilities() => new List<IPlayerAbility>(activeAbilities);

@@ -2,6 +2,18 @@ using UnityEngine;
 
 public class JumpAbility : BasePlayerAbility
 {
+    public override bool CanExecute
+    {
+        get
+        {
+            bool isGroundedOrCoyote = m_movement.IsGrounded() || (m_canUseCoyoteTime && m_jumpCount == 0);
+            bool hasJumpsLeft = m_jumpCount < m_jumpConfig.MaxJumpsInAir;
+            bool cooldownPassed = (Time.time - m_lastJumpTime) >= m_jumpConfig.JumpCooldown;
+
+            return (isGroundedOrCoyote || hasJumpsLeft) && cooldownPassed;
+        }
+    }
+
     private JumpAbilityConfig m_jumpConfig;
 
     private int m_jumpCount;
@@ -12,14 +24,14 @@ public class JumpAbility : BasePlayerAbility
     public void Initialize(ICharacterMovement movement, IPlayerInput input, JumpAbilityConfig config)
     {
         base.Initialize(movement, input);
-        this.m_jumpConfig = config;
+        m_jumpConfig = config;
     }
 
     public override void HandleInput()
     {
         if (!m_isActive || !m_input.IsJumpPressed()) return;
 
-        if (CanExecuteJump())
+        if (CanExecute)
         {
             float jumpForce = m_jumpConfig.JumpForceMultiplier * m_movement.MaxHorizontalSpeed * 2;
             m_movement.Jump(jumpForce);
@@ -39,15 +51,4 @@ public class JumpAbility : BasePlayerAbility
 
         m_canUseCoyoteTime = (Time.time - m_lastGroundedTime) <= m_jumpConfig.CoyoteTime;
     }
-
-    private bool CanExecuteJump()
-    {
-        bool isGroundedOrCoyote = m_movement.IsGrounded() || (m_canUseCoyoteTime && m_jumpCount == 0);
-        bool hasJumpsLeft = m_jumpCount < m_jumpConfig.MaxJumpsInAir;
-        bool cooldownPassed = (Time.time - m_lastJumpTime) >= m_jumpConfig.JumpCooldown;
-
-        return (isGroundedOrCoyote || hasJumpsLeft) && cooldownPassed;
-    }
-
-    public override bool CanExecute => CanExecuteJump();
 }

@@ -6,7 +6,7 @@ public class PlayerAbilityInitializer : MonoBehaviour
     [SerializeField] private CharacterMovementConfig m_movementConfig;
     [SerializeField] private WalkAbilityConfig m_walkConfig;
     [SerializeField] private JumpAbilityConfig m_jumpConfig;
-    [SerializeField] private PlayerInputConfig m_inputConfig;
+    [SerializeField] private DashAbilityConfig m_dashConfig;
 
     [Header("Components")]
     [SerializeField] private CharacterMovement m_movement;
@@ -44,6 +44,10 @@ public class PlayerAbilityInitializer : MonoBehaviour
         jumpAbility.Initialize(m_movement, m_playerInput, m_jumpConfig);
         m_abilitiesContainer.RegisterAbility(jumpAbility, m_jumpConfig.Key);
 
+        var dashAbility = gameObject.AddComponent<DashAbility>();
+        dashAbility.Initialize(m_movement, m_playerInput, m_dashConfig);
+        m_abilitiesContainer.RegisterAbility(dashAbility, m_dashConfig.Key);
+
         if (m_walkConfig.IsEnabledByDefault)
         {
             m_abilitiesContainer.ActivateAbility(m_walkConfig.Key);
@@ -51,6 +55,10 @@ public class PlayerAbilityInitializer : MonoBehaviour
         if (m_jumpConfig.IsEnabledByDefault)
         {
             m_abilitiesContainer.ActivateAbility(m_jumpConfig.Key);
+        }
+        if(m_dashConfig.IsEnabledByDefault)
+        {
+            m_abilitiesContainer.ActivateAbility(m_dashConfig.Key);
         }
     }
 }
