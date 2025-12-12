@@ -3,9 +3,9 @@ namespace Attacks
     public class Sword : Weapon
     {
         private MeleeWeaponConfig m_config;
-        private IDamageCalculator<WeaponConfig> m_damageCalculator;
+        private IDamageCalculator m_damageCalculator;
 
-        public Sword(MeleeWeaponConfig config, DamageType damageType, IDamageCalculator<WeaponConfig> damageCalculator) : base(config, damageType)
+        public Sword(MeleeWeaponConfig config, DamageType damageType, IDamageCalculator damageCalculator) : base(config, damageType)
         {
             m_config = config;
             m_damageCalculator = damageCalculator;
