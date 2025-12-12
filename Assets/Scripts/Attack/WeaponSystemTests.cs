@@ -1,11 +1,12 @@
 using Attacks;
 using UnityEngine;
 
-public class TestAttackSystem : MonoBehaviour
+public class WeaponSystemTests : MonoBehaviour
 {
+    #region OldTest
     [SerializeField] private int m_wallHealth;
     [SerializeField] private WeaponConfig m_weaponConfig;
-    [SerializeField] private DamageType m_damageType;
+    [SerializeField] private CritWeaponConfig m_critConfig;
 
     private IWeapon weapon;
     private ICanBeDamageable m_damageable;
@@ -13,8 +14,9 @@ public class TestAttackSystem : MonoBehaviour
 
     private void Awake()
     {
-        weapon = new Weapon(m_weaponConfig, m_damageType);
+        weapon = new Weapon(m_weaponConfig, DamageType.Physical);
         m_damageable = new DamageableWall(m_wallHealth);
+
         m_damageCalculator = new CalculateCritDamage();
     }
 
@@ -26,8 +28,10 @@ public class TestAttackSystem : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(1))
         {
-            weapon = new CriticalDamageDecorator(weapon, m_damageCalculator, m_weaponConfig);
+            Debug.Log(m_damageCalculator);
+            weapon = new CritDamageDecorator(weapon, m_damageCalculator, m_critConfig);
             Debug.Log("Update to CriticalDamageDecorator");
         }
     }
+    #endregion
 }

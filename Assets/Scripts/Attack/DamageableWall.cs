@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DamageableWall : ICanBeDamageable
 {
-    public int Health { get; set; }
+    public int Health { get; private set; }
 
     public DamageableWall(int health)
     { 
