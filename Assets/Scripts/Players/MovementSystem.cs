@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
+public sealed class MovementSystem : MonoBehaviour
 {
     [SerializeField] private CharacterMovementConfig config;
     [SerializeField] private Rigidbody2D m_rigidbody;
@@ -8,9 +8,7 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
     private Vector2 m_currentVelocity;
     private bool m_isGrounded;
     public float MaxHorizontalSpeed => config.MaxHorizontalSpeed;
-    public float CurrentHorizontalSpeed => Mathf.Abs(m_currentVelocity.x);
     public float Gravity { get; set; }
-    public bool IsJumping => !m_isGrounded && m_currentVelocity.y > 0;
 
     private void OnValidate()
     {
@@ -32,6 +30,7 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
         ApplyGravity();
         ClampVerticalSpeed();
         ApplyDrag();
+
         m_rigidbody.linearVelocity = m_currentVelocity;
     }
 
@@ -84,12 +83,11 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
 
     public void Jump(float jumpForce)
     {
-        m_currentVelocity.y = jumpForce;
+        AddVerticalVelocity(jumpForce);
     }
 
     public void Dash(Vector2 dashVelocity)
     {
-        Debug.Log(dashVelocity);
         AddHorizontalVilocity(dashVelocity.x);
     }
 
@@ -97,12 +95,6 @@ public sealed class CharacterMovement : MonoBehaviour, ICharacterMovement
     public void AddHorizontalVilocity(float veloityDelta) => m_currentVelocity.x += veloityDelta;
 
     public bool IsGrounded() => m_isGrounded;
-
-    public Vector2 GetCurrentVelocity() => m_currentVelocity;
-
-    public float GetHorizontalVelocity() => m_currentVelocity.x;
-
-    public float GetVerticalVelocity() => m_currentVelocity.y;
 
     public void SetGravity(float newGravity)
     {

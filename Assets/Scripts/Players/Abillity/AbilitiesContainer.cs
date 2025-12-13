@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
+public class AbilitiesContainer : MonoBehaviour
 {
     private Dictionary<string, IPlayerAbility> abilities = new Dictionary<string, IPlayerAbility>();
     private List<IPlayerAbility> activeAbilities = new List<IPlayerAbility>();
@@ -26,7 +26,7 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
         var ability = GetAbility(key);
         if (ability != null && !ability.IsActive)
         { 
-            ability.OnEnable();
+            //ability.OnEnable();
             activeAbilities.Add(ability);
         }
     }
@@ -36,8 +36,8 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
         var ability = GetAbility(key);
         if (ability != null && ability.IsActive)
         {
-            ability.OnDisable();
-            activeAbilities.Remove(ability);
+            //ability.OnDisable();
+            //activeAbilities.Remove(ability);
         }
     }
 
@@ -45,8 +45,8 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
     {
         foreach (var ability in activeAbilities)
         {
-            ability.HandleInput();
-            ability.Update();
+            //ability.HandleInput();
+            //ability.Update();
         }
     }
 
@@ -54,7 +54,7 @@ public class PlayerAbilitiesContainer : MonoBehaviour, IAbilitiesContainer
     {
         foreach (var ability in activeAbilities)
         {
-            ability.FixedUpdate();
+            //ability.FixedUpdate();
         }
     }
 

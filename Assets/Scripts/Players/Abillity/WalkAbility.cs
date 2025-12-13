@@ -1,37 +1,15 @@
-public class WalkAbility : BasePlayerAbility
+using UnityEngine;
+
+public class WalkAbility : MonoBehaviour, IPlayerAbility
 {
-    private WalkAbilityConfig m_walkConfig;
-    private float m_moveDirectionX;
+    public bool IsActive => true;
 
-    public void Initialize(ICharacterMovement movement, IPlayerInput input, WalkAbilityConfig config)
+    public bool CanExecute => true;
+
+    public void DoWalk(Vector3 direction)
     {
-        base.Initialize(movement, input);
-        m_walkConfig = config;
-    }
+        if (!IsActive || !CanExecute || direction.magnitude < 0.0001f) return;
 
-    public override void HandleInput()
-    {
-        if (!m_isActive) return;
-
-        m_moveDirectionX = m_input.GetHorizontalInput();
-        if (UnityEngine.Mathf.Abs(m_moveDirectionX) > 0.01f)
-        {
-            Flip();
-            float desiredSpeed = m_moveDirectionX * m_movement.MaxHorizontalSpeed 
-                * m_walkConfig.WalkSpeedMultiplier;
-            m_movement.SetHorizontalVelocity(desiredSpeed);
-        }
-    }
-
-    private void Flip()
-    {
-        if (m_moveDirectionX > 0)
-        {
-            transform.localScale = new UnityEngine.Vector3(1, 1,1);
-        }
-        else
-        {
-            transform.localScale = new UnityEngine.Vector3(-1, 1, 1);
-        }
+        Debug.Log("Walk " + direction);
     }
 }

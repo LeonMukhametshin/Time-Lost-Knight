@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class TestAbility : MonoBehaviour
 {
-    private IAbilitiesContainer abilityContainer;
+    private AbilitiesContainer abilityContainer;
 
     private void Start()
     {
-        abilityContainer = GetComponent<IAbilitiesContainer>(); 
+        abilityContainer = GetComponent<AbilitiesContainer>(); 
     }
 
     private void Update()

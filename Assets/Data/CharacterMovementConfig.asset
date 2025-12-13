@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946a14d841870ee45838487b2e70a5b1, type: 3}
   m_Name: CharacterMovementConfig
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementConfig
-  <MaxHorizontalSpeed>k__BackingField: 5
+  <MaxHorizontalSpeed>k__BackingField: 50
   <Acceleration>k__BackingField: 20
   <Deceleration>k__BackingField: 15
   <JumpForce>k__BackingField: 2
@@ -21,6 +21,7 @@ MonoBehaviour:
   <AirDrag>k__BackingField: 0.05
   <MaxFallSpeed>k__BackingField: -20
   <GroundCheckDistance>k__BackingField: 0.7
+  <CeilingCheckDistance>k__BackingField: 0.6
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64

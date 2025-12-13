@@ -131,12 +131,11 @@ GameObject:
   - component: {fileID: 19106470}
   - component: {fileID: 19106473}
   - component: {fileID: 19106472}
-  - component: {fileID: 19106474}
-  - component: {fileID: 19106475}
-  - component: {fileID: 19106467}
   - component: {fileID: 19106468}
-  - component: {fileID: 19106476}
-  - component: {fileID: 19106477}
+  - component: {fileID: 19106478}
+  - component: {fileID: 19106481}
+  - component: {fileID: 19106480}
+  - component: {fileID: 19106479}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -144,18 +143,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &19106467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19106465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0bd7397a0abc34084e749cc0cd0855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilitiesContainer
 --- !u!114 &19106468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ab51f062fb3124c9770be09738769f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardPlayerInput
-  m_config: {fileID: 11400000, guid: 8bf42b822221ba24ab130a5387c31af0, type: 2}
 --- !u!212 &19106470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -315,7 +301,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &19106474
+--- !u!114 &19106478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,17 +310,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 19106465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bbe37fdef3a9741942fef08a62340b, type: 3}
+  m_Script: {fileID: 11500000, guid: 026045cb43852a64daf88e57e3ce466a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityInitializer
-  m_movementConfig: {fileID: 11400000, guid: d1133ac199c1baf459978fb1da2bf0c1, type: 2}
-  m_walkConfig: {fileID: 11400000, guid: 00d2b8070bd9ad34dba20f2c50e21f69, type: 2}
-  m_jumpConfig: {fileID: 11400000, guid: 89e7579b731e7534d8d2acd052767e94, type: 2}
-  m_dashConfig: {fileID: 11400000, guid: 4db060ed87536c44b81e9474a66f265f, type: 2}
-  m_movement: {fileID: 19106476}
-  m_playerInput: {fileID: 19106468}
-  m_abilitiesContainer: {fileID: 19106467}
---- !u!114 &19106475
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterInputControllerObserver
+  m_walkAbility: {fileID: 0}
+  m_jumpAbility: {fileID: 0}
+  m_dashAbility: {fileID: 0}
+  m_characterInputController: {fileID: 0}
+--- !u!114 &19106479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,10 +326,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 19106465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea1a806fb348d2498812b7b7ec112b7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4d4c26c04c40a44997d47e3077e1b84, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
---- !u!114 &19106476
+  m_EditorClassIdentifier: Assembly-CSharp::DashAbility
+--- !u!114 &19106480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,12 +338,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 19106465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0859bdf8cc06c2f4390c0334dd77a4ac, type: 3}
+  m_Script: {fileID: 11500000, guid: a8b207e83ba5f0a40aa27c5783110f4f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  config: {fileID: 11400000, guid: d1133ac199c1baf459978fb1da2bf0c1, type: 2}
-  m_rigidbody: {fileID: 19106473}
---- !u!114 &19106477
+  m_EditorClassIdentifier: Assembly-CSharp::WalkAbility
+--- !u!114 &19106481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,9 +350,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 19106465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf24767a532a9741b9fc2feded1886f, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b58239160afe9418f07c3921da7ea6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestAbility
+  m_EditorClassIdentifier: Assembly-CSharp::JumpAbility
 --- !u!1 &800677592
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +862,7 @@ Transform:
   m_GameObject: {fileID: 2060259479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.42, y: 3.13, z: 0}
+  m_LocalPosition: {x: 20.32, y: 3.13, z: 0}
   m_LocalScale: {x: 23.566593, y: 2.1756, z: 2.1756}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private IAbilitiesContainer m_abilitiesContainer;
+    [SerializeField] private AbilitiesContainer m_abilitiesContainer;
 
-    private void Start()
+    private void OnValidate()
     {
-        m_abilitiesContainer = GetComponent<IAbilitiesContainer>();
+        if(m_abilitiesContainer is null)
+        {
+            m_abilitiesContainer = GetComponent<AbilitiesContainer>();
+        }
     }
 
     private void Update()
