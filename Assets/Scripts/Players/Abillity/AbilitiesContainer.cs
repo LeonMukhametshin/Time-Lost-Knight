@@ -3,60 +3,41 @@ using UnityEngine;
 
 public class AbilitiesContainer : MonoBehaviour
 {
-    private Dictionary<string, IPlayerAbility> abilities = new Dictionary<string, IPlayerAbility>();
-    private List<IPlayerAbility> activeAbilities = new List<IPlayerAbility>();
+    private Dictionary<string, IPlayerAbility> abilities = new();
+    private List<IPlayerAbility> activeAbilities = new();
 
-    public int ActiveAbilitiesCount => activeAbilities.Count;
-    
     public void RegisterAbility(IPlayerAbility ability, string key)
     {
         abilities[key] = ability;
-        if (ability.IsActive)
+        if (ability.isEnabledByDefault)
         {
-            activeAbilities.Add(ability);
+            ActivateAbility(key);
         }
-
-        DeactivateAbility(key);
     }
-
-    public IPlayerAbility GetAbility(string key) => abilities.ContainsKey(key) ? abilities[key] : null;
 
     public void ActivateAbility(string key)
     {
-        var ability = GetAbility(key);
-        if (ability != null && !ability.IsActive)
-        { 
-            //ability.OnEnable();
+        if (abilities.TryGetValue(key, out var ability) && !activeAbilities.Contains(ability))
+        {
+            ability.Activate();
             activeAbilities.Add(ability);
         }
     }
 
     public void DeactivateAbility(string key)
     {
-        var ability = GetAbility(key);
-        if (ability != null && ability.IsActive)
+        if (abilities.TryGetValue(key, out var ability) && activeAbilities.Contains(ability))
         {
-            //ability.OnDisable();
-            //activeAbilities.Remove(ability);
+            ability.Deactivate();
+            activeAbilities.Remove(ability);
         }
     }
 
     public void UpdateAllAbilities()
     {
-        foreach (var ability in activeAbilities)
+        for (int i = 0; i < activeAbilities.Count; i++)
         {
-            //ability.HandleInput();
-            //ability.Update();
+            activeAbilities[i].Update();
         }
     }
-
-    public void UpdateAllAbilitiesFixed()
-    {
-        foreach (var ability in activeAbilities)
-        {
-            //ability.FixedUpdate();
-        }
-    }
-
-    public List<IPlayerAbility> GetAllActiveAbilities() => new List<IPlayerAbility>(activeAbilities);
 }
