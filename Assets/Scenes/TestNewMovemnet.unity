@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 19106473}
   - component: {fileID: 19106472}
   - component: {fileID: 19106474}
+  - component: {fileID: 19106475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -203,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 19106465}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: -1.14, z: 0}
+  m_LocalPosition: {x: -0.65, y: -1.22, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -295,10 +296,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd51102dfe584ec4fb2214bba2025880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_weaponConfig: {fileID: 11400000, guid: 1607744fa78ae7e4082dc7e3691d95d8, type: 2}
-  m_critConfig: {fileID: 11400000, guid: 9a895d1791064ac4b908744252ab9c84, type: 2}
-  m_sideAttackTransform: {fileID: 2035542410}
-  m_sideAttackArea: {x: 2.94, y: 2.44}
+  weaponConfig: {fileID: 11400000, guid: 1607744fa78ae7e4082dc7e3691d95d8, type: 2}
+  critConfig: {fileID: 11400000, guid: 9a895d1791064ac4b908744252ab9c84, type: 2}
+  meleeAttack: {fileID: 19106475}
+--- !u!114 &19106475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19106465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490553e1348c8244a85744f1d38ee735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackPoint: {fileID: 2035542410}
+  m_attackArea: {x: 2.5, y: 1.7}
   m_damageableLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -315,6 +329,7 @@ GameObject:
   - component: {fileID: 779147786}
   - component: {fileID: 779147785}
   - component: {fileID: 779147784}
+  - component: {fileID: 779147789}
   m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
@@ -478,6 +493,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779147789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779147783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ef80866e26e1744b80753a38062536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_floatingText: {fileID: 4597218625701520002, guid: 3d4a66aaecb30904b9f7cf41fef1fa51, type: 3}
+  m_damageWidgetContainer: {fileID: 779147788}
+  m_canBeDamageable: {fileID: 779147784}
 --- !u!1 &800677592
 GameObject:
   m_ObjectHideFlags: 0
