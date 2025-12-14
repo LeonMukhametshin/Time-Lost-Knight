@@ -42,7 +42,8 @@ public class WalkAbility : IPlayerAbility
 
         float velocityX = CalculateVelocity();
 
-        m_playerMovement.m_rigidbody.linearVelocity = new Vector2(velocityX, m_playerMovement.m_rigidbody.linearVelocityY);
+        m_playerMovement.m_rigidbody.linearVelocity = 
+            new Vector2(velocityX, m_playerMovement.m_rigidbody.linearVelocityY);
     }
 
     private float CalculateVelocity()
@@ -54,7 +55,8 @@ public class WalkAbility : IPlayerAbility
             targetSpeed,
             (m_playerMovement.LastOnGroundTime > 0
                 ? m_playerMovement.Data.RunAcceleration
-                : m_playerMovement.Data.RunAcceleration * m_playerMovement.Data.AirAccelMultiplier) * Time.fixedDeltaTime
+                : m_playerMovement.Data.RunAcceleration * m_playerMovement.Data.AirAccelMultiplier) 
+                * Time.fixedDeltaTime
         );
 
         return speed;

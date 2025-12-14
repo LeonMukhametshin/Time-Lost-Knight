@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CoroutineRunner m_runner;
 
     [SerializeField] private CharacterInputObserver m_observer;
+    [SerializeField] private BoxCollider2D m_collider;
 
     private AbilitiesContainer m_abilitiesContainer;
 
@@ -42,17 +43,21 @@ public class PlayerMovement : MonoBehaviour
 
         m_abilitiesContainer = new AbilitiesContainer();
 
+        var walk = new WalkAbility(this);
+        var jump = new JumpAbility(this);
+        var dash = new DashAbility(this, m_runner);
+
         m_observer = new CharacterInputObserver(
-            new WalkAbility(this),
-            new JumpAbility(this),
-            new DashAbility(this, m_runner),
+            walk,
+            jump,
+            dash,
             m_input);
 
         m_observer.Subscribe();
 
-        m_abilitiesContainer.RegisterAbility(new WalkAbility(this), "Walk");
-        m_abilitiesContainer.RegisterAbility(new JumpAbility(this), "Jump");
-        m_abilitiesContainer.RegisterAbility(new DashAbility(this, m_runner), "Dash");
+        m_abilitiesContainer.RegisterAbility(walk, "Walk");
+        m_abilitiesContainer.RegisterAbility(jump, "Jump");
+        m_abilitiesContainer.RegisterAbility(dash, "Dash");
 
         m_rigidbody.gravityScale = Data.GravityScale;
         m_originalGravityScale = m_rigidbody.gravityScale;
@@ -131,16 +136,30 @@ public class PlayerMovement : MonoBehaviour
             LastOnGroundTime = Data.CoyoteTime;
             IsJumping = false;
             DashesLeft = Data.MaxDashes;
+
+            m_rigidbody.sharedMaterial = Data.BaseMaterial;
         }
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.Raycast(
-            transform.position,
+        Bounds bounds = m_collider.bounds;
+
+        float skinWidth = 0.02f;
+
+        Vector2 boxSize = new Vector2(
+            bounds.size.x - skinWidth,
+            bounds.size.y
+        );
+
+        return Physics2D.BoxCast(
+            bounds.center,
+            boxSize,
+            0f,
             Vector2.down,
             Data.GroundCheckDistance,
-            Data.GroundLayer);
+            Data.GroundLayer
+        );
     }
 
     public void Flip(float xInput)

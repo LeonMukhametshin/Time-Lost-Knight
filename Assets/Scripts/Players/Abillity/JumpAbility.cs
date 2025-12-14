@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class JumpAbility : IPlayerAbility
@@ -50,13 +49,6 @@ public class JumpAbility : IPlayerAbility
 
         float force = CalculateJumpForce();
         m_playerMovement.m_rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-
-        FinishState();
-    }
-
-    private void FinishState()
-    {
-        m_playerMovement.m_rigidbody.sharedMaterial = m_playerMovement.Data.BaseMaterial;
     }
 
     private void StartState()
