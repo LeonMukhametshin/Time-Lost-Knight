@@ -48,15 +48,25 @@ public class WalkAbility : IPlayerAbility
 
     private float CalculateVelocity()
     {
-        float targetSpeed = m_playerMovement.MoveInput.x * m_playerMovement.Data.RunMaxSpeed;
+        float inputX = m_playerMovement.MoveInput.x;
+        float targetSpeed = inputX * m_playerMovement.Data.RunMaxSpeed;
+        float currentSpeed = m_playerMovement.m_rigidbody.linearVelocityX;
+
+        bool hasInput = Mathf.Abs(inputX) > 0.01f;
+
+        float accel = hasInput
+            ? m_playerMovement.Data.RunAcceleration
+            : m_playerMovement.Data.RunDeceleration;
+
+        if (m_playerMovement.LastOnGroundTime <= 0)
+        {
+            accel *= m_playerMovement.Data.AirAccelMultiplier;
+        }
 
         float speed = Mathf.MoveTowards(
-            m_playerMovement.m_rigidbody.linearVelocityX,
+            currentSpeed,
             targetSpeed,
-            (m_playerMovement.LastOnGroundTime > 0
-                ? m_playerMovement.Data.RunAcceleration
-                : m_playerMovement.Data.RunAcceleration * m_playerMovement.Data.AirAccelMultiplier) 
-                * Time.fixedDeltaTime
+            accel * Time.fixedDeltaTime
         );
 
         return speed;

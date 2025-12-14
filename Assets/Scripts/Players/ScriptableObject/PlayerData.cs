@@ -27,6 +27,9 @@ public class PlayerData : ScriptableObject
     [SerializeField, Min(0.1f), Tooltip("Ускорение на земле")]
     private float m_runAcceleration = 50f;
 
+    [SerializeField, Min(0.1f), Tooltip("Замедление на земле")]
+    private float m_runDeceleration = 50f;
+
     [SerializeField, Range(0f, 1f), Tooltip("Множитель ускорения в воздухе")]
     private float m_airAccelMultiplier = 0.5f;
 
@@ -74,6 +77,7 @@ public class PlayerData : ScriptableObject
     #region Movement
     public float RunMaxSpeed => m_runMaxSpeed;
     public float RunAcceleration => m_runAcceleration;
+    public float RunDeceleration => m_runDeceleration;
     public float AirAccelMultiplier => m_airAccelMultiplier;
     #endregion
 
