@@ -2,6 +2,8 @@ using System;
 
 public interface ICurrency
 {
+    string currencyCode { get; }
+
     event Action changeCurrency;
     int Get();
     void Add(int amount);

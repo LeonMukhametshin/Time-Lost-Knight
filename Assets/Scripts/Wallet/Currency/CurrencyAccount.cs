@@ -5,6 +5,7 @@ public class CurrencyAccount : ICurrency
     public event Action changeCurrency;
 
     private int m_amount;
+    private readonly string m_currencyCode;
 
     public int Amount
     {
@@ -19,9 +20,12 @@ public class CurrencyAccount : ICurrency
         }
     }
 
-    public CurrencyAccount(int amount)
+    public string currencyCode => m_currencyCode;
+
+    public CurrencyAccount(int amount, string code)
     {
         Amount = amount;
+        m_currencyCode = code;
     }
 
     public void Add(int amount) =>
