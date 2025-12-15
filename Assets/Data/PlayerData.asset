@@ -17,10 +17,11 @@ MonoBehaviour:
     m_Bits: 64
   m_groundCheckDistance: 0.1
   m_coyoteTime: 0.098
-  m_jumpForce: 60
+  m_jumpForce: 30
   m_jumpInputBufferTime: 0.15
-  m_runMaxSpeed: 2
+  m_runMaxSpeed: 10
   m_runAcceleration: 20
+  m_runDeceleration: 50
   m_airAccelMultiplier: 0.15
   m_maxDashes: 5
   m_dashSpeed: 100
