@@ -2,7 +2,7 @@ using System;
 
 public interface ICurrency
 {
-    event Action OnChange;
+    event Action changeCurrency;
     int Get();
     void Add(int amount);
     void Subtract(int amount);

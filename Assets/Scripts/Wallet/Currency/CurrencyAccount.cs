@@ -2,7 +2,7 @@ using System;
 
 public class CurrencyAccount : ICurrency
 {
-    public event Action OnChange;
+    public event Action changeCurrency;
 
     private int m_amount;
 
@@ -14,9 +14,14 @@ public class CurrencyAccount : ICurrency
             if (m_amount != value)
             {
                 m_amount = value;
-                OnChange?.Invoke();
+                changeCurrency?.Invoke();
             }
         }
+    }
+
+    public CurrencyAccount(int amount)
+    {
+        Amount = amount;
     }
 
     public void Add(int amount) =>
