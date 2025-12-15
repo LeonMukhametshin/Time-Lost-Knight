@@ -2,7 +2,7 @@ using System;
 
 public class CurrencyAccount : ICurrency
 {
-    public event Action changeCurrency;
+    public event Action<int> changeCurrency;
 
     private int m_amount;
     private readonly string m_currencyCode;
@@ -15,7 +15,7 @@ public class CurrencyAccount : ICurrency
             if (m_amount != value)
             {
                 m_amount = value;
-                changeCurrency?.Invoke();
+                changeCurrency?.Invoke(m_amount);
             }
         }
     }
@@ -49,4 +49,7 @@ public class CurrencyAccount : ICurrency
         }
         return false;
     }
+
+    public string GetAccount() =>
+        currencyCode;
 }

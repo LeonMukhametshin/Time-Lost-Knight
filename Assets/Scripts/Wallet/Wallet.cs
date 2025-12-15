@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class Wallet
@@ -8,8 +9,8 @@ public class Wallet
 
     public Wallet(IWalletSaver walletSaver, Dictionary<string, CurrencyAccount> wallet = null)
     {
-        this.saveLoad = walletSaver;
-        if(wallet is null)
+        this.saveLoad = walletSaver ?? throw new ArgumentNullException(nameof(saveLoad));
+        if (wallet is null)
         {
             Load();
         }
@@ -36,5 +37,14 @@ public class Wallet
         }
         m_wallet.Add(newAccount.currencyCode, newAccount);
         return true;
+    }
+
+    public CurrencyAccount GetAccount(string currencyCode)
+    {
+        if (m_wallet.TryGetValue(currencyCode, out var account))
+        {
+            return account;
+        }
+        return null;
     }
 }

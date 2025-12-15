@@ -9,7 +9,7 @@ public class PlayerPrefsWalletSaver : IWalletSaver
     public bool Load(out Dictionary<string, CurrencyAccount> wallet)
     {
         wallet = new Dictionary<string, CurrencyAccount>();
-        var data = PlayerPrefs.GetString(WALLET_KEY);
+        var data = PlayerPrefs.GetString(WALLET_KEY, "");
 
         if (string.IsNullOrEmpty(data))
         {

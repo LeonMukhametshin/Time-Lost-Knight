@@ -4,8 +4,9 @@ public interface ICurrency
 {
     string currencyCode { get; }
 
-    event Action changeCurrency;
+    event Action<int> changeCurrency;
     int Get();
+    string GetAccount();
     void Add(int amount);
     void Subtract(int amount);
     bool TrySubstract(int amount);
