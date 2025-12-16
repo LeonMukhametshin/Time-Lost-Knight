@@ -5,8 +5,8 @@ public interface ICurrency
     string currencyCode { get; }
 
     event Action<int> changeCurrency;
-    int Get();
-    string GetAccount();
+    int GetAmount();
+    string GetAccountKey();
     void Add(int amount);
     void Subtract(int amount);
     bool TrySubstract(int amount);

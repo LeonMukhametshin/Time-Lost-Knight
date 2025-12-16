@@ -5,7 +5,7 @@ public class Wallet
 {
     public IWalletSaver saveLoad;
 
-    private Dictionary<string, CurrencyAccount> m_wallet = new Dictionary<string, CurrencyAccount>();
+    private Dictionary<string, CurrencyAccount> m_wallet = new();
 
     public Wallet(IWalletSaver walletSaver, Dictionary<string, CurrencyAccount> wallet = null)
     {

@@ -20,7 +20,7 @@ public class Example : MonoBehaviour
         m_wallet = new Wallet(new PlayerPrefsWalletSaver());
         m_wallet.AddAccount(new CurrencyAccount(0, "Coins"));
         m_wallet.GetAccount("Coins").changeCurrency += UpdateUI;
-        UpdateUI(m_wallet.GetAccount("Coins").Get());
+        UpdateUI(m_wallet.GetAccount("Coins").GetAmount());
     }
 
     private void UpdateUI(int amount)
@@ -30,7 +30,7 @@ public class Example : MonoBehaviour
 
     public void Add5()
     {
-        m_wallet.GetAccount("Coins").Add(5);
+        m_wallet.GetAccount("Coins").TryAdd(5);
     }
 
     public void Subtract7()

@@ -28,28 +28,38 @@ public class CurrencyAccount : ICurrency
         m_currencyCode = code;
     }
 
-    public void Add(int amount) =>
-        Amount += amount;
-
-    public void Clear() =>
-        Amount = 0;
-
-    public int Get() =>
-        Amount;
+    public void Add(int amout) =>
+        m_amount += amout;
 
     public void Subtract(int amount) =>
         Amount -= amount;
+
+    public bool TryAdd(int amount)
+    {
+        if (amount <= 0)
+        {
+            return false;
+        }
+        Add(amount);
+        return true;
+    }
 
     public bool TrySubstract(int amount)
     {
         if (Amount >= amount)
         {
-            Amount -= amount;
+            Subtract(amount);
             return true;
         }
         return false;
     }
 
-    public string GetAccount() =>
+    public int GetAmount() =>
+        Amount;
+
+    public string GetAccountKey() =>
         currencyCode;
+
+    public void Clear() =>
+        Amount = 0;
 }
