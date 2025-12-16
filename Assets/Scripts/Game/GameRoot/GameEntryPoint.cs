@@ -39,6 +39,11 @@ public class GameEntryPoint
             return;
         }
 
+        if(sceneName == SceneNames.MAIN_MENU)
+        {
+            m_coroutines.StartCoroutine(LoadAndStartMainMenu());
+        }
+
         if (sceneName != SceneNames.BOOT)
         {
             return;
@@ -59,7 +64,32 @@ public class GameEntryPoint
         yield return new WaitForSeconds(5f);
 
         var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
-        sceneEntryPoint.Run();
+        sceneEntryPoint.Run(m_uiRoot);
+
+        sceneEntryPoint.GoToMainMenuSceneRequested += () =>
+        {
+            m_coroutines.StartCoroutine(LoadAndStartMainMenu());
+        };
+
+        m_uiRoot.HideLoadingScreen();
+    }
+
+    private IEnumerator LoadAndStartMainMenu()
+    {
+        m_uiRoot.ShowLoadingScreen();
+
+        yield return LoadScene(SceneNames.BOOT);
+        yield return LoadScene(SceneNames.MAIN_MENU);
+
+        yield return new WaitForSeconds(5f);
+
+        var sceneEntryPoint = Object.FindFirstObjectByType<MainMenuEntryPoint>();
+        sceneEntryPoint.Run(m_uiRoot);
+
+        sceneEntryPoint.GoToGameplaySceneRequested += () =>
+        {
+            m_coroutines.StartCoroutine(LoadAndStartGameplay());
+        };
 
         m_uiRoot.HideLoadingScreen();
     }

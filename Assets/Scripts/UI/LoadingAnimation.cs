@@ -7,9 +7,14 @@ public class LoadingAnimation : MonoBehaviour
 
     private Tween m_rotationTween;
 
-    private void Start()
+    private void OnEnable()
     {
         PlayRotation();
+    }
+
+    private void OnDisable()
+    {
+        m_rotationTween?.Kill();
     }
 
     private void PlayRotation()
@@ -19,10 +24,5 @@ public class LoadingAnimation : MonoBehaviour
           .SetRelative(true)
           .SetEase(Ease.Linear)
           .SetLoops(-1);
-    }
-
-    private void OnDisable()
-    {
-        m_rotationTween?.Kill();
     }
 }

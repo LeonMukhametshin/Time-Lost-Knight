@@ -9891,7 +9891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62501c8aa128d146a7309408b32b924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneRootBinder: {fileID: 0}
+  m_sceneUIRootPrefab: {fileID: 2651557234109913633, guid: 6f7f877701dbda24b994203d6e2f2671, type: 3}
 --- !u!4 &1195297384
 Transform:
   m_ObjectHideFlags: 0

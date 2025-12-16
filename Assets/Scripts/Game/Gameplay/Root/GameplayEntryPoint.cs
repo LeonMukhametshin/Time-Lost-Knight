@@ -1,11 +1,20 @@
+using System;
 using UnityEngine;
 
 public class GameplayEntryPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject m_sceneRootBinder;
+    public event Action GoToMainMenuSceneRequested;
 
-    public void Run()
+    [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
+
+    public void Run(UIRootView uiRoot)
     {
-        Debug.Log("Gameplay scene loaded");
+        var uiScene = Instantiate(m_sceneUIRootPrefab);
+        uiRoot.AttachSceneUI(uiScene.gameObject);
+
+        uiScene.GoToGameplayButtonClicked += () =>
+        {
+            GoToMainMenuSceneRequested?.Invoke();
+        };
     }
 }
