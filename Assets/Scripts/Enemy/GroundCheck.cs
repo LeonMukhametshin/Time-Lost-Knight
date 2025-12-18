@@ -16,7 +16,7 @@ public class GroundCheck
     public bool HasGroundAhead()
     {
         RaycastHit2D hit = Physics2D.Raycast(
-            m_baseEnemy.poitGroundCheck.position,
+            m_baseEnemy.GroundCheckPoint.position,
             Vector2.down,
             m_baseEnemy.enemyData.groundCheckDistance,
             m_baseEnemy.enemyData.groundLayer

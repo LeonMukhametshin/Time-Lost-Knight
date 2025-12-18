@@ -6,14 +6,14 @@ public class PatrolEnemy : IMovement
     private Transform m_currentTarget;
     private Transform m_enemyTransform;
     private bool m_isMoving;
-    private float m_reachedDistance = 0.5f; // –ассто€ние на котором считаем, что достигли точки EnemyDATA!!!!!!!!!!!
+    private float m_reachedDistance = 0.5f; 
 
     public bool isMoving => m_isMoving;
 
     public PatrolEnemy(BaseEnemy baseEnemy)
     {
         m_baseEnemy = baseEnemy;
-        m_currentTarget = m_baseEnemy.m_transformPointA;
+        m_currentTarget = m_baseEnemy.PointA;
         m_enemyTransform = m_baseEnemy.m_transform;
     }
 
@@ -23,14 +23,14 @@ public class PatrolEnemy : IMovement
         {
             SwitchTarget();
         }
-        if (m_baseEnemy == null || m_baseEnemy.m_rigidbody2D == null || m_currentTarget == null)
+        if (m_baseEnemy == null || m_baseEnemy.Rigidbody2D == null || m_currentTarget == null)
         {
             return;
         }
 
         Vector2 velocity = direction * m_baseEnemy.enemyData.m_moveSpeed;
 
-        m_baseEnemy.m_rigidbody2D.linearVelocity = new Vector2(velocity.x, m_baseEnemy.m_rigidbody2D.linearVelocity.y);
+        m_baseEnemy.Rigidbody2D.linearVelocity = new Vector2(velocity.x, m_baseEnemy.Rigidbody2D.linearVelocity.y);
     }
 
     public void Stop()
@@ -56,13 +56,13 @@ public class PatrolEnemy : IMovement
 
     private void SwitchTarget()
     {
-        if (m_currentTarget == m_baseEnemy.m_transformPointA)
+        if (m_currentTarget == m_baseEnemy.PointA)
         {
-            m_currentTarget = m_baseEnemy.m_transformPointB;
+            m_currentTarget = m_baseEnemy.PointB;
         }
         else
         {
-            m_currentTarget = m_baseEnemy.m_transformPointA;
+            m_currentTarget = m_baseEnemy.PointA;
         }
         Flip();
         UpdateDirection();

@@ -2,23 +2,27 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    public HealthSystem m_healt { get; private set; }
-    public IMovement m_movement { get; private set; }
-    public EnemyState m_currentState { get; private set; }
-    public GroundCheck m_groundChecker { get; private set; }
-    public float findingPathTimer { get; private set; }
-    public Transform m_transform { get; private set; }
-
-    [Header("Attack")]
     [SerializeField] private BoxCollider2D m_boxCollider;
     [SerializeField] private LayerMask m_playerLayer;
     [SerializeField] private float m_currentCooldown;
 
-    public Transform m_transformPointA;
-    public Transform m_transformPointB;
-    public Rigidbody2D m_rigidbody2D;
-    public Transform poitGroundCheck;
-    public EnemyData enemyData;
+    [SerializeField] private Transform m_transformPointA;
+    [SerializeField] private Transform m_transformPointB;
+    [SerializeField] private Rigidbody2D m_rigidbody2D;
+    [SerializeField] private Transform m_groundCheckPoint;
+    [SerializeField] private EnemyData m_enemyData;
+
+    public HealthSystem m_healt { get; private set; }
+    public IMovement m_movement { get; private set; }
+    public EnemyState m_currentState { get; private set; }
+    public GroundCheck m_groundChecker { get; private set; }
+    public Transform m_transform { get; private set; }
+
+    public Transform PointA => m_transformPointA;
+    public Transform PointB => m_transformPointB;
+    public Rigidbody2D Rigidbody2D => m_rigidbody2D;
+    public Transform GroundCheckPoint => m_groundCheckPoint;
+    public EnemyData enemyData => m_enemyData;
 
     private void Awake()
     {
@@ -27,7 +31,7 @@ public class BaseEnemy : MonoBehaviour
 
     private void Update()
     {
-        m_movement.Update();
+        m_movement?.Update();
 
         m_currentCooldown -= Time.deltaTime;
 
@@ -35,7 +39,7 @@ public class BaseEnemy : MonoBehaviour
         {
             if (m_currentCooldown <= 0)
             {
-                m_currentCooldown = enemyData.m_attackCooldown;
+                m_currentCooldown = m_enemyData.m_attackCooldown;
                 Debug.Log("Damaged");
                 Attack();
             }
@@ -47,8 +51,8 @@ public class BaseEnemy : MonoBehaviour
         m_transform = transform;
         m_groundChecker = new GroundCheck(this);
         m_movement = new PatrolEnemy(this);
-        m_healt = new HealthSystem(enemyData.m_maxHealt, enemyData.m_initialHealth);
-        m_currentCooldown = enemyData.m_attackCooldown;
+        m_healt = new HealthSystem(m_enemyData.m_maxHealt, m_enemyData.m_initialHealth);
+        m_currentCooldown = m_enemyData.m_attackCooldown;
 
         m_healt.Death += Death;
     }
@@ -58,10 +62,10 @@ public class BaseEnemy : MonoBehaviour
         Vector3 boxColliderSize = m_boxCollider.bounds.size;
 
         var boxCenter = m_boxCollider.bounds.center +
-            Vector3.right * (enemyData.m_attackRange * m_transform.localScale.x * enemyData.m_colliderDistanceMultiplier);
+            Vector3.right * (m_enemyData.m_attackRange * m_transform.localScale.x * m_enemyData.m_colliderDistanceMultiplier);
 
         Vector2 boxSize = new Vector2(
-            boxColliderSize.x * enemyData.m_attackRange,
+            boxColliderSize.x * m_enemyData.m_attackRange,
             boxColliderSize.y
         );
 
@@ -80,14 +84,14 @@ public class BaseEnemy : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(m_boxCollider.bounds.center + transform.right * enemyData.m_attackRange * transform.localScale.x * enemyData.m_colliderDistanceMultiplier,
-            new Vector3(m_boxCollider.bounds.size.x * enemyData.m_attackRange, m_boxCollider.bounds.size.y, m_boxCollider.bounds.size.z));
+        Gizmos.DrawWireCube(m_boxCollider.bounds.center + transform.right * m_enemyData.m_attackRange * transform.localScale.x * m_enemyData.m_colliderDistanceMultiplier,
+            new Vector3(m_boxCollider.bounds.size.x * m_enemyData.m_attackRange, m_boxCollider.bounds.size.y, m_boxCollider.bounds.size.z));
     }
 
     private void Attack()
     {
-        m_currentCooldown = enemyData.m_attackCooldown;
-        Debug.Log($"Attacked player for {enemyData.m_damage} damage");
+        m_currentCooldown = m_enemyData.m_attackCooldown;
+        Debug.Log($"Attacked player for {m_enemyData.m_damage} damage");
     }
 
     private void Death()
