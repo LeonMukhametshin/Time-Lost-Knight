@@ -17,5 +17,5 @@ MonoBehaviour:
   <CheckDistance>k__BackingField: 0.5
   <GroundLayer>k__BackingField:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   <JumpMaterial>k__BackingField: {fileID: 6200000, guid: 4e51aabbfedfc224d894261325217625, type: 2}

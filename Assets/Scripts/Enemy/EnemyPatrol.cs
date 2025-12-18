@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyPatrol : MonoBehaviour
 {
     [Header("Enemy Parametrs")]
@@ -22,16 +21,16 @@ public class EnemyPatrol : MonoBehaviour
 
     [Header("Ground Check")]
     [SerializeField] private GroundCheck m_groundChecker;
-    public enum EnemyState
+
+    private void OnValidate()
     {
-        FindingPath,
-        WalkToTarget,
-        Dead
+        //
     }
     private void Awake()
     {
-        InitializeComponents();
+        Initialize();
     }
+
     private void Update()
     {
         switch (m_currentState)
@@ -44,14 +43,13 @@ public class EnemyPatrol : MonoBehaviour
                 break;
         }
     }
-    private void InitializeComponents()
-    {
-        if (m_rigidbody2D == null) m_rigidbody2D = GetComponent<Rigidbody2D>();
-        if (m_collider == null) m_collider = GetComponent<Collider2D>();
 
+    private void Initialize()
+    {
         m_currentState = EnemyState.FindingPath;
         StartFindingPath();
     }
+
     private void StartFindingPath()
     {
         m_currentState = EnemyState.FindingPath;
@@ -61,17 +59,21 @@ public class EnemyPatrol : MonoBehaviour
         );
         m_distanceWalked = 0f;
     }
-    private void UpdateFindingPathState(int _direction)
+
+    private void UpdateFindingPathState(int direction)
     {
          m_findingPathTime -= Time.deltaTime;
 
         if (m_findingPathTime <= 0)
         {
-            if (_direction == 0)
+            if (direction == 0)
             {
                 m_directionSign = Random.Range(0, 2) == 0 ? -1 : 1;
             }
-            else { m_directionSign = m_directionSign * -1; }
+            else 
+            { 
+                m_directionSign *= -1; 
+            }
 
             m_currentRoamRadius = Random.Range(
                 m_enemyData.m_roamRadiusMin,
@@ -83,12 +85,13 @@ public class EnemyPatrol : MonoBehaviour
             m_distanceWalked = 0f;
         }
     }
+
     private void WalkToTargetState()
     {
-        if (m_groundChecker.IsPathBlocked(m_directionSign))
-        {
-            UpdateFindingPathState(m_directionSign);
-        }
+        //if (m_groundChecker.IsPathBlocked(m_directionSign))
+        //{
+        //    UpdateFindingPathState(m_directionSign);
+        //}
 
         m_distanceWalked = Mathf.Abs(transform.position.x - m_startWalkPosition.x);
 
@@ -99,10 +102,9 @@ public class EnemyPatrol : MonoBehaviour
         }
         MoveInDirection();
     }
+
     private void MoveInDirection()
     {
-        m_enemyTransform.position = new Vector3(m_enemyTransform.position.x + Time.deltaTime * m_directionSign * m_enemyData.m_moveSpeed,
-            m_enemyTransform.position.y, m_enemyTransform.position.z);
+        m_enemyTransform.position += new Vector3(Time.deltaTime * m_directionSign * m_enemyData.m_moveSpeed, 0, 0);
     }
-
 }

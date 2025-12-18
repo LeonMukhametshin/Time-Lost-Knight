@@ -1,21 +1,13 @@
-using Players;
-using Unity.VisualScripting;
 using UnityEngine;
+using static Enemy;
 
-public class Enemy : MonoBehaviour
+public class EnemySystem : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
 
     public HealthSystem m_healt { get; private set; }
     public IMovement m_movement { get; private set; }
     public EnemyState m_currentState { get; private set; }
-
-    public enum EnemyState
-    {
-        FindingPath,
-        WalkToTarget,
-        Dead
-    }
 
     private void Awake()
     {

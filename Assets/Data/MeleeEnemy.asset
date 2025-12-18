@@ -14,10 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <m_maxHealt>k__BackingField: 12
   <m_initialHealth>k__BackingField: 1
-  <m_damage>k__BackingField: 1
   <m_moveSpeed>k__BackingField: 2
-  <m_attackCooldown>k__BackingField: 2
   <m_roamRadiusMin>k__BackingField: 1
   <m_roamRadiusMax>k__BackingField: 4
   <m_findingPathTimeMin>k__BackingField: 2
   <m_findingPathTimeMax>k__BackingField: 2
+  <groundCheckDistance>k__BackingField: 1.03
+  <obstacleCheckDistance>k__BackingField: 1.47
+  <groundLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 16
+  <obstacleLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 128
+  <m_damage>k__BackingField: 1
+  <m_attackCooldown>k__BackingField: 2
+  <m_attackRange>k__BackingField: 2
+  <m_colliderDistanceMultiplier>k__BackingField: -0.25
