@@ -1,19 +1,31 @@
 using Attacks;
+using System;
 
 public class CritDamageDecorator : WeaponDecorator
 {
-    protected CritWeaponConfig m_critConfig;
-    protected IDamageCalculator m_damageCalculator;
+    protected CritConfig m_critConfig;
+    protected IWeapon m_weapon;
 
-    public CritDamageDecorator(IWeapon weapon, IDamageCalculator damageCalculator, CritWeaponConfig critConfig) : base(weapon)
+    private System.Random random = new();
+
+    public CritDamageDecorator(IWeapon weapon, CritConfig critConfig) : base(weapon)
     {
-        m_damageCalculator = damageCalculator;
         m_critConfig = critConfig;
     }
 
     public override void ApplyDamage(ICanBeDamageable damageable)
+    { 
+        int totalDamage = CalculateDamage();
+        damageable.TakeDamage(totalDamage);
+    }
+
+    public override int CalculateDamage()
     {
-        int damage = m_damageCalculator.Calculate(m_critConfig);
-        damageable.TakeDamage(MainWeapon.GetDamageType() ,damage);
+        if (random.NextDouble() <= m_critConfig.critChance)
+        {
+            var critDamage = m_critConfig.critMultiplier * m_critConfig.weaponConfig.baseDamage;
+            return (int)Math.Ceiling(critDamage);
+        }
+        return base.CalculateDamage();
     }
 }

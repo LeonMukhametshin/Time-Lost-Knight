@@ -4,21 +4,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerCombatTest : MonoBehaviour
 {
-
     [SerializeField] private WeaponConfig weaponConfig;
-    [SerializeField] private CritWeaponConfig critConfig;
+    [SerializeField] private CritConfig critConfig;
 
     [SerializeField] private MeleeAttack meleeAttack;
 
-    private IWeapon _weapon;
-    private IDamageCalculator _damageCalculator;
+    private IWeapon m_weapon;
 
     private void Awake()
-    {
-        _damageCalculator = new CalculateCritDamage();
+    { 
+        m_weapon = WeaponFactory.CreateBaseWeapon(weaponConfig);
+        meleeAttack.SetWeapon(m_weapon);
 
-        _weapon = WeaponFactory.CreateBaseWeapon(weaponConfig);
-        meleeAttack.SetWeapon(_weapon);
+        critConfig.Init(weaponConfig);
     }
 
     private void Update()
@@ -30,12 +28,20 @@ public class PlayerCombatTest : MonoBehaviour
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            _weapon = WeaponFactory.AddCritical(
-                _weapon,
-                critConfig,
-                _damageCalculator);
+            print("Update to crit");
+            m_weapon = WeaponFactory.AddCritical(
+                m_weapon,
+                critConfig);
 
-            meleeAttack.SetWeapon(_weapon);
+            meleeAttack.SetWeapon(m_weapon);
+        }
+
+        if(Keyboard.current.xKey.wasPressedThisFrame)
+        {
+            for(int i = 0; i < 1000; i++)
+            {
+                meleeAttack.PerformAttack();
+            }
         }
     }
 }

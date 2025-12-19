@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ba00dee15026f4a9cc39b65a9a3718, type: 3}
   m_Name: WeaponConfig
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 10
-  <Cooldown>k__BackingField: 1
-  <CriticalChance>k__BackingField: 100
-  <CriticalMultiplier>k__BackingField: 1.2
+  <baseDamage>k__BackingField: 10
+  <cooldown>k__BackingField: 2
+  <damageType>k__BackingField: 0
   <KnockbackForce>k__BackingField: 1
   <AttackZone>k__BackingField: {x: 1, y: 2}

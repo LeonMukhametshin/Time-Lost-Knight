@@ -4,21 +4,18 @@ namespace Attacks
     {
         protected WeaponConfig m_config;
 
-        private DamageType m_damageType;
-
-        public Weapon(WeaponConfig config, DamageType damageType)
+        public Weapon(WeaponConfig config)
         {
             m_config = config;
-            m_damageType = damageType;
         }
 
-        public void ApplyDamage(ICanBeDamageable damageable)
+        public virtual void ApplyDamage(ICanBeDamageable damageable)
         {
-            damageable.TakeDamage(m_damageType, m_config.Damage);
+            var totalDamage = CalculateDamage();
+            damageable.TakeDamage(totalDamage);
         }
 
-        public int GetDamage() => m_config.Damage;
-
-        public DamageType GetDamageType() => m_damageType;
+        public virtual int CalculateDamage() =>
+            m_config.baseDamage;
     }
 }

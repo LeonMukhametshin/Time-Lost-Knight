@@ -2,20 +2,17 @@ namespace Attacks
 {
     public abstract class WeaponDecorator : IWeapon
     {
-        protected IWeapon MainWeapon;
+        protected IWeapon weapon;
 
         public WeaponDecorator(IWeapon weapon)
         {
-            MainWeapon = weapon;
+            this.weapon = weapon;
         }
 
-        public virtual void ApplyDamage(ICanBeDamageable damageable)
-        {
-            MainWeapon.ApplyDamage(damageable);
-        }
+        public virtual void ApplyDamage(ICanBeDamageable damageable) =>
+            weapon.ApplyDamage(damageable);
 
-        public virtual DamageType GetDamageType() => MainWeapon.GetDamageType();
-
-        public virtual int GetDamage() => MainWeapon.GetDamage();
+        public virtual int CalculateDamage() =>
+            weapon.CalculateDamage();
     }
 }

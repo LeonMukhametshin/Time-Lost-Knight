@@ -8,10 +8,9 @@ public class DamageableWall : MonoBehaviour, ICanBeDamageable
     public event Action<int> Damaged;
     public event Action Kill;
 
-    public void TakeDamage(DamageType type, int damage)
+    public void TakeDamage(int damage)
     {
         Health -= damage;
-        Debug.Log($"TakeDamage with damage: {damage}, damage type: {type}, current health: {Health}");
         Damaged?.Invoke(damage);
 
         if (Health < 0)
