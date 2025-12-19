@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274e11287b18adb4ab871ec10b9bdb40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+  m_data: {fileID: 11400000, guid: 1819c0a6d50e21c4f9d4c8591b8253b3, type: 2}

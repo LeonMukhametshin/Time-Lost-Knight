@@ -3,24 +3,29 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour, ICollectable
 {
-    private CoinData m_data;
+    [SerializeField] private CoinData m_data;
 
-    public event Action collect;
+    public event Action сollected;
+    public event Action<int> сollectedValue;
 
-    public void Initialize(CoinData data)
+    private bool m_isCollected;
+
+    public bool TryCollect()
     {
-        m_data = data;
-    }
+        if(m_isCollected) return false;
 
-    public void Collect()
-    {
-        collect?.Invoke();
+        m_isCollected = true;
+        сollected?.Invoke();
+        сollectedValue?.Invoke(m_data.amount);
 
         Collected();
+
+        return true;
     }
 
     private void Collected()
     {
+        // TODO Animation 
         Destroy(gameObject);
     }
 }

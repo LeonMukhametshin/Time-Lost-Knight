@@ -8,7 +8,7 @@ public class CollectableTrigger : MonoBehaviour
 
         if (collectable != null)
         {
-            collectable.Collect();
+            collectable.TryCollect();
             Debug.Log($"Collect {collision.gameObject.name}");
         }
     }
