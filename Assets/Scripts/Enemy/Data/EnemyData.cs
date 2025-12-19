@@ -14,12 +14,6 @@ public sealed class EnemyData : ScriptableObject
     [field: SerializeField] public float m_findingPathTimeMin { get; private set; }
     [field: SerializeField] public float m_findingPathTimeMax { get; private set; }
 
-    [Header("Ground Check Settings")]
-    [field: SerializeField] public float groundCheckDistance { get; private set; } 
-    [field: SerializeField] public float obstacleCheckDistance { get; private set; } 
-    [field: SerializeField] public LayerMask groundLayer { get; private set; }
-    [field: SerializeField] public LayerMask obstacleLayer { get; private set; }
-
     [Header("Combat Settings")]
     [field: SerializeField] public int m_damage { get; private set; }
     [field: SerializeField] public float m_attackCooldown { get; private set; }

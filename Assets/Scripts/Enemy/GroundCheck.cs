@@ -1,25 +1,25 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GroundCheck 
 {
-    private BaseEnemy m_baseEnemy;
-
+    private GroundCheckData m_groundCheckData;
+    private Transform m_groundCheckPoint;
     private Transform m_enemyTransform;
 
-    public GroundCheck(BaseEnemy baseEnemy)
+    public GroundCheck(GroundCheckData groundCheckData, Transform transform, Transform groundCheckPoint)
     {
-        m_baseEnemy = baseEnemy;
-        m_enemyTransform = m_baseEnemy.transform;
+        m_groundCheckData = groundCheckData;
+        m_enemyTransform = transform;
+        m_groundCheckPoint = groundCheckPoint;
     }
 
     public bool HasGroundAhead()
     {
         RaycastHit2D hit = Physics2D.Raycast(
-            m_baseEnemy.GroundCheckPoint.position,
+            m_groundCheckPoint.position,
             Vector2.down,
-            m_baseEnemy.enemyData.groundCheckDistance,
-            m_baseEnemy.enemyData.groundLayer
+            m_groundCheckData.groundCheckDistance,
+            m_groundCheckData.groundLayer
         );
 
         return hit.collider != null;
@@ -30,16 +30,15 @@ public class GroundCheck
         RaycastHit2D hit = Physics2D.Raycast(
             m_enemyTransform.position,
             direction.normalized,
-            m_baseEnemy.enemyData.obstacleCheckDistance,
-            m_baseEnemy.enemyData.obstacleLayer
+            m_groundCheckData.obstacleCheckDistance,
+            m_groundCheckData.obstacleLayer
         );
 
-        Debug.DrawRay(m_enemyTransform.position, direction.normalized * m_baseEnemy.enemyData.obstacleCheckDistance, Color.yellow);
+        Debug.DrawRay(m_enemyTransform.position, direction.normalized * m_groundCheckData.obstacleCheckDistance, Color.yellow);
 
         return hit.collider != null;
     }
 
     public bool IsPathBlocked(Vector2 direction) =>
         HasObstacleAhead(direction) || !HasGroundAhead();
-
 }

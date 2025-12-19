@@ -5,16 +5,16 @@ public class PatrolEnemy : IMovement
     private BaseEnemy m_baseEnemy;
     private Transform m_currentTarget;
     private Transform m_enemyTransform;
-    private bool m_isMoving;
-    private float m_reachedDistance = 0.5f; 
-
-    public bool isMoving => m_isMoving;
+    private float m_reachedDistance = 0.5f;
+    private int m_indexPoint;
+    private Transform[] m_transformPoints;
 
     public PatrolEnemy(BaseEnemy baseEnemy)
     {
         m_baseEnemy = baseEnemy;
-        m_currentTarget = m_baseEnemy.PointA;
+        m_transformPoints = m_baseEnemy.transformPoints;
         m_enemyTransform = m_baseEnemy.m_transform;
+        m_currentTarget = m_baseEnemy.transformPoints[0];
     }
 
     public void Move(Vector2 direction)
@@ -22,6 +22,7 @@ public class PatrolEnemy : IMovement
         if (m_baseEnemy.m_groundChecker.IsPathBlocked(direction))
         {
             SwitchTarget();
+            Debug.Log("Blocked");
         }
         if (m_baseEnemy == null || m_baseEnemy.Rigidbody2D == null || m_currentTarget == null)
         {
@@ -35,7 +36,7 @@ public class PatrolEnemy : IMovement
 
     public void Stop()
     {
-        m_isMoving = false;
+        m_baseEnemy.Rigidbody2D.linearVelocity = Vector2.zero;
     }
 
     private Vector2 UpdateDirection()
@@ -56,15 +57,25 @@ public class PatrolEnemy : IMovement
 
     private void SwitchTarget()
     {
-        if (m_currentTarget == m_baseEnemy.PointA)
+        if (m_transformPoints == null || m_transformPoints.Length == 0)
         {
-            m_currentTarget = m_baseEnemy.PointB;
+            Debug.LogWarning("Patrol points null");
+            return;
         }
-        else
+
+        m_indexPoint++;
+
+        if(m_transformPoints.Length <= m_indexPoint)
         {
-            m_currentTarget = m_baseEnemy.PointA;
+            m_indexPoint = 0;
         }
-        Flip();
+
+        m_currentTarget = m_transformPoints[m_indexPoint];
+
+        if ((m_enemyTransform.localScale.x * UpdateDirection().x) > 0)
+        {
+            Flip(); 
+        }
         UpdateDirection();
     }
 

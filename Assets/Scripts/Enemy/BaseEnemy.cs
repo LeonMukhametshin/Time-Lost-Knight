@@ -6,11 +6,11 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField] private LayerMask m_playerLayer;
     [SerializeField] private float m_currentCooldown;
 
-    [SerializeField] private Transform m_transformPointA;
-    [SerializeField] private Transform m_transformPointB;
+    [SerializeField] private Transform[] m_transformPoints;
     [SerializeField] private Rigidbody2D m_rigidbody2D;
     [SerializeField] private Transform m_groundCheckPoint;
     [SerializeField] private EnemyData m_enemyData;
+    [SerializeField] private GroundCheckData m_groundCheckData;
 
     public HealthSystem m_healt { get; private set; }
     public IMovement m_movement { get; private set; }
@@ -18,11 +18,9 @@ public class BaseEnemy : MonoBehaviour
     public GroundCheck m_groundChecker { get; private set; }
     public Transform m_transform { get; private set; }
 
-    public Transform PointA => m_transformPointA;
-    public Transform PointB => m_transformPointB;
     public Rigidbody2D Rigidbody2D => m_rigidbody2D;
-    public Transform GroundCheckPoint => m_groundCheckPoint;
     public EnemyData enemyData => m_enemyData;
+    public Transform[] transformPoints => m_transformPoints;
 
     private void Awake()
     {
@@ -49,7 +47,7 @@ public class BaseEnemy : MonoBehaviour
     private void InitializeComponent()
     {
         m_transform = transform;
-        m_groundChecker = new GroundCheck(this);
+        m_groundChecker = new GroundCheck(m_groundCheckData, m_transform, m_groundCheckPoint);
         m_movement = new PatrolEnemy(this);
         m_healt = new HealthSystem(m_enemyData.m_maxHealt, m_enemyData.m_initialHealth);
         m_currentCooldown = m_enemyData.m_attackCooldown;
@@ -81,13 +79,6 @@ public class BaseEnemy : MonoBehaviour
         return hit.collider != null;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(m_boxCollider.bounds.center + transform.right * m_enemyData.m_attackRange * transform.localScale.x * m_enemyData.m_colliderDistanceMultiplier,
-            new Vector3(m_boxCollider.bounds.size.x * m_enemyData.m_attackRange, m_boxCollider.bounds.size.y, m_boxCollider.bounds.size.z));
-    }
-
     private void Attack()
     {
         m_currentCooldown = m_enemyData.m_attackCooldown;
@@ -97,5 +88,12 @@ public class BaseEnemy : MonoBehaviour
     private void Death()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(m_boxCollider.bounds.center + transform.right * m_enemyData.m_attackRange * transform.localScale.x * m_enemyData.m_colliderDistanceMultiplier,
+            new Vector3(m_boxCollider.bounds.size.x * m_enemyData.m_attackRange, m_boxCollider.bounds.size.y, m_boxCollider.bounds.size.z));
     }
 }
