@@ -61,7 +61,7 @@ public class GameEntryPoint
         yield return LoadScene(SceneNames.BOOT);
         yield return LoadScene(SceneNames.GAMEPLAY);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
 
         var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
         sceneEntryPoint.Run(m_uiRoot);
@@ -81,7 +81,7 @@ public class GameEntryPoint
         yield return LoadScene(SceneNames.BOOT);
         yield return LoadScene(SceneNames.MAIN_MENU);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
 
         var sceneEntryPoint = Object.FindFirstObjectByType<MainMenuEntryPoint>();
         sceneEntryPoint.Run(m_uiRoot);

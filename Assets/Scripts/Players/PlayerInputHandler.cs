@@ -2,11 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterInputController : MonoBehaviour
+public class PlayerInputHandler : MonoBehaviour
 {
-    public event Action Jump;
-    public event Action Dash;
-    public event Action<Vector3> Move;
+    public event Action jump;
+    public event Action dash;
+    public event Action<Vector3> move;
 
     private GameInput m_gameInput;
 
@@ -26,6 +26,8 @@ public class CharacterInputController : MonoBehaviour
     {
         m_gameInput.Player.Jump.performed -= OnJumpPerformed;
         m_gameInput.Player.Dash.performed -= OnDashPerformed;
+
+        m_gameInput.Disable();
     }
 
     private void Update()
@@ -33,15 +35,15 @@ public class CharacterInputController : MonoBehaviour
         ReadHorizontalMove();
     }
 
-    private void OnJumpPerformed(InputAction.CallbackContext context) => Jump?.Invoke();
+    private void OnJumpPerformed(InputAction.CallbackContext context) => jump?.Invoke();
 
-    private void OnDashPerformed(InputAction.CallbackContext context) => Dash?.Invoke();
+    private void OnDashPerformed(InputAction.CallbackContext context) => dash?.Invoke();
 
     private void ReadHorizontalMove()
     {
         var inputDirection = m_gameInput.Player.Move.ReadValue<Vector2>();
         var direction = new Vector3(inputDirection.x, 0f, 0f);
 
-        Move?.Invoke(direction);
+        move?.Invoke(direction);
     }
 }

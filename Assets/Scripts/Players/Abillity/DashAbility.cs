@@ -31,14 +31,14 @@ public class DashAbility : IPlayerAbility
 
     public void DoDash()
     {
-        m_playerMovement.LastPressedDashTime = m_playerMovement.Data.DashInputBufferTime;
+        m_playerMovement.lastPressedDashTime = m_playerMovement.data.DashInputBufferTime;
     }
 
     public void Update()
     {
         if (!isActive) return;
 
-        if (m_playerMovement.LastPressedDashTime > 0)
+        if (m_playerMovement.lastPressedDashTime > 0)
             TryDash();
     }
 
@@ -52,14 +52,14 @@ public class DashAbility : IPlayerAbility
     {
         StartState();
 
-        Vector2 dir = m_playerMovement.MoveInput != Vector2.zero
-            ? m_playerMovement.MoveInput.normalized
-            : (m_playerMovement.IsFacingRight ? Vector2.right : Vector2.left);
+        Vector2 dir = m_playerMovement.moveInput != Vector2.zero
+            ? m_playerMovement.moveInput.normalized
+            : (m_playerMovement.isFacingRight ? Vector2.right : Vector2.left);
 
         float start = Time.time;
-        while (Time.time - start < m_playerMovement.Data.DashAttackTime)
+        while (Time.time - start < m_playerMovement.data.DashAttackTime)
         {
-            m_playerMovement.m_rigidbody.linearVelocity = dir * m_playerMovement.Data.DashSpeed;
+            m_playerMovement.rigidbody.linearVelocity = dir * m_playerMovement.data.DashSpeed;
             yield return null;
         }
 
@@ -68,20 +68,20 @@ public class DashAbility : IPlayerAbility
 
     private void StartState()
     {
-        m_playerMovement.LastPressedDashTime = 0;
-        m_playerMovement.DashesLeft--;
-        m_playerMovement.IsDashing = true;
-        m_playerMovement.IsDashAttacking = true;
+        m_playerMovement.lastPressedDashTime = 0;
+        m_playerMovement.dashesLeft--;
+        m_playerMovement.isDashing = true;
+        m_playerMovement.isDashAttacking = true;
     }
 
     private void EndState()
     {
-        m_playerMovement.IsDashAttacking = false;
-        m_playerMovement.IsDashing = false;
+        m_playerMovement.isDashAttacking = false;
+        m_playerMovement.isDashing = false;
     }
 
     private bool CanDash() =>
-        m_playerMovement.LastPressedDashTime > 0 &&
-        m_playerMovement.DashesLeft > 0 &&
-        !m_playerMovement.IsDashing;
+        m_playerMovement.lastPressedDashTime > 0 &&
+        m_playerMovement.dashesLeft > 0 &&
+        !m_playerMovement.isDashing;
 }

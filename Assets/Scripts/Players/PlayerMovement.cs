@@ -1,35 +1,33 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_TextMeshProUGUI;
-
-    [Header("Data")]
-    public PlayerData Data;
-
-    [Header("Runtime State")]
-    public Rigidbody2D m_rigidbody { get; private set; }
-
-    [SerializeField] private CharacterInputController m_input;
-    public Vector2 MoveInput { get; set; }
-
-    public bool IsFacingRight { get; private set; } = true;
-    public bool IsJumping { get; set; }
-    public bool IsDashing { get; set; }
-    public bool IsDashAttacking { get; set; }
-
-    public int DashesLeft { get; set; }
-
-    public float LastOnGroundTime { get; set; }
-    public float LastPressedJumpTime { get; set; }
-    public float LastPressedDashTime { get; set; }
-
     [SerializeField] private CoroutineRunner m_runner;
 
     [SerializeField] private CharacterInputObserver m_observer;
     [SerializeField] private BoxCollider2D m_collider;
+
+    [Header("Data")]
+    [field: SerializeField] public PlayerData data { get; private set; }
+
+    [Header("Runtime State")]
+    [field: SerializeField] public Rigidbody2D rigidbody { get; private set; }
+
+    [SerializeField] private PlayerInputHandler m_input;
+    public Vector2 moveInput { get; set; }
+
+    public bool isJumping { get; set; }
+    public bool isDashing { get; set; }
+    public bool isDashAttacking { get; set; }
+    public bool isFacingRight { get; private set; } = true;
+
+    public int dashesLeft { get; set; }
+
+    public float lastOnGroundTime { get; set; }
+    public float lastPressedJumpTime { get; set; }
+    public float lastPressedDashTime { get; set; }
 
     private AbilitiesContainer m_abilitiesContainer;
 
@@ -37,9 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
 
-        DashesLeft = Data.MaxDashes;
+        dashesLeft = data.MaxDashes;
 
         m_abilitiesContainer = new AbilitiesContainer();
 
@@ -59,61 +57,17 @@ public class PlayerMovement : MonoBehaviour
         m_abilitiesContainer.RegisterAbility(jump, "Jump");
         m_abilitiesContainer.RegisterAbility(dash, "Dash");
 
-        m_rigidbody.gravityScale = Data.GravityScale;
-        m_originalGravityScale = m_rigidbody.gravityScale;
+        rigidbody.gravityScale = data.GravityScale;
+        m_originalGravityScale = rigidbody.gravityScale;
 
-        m_rigidbody.sharedMaterial = Data.BaseMaterial;
+        rigidbody.sharedMaterial = data.BaseMaterial;
     }
 
     private void Update()
     {
         UpdateTimers();
-
         m_abilitiesContainer.UpdateAllAbilities();
-
-        m_TextMeshProUGUI.text = m_rigidbody.linearVelocity.ToString();
-
-        if (Keyboard.current.qKey.wasPressedThisFrame)
-        {
-            m_abilitiesContainer.ActivateAbility("Dash");
-            Debug.Log("Dash activated");
-        }
-
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            m_abilitiesContainer.DeactivateAbility("Dash");
-            Debug.Log("Dash deactivated");
-        }
-
         UpdateGravityScale();
-    }
-
-    private void UpdateGravityScale()
-    {
-        if (IsGrounded())
-        {
-            m_rigidbody.gravityScale = m_originalGravityScale;
-            return;
-        }
-
-        if (m_rigidbody.linearVelocityY < 0)
-        {
-            m_rigidbody.gravityScale = m_originalGravityScale * Data.FallGravityMultiplier;
-        }
-        else
-        {
-            m_rigidbody.gravityScale = m_originalGravityScale;
-        }
-    }
-
-    private void ClampFallSpeed()
-    {
-        if (m_rigidbody.linearVelocityY < Data.MaxFallSpeed)
-        {
-            Vector2 velocity = m_rigidbody.linearVelocity;
-            velocity.y = Data.MaxFallSpeed;
-            m_rigidbody.linearVelocity = velocity;
-        }
     }
 
     private void FixedUpdate()
@@ -122,22 +76,50 @@ public class PlayerMovement : MonoBehaviour
         CheckGrounded();
     }
 
+    private void UpdateGravityScale()
+    {
+        if (IsGrounded())
+        {
+            rigidbody.gravityScale = m_originalGravityScale;
+            return;
+        }
+
+        if (rigidbody.linearVelocityY < 0)
+        {
+            rigidbody.gravityScale = m_originalGravityScale * data.FallGravityMultiplier;
+        }
+        else
+        {
+            rigidbody.gravityScale = m_originalGravityScale;
+        }
+    }
+
+    private void ClampFallSpeed()
+    {
+        if (rigidbody.linearVelocityY < data.MaxFallSpeed)
+        {
+            Vector2 velocity = rigidbody.linearVelocity;
+            velocity.y = data.MaxFallSpeed;
+            rigidbody.linearVelocity = velocity;
+        }
+    }
+
     private void UpdateTimers()
     {
-        LastOnGroundTime -= Time.deltaTime;
-        LastPressedJumpTime -= Time.deltaTime;
-        LastPressedDashTime -= Time.deltaTime;
+        lastOnGroundTime -= Time.deltaTime;
+        lastPressedJumpTime -= Time.deltaTime;
+        lastPressedDashTime -= Time.deltaTime;
     }
 
     private void CheckGrounded()
     {
         if (IsGrounded())
         {
-            LastOnGroundTime = Data.CoyoteTime;
-            IsJumping = false;
-            DashesLeft = Data.MaxDashes;
+            lastOnGroundTime = data.CoyoteTime;
+            isJumping = false;
+            dashesLeft = data.MaxDashes;
 
-            m_rigidbody.sharedMaterial = Data.BaseMaterial;
+            rigidbody.sharedMaterial = data.BaseMaterial;
         }
     }
 
@@ -157,8 +139,8 @@ public class PlayerMovement : MonoBehaviour
             boxSize,
             0f,
             Vector2.down,
-            Data.GroundCheckDistance,
-            Data.GroundLayer
+            data.GroundCheckDistance,
+            data.GroundLayer
         );
     }
 
@@ -166,11 +148,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (xInput == 0) return;
 
-        if (xInput > 0 && !IsFacingRight)
+        if (xInput > 0 && !isFacingRight)
         {
             FlipInternal();
         }
-        else if (xInput < 0 && IsFacingRight)
+        else if (xInput < 0 && isFacingRight)
         {
             FlipInternal();
         }
@@ -178,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipInternal()
     {
-        IsFacingRight = !IsFacingRight;
+        isFacingRight = !isFacingRight;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;

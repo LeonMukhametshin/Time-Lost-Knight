@@ -28,16 +28,16 @@ public class JumpAbility : IPlayerAbility
 
     public void DoJump()
     {
-        m_playerMovement.LastPressedJumpTime = m_playerMovement.Data.JumpInputBufferTime;
+        m_playerMovement.lastPressedJumpTime = m_playerMovement.data.JumpInputBufferTime;
     }
 
     public void Update()
     {
         if (!isActive) return;
 
-        if (m_playerMovement.LastPressedJumpTime > 0 &&
-        m_playerMovement.LastOnGroundTime > 0 &&
-        !m_playerMovement.IsJumping)
+        if (m_playerMovement.lastPressedJumpTime > 0 &&
+        m_playerMovement.lastOnGroundTime > 0 &&
+        !m_playerMovement.isJumping)
         {
             TryJump();
         }
@@ -48,24 +48,24 @@ public class JumpAbility : IPlayerAbility
         StartState();
 
         float force = CalculateJumpForce();
-        m_playerMovement.m_rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        m_playerMovement.rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 
     private void StartState()
     {
-        m_playerMovement.IsJumping = true;
-        m_playerMovement.LastPressedJumpTime = 0;
-        m_playerMovement.LastOnGroundTime = 0;
+        m_playerMovement.isJumping = true;
+        m_playerMovement.lastPressedJumpTime = 0;
+        m_playerMovement.lastOnGroundTime = 0;
 
-        m_playerMovement.m_rigidbody.sharedMaterial = m_playerMovement.Data.JumpMaterial;
+        m_playerMovement.rigidbody.sharedMaterial = m_playerMovement.data.JumpMaterial;
     }
 
     private float CalculateJumpForce()
     {
-        float jumpForce = m_playerMovement.Data.JumpForce;
-        if (m_playerMovement.m_rigidbody.linearVelocityY < 0)
+        float jumpForce = m_playerMovement.data.JumpForce;
+        if (m_playerMovement.rigidbody.linearVelocityY < 0)
         {
-            jumpForce -= m_playerMovement.m_rigidbody.linearVelocityY;
+            jumpForce -= m_playerMovement.rigidbody.linearVelocityY;
         }
         return jumpForce;
     }

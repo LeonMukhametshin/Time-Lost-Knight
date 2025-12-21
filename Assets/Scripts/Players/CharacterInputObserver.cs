@@ -5,9 +5,9 @@ public class CharacterInputObserver
     private JumpAbility m_jump;
     private DashAbility m_dash;
 
-    private CharacterInputController m_input;
+    private PlayerInputHandler m_input;
 
-    public CharacterInputObserver(WalkAbility walk, JumpAbility jump, DashAbility dash, CharacterInputController input)
+    public CharacterInputObserver(WalkAbility walk, JumpAbility jump, DashAbility dash, PlayerInputHandler input)
     {
         m_walk = walk;
         m_jump = jump;
@@ -17,15 +17,15 @@ public class CharacterInputObserver
 
     public void Subscribe()
     {
-        m_input.Move += m_walk.DoWalk;
-        m_input.Jump += m_jump.DoJump;
-        m_input.Dash += m_dash.DoDash;
+        m_input.move += m_walk.DoWalk;
+        m_input.jump += m_jump.DoJump;
+        m_input.dash += m_dash.DoDash;
     }
 
     public void Dispose()
     {
-        m_input.Move -= m_walk.DoWalk;
-        m_input.Jump -= m_jump.DoJump;
-        m_input.Dash -= m_dash.DoDash;
+        m_input.move -= m_walk.DoWalk;
+        m_input.jump -= m_jump.DoJump;
+        m_input.dash -= m_dash.DoDash;
     }
 }
