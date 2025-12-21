@@ -9,13 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d28556bdfe781b848aed1abc30e2f801, type: 3}
+  m_Script: {fileID: 11500000, guid: b525dced2794bbb4e9624a4dabb7cd4c, type: 3}
   m_Name: PlayerData
-  m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 4
-  <JumpForce>k__BackingField: 1.3
-  <CheckDistance>k__BackingField: 0.5
-  <GroundLayer>k__BackingField:
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  m_groundLayer:
     serializedVersion: 2
-    m_Bits: 0
-  <JumpMaterial>k__BackingField: {fileID: 6200000, guid: 4e51aabbfedfc224d894261325217625, type: 2}
+    m_Bits: 64
+  m_groundCheckDistance: 0.1
+  m_coyoteTime: 0.098
+  m_jumpForce: 30
+  m_jumpInputBufferTime: 0.15
+  m_runMaxSpeed: 20
+  m_runAcceleration: 10
+  m_runDeceleration: 15
+  m_airAccelMultiplier: 0.15
+  m_maxDashes: 5
+  m_dashSpeed: 40
+  m_dashAttackTime: 0.1
+  m_dashInputBufferTime: 0.2
+  m_gravityScale: 12
+  m_fallGravityMultiplier: 1
+  m_maxFallSpeed: -300
+  m_baseMaterial: {fileID: 6200000, guid: 459c30e000b2eac4daaf67f06bfa9e23, type: 2}
+  m_jumpMaterial: {fileID: 6200000, guid: 4e51aabbfedfc224d894261325217625, type: 2}
