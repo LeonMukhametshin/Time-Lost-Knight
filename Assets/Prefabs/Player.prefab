@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7238384959299746804}
   - component: {fileID: 7765821462581784801}
   - component: {fileID: 3605567124224077610}
+  - component: {fileID: 5627120081977407634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -121,12 +122,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576b8d417ea488e4f9c8f6dc9ef6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  m_TextMeshProUGUI: {fileID: 0}
   m_runner: {fileID: 0}
   m_collider: {fileID: 7765821462581784801}
   <data>k__BackingField: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
   <rigidbody>k__BackingField: {fileID: 7238384959299746804}
   m_input: {fileID: 0}
+--- !u!114 &5627120081977407634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574771574926154976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bead76fbf2e38b429b6f79e3f3581ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &3940098401418421519
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +325,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -331,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54773b19e2ca1a042962d24fd7cde2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectableTrigger
+  m_pickupRadius: 2
 --- !u!1 &8342836085350166301
 GameObject:
   m_ObjectHideFlags: 0

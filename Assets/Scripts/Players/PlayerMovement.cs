@@ -1,9 +1,7 @@
-using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private CoroutineRunner m_runner;
 
     [SerializeField] private CharacterInputObserver m_observer;

@@ -3097,23 +3097,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &944793911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1574771574926154976, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
-  m_PrefabInstance: {fileID: 3515800951197290836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &944793915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944793911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bead76fbf2e38b429b6f79e3f3581ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &1119128316
 GameObject:
   m_ObjectHideFlags: 0
@@ -7538,21 +7521,10 @@ PrefabInstance:
       propertyPath: m_runner
       value: 
       objectReference: {fileID: 1716748561}
-    - target: {fileID: 3605567124224077610, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
-      propertyPath: m_TextMeshProUGUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5728013900691578324, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1574771574926154976, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 944793915}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
 --- !u!1001 &4821252909905337020
 PrefabInstance:
