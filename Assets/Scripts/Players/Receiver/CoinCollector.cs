@@ -3,12 +3,13 @@ using UnityEngine;
 public class CoinCollector : MonoBehaviour
 {
     [SerializeField] private float m_pickupRadius = 2f;
+    [SerializeField] private Player m_player;
 
     private Wallet m_wallet;
 
     private void Start()
     {
-       m_wallet = Player.instance.context.wallet;
+       m_wallet = m_player.context.wallet;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

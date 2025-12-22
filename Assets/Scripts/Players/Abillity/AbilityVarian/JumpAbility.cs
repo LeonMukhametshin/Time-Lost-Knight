@@ -2,18 +2,21 @@ using UnityEngine;
 
 public class JumpAbility : IPlayerAbility
 {
-    private readonly PlayerMovement m_playerMovement;
-
-    public bool isActive => m_isActive;
-    public bool canExecute => true;
-    public bool isEnabledByDefault => true;
     public string key => "Jump";
+    public bool isActive => m_isActive;
+    public bool isEnabledByDefault => true;
 
     private bool m_isActive = true;
 
-    public JumpAbility(PlayerMovement playerMovement)
+    private readonly PlayerMovementController m_movement;
+    private readonly PlayerData m_data;
+
+    public JumpAbility(
+        PlayerMovementController movement,
+        PlayerData data)
     {
-        this.m_playerMovement = playerMovement;
+        m_movement = movement;
+        m_data = data;
     }
 
     public void Activate()
@@ -28,16 +31,16 @@ public class JumpAbility : IPlayerAbility
 
     public void DoJump()
     {
-        m_playerMovement.lastPressedJumpTime = m_playerMovement.data.JumpInputBufferTime;
+        m_movement.state.lastPressedJumpTime = m_data.jumpInputBufferTime;
     }
 
     public void Update()
     {
-        if (!isActive) return;
+        if (!m_isActive) return;
 
-        if (m_playerMovement.lastPressedJumpTime > 0 &&
-        m_playerMovement.lastOnGroundTime > 0 &&
-        !m_playerMovement.isJumping)
+        if (m_movement.state.lastPressedJumpTime > 0 &&
+            m_movement.state.lastOnGroundTime > 0 &&
+            !m_movement.state.isJumping)
         {
             TryJump();
         }
@@ -48,25 +51,29 @@ public class JumpAbility : IPlayerAbility
         StartState();
 
         float force = CalculateJumpForce();
-        m_playerMovement.rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        m_movement.rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 
     private void StartState()
     {
-        m_playerMovement.isJumping = true;
-        m_playerMovement.lastPressedJumpTime = 0;
-        m_playerMovement.lastOnGroundTime = 0;
+        var state = m_movement.state;
 
-        m_playerMovement.rigidbody.sharedMaterial = m_playerMovement.data.JumpMaterial;
+        state.isJumping = true;
+        state.lastPressedJumpTime = 0;
+        state.lastOnGroundTime = 0;
+
+        m_movement.rigidbody.sharedMaterial = m_data.JumpMaterial;
     }
 
     private float CalculateJumpForce()
     {
-        float jumpForce = m_playerMovement.data.JumpForce;
-        if (m_playerMovement.rigidbody.linearVelocityY < 0)
+        float jumpForce = m_data.JumpForce;
+
+        if (m_movement.rigidbody.linearVelocity.y < 0)
         {
-            jumpForce -= m_playerMovement.rigidbody.linearVelocityY;
+            jumpForce -= m_movement.rigidbody.linearVelocity.y;
         }
+
         return jumpForce;
     }
 }

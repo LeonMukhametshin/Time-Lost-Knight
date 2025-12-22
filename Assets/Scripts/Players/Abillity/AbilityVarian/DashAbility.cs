@@ -3,20 +3,26 @@ using UnityEngine;
 
 public class DashAbility : IPlayerAbility
 {
-    private readonly PlayerMovement m_playerMovement;
-    private readonly CoroutineRunner runner;
-
-    public bool isActive => m_isActive;
-    public bool canExecute => true;
-    public bool isEnabledByDefault => false;
     public string key => "Dash";
+    public bool isActive => m_isActive;
+    public bool isEnabledByDefault => true;
 
-    private bool m_isActive = false;
+    private bool m_isActive;
 
-    public DashAbility(PlayerMovement movement, CoroutineRunner runner)
+    private readonly PlayerMovementController m_movement;
+    private readonly PlayerData m_data;
+    private readonly CoroutineRunner m_runner;
+
+    private Vector2 m_moveInput;
+
+    public DashAbility(
+        PlayerMovementController movement,
+        CoroutineRunner runner,
+        PlayerData data)
     {
-        m_playerMovement = movement;
-        this.runner = runner;
+        m_movement = movement;
+        m_runner = runner;
+        m_data = data;
     }
 
     public void Activate()
@@ -31,35 +37,44 @@ public class DashAbility : IPlayerAbility
 
     public void DoDash()
     {
-        m_playerMovement.lastPressedDashTime = m_playerMovement.data.DashInputBufferTime;
+        m_movement.state.LastPressedDashTime = m_data.DashInputBufferTime;
+    }
+
+    public void SetMoveInput(Vector2 input)
+    {
+        m_moveInput = input;
     }
 
     public void Update()
     {
-        if (!isActive) return;
+        if (!m_isActive) return;
 
-        if (m_playerMovement.lastPressedDashTime > 0)
+        if (m_movement.state.LastPressedDashTime > 0)
+        {
             TryDash();
+        }
     }
 
     private void TryDash()
     {
         if (!CanDash()) return;
-        runner.Run(DashRoutine());
+
+        m_runner.Run(DashRoutine());
     }
 
     private IEnumerator DashRoutine()
     {
         StartState();
 
-        Vector2 dir = m_playerMovement.moveInput != Vector2.zero
-            ? m_playerMovement.moveInput.normalized
-            : (m_playerMovement.isFacingRight ? Vector2.right : Vector2.left);
+        Vector2 dir = m_moveInput != Vector2.zero
+            ? m_moveInput.normalized
+            : (m_movement.state.IsFacingRight ? Vector2.right : Vector2.left);
 
-        float start = Time.time;
-        while (Time.time - start < m_playerMovement.data.DashAttackTime)
+        float startTime = Time.time;
+
+        while (Time.time - startTime < m_data.DashAttackTime)
         {
-            m_playerMovement.rigidbody.linearVelocity = dir * m_playerMovement.data.DashSpeed;
+            m_movement.rigidbody.linearVelocity = dir * m_data.DashSpeed;
             yield return null;
         }
 
@@ -68,20 +83,25 @@ public class DashAbility : IPlayerAbility
 
     private void StartState()
     {
-        m_playerMovement.lastPressedDashTime = 0;
-        m_playerMovement.dashesLeft--;
-        m_playerMovement.isDashing = true;
-        m_playerMovement.isDashAttacking = true;
+        var state = m_movement.state;
+
+        state.LastPressedDashTime = 0;
+        state.DashesLeft--;
+        state.IsDashing = true;
     }
 
     private void EndState()
     {
-        m_playerMovement.isDashAttacking = false;
-        m_playerMovement.isDashing = false;
+        var state = m_movement.state;
+        state.IsDashing = false;
     }
 
-    private bool CanDash() =>
-        m_playerMovement.lastPressedDashTime > 0 &&
-        m_playerMovement.dashesLeft > 0 &&
-        !m_playerMovement.isDashing;
+    private bool CanDash()
+    {
+        var state = m_movement.state;
+
+        return state.LastPressedDashTime > 0 &&
+               state.DashesLeft > 0 &&
+               !state.IsDashing;
+    }
 }

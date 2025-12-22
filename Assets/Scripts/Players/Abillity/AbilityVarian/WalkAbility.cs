@@ -2,18 +2,23 @@ using UnityEngine;
 
 public class WalkAbility : IPlayerAbility
 {
-    private readonly PlayerMovement m_playerMovement;
-
-    public bool isActive => m_isActive;
-    public bool canExecute => true;
-    public bool isEnabledByDefault => true;
     public string key => "Walk";
+    public bool isActive => m_isActive;
+    public bool isEnabledByDefault => true;
 
     private bool m_isActive = true;
 
-    public WalkAbility(PlayerMovement playerMovement)
+    private readonly PlayerMovementController m_movement;
+    private readonly PlayerData m_data;
+
+    private Vector2 m_moveInput;
+
+    public WalkAbility(
+        PlayerMovementController movement,
+        PlayerData data)
     {
-        this.m_playerMovement = playerMovement;
+        m_movement = movement;
+        m_data = data;
     }
 
     public void Activate()
@@ -24,56 +29,50 @@ public class WalkAbility : IPlayerAbility
     public void Deactivate()
     {
         m_isActive = false;
+        m_moveInput = Vector2.zero;
     }
 
-    public void DoWalk(Vector3 input)
+    public void DoWalk(Vector2 input)
     {
-        if (!isActive || !canExecute) return;
+        if (!m_isActive) return;
 
-        m_playerMovement.moveInput = input;
-        m_playerMovement.Flip(input.x);
-        UpdateMove();
-    }
+        m_moveInput = input;
 
-    private void UpdateMove()
-    {
-        if (!isActive) return;
-        if (m_playerMovement.isDashing) return;
-
-        float velocityX = CalculateVelocity();
-
-        m_playerMovement.rigidbody.linearVelocity = 
-            new Vector2(velocityX, m_playerMovement.rigidbody.linearVelocityY);
-    }
-
-    private float CalculateVelocity()
-    {
-        float inputX = m_playerMovement.moveInput.x;
-        float targetSpeed = inputX * m_playerMovement.data.RunMaxSpeed;
-        float currentSpeed = m_playerMovement.rigidbody.linearVelocityX;
-
-        bool hasInput = Mathf.Abs(inputX) > 0.01f;
-
-        float accel = hasInput
-            ? m_playerMovement.data.RunAcceleration
-            : m_playerMovement.data.RunDeceleration;
-
-        if (m_playerMovement.lastOnGroundTime <= 0)
-        {
-            accel *= m_playerMovement.data.AirAccelMultiplier;
-        }
-
-        float speed = Mathf.MoveTowards(
-            currentSpeed,
-            targetSpeed,
-            accel * Time.fixedDeltaTime
-        );
-
-        return speed;
+        m_movement.UpdateFacing(input.x);
     }
 
     public void Update()
     {
-       
+        if (!m_isActive) return;
+        if (m_movement.state.IsDashing) return;
+
+        ApplyMovement();
+    }
+
+    private void ApplyMovement()
+    {
+        Rigidbody2D rb = m_movement.rigidbody;
+
+        float targetSpeed = m_moveInput.x * m_data.RunMaxSpeed;
+        float currentSpeed = rb.linearVelocity.x;
+
+        bool hasInput = Mathf.Abs(m_moveInput.x) > 0.01f;
+
+        float accel = hasInput
+            ? m_data.RunAcceleration
+            : m_data.RunDeceleration;
+
+        if (m_movement.state.lastOnGroundTime <= 0)
+        {
+            accel *= m_data.AirAccelMultiplier;
+        }
+
+        float newSpeed = Mathf.MoveTowards(
+            currentSpeed,
+            targetSpeed,
+            accel * Time.deltaTime
+        );
+
+        rb.linearVelocity = new Vector2(newSpeed, rb.linearVelocity.y);
     }
 }

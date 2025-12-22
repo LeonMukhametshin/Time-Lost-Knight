@@ -1,14 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player instance { get; private set; }
     public PlayerContext context { get; private set; }
+
+    private readonly List<IPlayerSystem> m_systems = new();
 
     private void Awake()
     {
         context = new PlayerContext();
-        if(instance == null) instance = this;
-        else Destroy(this.gameObject);
+    }
+
+    public void RegisterSystem(IPlayerSystem system)
+    {
+        m_systems.Add(system);
+        system.Initialize(context);
     }
 }

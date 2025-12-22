@@ -71,7 +71,7 @@ public class PlayerData : ScriptableObject
 
     #region Jump
     public float JumpForce => m_jumpForce;
-    public float JumpInputBufferTime => m_jumpInputBufferTime;
+    public float jumpInputBufferTime => m_jumpInputBufferTime;
     #endregion
 
     #region Movement

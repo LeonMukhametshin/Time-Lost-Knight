@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public class AbilitiesContainer : MonoBehaviour
+public class AbilitiesContainer 
 {
     private Dictionary<string, IPlayerAbility> abilities = new();
     private List<IPlayerAbility> activeAbilities = new();

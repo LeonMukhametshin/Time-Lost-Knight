@@ -1371,12 +1371,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504778360}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 892707922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &533518247 stripped
 Transform:
@@ -2745,6 +2745,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1547861729}
+  - {fileID: 504778363}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7461,6 +7462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUD
   m_walletView: {fileID: 1547861732}
+  m_plyaer: {fileID: 3515800951197290839}
 --- !u!1001 &3515800951197290836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7513,12 +7515,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3605567124224077610, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+    - target: {fileID: 3209735932370911774, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
       propertyPath: m_input
       value: 
       objectReference: {fileID: 1119128318}
-    - target: {fileID: 3605567124224077610, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
-      propertyPath: m_runner
+    - target: {fileID: 3209735932370911774, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+      propertyPath: m_coroutineRunner
       value: 
       objectReference: {fileID: 1716748561}
     m_RemovedComponents: []
@@ -7526,6 +7528,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+--- !u!114 &3515800951197290839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5627120081977407634, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+  m_PrefabInstance: {fileID: 3515800951197290836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bead76fbf2e38b429b6f79e3f3581ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1001 &4821252909905337020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7587,9 +7600,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 3515800951197290836}
-  - {fileID: 1773157694}
-  - {fileID: 272129245}
   - {fileID: 1158385017}
+  - {fileID: 1773157694}
   - {fileID: 892707922}
-  - {fileID: 504778363}
+  - {fileID: 3515800951197290836}
+  - {fileID: 272129245}
