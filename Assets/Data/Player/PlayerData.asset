@@ -23,7 +23,7 @@ MonoBehaviour:
   m_runAcceleration: 10
   m_runDeceleration: 15
   m_airAccelMultiplier: 0.15
-  m_maxDashes: 5
+  m_maxDashes: 1
   m_dashSpeed: 40
   m_dashAttackTime: 0.1
   m_dashInputBufferTime: 0.2

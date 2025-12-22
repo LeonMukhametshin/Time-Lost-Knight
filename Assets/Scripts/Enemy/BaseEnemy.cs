@@ -14,7 +14,6 @@ public class BaseEnemy : MonoBehaviour
 
     public HealthSystem m_healt { get; private set; }
     public IMovement m_movement { get; private set; }
-    public EnemyState m_currentState { get; private set; }
     public GroundCheck m_groundChecker { get; private set; }
     public Transform m_transform { get; private set; }
 

@@ -9,9 +9,7 @@ namespace Attacks
         [field: SerializeField, Range(0f, 1f)] public float critChance { get; private set; }
         [field: SerializeField, Range(0f, 2f)] public float critMultiplier { get; private set; }
 
-        public void Init(WeaponConfig weaponConfig)
-        {
-            this.weaponConfig = weaponConfig;
-        }
+        public void Initialize(WeaponConfig config) =>
+            weaponConfig = config;
     }
 }
