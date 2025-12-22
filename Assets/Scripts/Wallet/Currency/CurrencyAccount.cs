@@ -29,7 +29,7 @@ public class CurrencyAccount : ICurrency
     }
 
     public void Add(int amout) =>
-        m_amount += amout;
+        Amount += amout;
 
     public void Subtract(int amount) =>
         Amount -= amount;

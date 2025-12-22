@@ -1,31 +1,19 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Coin : MonoBehaviour, ICollectable
 {
-    [SerializeField] private CoinData m_data;
+    public int amout => m_data.amount;
+    public string type => CurrencyType.COIN;
 
-    public event Action сollected;
-    public event Action<int> сollectedValue;
+    [SerializeField] private CoinData m_data;
 
     private bool m_isCollected;
 
-    public bool TryCollect()
+    public void Collect()
     {
-        if(m_isCollected) return false;
-
+        if (m_isCollected) return;
         m_isCollected = true;
-        сollected?.Invoke();
-        сollectedValue?.Invoke(m_data.amount);
 
-        Collected();
-
-        return true;
-    }
-
-    private void Collected()
-    {
-        // TODO Animation 
         Destroy(gameObject);
     }
 }
