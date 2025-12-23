@@ -9,7 +9,5 @@ namespace Attack
         public SwordWithCritDamage(IWeapon weapon, CritConfig critConfig) : base(weapon, critConfig)
         {
         }
-
-
     }
 }

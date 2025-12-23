@@ -28,7 +28,7 @@ public class UIRootView : MonoBehaviour
         var childCount = m_uiSceneContainer.childCount;
         for (int i = 0; i < childCount; i++)
         {
-            Destroy(m_uiSceneContainer.GetChild(i));
+            Destroy(m_uiSceneContainer.GetChild(i).gameObject);
         }
     }
 }

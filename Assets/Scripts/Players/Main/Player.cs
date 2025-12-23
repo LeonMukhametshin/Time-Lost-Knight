@@ -10,6 +10,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         context = new PlayerContext();
+
+        InitializeCurrency();
+    }
+
+    private void InitializeCurrency()
+    {
+        context.wallet.AddAccount(new CurrencyAccount(0, CurrencyType.COIN));
     }
 
     public void RegisterSystem(IPlayerSystem system)

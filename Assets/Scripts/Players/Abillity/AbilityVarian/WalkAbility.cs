@@ -44,7 +44,7 @@ public class WalkAbility : IPlayerAbility
     public void Update()
     {
         if (!m_isActive) return;
-        if (m_movement.state.IsDashing) return;
+        if (m_movement.state.isDashing) return;
 
         ApplyMovement();
     }

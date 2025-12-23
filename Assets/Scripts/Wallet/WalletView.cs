@@ -10,7 +10,6 @@ public class WalletView : MonoBehaviour
     public void Initialize(Wallet wallet)
     {
         m_wallet = wallet;
-        m_wallet.AddAccount(new CurrencyAccount(0, CurrencyType.COIN));
         m_wallet.GetAccount(CurrencyType.COIN).changeCurrency += UpdateView;
         UpdateView(m_wallet.GetAccount(CurrencyType.COIN).Amount);
     }

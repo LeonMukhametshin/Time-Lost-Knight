@@ -1,38 +1,36 @@
-using UnityEngine;
-
 public class MovementState
 {
     public bool isJumping { get; set; }
-    public bool IsDashing { get; set; }
-    public bool IsFacingRight { get; set; } = true;
+    public bool isDashing { get; set; }
+    public bool isFacingRight { get; set; } = true;
 
-    public int DashesLeft { get; set; }
+    public int dashesLeft { get; set; }
 
     public float lastOnGroundTime { get; set; }
     public float lastPressedJumpTime { get; set; }
-    public float LastPressedDashTime { get; set; }
+    public float lastPressedDashTime { get; set; }
 
     public MovementState(int maxDashes)
     {
-        DashesLeft = maxDashes;
+        dashesLeft = maxDashes;
     }
 
     public void Tick(float deltaTime)
     {
         lastOnGroundTime -= deltaTime;
         lastPressedJumpTime -= deltaTime;
-        LastPressedDashTime -= deltaTime;
+        lastPressedDashTime -= deltaTime;
     }
 
     public void RefreshGrounded(float coyoteTime, int maxDashes)
     {
         lastOnGroundTime = coyoteTime;
         isJumping = false;
-        DashesLeft = maxDashes;
+        dashesLeft = maxDashes;
     }
 
     public void Flip()
     {
-        IsFacingRight = !IsFacingRight;
+        isFacingRight = !isFacingRight;
     }
 }
