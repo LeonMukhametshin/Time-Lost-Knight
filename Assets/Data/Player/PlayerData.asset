@@ -21,7 +21,7 @@ MonoBehaviour:
   m_jumpInputBufferTime: 0.15
   m_runMaxSpeed: 20
   m_runAcceleration: 10
-  m_runDeceleration: 15
+  m_runDeceleration: 33.6
   m_airAccelMultiplier: 0.15
   m_maxDashes: 1
   m_dashSpeed: 40
