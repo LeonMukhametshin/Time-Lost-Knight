@@ -101,3 +101,5 @@ InitTestScene*.unity*
 .vscode/extensions.json
 .vscode/launch.json
 .vscode/settings.json
+Assets/Resources/DOTweenSettings.asset
+ProjectSettings/EditorBuildSettings.asset
