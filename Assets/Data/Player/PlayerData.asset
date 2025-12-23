@@ -27,7 +27,7 @@ MonoBehaviour:
   m_dashSpeed: 40
   m_dashAttackTime: 0.1
   m_dashInputBufferTime: 0.2
-  m_gravityScale: 1
+  m_gravityScale: 7
   m_fallGravityMultiplier: 1
   m_maxFallSpeed: -300
   m_baseMaterial: {fileID: 6200000, guid: 459c30e000b2eac4daaf67f06bfa9e23, type: 2}
