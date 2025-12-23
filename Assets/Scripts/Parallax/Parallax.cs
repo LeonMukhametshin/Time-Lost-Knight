@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-
     [SerializeField] private bool m_isZParallax;
 
     [SerializeField] private Camera m_camera;
     [SerializeField] private Transform m_subject;
 
-    private Vector2 m_startPosition;
+    private Vector3 m_startPosition;
     private float m_startZ;
 
-    private Vector2 m_travel => (Vector2)m_camera.transform.position - m_startPosition;
+    private Vector3 m_travel => (Vector3)m_camera.transform.position - m_startPosition;
     private float m_distanceFromSubject => transform.position.z - m_subject.position.z;
     private float m_clippingPlane => 
         (m_camera.transform.position.z + (m_distanceFromSubject > 0 ? m_camera.farClipPlane : m_camera.nearClipPlane));
@@ -25,7 +24,7 @@ public class Parallax : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector2 newPosition = m_startPosition + m_travel * m_parallaxFactor;
+        Vector3 newPosition = m_startPosition + m_travel * m_parallaxFactor;
 
         if(m_isZParallax)
         {
@@ -33,7 +32,7 @@ public class Parallax : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(newPosition.x, newPosition.y, m_startZ + m_parallaxFactor);
+            transform.position = newPosition;
         }
     }
 }
