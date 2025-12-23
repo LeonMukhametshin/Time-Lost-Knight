@@ -6,7 +6,7 @@ public class CritDamageDecorator : WeaponDecorator
     protected CritConfig m_critConfig;
     protected IWeapon m_weapon;
 
-    private System.Random random = new();
+    private Random random = new();
 
     public CritDamageDecorator(IWeapon weapon, CritConfig critConfig) : base(weapon)
     {

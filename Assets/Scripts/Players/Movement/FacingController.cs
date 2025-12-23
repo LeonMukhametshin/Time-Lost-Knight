@@ -15,8 +15,8 @@ public class FacingController
     {
         if (xInput == 0) return;
 
-        if (xInput > 0 && !m_state.IsFacingRight ||
-            xInput < 0 && m_state.IsFacingRight)
+        if (xInput > 0 && !m_state.isFacingRight ||
+            xInput < 0 && m_state.isFacingRight)
         {
             Flip();
         }

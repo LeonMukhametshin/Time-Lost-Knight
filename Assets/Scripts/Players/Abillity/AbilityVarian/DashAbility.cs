@@ -37,7 +37,7 @@ public class DashAbility : IPlayerAbility
 
     public void DoDash()
     {
-        m_movement.state.LastPressedDashTime = m_data.DashInputBufferTime;
+        m_movement.state.lastPressedDashTime = m_data.DashInputBufferTime;
     }
 
     public void SetMoveInput(Vector2 input)
@@ -49,7 +49,7 @@ public class DashAbility : IPlayerAbility
     {
         if (!m_isActive) return;
 
-        if (m_movement.state.LastPressedDashTime > 0)
+        if (m_movement.state.lastPressedDashTime > 0)
         {
             TryDash();
         }
@@ -68,7 +68,7 @@ public class DashAbility : IPlayerAbility
 
         Vector2 dir = m_moveInput != Vector2.zero
             ? m_moveInput.normalized
-            : (m_movement.state.IsFacingRight ? Vector2.right : Vector2.left);
+            : (m_movement.state.isFacingRight ? Vector2.right : Vector2.left);
 
         float startTime = Time.time;
 
@@ -85,23 +85,23 @@ public class DashAbility : IPlayerAbility
     {
         var state = m_movement.state;
 
-        state.LastPressedDashTime = 0;
-        state.DashesLeft--;
-        state.IsDashing = true;
+        state.lastPressedDashTime = 0;
+        state.dashesLeft--;
+        state.isDashing = true;
     }
 
     private void EndState()
     {
         var state = m_movement.state;
-        state.IsDashing = false;
+        state.isDashing = false;
     }
 
     private bool CanDash()
     {
         var state = m_movement.state;
 
-        return state.LastPressedDashTime > 0 &&
-               state.DashesLeft > 0 &&
-               !state.IsDashing;
+        return state.lastPressedDashTime > 0 &&
+               state.dashesLeft > 0 &&
+               !state.isDashing;
     }
 }
