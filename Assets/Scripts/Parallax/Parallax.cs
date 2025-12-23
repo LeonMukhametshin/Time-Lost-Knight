@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
+
+    [SerializeField] private bool m_isZParallax;
+
     [SerializeField] private Camera m_camera;
     [SerializeField] private Transform m_subject;
 
@@ -23,6 +26,14 @@ public class Parallax : MonoBehaviour
     private void LateUpdate()
     {
         Vector2 newPosition = m_startPosition + m_travel * m_parallaxFactor;
-        transform.position = new Vector3(newPosition.x, newPosition.y, m_startZ);
+
+        if(m_isZParallax)
+        {
+            transform.position = new Vector3(newPosition.x, newPosition.y, m_startZ);
+        }
+        else
+        {
+            transform.position = new Vector3(newPosition.x, newPosition.y, m_startZ + m_parallaxFactor);
+        }
     }
 }
