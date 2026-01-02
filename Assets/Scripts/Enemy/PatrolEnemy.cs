@@ -1,94 +1,63 @@
 using UnityEngine;
 
-public class PatrolEnemy : IMovement
+public class PatrolEnemy : MonoBehaviour
 {
-    private BaseEnemy m_baseEnemy;
-    private Transform m_currentTarget;
-    private Transform m_enemyTransform;
-    private float m_reachedDistance = 0.5f;
-    private int m_indexPoint;
-    private Transform[] m_transformPoints;
+    [SerializeField] private Transform m_pointA;
+    [SerializeField] private Transform m_pointB;
+    [SerializeField] private Rigidbody2D m_rigidbody2D;
 
-    public PatrolEnemy(BaseEnemy baseEnemy)
-    {
-        m_baseEnemy = baseEnemy;
-        m_transformPoints = m_baseEnemy.transformPoints;
-        m_enemyTransform = m_baseEnemy.m_transform;
-        m_currentTarget = m_baseEnemy.transformPoints[0];
-    }
+    [SerializeField] private float m_speed;
 
-    public void Move(Vector2 direction)
+    private Transform m_currentPoint;
+
+    private void OnValidate()
     {
-        if (m_baseEnemy.m_groundChecker.IsPathBlocked(direction))
+        if (!m_rigidbody2D)
         {
-            SwitchTarget();
-            Debug.Log("Blocked");
+            m_rigidbody2D = GetComponent<Rigidbody2D>();
         }
-        if (m_baseEnemy == null || m_baseEnemy.Rigidbody2D == null || m_currentTarget == null)
+        if (!m_pointA || !m_pointB)
         {
-            return;
-        }
-
-        Vector2 velocity = direction * m_baseEnemy.enemyData.m_moveSpeed;
-
-        m_baseEnemy.Rigidbody2D.linearVelocity = new Vector2(velocity.x, m_baseEnemy.Rigidbody2D.linearVelocity.y);
-    }
-
-    public void Stop()
-    {
-        m_baseEnemy.Rigidbody2D.linearVelocity = Vector2.zero;
-    }
-
-    private Vector2 UpdateDirection()
-    {
-        Vector2 direction = (m_currentTarget.position - m_enemyTransform.position).normalized;
-        return direction;
-    }
-
-    private void CheckIfReachedTarget()
-    {
-        if (m_currentTarget == null) return;
-
-        if (Vector2.Distance(m_enemyTransform.position, m_currentTarget.position) <= m_reachedDistance)
-        { 
-            SwitchTarget();
+            Debug.Log("Point A or Point B is not assigned");
         }
     }
 
-    private void SwitchTarget()
+    private void Awake()
     {
-        if (m_transformPoints == null || m_transformPoints.Length == 0)
+        m_currentPoint = m_pointB;
+    }
+
+    private void Update()
+    {
+        var point = m_currentPoint.position - transform.position;
+
+        if (m_currentPoint.position == m_pointB.position)
         {
-            Debug.LogWarning("Patrol points null");
-            return;
+            m_rigidbody2D.linearVelocityX = m_speed;
+        }
+        else
+        {
+            m_rigidbody2D.linearVelocityX = -m_speed;
         }
 
-        m_indexPoint++;
-
-        if(m_transformPoints.Length <= m_indexPoint)
+        if (Vector2.Distance(transform.position, m_currentPoint.position) < 0.5f 
+            && m_currentPoint == m_pointB)
         {
-            m_indexPoint = 0;
+            Flip();
+            m_currentPoint = m_pointA;
         }
-
-        m_currentTarget = m_transformPoints[m_indexPoint];
-
-        if ((m_enemyTransform.localScale.x * UpdateDirection().x) > 0)
+        if (Vector2.Distance(transform.position, m_currentPoint.position) < 0.5f
+            && m_currentPoint == m_pointA)
         {
-            Flip(); 
+            Flip();
+            m_currentPoint = m_pointB;
         }
-        UpdateDirection();
     }
 
     private void Flip()
     {
-        Vector3 localScale = m_enemyTransform.localScale;
+        var localScale = transform.localScale;
         localScale.x *= -1;
-        m_enemyTransform.localScale = localScale;
-    }
-
-    public void Update() 
-    {
-        CheckIfReachedTarget();
-        Move(UpdateDirection());
+        transform.localScale = localScale;
     }
 }
