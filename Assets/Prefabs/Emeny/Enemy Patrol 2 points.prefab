@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1996194663363445832}
   m_Layer: 0
-  m_Name: EnemySystem
+  m_Name: Enemy Patrol 2 points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 1143056819201096457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.73, y: 0.56, z: 0.00494398}
+  m_LocalPosition: {x: -7.73, y: 1.1999999, z: 0.00494398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 3652465019025003833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.66, y: 0.49, z: 0.00494398}
+  m_LocalPosition: {x: 7.66, y: 1.13, z: 0.00494398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -216,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 6598678264703967229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 0.54, z: 0.00494398}
+  m_LocalPosition: {x: 1.04, y: 2.03, z: 0.00494398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

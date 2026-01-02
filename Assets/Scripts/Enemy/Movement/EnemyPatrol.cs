@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PatrolEnemy : MonoBehaviour
+public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField] private Transform m_pointA;
     [SerializeField] private Transform m_pointB;
@@ -29,8 +29,11 @@ public class PatrolEnemy : MonoBehaviour
 
     private void Update()
     {
-        var point = m_currentPoint.position - transform.position;
+        Move();
+    }
 
+    private void Move()
+    {
         if (m_currentPoint.position == m_pointB.position)
         {
             m_rigidbody2D.linearVelocityX = m_speed;
@@ -40,7 +43,7 @@ public class PatrolEnemy : MonoBehaviour
             m_rigidbody2D.linearVelocityX = -m_speed;
         }
 
-        if (Vector2.Distance(transform.position, m_currentPoint.position) < 0.5f 
+        if (Vector2.Distance(transform.position, m_currentPoint.position) < 0.5f
             && m_currentPoint == m_pointB)
         {
             Flip();
