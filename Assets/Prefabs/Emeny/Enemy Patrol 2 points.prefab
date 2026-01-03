@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 6740637207908475589}
   - component: {fileID: 3261787486155811892}
   - component: {fileID: 6648798863046687313}
-  - component: {fileID: 1753042094719866040}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -294,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyData: {fileID: 11400000, guid: cc758dbf942d2224c9c4a3039efcace2, type: 2}
+  m_wayPoints: []
 --- !u!61 &3261787486155811892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -367,19 +367,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1753042094719866040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6598678264703967229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 132182614a41c0042820e63c96546c3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PatrolEnemy
-  m_pointA: {fileID: 8567391353861069531}
-  m_pointB: {fileID: 1213355780734732004}
-  m_rigidbody2D: {fileID: 6648798863046687313}
-  m_speed: 5

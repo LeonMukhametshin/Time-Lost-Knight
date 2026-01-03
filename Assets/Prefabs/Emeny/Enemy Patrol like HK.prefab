@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 7903077297751752618}
   - component: {fileID: 209877152121368030}
   - component: {fileID: 7887865955257117024}
-  - component: {fileID: 2722565568131986255}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -275,23 +274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   m_enemyData: {fileID: 11400000, guid: cc758dbf942d2224c9c4a3039efcace2, type: 2}
---- !u!114 &2722565568131986255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8903635366934069867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d2dc9b750e811548ad634651bfdb2bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  m_moveSpeed: 5
-  m_points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_wayPoints: []

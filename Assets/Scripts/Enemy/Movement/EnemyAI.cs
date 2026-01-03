@@ -1,23 +1,26 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI 
 {
-    [SerializeField] private float m_moveSpeed;
-    [SerializeField] private Transform[] m_points;
+    private Transform m_transform;
+    private Transform[] m_points;
+    private float m_moveSpeed;
 
     private int m_nextWaypoint = 1;
     private float m_distanceToPoint;
-
-    private void Update()
+  
+    public EnemyAI(Transform transform, Transform[] points, float moveSpeed )
     {
-        Move();
+        m_transform = transform;
+        m_points = points;
+        m_moveSpeed = moveSpeed;
     }
 
-    private void Move()
+    public void Move()
     {
-        m_distanceToPoint = Vector2.Distance(transform.position, m_points[m_nextWaypoint].position);
+        m_distanceToPoint = Vector2.Distance(m_transform.position, m_points[m_nextWaypoint].position);
 
-        transform.position = Vector2.MoveTowards(transform.position, m_points[m_nextWaypoint].position,
+        m_transform.position = Vector2.MoveTowards(m_transform.position, m_points[m_nextWaypoint].position,
             m_moveSpeed * Time.deltaTime);
 
         if(m_distanceToPoint < 0.2f)
@@ -27,20 +30,42 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void TakeTurn()
-    {
-        Vector3 currentRotation = transform.eulerAngles;
-        currentRotation.z = m_points[m_nextWaypoint].eulerAngles.z;
-        Debug.Log(m_nextWaypoint + "    " + m_points[m_nextWaypoint].eulerAngles.z);
-        transform.eulerAngles = currentRotation;
-
+    { 
+        SetRotationFromWaypoint();
         ChooseNextWaypoint();
+        FaceNextWaypoint();
+    }
+
+    private void FaceNextWaypoint()
+    {
+        Vector3 toTarget = m_points[m_nextWaypoint].position - m_transform.position;
+
+        toTarget = m_transform.InverseTransformDirection(toTarget);
+
+        float scaleSign = Mathf.Sign(toTarget.x);
+
+        if (Mathf.Abs(toTarget.x) < 0.01f)
+        {
+            scaleSign = Mathf.Sign(m_transform.localScale.x);
+        }
+
+        Vector3 scale = m_transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * scaleSign;
+        m_transform.localScale = scale;
+    }
+
+    private void SetRotationFromWaypoint()
+    {
+        Vector3 currentRotation = m_transform.eulerAngles;
+        currentRotation.z = m_points[m_nextWaypoint].eulerAngles.z;
+        m_transform.eulerAngles = currentRotation;
     }
 
     private void ChooseNextWaypoint()
     {
         m_nextWaypoint++;
         
-        if(m_nextWaypoint >=  m_points.Length)
+        if(m_nextWaypoint >= m_points.Length)
         {
             m_nextWaypoint = 0;
         }

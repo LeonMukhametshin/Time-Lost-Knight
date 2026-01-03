@@ -2,31 +2,29 @@ using System;
 
 public class HealthSystem : IDamageable
 {
-    public int MaxHealth { get; }
-    public int CurrentHealth { get; private set; }
+    public int value { get; private set; }
 
     public event Action Death;
     public event Action<int> Damaged;
 
-    public HealthSystem(int maxHealth, int currentHealth)
+    public HealthSystem(int maxHealth)
     {
-        MaxHealth = maxHealth;
-        CurrentHealth = currentHealth;
+        value = maxHealth;
     }
 
     public void TakeDamage(int amount)
     {
-        if(amount <= 0 || CurrentHealth <= 0)
+        if(amount <= 0 || value <= 0)
         {
             return;
         }
 
-        CurrentHealth -= amount;
+        value -= amount;
         Damaged?.Invoke(amount);
 
-        if(CurrentHealth <= 0 )
+        if(value <= 0 )
         {
-            CurrentHealth = 0;
+            value = 0;
             Death?.Invoke();
         }
     }
