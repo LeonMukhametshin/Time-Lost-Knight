@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4481212862011613364}
   - component: {fileID: 1440411359368078918}
   - component: {fileID: 3209735932370911774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5809950591047934956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8849663427375928466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Attack point '
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -242,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1326886674799795024}
   - component: {fileID: 7092831151499711639}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 197238927
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 9196737952973420092}
   - component: {fileID: 5728013900691578324}
   - component: {fileID: 3417911240691465069}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collectable Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9140143020653705042}
   - component: {fileID: 6373726668274170166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 197238927
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.55761814, g: 0.23064259, b: 0.6886792, a: 1}
