@@ -20,14 +20,14 @@ MonoBehaviour:
   m_jumpForce: 30
   m_jumpInputBufferTime: 0.15
   m_runMaxSpeed: 20
-  m_runAcceleration: 10
-  m_runDeceleration: 33.6
+  m_runAcceleration: 40
+  m_runDeceleration: 55
   m_airAccelMultiplier: 0.15
   m_maxDashes: 1
   m_dashSpeed: 40
   m_dashAttackTime: 0.1
   m_dashInputBufferTime: 0.2
-  m_gravityScale: 7
+  m_gravityScale: 12
   m_fallGravityMultiplier: 1
   m_maxFallSpeed: -300
   m_baseMaterial: {fileID: 6200000, guid: 459c30e000b2eac4daaf67f06bfa9e23, type: 2}
