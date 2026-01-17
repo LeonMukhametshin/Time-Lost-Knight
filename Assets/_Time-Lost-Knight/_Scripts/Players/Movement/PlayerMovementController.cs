@@ -85,15 +85,11 @@ public class PlayerMovementController : MonoBehaviour, IControllable
             AbilityKey.Jump);
     }
 
-    private void Update()
-    {
+    private void Update() =>
         UpdateState();
-    }
 
-    private void FixedUpdate()
-    {
-        UpdateAbilityContex();
-    }
+    private void FixedUpdate() =>
+         UpdateAbilityContex();
 
     public void Move(Vector2 direction)
     {
@@ -136,22 +132,13 @@ public class PlayerMovementController : MonoBehaviour, IControllable
             .Do(m_abilityContext);
     }
 
-    private void Flip(float xDirection)
-    {
-        if (xDirection < 0)
-        {
-            transform.localScale = new Vector2(-1, transform.localScale.y);
-        }
-        else
-        {
-            transform.localScale = new Vector2(1, transform.localScale.y);
-        }
-    }
+    private void Flip(float xDirection) =>
+        transform.localScale = xDirection < 0
+            ? new Vector2(-1, transform.localScale.y)
+            : new Vector2(1, transform.localScale.y);
 
-    private void UpdateText(MovementStates state)
-    {
+    private void UpdateText(MovementStates state) =>
         m_textState.text = state.ToString();
-    }
 
     private void UpdateState()
     {

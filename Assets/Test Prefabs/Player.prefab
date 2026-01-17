@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4693504587764285441}
   - component: {fileID: 6426900264846686639}
   - component: {fileID: 690846646958711590}
-  - component: {fileID: 2606782481874444912}
   - component: {fileID: 5830636690886234885}
+  - component: {fileID: 4679144916373934245}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,18 +126,6 @@ MonoBehaviour:
   m_rigidbody2D: {fileID: 6426900264846686639}
   m_boxCollider2D: {fileID: 4693504587764285441}
   m_coroutineRunner: {fileID: 0}
---- !u!114 &2606782481874444912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4577326837089830690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e11030062ed19145a624e1cdc0edb42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerKeyboardInput
 --- !u!114 &5830636690886234885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +140,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   m_playerData: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
   m_movementController: {fileID: 690846646958711590}
+--- !u!114 &4679144916373934245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577326837089830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e11030062ed19145a624e1cdc0edb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyboardInput
 --- !u!1 &7841697187363177969
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 6653771612297025441}
   - component: {fileID: 4746622814344996938}
   - component: {fileID: 6944944241998528908}
+  - component: {fileID: 2227486967614921221}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -253,7 +254,7 @@ Animator:
   m_GameObject: {fileID: 7841697187363177969}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ab02ee0d26ce7544baa0a79f67f948c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -265,3 +266,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2227486967614921221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841697187363177969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61a7837fdc88a6428002e1c1c733011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  m_playerMovementController: {fileID: 690846646958711590}
+  m_animator: {fileID: 6944944241998528908}

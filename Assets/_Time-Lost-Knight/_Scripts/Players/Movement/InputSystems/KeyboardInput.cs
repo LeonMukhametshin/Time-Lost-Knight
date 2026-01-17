@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerKeyboardInput : MonoBehaviour
+public class KeyboardInput : MonoBehaviour
 {
     private IControllable m_controllable;
     private GameInput m_gameInput;
