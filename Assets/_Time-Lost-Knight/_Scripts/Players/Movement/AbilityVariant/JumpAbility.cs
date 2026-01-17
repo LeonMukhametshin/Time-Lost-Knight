@@ -3,6 +3,9 @@ using UnityEngine;
 public class JumpAbility : IPlayerAbility
 {
     public bool isEnabledByDefault => m_isEnabled;
+
+    public bool isActive => true;
+
     private bool m_isEnabled = true;
 
     private PlayerJumpData m_jumpData;
@@ -27,10 +30,6 @@ public class JumpAbility : IPlayerAbility
     public void Do(AbilityContext contex)
     {
         if(!m_isEnabled)
-        {
-            return;
-        }
-        if(!contex.grounded)
         {
             return;
         }

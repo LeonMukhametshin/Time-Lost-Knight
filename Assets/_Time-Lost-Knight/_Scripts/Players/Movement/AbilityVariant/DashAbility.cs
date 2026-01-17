@@ -1,17 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
 public class DashAbility : IPlayerAbility
 {
     public bool isEnabledByDefault => m_isEnabled;
-    private bool m_isEnabled = true;   
+    public bool isActive => m_isActive;
+
+    private bool m_isEnabled = true;
+    private bool m_isActive = false;
 
     private readonly PlayerDashData m_dashData;
     private Rigidbody2D m_rigidbody2D;
+    private CoroutineRunner m_coroutineRunner;
 
-    public DashAbility(PlayerDashData dashData, Rigidbody2D rigidbody2D)
+    private float m_gravityScale = 0f;
+
+    public DashAbility(PlayerDashData dashData, Rigidbody2D rigidbody2D, CoroutineRunner runner)
     {
         m_dashData = dashData;
         m_rigidbody2D = rigidbody2D;
+        m_coroutineRunner = runner;
+
+        m_gravityScale = rigidbody2D.gravityScale;
     }
 
     public void Activate() =>
@@ -27,12 +37,24 @@ public class DashAbility : IPlayerAbility
             return;
         }
 
-        PerformDash(contex.xScale);
+        m_coroutineRunner.StartCoroutine(DashRoutine(contex.xScale));
     }
 
-    private void PerformDash(int direction)
+    private IEnumerator DashRoutine(int x)
     {
-        Vector2 velosity = new Vector2(direction * m_dashData.dashSpeed, 0f);
-        m_rigidbody2D.linearVelocity = velosity;
+        m_isActive = true;
+        m_rigidbody2D.gravityScale = 0f;
+        float timer = 0f;
+
+        while(timer < m_dashData.dashAttackTime)
+        {
+            m_rigidbody2D.linearVelocity = new Vector2(x * m_dashData.dashSpeed, 0f);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        m_rigidbody2D.gravityScale = m_gravityScale;
+        m_isActive = false;
     }
 }

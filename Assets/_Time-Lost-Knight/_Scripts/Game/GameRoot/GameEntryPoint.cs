@@ -6,7 +6,7 @@ public class GameEntryPoint
 {
     private static GameEntryPoint m_instance;
 
-    private Coroutines m_coroutines;
+    private CoroutineRunner m_coroutines;
     private UIRootView m_uiRoot;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -20,7 +20,7 @@ public class GameEntryPoint
 
     private GameEntryPoint()
     {
-        m_coroutines = new GameObject("[COROUTINES]").AddComponent<Coroutines>();
+        m_coroutines = new GameObject("[COROUTINES]").AddComponent<CoroutineRunner>();
         Object.DontDestroyOnLoad(m_coroutines.gameObject);
 
         var prefabUIRoot = Resources.Load<UIRootView>("UIRoot");

@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class AbilitiesContainer 
 {
-    private Dictionary<string, IPlayerAbility> abilities = new();
+    private Dictionary<AbilityKey, IPlayerAbility> abilities = new();
 
-    public void RegisterAbility(IPlayerAbility ability, string key)
+    public void RegisterAbility(IPlayerAbility ability, AbilityKey key)
     {
         abilities[key] = ability;
         if (ability.isEnabledByDefault)
@@ -14,7 +13,7 @@ public class AbilitiesContainer
         }
     }
 
-    public void SetAbilityState(string key, bool state)
+    public void SetAbilityState(AbilityKey key, bool state)
     {
         if (abilities.TryGetValue(key, out var ability))
         {
@@ -29,7 +28,7 @@ public class AbilitiesContainer
         }
     }
 
-    public IPlayerAbility GetAbility(string key)
+    public IPlayerAbility GetAbility(AbilityKey key)
     {
         abilities.TryGetValue(key, out IPlayerAbility playerAbility);
         return playerAbility;

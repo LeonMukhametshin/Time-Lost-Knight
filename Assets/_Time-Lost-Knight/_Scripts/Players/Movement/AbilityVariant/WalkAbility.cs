@@ -3,10 +3,13 @@ using UnityEngine;
 public class WalkAbility : IPlayerAbility
 {
     public bool isEnabledByDefault => m_isEnabled;
-    private bool m_isEnabled = true;
+    public bool isActive => m_isActive;
 
     private PlayerMoveData m_moveData;
     private Rigidbody2D m_rigidbody2D;
+
+    private bool m_isEnabled = true;
+    private bool m_isActive = false;
 
     public WalkAbility(PlayerMoveData data, Rigidbody2D rigidbody2D)
     {

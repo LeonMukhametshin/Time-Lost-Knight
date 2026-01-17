@@ -1,6 +1,6 @@
-public class AbilityKey
+public enum AbilityKey
 {
-    public const string WALK = "Walk";
-    public const string JUMP = "Jump";
-    public const string DASH = "Dash";
+    Walk,
+    Jump,
+    Dash
 }

@@ -2,14 +2,17 @@ using UnityEngine;
 
 public struct AbilityContext
 {
-    public AbilityContext(Vector2 moveDirection, int xScale, bool grounded)
+    public AbilityContext(Vector2 moveDirection, Vector2 velocity,
+        bool isGrounded, int xScale)
     {
         this.moveDirection = moveDirection;
+        this.velocity = velocity;
+        this.isGrounded = isGrounded;
         this.xScale = xScale;
-        this.grounded = grounded;
     }
 
-    public Vector2 moveDirection { get; set; }
-    public int xScale { get; set; }
-    public bool grounded { get; set; }
+    public Vector2 moveDirection;
+    public Vector2 velocity;
+    public bool isGrounded;
+    public int xScale;
 }
