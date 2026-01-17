@@ -13,7 +13,7 @@ public class DashAbility : IPlayerAbility
     private Rigidbody2D m_rigidbody2D;
     private CoroutineRunner m_coroutineRunner;
 
-    private float m_gravityScale = 0f;
+    private float m_originalGravityScale = 0f;
 
     public DashAbility(PlayerDashData dashData, Rigidbody2D rigidbody2D, CoroutineRunner runner)
     {
@@ -21,7 +21,7 @@ public class DashAbility : IPlayerAbility
         m_rigidbody2D = rigidbody2D;
         m_coroutineRunner = runner;
 
-        m_gravityScale = rigidbody2D.gravityScale;
+        m_originalGravityScale = rigidbody2D.gravityScale;
     }
 
     public void Activate() =>
@@ -30,14 +30,14 @@ public class DashAbility : IPlayerAbility
     public void Deactivate() =>
         m_isEnabled = false;
 
-    public void Do(AbilityContext contex)
+    public void Do(AbilityContext context)
     {
-        if(!m_isEnabled)
+        if(!m_isEnabled || m_isActive)
         {
             return;
         }
 
-        m_coroutineRunner.StartCoroutine(DashRoutine(contex.xScale));
+        m_coroutineRunner.StartCoroutine(DashRoutine(context.xScale));
     }
 
     private IEnumerator DashRoutine(int x)
@@ -54,7 +54,7 @@ public class DashAbility : IPlayerAbility
             yield return null;
         }
 
-        m_rigidbody2D.gravityScale = m_gravityScale;
+        m_rigidbody2D.gravityScale = m_originalGravityScale;
         m_isActive = false;
     }
 }

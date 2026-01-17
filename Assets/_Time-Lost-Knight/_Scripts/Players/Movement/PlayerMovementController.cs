@@ -60,9 +60,10 @@ public class PlayerMovementController : MonoBehaviour, IControllable
             m_movemnetData.m_groundCheckData);
 
         m_abilityContext = new AbilityContext(
-            Vector2.zero, 
-            Vector2.zero, 
-            false, 
+            Vector2.zero,
+            Vector2.zero,
+            false,
+            false,
             (int)transform.localScale.x);
 
         m_abilitiesContainer = new AbilitiesContainer();
@@ -122,6 +123,13 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 
     public void Dash()
     {
+        if (!m_abilityContext.canDash)
+        {
+            return;
+        }
+
+        m_abilityContext.canDash = false;
+
         state = MovementStates.Dash;
         m_abilitiesContainer
             .GetAbility(AbilityKey.Dash)
@@ -172,5 +180,10 @@ public class PlayerMovementController : MonoBehaviour, IControllable
         m_abilityContext.velocity = m_rigidbody2D.linearVelocity;
         m_abilityContext.isGrounded = m_groundChecker.IsGrounded();
         m_abilityContext.xScale = (int)transform.localScale.x;
+
+        if (m_abilityContext.isGrounded)
+        {
+            m_abilityContext.canDash = true;
+        }
     }
 }
