@@ -31,15 +31,15 @@ public class WalkAbility : IPlayerAbility
             return;
         }
 
-        ApplyMovement(contex.xDirection);
+        ApplyMovement(contex.moveDirection);
     }
 
-    private void ApplyMovement(float x)
+    private void ApplyMovement(Vector2 direction)
     {
-        float targetSpeed = x * m_moveData.runMaxSpeed;
+        float targetSpeed = direction.x * m_moveData.runMaxSpeed;
         float currentSpeed = m_rigidbody2D.linearVelocity.x;
 
-        bool hasInput = Mathf.Abs(x) > 0.01f;
+        bool hasInput = Mathf.Abs(direction.x) > 0.01f;
 
         float accel = hasInput
             ? m_moveData.runAcceleration

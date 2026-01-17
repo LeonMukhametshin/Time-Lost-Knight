@@ -2,7 +2,7 @@
 
 public interface IControllable
 {
-    void Move(float x);
+    void Move(Vector2 x);
     void Jump();
     void Dash();
 }

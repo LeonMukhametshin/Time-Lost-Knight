@@ -46,7 +46,7 @@ public class PlayerKeyboardInput : MonoBehaviour
     private void Move()
     {
         Vector2 input = m_gameInput.Player.Move.ReadValue<Vector2>();
-        m_controllable.Move(input.x);
+        m_controllable.Move(input);
     }
 
     private void OnJump(InputAction.CallbackContext context)

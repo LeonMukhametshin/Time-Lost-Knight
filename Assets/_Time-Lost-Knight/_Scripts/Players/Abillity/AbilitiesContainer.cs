@@ -10,7 +10,6 @@ public class AbilitiesContainer
         abilities[key] = ability;
         if (ability.isEnabledByDefault)
         {
-            Debug.Log("Registed " + ability);
             SetAbilityState(key, true);
         }
     }
@@ -32,7 +31,6 @@ public class AbilitiesContainer
 
     public IPlayerAbility GetAbility(string key)
     {
-        Debug.Log(key);
         abilities.TryGetValue(key, out IPlayerAbility playerAbility);
         return playerAbility;
     }

@@ -513,13 +513,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 690846646958711590, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
-      propertyPath: m_boxCollider2D
-      value: 
-      objectReference: {fileID: 5143531373568336102}
     - target: {fileID: 4577326837089830690, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407155804966786331, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
+      propertyPath: m_Name
+      value: Eyes
       objectReference: {fileID: 0}
     - target: {fileID: 9026263305952894159, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -564,46 +564,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4577326837089830690, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5143531373568336098}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
---- !u!1 &5143531373568336097 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4577326837089830690, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
-  m_PrefabInstance: {fileID: 5143531373568336096}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5143531373568336098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5143531373568336097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bead76fbf2e38b429b6f79e3f3581ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  m_playerData: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
-  m_movementController: {fileID: 5143531373568336099}
---- !u!114 &5143531373568336099 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 690846646958711590, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
-  m_PrefabInstance: {fileID: 5143531373568336096}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5143531373568336097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d05fb64f9fa412a46a819ce77a828077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementController
---- !u!61 &5143531373568336102 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4693504587764285441, guid: 855a48ee2e24cb344aa0f3ab67ad502b, type: 3}
-  m_PrefabInstance: {fileID: 5143531373568336096}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

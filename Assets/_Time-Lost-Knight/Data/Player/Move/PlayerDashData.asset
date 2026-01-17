@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerDashData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDashData
   <maxDashes>k__BackingField: 1
-  <dashSpeed>k__BackingField: 40
+  <dashSpeed>k__BackingField: 100
   <dashAttackTime>k__BackingField: 0
   <dashInputBufferTime>k__BackingField: 0

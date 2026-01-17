@@ -5,10 +5,8 @@ public class DashAbility : IPlayerAbility
     public bool isEnabledByDefault => m_isEnabled;
     private bool m_isEnabled = true;   
 
-    private PlayerDashData m_dashData;
+    private readonly PlayerDashData m_dashData;
     private Rigidbody2D m_rigidbody2D;
-
-    private float m_xDirection;
 
     public DashAbility(PlayerDashData dashData, Rigidbody2D rigidbody2D)
     {
@@ -29,12 +27,12 @@ public class DashAbility : IPlayerAbility
             return;
         }
 
-        PerformDash();
+        PerformDash(contex.xScale);
     }
 
-    private void PerformDash()
+    private void PerformDash(int direction)
     {
-        var velosity = new Vector2(m_dashData.dashSpeed, 0f);
+        Vector2 velosity = new Vector2(direction * m_dashData.dashSpeed, 0f);
         m_rigidbody2D.linearVelocity = velosity;
     }
 }
