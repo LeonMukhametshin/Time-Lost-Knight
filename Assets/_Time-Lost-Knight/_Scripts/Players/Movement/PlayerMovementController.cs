@@ -1,11 +1,8 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour, IControllable
 {
-    [SerializeField] private TextMeshProUGUI m_textState;
-
     public event Action<MovementStates> StateChanged;
 
     [SerializeField] private Rigidbody2D m_rigidbody2D;
@@ -47,8 +44,6 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 
         CreateComponents();
         RegisterAbility();
-
-        StateChanged += UpdateText;
 
         m_isInitialized = true;
     }
@@ -136,9 +131,6 @@ public class PlayerMovementController : MonoBehaviour, IControllable
         transform.localScale = xDirection < 0
             ? new Vector2(-1, transform.localScale.y)
             : new Vector2(1, transform.localScale.y);
-
-    private void UpdateText(MovementStates state) =>
-        m_textState.text = state.ToString();
 
     private void UpdateState()
     {

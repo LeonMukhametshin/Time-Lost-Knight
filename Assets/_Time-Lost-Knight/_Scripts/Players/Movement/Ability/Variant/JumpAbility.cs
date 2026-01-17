@@ -3,7 +3,6 @@ using UnityEngine;
 public class JumpAbility : IPlayerAbility
 {
     public bool isEnabledByDefault => m_isEnabled;
-
     public bool isActive => true;
 
     private bool m_isEnabled = true;
