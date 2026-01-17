@@ -25,11 +25,10 @@ public static class EnemyFactory
         Transform contactChecker, 
         Transform[] waypoints)
     {
-        var damageable = CreateDamageble(enemyData);
         var movement = CreateEnemyBehaviuor(enemyData, enemyTransform, contactChecker, waypoints);
         var attack = CreateAttack();
 
-        return new EnemyAttack(damageable, movement, attack);
+        return new EnemyAttack(movement, attack);
     }
 
     private static EnemyDamageable CreateDamageableType(
@@ -37,15 +36,11 @@ public static class EnemyFactory
         Transform enemyTransform,
         Transform contactChecker,
         Transform[] waypoints)
-    {
-        var damageable = CreateDamageble(enemyData);
+    { 
         var movement = CreateEnemyBehaviuor(enemyData, enemyTransform, contactChecker, waypoints);
 
-        return new EnemyDamageable(damageable, movement);
+        return new EnemyDamageable(movement);
     }
-
-    private static IDamageable CreateDamageble(EnemyData data) =>
-        new HealthSystem(data.maxHealt);
 
     private static IEnemyBehaviuor CreateEnemyBehaviuor(
         EnemyData data,

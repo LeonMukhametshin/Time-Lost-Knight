@@ -26,7 +26,7 @@ using UnityEngine.InputSystem.Utilities;
 /// using namespace UnityEngine;
 /// using UnityEngine.InputSystem;
 ///
-/// // Example of using an InputActionMap named "Player" from a UnityEngine.MonoBehaviour implementing callback interface.
+/// // Example of using an InputActionMap named "PlayerController" from a UnityEngine.MonoBehaviour implementing callback interface.
 /// public class Example : MonoBehaviour, MyActions.IPlayerActions
 /// {
 ///     private MyActions_Actions m_Actions;                  // Source code representation of asset.
@@ -35,7 +35,7 @@ using UnityEngine.InputSystem.Utilities;
 ///     void Awake()
 ///     {
 ///         m_Actions = new MyActions_Actions();              // Create asset object.
-///         m_Player = m_Actions.Player;                      // Extract action map object.
+///         m_Player = m_Actions.PlayerController;                      // Extract action map object.
 ///         m_Player.AddCallbacks(this);                      // Register callback interface IPlayerActions.
 ///     }
 ///
@@ -56,7 +56,7 @@ using UnityEngine.InputSystem.Utilities;
 ///
 ///     #region Interface implementation of MyActions.IPlayerActions
 ///
-///     // Invoked when "Move" action is either started, performed or canceled.
+///     // Invoked when "moveDirection" action is either started, performed or canceled.
 ///     public void OnMove(InputAction.CallbackContext context)
 ///     {
 ///         Debug.Log($"OnMove: {context.ReadValue&lt;Vector2&gt;()}");
@@ -284,7 +284,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
+        // PlayerController
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
@@ -367,7 +367,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
+    // PlayerController
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
@@ -375,34 +375,34 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Dash;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Player".
+    /// Provides access to currentInput actions defined in currentInput action map "PlayerController".
     /// </summary>
     public struct PlayerActions
     {
         private @GameInput m_Wrapper;
 
         /// <summary>
-        /// Construct a new instance of the input action map wrapper class.
+        /// Construct a new instance of the currentInput action map wrapper class.
         /// </summary>
         public PlayerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/Move".
+        /// Provides access to the underlying currentInput action "PlayerController/moveDirection".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Jump".
+        /// Provides access to the underlying currentInput action "PlayerController/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         /// <summary>
-        /// Provides access to the underlying input action "Player/TryAttack".
+        /// Provides access to the underlying currentInput action "PlayerController/TryAttack".
         /// </summary>
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Dash".
+        /// Provides access to the underlying currentInput action "PlayerController/Dash".
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         /// <summary>
-        /// Provides access to the underlying input action map instance.
+        /// Provides access to the underlying currentInput action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
@@ -416,7 +416,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// </summary>
         public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
         /// <summary>
-        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all currentInput actions contained in this map.
         /// </summary>
         /// <param name="instance">Callback instance.</param>
         /// <remarks>
@@ -442,7 +442,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all currentInput actions contained in this map.
         /// </summary>
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
@@ -465,7 +465,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerActions.UnregisterCallbacks(IPlayerActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all currentInput action callbacks via <see cref="PlayerActions.UnregisterCallbacks(IPlayerActions)" />.
         /// </summary>
         /// <seealso cref="PlayerActions.UnregisterCallbacks(IPlayerActions)" />
         public void RemoveCallbacks(IPlayerActions instance)
@@ -475,7 +475,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// Replaces all existing callback instances and previously registered currentInput action callbacks associated with them with callbacks provided via <param cref="instance" />.
         /// </summary>
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
@@ -497,7 +497,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
-    /// Provides access to the input control scheme.
+    /// Provides access to the currentInput control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
     public InputControlScheme KeyboardMouseScheme
@@ -510,7 +510,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     }
     private int m_GamepadSchemeIndex = -1;
     /// <summary>
-    /// Provides access to the input control scheme.
+    /// Provides access to the currentInput control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
     public InputControlScheme GamepadScheme
@@ -523,7 +523,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     }
     private int m_TouchSchemeIndex = -1;
     /// <summary>
-    /// Provides access to the input control scheme.
+    /// Provides access to the currentInput control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
     public InputControlScheme TouchScheme
@@ -536,7 +536,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     }
     private int m_JoystickSchemeIndex = -1;
     /// <summary>
-    /// Provides access to the input control scheme.
+    /// Provides access to the currentInput control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
     public InputControlScheme JoystickScheme
@@ -549,7 +549,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     }
     private int m_XRSchemeIndex = -1;
     /// <summary>
-    /// Provides access to the input control scheme.
+    /// Provides access to the currentInput control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
     public InputControlScheme XRScheme
@@ -561,35 +561,35 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all currentInput action callbacks associated with currentInput actions defined by "PlayerController" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="PlayerActions.AddCallbacks(IPlayerActions)" />
     /// <seealso cref="PlayerActions.RemoveCallbacks(IPlayerActions)" />
     public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated currentInput action "moveDirection" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated currentInput action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "TryAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated currentInput action "TryAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated currentInput action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />

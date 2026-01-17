@@ -3011,6 +3011,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &921979325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3653445697971554996, guid: 02f072b0de232e6439c6ea79f7503cd7, type: 3}
+  m_PrefabInstance: {fileID: 1194095977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1119128316
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,19 +3322,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9066946028179855827, guid: 02f072b0de232e6439c6ea79f7503cd7, type: 3}
+      propertyPath: m_healthSystem
+      value: 
+      objectReference: {fileID: 1194095983}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6511773618812072346, guid: 02f072b0de232e6439c6ea79f7503cd7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 713025712}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3653445697971554996, guid: 02f072b0de232e6439c6ea79f7503cd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1194095983}
   m_SourcePrefab: {fileID: 100100000, guid: 02f072b0de232e6439c6ea79f7503cd7, type: 3}
 --- !u!4 &1194095978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6511773618812072346, guid: 02f072b0de232e6439c6ea79f7503cd7, type: 3}
   m_PrefabInstance: {fileID: 1194095977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1194095983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921979325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d5e59f86370ce4289eaed719aeb3e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &1213128664
 GameObject:
   m_ObjectHideFlags: 0
@@ -7298,12 +7322,21 @@ PrefabInstance:
       propertyPath: m_coroutineRunner
       value: 
       objectReference: {fileID: 1716748561}
+    - target: {fileID: 5627120081977407634, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+      propertyPath: m_playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
+    - target: {fileID: 5627120081977407634, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+      propertyPath: m_healthSystem
+      value: 
+      objectReference: {fileID: 3515800951197290860}
     - target: {fileID: 8925051043251970095, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
       propertyPath: m_damageableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8925051043251970095, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
+    - {fileID: 4481212862011613364, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7312,7 +7345,7 @@ PrefabInstance:
       addedObject: {fileID: 3515800951197290848}
     - targetCorrespondingSourceObject: {fileID: 1574771574926154976, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3515800951197290854}
+      addedObject: {fileID: 3515800951197290860}
   m_SourcePrefab: {fileID: 100100000, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
 --- !u!1 &3515800951197290837 stripped
 GameObject:
@@ -7346,7 +7379,7 @@ MonoBehaviour:
   m_attackArea: {x: 3, y: 2}
   m_weaponConfig: {fileID: 11400000, guid: 1607744fa78ae7e4082dc7e3691d95d8, type: 2}
   m_critConfig: {fileID: 11400000, guid: 9a895d1791064ac4b908744252ab9c84, type: 2}
---- !u!114 &3515800951197290854
+--- !u!114 &3515800951197290860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7355,10 +7388,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3515800951197290837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b715cdbbe810b4e8cba7ef5dbbf58f, type: 3}
+  m_Script: {fileID: 11500000, guid: 26d5e59f86370ce4289eaed719aeb3e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageableWall
-  <Health>k__BackingField: 100
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1001 &4821252909905337020
 PrefabInstance:
   m_ObjectHideFlags: 0

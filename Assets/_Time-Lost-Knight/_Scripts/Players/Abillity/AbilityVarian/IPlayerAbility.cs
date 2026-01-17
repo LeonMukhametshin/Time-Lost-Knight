@@ -1,11 +1,8 @@
 public interface IPlayerAbility
 {
-    string key { get; }
-
-    bool isActive { get; }
     bool isEnabledByDefault { get; }
 
-    void Update();
+    void Do(AbilityContext contex);
     void Deactivate();
     void Activate();
 }

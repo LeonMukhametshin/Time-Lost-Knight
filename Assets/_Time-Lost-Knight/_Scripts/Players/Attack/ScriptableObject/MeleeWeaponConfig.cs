@@ -6,6 +6,6 @@ namespace Attacks
     public sealed class MeleeWeaponConfig : WeaponConfig
     {
         [field: SerializeField] public float KnockbackForce { get; private set; }
-        [field: SerializeField] public Vector2 AttackZone { get; private set; }
+        [field: SerializeField] public Vector2 attackZone { get; private set; }
     }
 }

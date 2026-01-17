@@ -1,15 +1,14 @@
 using System;
 using UnityEngine;
 
-public class HealthSystem : IDamageable
+public class HealthSystem : MonoBehaviour, IDamageable
 {
     public event Action died;
     public event Action<int> damaged;
     public event Action valueChanged;
 
-    private int m_value;
-
-    public int value {
+    public int value
+    {
         get => m_value;
         private set
         {
@@ -30,8 +29,16 @@ public class HealthSystem : IDamageable
         }
     }
 
-    public HealthSystem(int value)
+    private int m_value;
+
+    private bool m_isInitialize = false;
+
+    public void Initialize(int value)
     {
+        if(m_isInitialize)
+        {
+            return;
+        }
         m_value = value;
     }
 

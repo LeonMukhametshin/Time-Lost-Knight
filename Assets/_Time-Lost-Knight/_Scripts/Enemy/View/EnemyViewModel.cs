@@ -3,10 +3,12 @@ using UnityEngine;
 public class EnemyViewModel : MonoBehaviour
 {
     [SerializeField] private EnemyData m_enemyData;
+
     [SerializeField] private Transform m_contactChecker;
     [SerializeField] private Transform[] m_waypoints;
 
-    private IDamageable m_damageable;
+    [SerializeField] private HealthSystem m_healthSystem;
+
     private IEnemyBehaviuor m_enemyBehaviuor;
     private IAttack m_attack;
 
@@ -23,7 +25,7 @@ public class EnemyViewModel : MonoBehaviour
             m_contactChecker,
             m_waypoints);
 
-        m_damageable = enemy as IDamageable;
+        //m_healthSystem.Initialize(m_enemyData.maxHealt);
         m_enemyBehaviuor = enemy as IEnemyBehaviuor;
         m_attack = enemy as IAttack;
     }
@@ -34,5 +36,5 @@ public class EnemyViewModel : MonoBehaviour
     }
 
     public void TakeDamage(int amout) =>
-        m_damageable?.TakeDamage(amout);
+        m_healthSystem?.TakeDamage(amout);
 }   

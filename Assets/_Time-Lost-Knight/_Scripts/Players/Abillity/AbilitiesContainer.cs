@@ -1,42 +1,39 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class AbilitiesContainer 
 {
     private Dictionary<string, IPlayerAbility> abilities = new();
-    private List<IPlayerAbility> activeAbilities = new();
 
     public void RegisterAbility(IPlayerAbility ability, string key)
     {
         abilities[key] = ability;
         if (ability.isEnabledByDefault)
         {
-            ActivateAbility(key);
+            Debug.Log("Registed " + ability);
+            SetAbilityState(key, true);
         }
     }
 
-    public void ActivateAbility(string key)
+    public void SetAbilityState(string key, bool state)
     {
-        if (abilities.TryGetValue(key, out var ability) && !activeAbilities.Contains(ability))
+        if (abilities.TryGetValue(key, out var ability))
         {
-            ability.Activate();
-            activeAbilities.Add(ability);
+            if(state)
+            {
+                ability.Activate();
+            }
+            else
+            {
+                ability.Deactivate();
+            }
         }
     }
 
-    public void DeactivateAbility(string key)
+    public IPlayerAbility GetAbility(string key)
     {
-        if (abilities.TryGetValue(key, out var ability) && activeAbilities.Contains(ability))
-        {
-            ability.Deactivate();
-            activeAbilities.Remove(ability);
-        }
-    }
-
-    public void UpdateAllAbilities()
-    {
-        for (int i = 0; i < activeAbilities.Count; i++)
-        {
-            activeAbilities[i].Update();
-        }
+        Debug.Log(key);
+        abilities.TryGetValue(key, out IPlayerAbility playerAbility);
+        return playerAbility;
     }
 }
