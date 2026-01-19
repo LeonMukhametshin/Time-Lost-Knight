@@ -1,27 +1,25 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerContext context { get; private set; }
+    [SerializeField] private PlayerData m_playerData;
+    [SerializeField] private PlayerMovementController m_movementController;
+    [SerializeField] private AttackInputHandler m_attackInput;
 
-    private readonly List<IPlayerSystem> m_systems = new();
-
+    //TODO move to entry point
     private void Awake()
     {
-        context = new PlayerContext();
-
-        InitializeCurrency();
+        InitializeSystems();
     }
 
-    private void InitializeCurrency()
+    private void Update()
     {
-        context.wallet.AddAccount(new CurrencyAccount(0, CurrencyType.COIN));
+        m_attackInput.Update();
     }
 
-    public void RegisterSystem(IPlayerSystem system)
-    {
-        m_systems.Add(system);
-        system.Initialize(context);
+    private void InitializeSystems()
+    { 
+        m_movementController.Initialize(m_playerData.playerMovement);
+        m_attackInput.Initialize();
     }
 }

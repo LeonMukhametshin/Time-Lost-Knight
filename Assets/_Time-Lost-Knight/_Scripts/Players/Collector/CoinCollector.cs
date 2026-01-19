@@ -7,11 +7,6 @@ public class CoinCollector : MonoBehaviour
 
     private Wallet m_wallet;
 
-    private void Start()
-    {
-       m_wallet = m_player.context.wallet;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<ICollectable>(out var collectable))

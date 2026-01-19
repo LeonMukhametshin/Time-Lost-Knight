@@ -1,10 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class CoroutineRunner : MonoBehaviour
+public sealed class CoroutineRunner : MonoBehaviour 
 {
-    public Coroutine Run(IEnumerator routine)
+    public Coroutine Run(IEnumerator routine) =>
+        StartCoroutine(routine);
+
+    public void Stop(Coroutine coroutine)
     {
-        return StartCoroutine(routine);
+        if(coroutine is not null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 }

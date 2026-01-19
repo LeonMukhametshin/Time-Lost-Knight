@@ -16,8 +16,5 @@ MonoBehaviour:
   <maxHealt>k__BackingField: 100
   <movementType>k__BackingField: 0
   <moveSpeed>k__BackingField: 10
-  <damage>k__BackingField: 0
-  <attackCooldown>k__BackingField: 0
-  <attackRange>k__BackingField: 0
-  <colliderDistanceMultiplier>k__BackingField: 0
-  <rayLenght>k__BackingField: 1
+  <attackData>k__BackingField: {fileID: 0}
+  <rayLenght>k__BackingField: 1.1
