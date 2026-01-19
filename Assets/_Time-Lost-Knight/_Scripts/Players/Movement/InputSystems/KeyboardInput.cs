@@ -6,6 +6,7 @@ public class KeyboardInput : MonoBehaviour
     private IControllable m_controllable;
     private GameInput m_gameInput;
 
+    //TODO remove GetComponent
     private void Awake()
     {
         m_controllable = GetComponent<IControllable>();

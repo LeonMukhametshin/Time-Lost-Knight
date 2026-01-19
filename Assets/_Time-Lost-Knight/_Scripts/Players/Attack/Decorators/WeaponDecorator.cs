@@ -9,6 +9,8 @@ namespace Attacks
             this.weapon = weapon;
         }
 
+        public WeaponConfig config { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
         public virtual void ApplyDamage(ICanBeDamageable damageable) =>
             weapon.ApplyDamage(damageable);
 

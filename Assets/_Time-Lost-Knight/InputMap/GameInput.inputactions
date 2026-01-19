@@ -25,7 +25,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "3c7d8540-47ee-4b82-a6fb-02cf0e8ab2e6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MainWeaponAttack1",
                     "type": "Button",
                     "id": "340e50ac-350b-402b-af1c-6b3095d73300",
                     "expectedControlType": "",
@@ -34,9 +43,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "MainWeaponAttack2",
                     "type": "Button",
-                    "id": "3c7d8540-47ee-4b82-a6fb-02cf0e8ab2e6",
+                    "id": "967b0717-b8cb-4c58-9387-e06111d93ddd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AdditionalWeaponAttack1",
+                    "type": "Button",
+                    "id": "c747be63-1067-412d-bb9e-582af45d17ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AdditionalWeaponAttack2",
+                    "type": "Button",
+                    "id": "48dd5f3d-67a1-468a-ab30-5a4d02ddf416",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -117,7 +144,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "MainWeaponAttack1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78112433-1141-41b4-85ab-f83578f8f7b7",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MainWeaponAttack2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28514c81-105b-4e7a-8e89-07a494abe0c5",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AdditionalWeaponAttack1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "329a0784-63c3-452a-881b-ff12b537586a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AdditionalWeaponAttack2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

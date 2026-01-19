@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4693504587764285441}
   - component: {fileID: 6426900264846686639}
   - component: {fileID: 690846646958711590}
-  - component: {fileID: 5830636690886234885}
   - component: {fileID: 4679144916373934245}
+  - component: {fileID: 3703248096235816536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -106,9 +106,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &690846646958711590
 MonoBehaviour:
@@ -125,20 +125,6 @@ MonoBehaviour:
   m_rigidbody2D: {fileID: 6426900264846686639}
   m_boxCollider2D: {fileID: 4693504587764285441}
   m_coroutineRunner: {fileID: 0}
---- !u!114 &5830636690886234885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4577326837089830690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bead76fbf2e38b429b6f79e3f3581ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  m_playerData: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
-  m_movementController: {fileID: 690846646958711590}
 --- !u!114 &4679144916373934245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +137,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11030062ed19145a624e1cdc0edb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardInput
+--- !u!114 &3703248096235816536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577326837089830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac08f077880b84b439cee20adbb11e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  m_playerData: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
+  m_movementController: {fileID: 690846646958711590}
+  m_input:
+    m_attack: {fileID: 0}
+    m_mainWeaponKey1: 0
+    m_mainWeaponKey2: 0
+    m_additionalWeaponKey1: 0
+    m_additionalWeaponKey2: 0
 --- !u!1 &7841697187363177969
 GameObject:
   m_ObjectHideFlags: 0
