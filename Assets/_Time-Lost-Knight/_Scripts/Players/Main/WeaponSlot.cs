@@ -7,7 +7,7 @@ public sealed class WeaponSlot
     public event Action<AttackState> StateCnanged;
     public event Action AttackCanceled;
 
-    public IWeapon m_weapon;
+    public WeaponConfig m_weapon;
 
     public AttackState state
     {
@@ -29,14 +29,18 @@ public sealed class WeaponSlot
     private readonly CoroutineRunner m_runner;
     private Coroutine m_attackRoutine;
 
-    public WeaponSlot(IWeapon weapon, AttackCaster caster, CoroutineRunner runner)
+    private Transform m_transform;
+
+    public WeaponSlot(WeaponConfig weapon, AttackCaster caster, 
+        CoroutineRunner runner, Transform transform)
     {
         m_weapon = weapon;
         m_caster = caster;
         m_runner = runner;
+        m_transform = transform;
     }
 
-    public void SetWeapon(IWeapon weapon)
+    public void SetWeapon(WeaponConfig weapon)
     {
         m_weapon = weapon;
     }
@@ -72,13 +76,13 @@ public sealed class WeaponSlot
     private IEnumerator AttackRoutine()
     {
         state = AttackState.Windup;
-        yield return new WaitForSeconds(m_weapon.config.windupTime);
+        yield return new WaitForSeconds(0.2f);
 
         state = AttackState.Attacking;
-        m_caster.Cast(m_weapon);
+        m_caster.Cast(m_weapon, m_transform.position);
 
         state = AttackState.Cooldown;
-        yield return new WaitForSeconds(m_weapon.config.cooldown);
+        yield return new WaitForSeconds(0.3f);
 
         state = AttackState.Idle;
         m_attackRoutine = null;

@@ -12,10 +12,6 @@ public sealed class EnemyData : ScriptableObject
     [field: SerializeField] public EnemyMovementType movementType { get; private set; }
     [field: SerializeField] public float moveSpeed { get; private set; }
 
-    //TODO Select a separate SO for configuring attacks
-    [Header("Attack Settings")]
-    [field: SerializeField] public AttackData attackData { get; private set; }
-
     [Header("Ground Patrol")]
     [field: SerializeField] public float rayLenght { get; private set; }
 }

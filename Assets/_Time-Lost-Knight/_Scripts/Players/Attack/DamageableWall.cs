@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class DamageableWall : MonoBehaviour, IDamageable
+public class DamageableWall : MonoBehaviour, IDamageable, IEffectable
 {
-    [field: SerializeField] public int Health { get; private set; } = 100;
+    [field: SerializeField] public float Health { get; private set; } = 100;
 
-    public event Action<int> Damaged;
+    public event Action<float> Damaged;
     public event Action Kill;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         Health -= damage;
         Damaged?.Invoke(damage);

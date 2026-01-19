@@ -19,15 +19,7 @@ public class EnemyViewModel : MonoBehaviour
 
     private void Initialize()
     {
-        var enemy = EnemyFactory.Create(
-            m_enemyData,
-            transform,
-            m_contactChecker,
-            m_waypoints);
-
-        //m_healthSystem.Initialize(m_enemyData.maxHealt);
-        m_enemyBehaviuor = enemy as IEnemyBehaviuor;
-        m_attack = enemy as IAttack;
+        
     }
 
     private void Update()

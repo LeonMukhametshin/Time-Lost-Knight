@@ -6,7 +6,7 @@ public class DamageWidgetObserver : MonoBehaviour
     [SerializeField] private Transform m_damageWidgetContainer;
     [SerializeField] private DamageableWall m_canBeDamageable;
 
-    public void CreateWidgetDamageValue(int damage)
+    public void CreateWidgetDamageValue(float damage)
     {
         var go = Instantiate(m_floatingText, m_damageWidgetContainer);
         var text  = go.GetComponent<WidgetDamageValue>();

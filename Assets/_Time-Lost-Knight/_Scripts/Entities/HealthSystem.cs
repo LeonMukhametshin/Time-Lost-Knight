@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour, IDamageable
+public class HealthSystem : MonoBehaviour, IDamageable, IEffectable
 {
     public event Action died;
     public event Action<int> damaged;
     public event Action valueChanged;
 
-    public int value
+    public float value
     {
         get => m_value;
         private set
@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
         }
     }
 
-    private int m_value;
+    private float m_value;
 
     private bool m_isInitialize = false;
 
@@ -52,7 +52,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
         value += heal;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (damage < 0)
         {
