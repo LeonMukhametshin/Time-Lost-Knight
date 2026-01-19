@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3890023831728446048}
   - component: {fileID: 1418725719286393447}
   m_Layer: 0
-  m_Name: Attack!
+  m_Name: Attack Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

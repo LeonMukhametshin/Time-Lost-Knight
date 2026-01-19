@@ -13,11 +13,51 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: Assembly-CSharp::DistanceWeaponData
   <name>k__BackingField: Bow
-  <view>k__BackingField: {fileID: 0}
+  <view>k__BackingField: {fileID: 7285111266213552463, guid: 778c2ea5d2661f44c85e6b679290a3ad, type: 3}
   <weaponType>k__BackingField: 0
-  m_effects: []
+  m_effects:
+  - rid: 5340203080016724252
   <windupTime>k__BackingField: 0
   <cooldown>k__BackingField: 0
+  <directionCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.00017210841
+      value: 0.9982346
+      inSlope: 0.07893467
+      outSlope: 0.07893467
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.170975
+    - serializedVersion: 3
+      time: 0.79782
+      value: 0.8859558
+      inSlope: -0.48486832
+      outSlope: -0.48486832
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16136049
+      outWeight: 0.577193
+    - serializedVersion: 3
+      time: 1.0116363
+      value: 0.036490455
+      inSlope: -5.3926363
+      outSlope: -5.3926363
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03310715
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <amount>k__BackingField: 10
+  <speed>k__BackingField: 10
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5340203080016724252
+      type: {class: Attack, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 5

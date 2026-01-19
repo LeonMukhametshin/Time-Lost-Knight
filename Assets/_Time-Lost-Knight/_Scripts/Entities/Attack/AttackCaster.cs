@@ -56,7 +56,8 @@ public sealed class AttackCaster
             projectile.GetComponent<ISpellProjectile>() ??
             projectile.AddComponent<SpellProjectile>();
 
-        distanceProjectile.Initialize(m_attackPoint.position, distanceData.speed, distanceData.effects);
+        distanceProjectile.Initialize(distanceData.speed, distanceData.directionCurve, distanceData.effects);
+        projectile.transform.SetParent(null, true);
     }
 
     private void CastThrowing(ThrowingWeaponsData throwingWeaponsData)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeaponData
   <name>k__BackingField: Sword
-  <view>k__BackingField: {fileID: 491036438850022762, guid: db4e4d2b00ca19342a62c8a2468d30c1, type: 3}
+  <view>k__BackingField: {fileID: 1692994385990180168, guid: d3dc2c7694218504db2e54b19576d609, type: 3}
   <weaponType>k__BackingField: 0
   m_effects:
   - rid: 5340203080016724247
