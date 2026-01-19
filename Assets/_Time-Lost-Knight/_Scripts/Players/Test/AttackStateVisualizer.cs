@@ -16,12 +16,12 @@ public class AttackStateVisualizer : MonoBehaviour
 
     private void OnEnable()
     {
-        m_attackSystem.StateCnanged += UpdateText;
+        //m_attackSystem.StateCnanged += UpdateText;
     }
 
     private void OnDisable()
     {
-        m_attackSystem.StateCnanged -= UpdateText;
+        //m_attackSystem.StateCnanged -= UpdateText;
     }
 
     private void Awake()

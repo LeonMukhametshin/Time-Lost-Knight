@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5ba00dee15026f4a9cc39b65a9a3718, type: 3}
-  m_Name: WeaponConfig
-  m_EditorClassIdentifier: 
-  <baseDamage>k__BackingField: 10
-  <windupTime>k__BackingField: 1
-  <cooldown>k__BackingField: 2
+  m_Name: AbilityE_1
+  m_EditorClassIdentifier: Assembly-CSharp::Attacks.MeleeWeaponConfig
+  <name>k__BackingField: AbilityE_1
+  <baseDamage>k__BackingField: 0
+  <windupTime>k__BackingField: 0
+  <cooldown>k__BackingField: 0
   <damageType>k__BackingField: 0
-  <KnockbackForce>k__BackingField: 1
+  <KnockbackForce>k__BackingField: 0
   <attackZone>k__BackingField: {x: 0, y: 0}
