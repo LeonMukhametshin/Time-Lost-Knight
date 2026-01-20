@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623659ae75808454fb9464ff343f9592, type: 3}
   m_Name: PlayerJumpData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJumpData
-  <jumpForce>k__BackingField: 5
+  <jumpForce>k__BackingField: 8
   <jumpInputBufferTime>k__BackingField: 0

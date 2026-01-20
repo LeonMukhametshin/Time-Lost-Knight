@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Patrol
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   <enemyType>k__BackingField: 0
-  <maxHealt>k__BackingField: 100
+  <maxHealt>k__BackingField: 5
   <movementType>k__BackingField: 0
-  <moveSpeed>k__BackingField: 10
-  <attackData>k__BackingField: {fileID: 0}
-  <rayLenght>k__BackingField: 1.1
+  <moveSpeed>k__BackingField: 2
+  <rayLenght>k__BackingField: 0.5
