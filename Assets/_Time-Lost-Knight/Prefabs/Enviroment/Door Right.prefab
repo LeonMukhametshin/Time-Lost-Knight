@@ -44,15 +44,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1196704813786833869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff40dd25ea0aa3a44904a1f23567e60c, type: 3}
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  targetDoor: {fileID: 0}
-  spawnPoint: {fileID: 4165103091641397406}
-  ejectDirection: {x: 1, y: 0}
-  stepDistance: 0.1
-  maxAttempts: 40
-  teleportCooldown: 0.18
+  m_targetDoor: {fileID: 0}
+  m_spawnPoint: {fileID: 4165103091641397406}
 --- !u!61 &7937266495532764548
 BoxCollider2D:
   m_ObjectHideFlags: 0
