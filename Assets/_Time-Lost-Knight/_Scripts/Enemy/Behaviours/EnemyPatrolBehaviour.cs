@@ -1,25 +1,43 @@
 using UnityEngine;
 
-public class EnemyPatrolBehaviour : IEnemyBehaviuor
+public class EnemyPatrolBehaviour : MonoBehaviour, IEnemyBehaviour
 {
+    [SerializeField] private Transform m_contactChecker;
     private Transform m_transform;
-    private Transform m_contactChecker;
 
     private float m_moveSpeed;
     private float m_rayLenght;
 
     private Vector2 m_moveDirection = Vector2.right;
 
-    public EnemyPatrolBehaviour(Transform transform, Transform contactChecker, EnemyData data)
+    private bool m_isInitilized;
+
+
+    public void Initialize(EnemyBehaviuorData data)
     {
         m_transform = transform;
-        m_contactChecker = contactChecker;
         m_moveSpeed = data.moveSpeed;
-        m_rayLenght = data.rayLenght;
+
+        if(data is PatrolBehaviourData patrolData)
+        {
+            m_rayLenght = patrolData.rayLenght;
+        } 
+
+        m_isInitilized = true;
+    }
+
+    public void Initialize(PatrolBehaviourData data)
+    {
+       
     }
 
     public void Move()
     {
+        if (!m_isInitilized)
+        {
+            return;
+        }
+
         if (HasContact(m_moveDirection))
         {
             Flip();

@@ -5,9 +5,7 @@ public class EnemyViewModel : MonoBehaviour
     [SerializeField] private EnemyData m_enemyData;
     [SerializeField] private HealthSystem m_healthSystem;
 
-    [SerializeField] private Transform m_contactChecker;
-
-    private IEnemyBehaviuor m_enemyBehaviuor;
+    private IEnemyBehaviour m_enemyBehaviuor;
 
     private void Awake()
     {
@@ -16,7 +14,25 @@ public class EnemyViewModel : MonoBehaviour
 
     private void Initialize()
     {
-        m_enemyBehaviuor = new EnemyPatrolBehaviour(transform, m_contactChecker, m_enemyData);
+        // TODO Factory
+        // too dirty
+        switch(m_enemyData.enemyBehaviuorData)
+        {
+            case PatrolBehaviourData patrol:
+                m_enemyBehaviuor = 
+                    gameObject.GetComponent<IEnemyBehaviour>() ??
+                    gameObject.AddComponent<EnemyPatrolBehaviour>();
+                break;
+
+            case WaypontsBehaviourData wayponts:
+                m_enemyBehaviuor =
+                   gameObject.GetComponent<IEnemyBehaviour>() ??
+                   gameObject.AddComponent<EnemyWaypointBehaviour>();
+                break;
+        }
+
+        m_enemyBehaviuor.Initialize(m_enemyData.enemyBehaviuorData);
+
         m_healthSystem.died += () => Destroy(gameObject);
     }
 
