@@ -10,7 +10,7 @@ public sealed class AttackCaster
         m_attackPoint = casterTransform;
     }
 
-    public void Cast(WeaponConfig weapon, Vector3 worldPosition)
+    public void Cast(WeaponConfig weapon)
     {
         if(!weapon)
         {

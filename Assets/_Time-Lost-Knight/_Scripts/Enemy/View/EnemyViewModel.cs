@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyViewModel : MonoBehaviour
 {
+    [SerializeField] private Transform m_playerTransform;
+
     [SerializeField] private EnemyData m_enemyData;
     [SerializeField] private HealthSystem m_healthSystem;
 

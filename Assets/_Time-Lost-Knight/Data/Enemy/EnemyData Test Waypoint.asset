@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81270139fda5f1744aa014809aaa5262, type: 3}
-  m_Name: EnemyData Test 2
+  m_Name: EnemyData Test Waypoint
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   <maxHealt>k__BackingField: 10
   <enemyBehaviuorData>k__BackingField: {fileID: 11400000, guid: d95ca70ba3a1c534d99fa5c2649b18d5, type: 2}
+  <weaponConfig>k__BackingField: {fileID: 11400000, guid: 73ff99cbfd93d1644b22014bd90e7859, type: 2}

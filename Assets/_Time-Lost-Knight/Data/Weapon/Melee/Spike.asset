@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3978afa4f960034a941c17a21011b26, type: 3}
-  m_Name: Sword
+  m_Name: Spike
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeaponData
-  <name>k__BackingField: Sword
-  <view>k__BackingField: {fileID: 1692994385990180168, guid: 456ef8baa3b46d943bd0f62dabf8c3ff, type: 3}
+  <name>k__BackingField: Spike
+  <view>k__BackingField: {fileID: 689010006100279631, guid: 70487c6a244d94a429774289e21ca452, type: 3}
   <weaponType>k__BackingField: 0
   m_effects:
-  - rid: 5340203080016724247
+  - rid: 8185653425489051749
   <windupTime>k__BackingField: 0
-  <cooldown>k__BackingField: 0
+  <cooldown>k__BackingField: 1
   <attackZone>k__BackingField: {x: 3, y: 3}
   references:
     version: 2
     RefIds:
-    - rid: 5340203080016724247
+    - rid: 8185653425489051749
       type: {class: Attack, ns: , asm: Assembly-CSharp}
       data:
-        m_damage: 20
+        m_damage: 5

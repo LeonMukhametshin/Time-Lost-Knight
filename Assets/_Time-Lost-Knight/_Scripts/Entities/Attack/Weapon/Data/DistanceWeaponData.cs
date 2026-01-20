@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DistanceWeaponData", menuName = "Scriptable Objects/DistanceWeaponData")]
+[CreateAssetMenu(fileName = "DistanceWeaponData", menuName = "Scriptable Objects/Weapon/DistanceWeaponData")]
 public class DistanceWeaponData : WeaponConfig
 {
     [field: SerializeField] public AnimationCurve directionCurve { get; private set; }

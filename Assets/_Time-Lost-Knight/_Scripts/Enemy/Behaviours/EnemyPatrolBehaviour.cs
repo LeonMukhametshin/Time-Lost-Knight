@@ -12,7 +12,6 @@ public class EnemyPatrolBehaviour : MonoBehaviour, IEnemyBehaviour
 
     private bool m_isInitilized;
 
-
     public void Initialize(EnemyBehaviuorData data)
     {
         m_transform = transform;

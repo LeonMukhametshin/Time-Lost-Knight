@@ -29,15 +29,12 @@ public sealed class WeaponSlot
     private readonly CoroutineRunner m_runner;
     private Coroutine m_attackRoutine;
 
-    private Transform m_transform;
-
     public WeaponSlot(WeaponConfig weapon, AttackCaster caster, 
-        CoroutineRunner runner, Transform transform)
+        CoroutineRunner runner)
     {
         m_weapon = weapon;
         m_caster = caster;
         m_runner = runner;
-        m_transform = transform;
     }
 
     public void SetWeapon(WeaponConfig weapon)
@@ -76,13 +73,13 @@ public sealed class WeaponSlot
     private IEnumerator AttackRoutine()
     {
         state = AttackState.Windup;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(m_weapon.windupTime);
 
         state = AttackState.Attacking;
-        m_caster.Cast(m_weapon, m_transform.position);
+        m_caster.Cast(m_weapon);
 
         state = AttackState.Cooldown;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(m_weapon.cooldown);
 
         state = AttackState.Idle;
         m_attackRoutine = null;

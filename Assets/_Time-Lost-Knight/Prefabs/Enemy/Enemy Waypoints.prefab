@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5246282934902600579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Waypoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 401467929429362205}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.15, y: 0.1109996, z: 0}
+  m_LocalPosition: {x: 2.99, y: 0.1109996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7326008071643877416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Waypoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 472888567509486430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.69, y: 0.1109996, z: 0}
+  m_LocalPosition: {x: -2.53, y: 0.1109996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337130184043667053}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Waypoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 735859443595331358}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.69, y: -1.409, z: 0}
+  m_LocalPosition: {x: -2.53, y: -1.409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981144463866208170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Waypoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 1257131402898177988}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 3.15, y: -1.409, z: 0}
+  m_LocalPosition: {x: 2.99, y: -1.409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510213161443467298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Waypoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,11 +282,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7777423597310867763}
   - component: {fileID: 2544769432590168089}
-  - component: {fileID: 2383917112531015650}
   - component: {fileID: 5433893773198208788}
+  - component: {fileID: 2383917112531015650}
   - component: {fileID: 976531720930876921}
   m_Layer: 9
-  m_Name: Physics
+  m_Name: EnemyComponents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 5064453637111596685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.69, y: 0.110999584, z: 0}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -338,7 +338,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -354,18 +354,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.88, y: 0.56}
   m_EdgeRadius: 0
---- !u!114 &2383917112531015650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5064453637111596685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d5e59f86370ce4289eaed719aeb3e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!114 &5433893773198208788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,8 +366,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34b0943a53cf0245ac02eb93b32dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyViewModel
+  m_playerTransform: {fileID: 0}
   m_enemyData: {fileID: 11400000, guid: 3f314a3badfbcaf4fae180f8c1edb34c, type: 2}
   m_healthSystem: {fileID: 2383917112531015650}
+  m_attackSystem: {fileID: 0}
+--- !u!114 &2383917112531015650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064453637111596685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d5e59f86370ce4289eaed719aeb3e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!114 &976531720930876921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,10 +408,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4749030366857709825}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy Waypoints
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
