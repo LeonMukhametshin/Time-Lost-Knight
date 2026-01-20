@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1686344309}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -181,6 +185,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 3706740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3706742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 3706740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!4 &19106471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 28950277245352374, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
@@ -234,6 +249,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 370976407}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -248,6 +267,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 25774783}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &25774785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 25774783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &26539519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,6 +359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278458649}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1427603370}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -383,6 +417,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 26670035}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &26670037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 26670035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &156767207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,6 +565,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 290861746}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -534,6 +583,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 212811605}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &212811607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 212811605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &246543318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -582,6 +642,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1684266483}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -596,6 +660,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 246543318}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &246543320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 246543318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &247545739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,6 +679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 26539521}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1546119182}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -658,6 +737,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 247545739}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &247545741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 247545739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &255494369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,6 +856,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 978908093}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 212811607}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -820,6 +914,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 290861744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &290861746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 290861744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &370976405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,6 +933,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 830258201}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 25774785}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -882,6 +991,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 370976405}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &370976407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 370976405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &426430286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -890,6 +1010,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 427785708}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1985607526}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -944,6 +1068,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 426430286}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &426430288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 426430286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &427785706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1025,6 +1160,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1792694107}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 506321556}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -1079,68 +1218,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 479331140}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &492549591
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1585463610}
-    m_Modifications:
-    - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_Name
-      value: Door Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
---- !u!4 &492549592 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
-  m_PrefabInstance: {fileID: 492549591}
+--- !u!114 &479331142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 479331140}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &504778360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,6 +1356,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 479331142}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -1282,6 +1374,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 506321554}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &506321556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 506321554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &587166837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1290,6 +1393,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 156767209}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1245268783}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -1344,6 +1451,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 587166837}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &587166839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 587166837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &608881697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1392,6 +1510,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 944623979}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -1406,6 +1528,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 608881697}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &608881699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 608881697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &622860495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1414,6 +1547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 822823943}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1932542877}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -1468,6 +1605,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 622860495}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &622860497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 622860495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &629067721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1476,6 +1624,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 156767210}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1081034732}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -1530,6 +1682,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 629067721}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &629067723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 629067721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &700823462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1611,6 +1774,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 897598859}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 2073277732}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -1665,6 +1832,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 717811071}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &717811073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 717811071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &724381082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1713,6 +1891,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1862687861}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -1727,6 +1909,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 724381082}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &724381084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 724381082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &725383015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1775,6 +1968,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1586541728}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -1789,6 +1986,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 725383015}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &725383017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 725383015}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &784405260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2441,6 +2649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 897598861}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 2064071165}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -2495,6 +2707,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 915790150}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &915790152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 915790150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &944623977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2503,6 +2726,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278458648}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 608881699}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -2557,6 +2784,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 944623977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &944623979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 944623977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &978908091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2678,6 +2916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 629067723}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -2692,6 +2934,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1081034730}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1081034732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1081034730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1101671110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2700,6 +2953,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1792694106}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1180933783}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -2754,6 +3011,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1101671110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1101671112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1101671110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &1119128316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +3074,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 784405261}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1307384344}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -2860,6 +3132,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1155596257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155596259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1155596257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &1158385016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +3183,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700823464}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1633656667}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -2954,6 +3241,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1158561349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1158561351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1158561349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1180933781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2964,7 +3262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.13069344
       objectReference: {fileID: 0}
     - target: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3002,6 +3300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1101671112}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -3016,6 +3318,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1180933781}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1180933783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1180933781}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1243806980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3129,6 +3442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 587166839}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -3143,6 +3460,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1245268781}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1245268783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1245268781}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!4 &1247310903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8849663427375928466, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
@@ -3261,6 +3589,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278458647}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1155596259}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -3315,6 +3647,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1307384342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1307384344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1307384342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1397566278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3363,6 +3706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1485903813}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -3377,6 +3724,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1397566278}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1397566280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1397566278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1422256642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3385,6 +3743,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1243806981}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1508438321}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -3439,6 +3801,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1422256642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1422256644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1422256642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1427603368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3487,6 +3860,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 26670037}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -3501,6 +3878,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1427603368}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1427603370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1427603368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1485903811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3509,6 +3897,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 897598860}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1397566280}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -3563,6 +3955,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1485903811}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485903813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1485903811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1508438319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3611,6 +4014,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1422256644}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -3625,6 +4032,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1508438319}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1508438321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1508438319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1546119180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3633,6 +4051,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 906961605}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 247545741}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -3687,6 +4109,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1546119180}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1546119182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1546119180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &1547861728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,9 +4325,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8504268921008676023, guid: 837aa1fb7f33d6d4fb3d011b54f26b33, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 492549592}
     - targetCorrespondingSourceObject: {fileID: 1199182360342287559, guid: 837aa1fb7f33d6d4fb3d011b54f26b33, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1862687860}
@@ -3921,11 +4351,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1199182360342287559, guid: 837aa1fb7f33d6d4fb3d011b54f26b33, type: 3}
   m_PrefabInstance: {fileID: 1585463606}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1585463610 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8504268921008676023, guid: 837aa1fb7f33d6d4fb3d011b54f26b33, type: 3}
-  m_PrefabInstance: {fileID: 1585463606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1586541726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3934,6 +4359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 156767211}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 725383017}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -3988,6 +4417,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1586541726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1586541728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1586541726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1633656665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4036,6 +4476,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 1158561351}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -4050,6 +4494,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1633656665}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1633656667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1633656665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1684266481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4058,6 +4513,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1733288747}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 246543320}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -4112,6 +4571,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1684266481}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684266483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1684266481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1686344307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4120,6 +4590,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1733288748}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 3706742}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -4174,6 +4648,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1686344307}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686344309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1686344307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &1716748560
 GameObject:
   m_ObjectHideFlags: 0
@@ -17668,6 +18153,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1585463609}
     m_Modifications:
+    - target: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 724381084}
     - target: {fileID: 2713449235086204793, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
       propertyPath: m_Name
       value: Door Left
@@ -17722,6 +18211,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4947940186481784687, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
   m_PrefabInstance: {fileID: 1862687859}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1862687861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 337925534074449667, guid: 1cd4c8e9ea6c221499abeecacede3f1a, type: 3}
+  m_PrefabInstance: {fileID: 1862687859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1932542875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17770,6 +18270,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 622860497}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -17784,6 +18288,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1932542875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1932542877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1932542875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &1985607524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17832,6 +18347,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 426430288}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -17846,6 +18365,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 1985607524}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1985607526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 1985607524}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &2017352054
 GameObject:
   m_ObjectHideFlags: 0
@@ -17939,6 +18469,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 915790152}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -17953,6 +18487,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 2064071163}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2064071165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 2064071163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1001 &2073277730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18001,6 +18546,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+      propertyPath: m_targetDoor
+      value: 
+      objectReference: {fileID: 717811073}
     - target: {fileID: 1196704813786833869, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
       propertyPath: m_Name
       value: Door Right
@@ -18015,6 +18564,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364788777211960136, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
   m_PrefabInstance: {fileID: 2073277730}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2073277732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537740954610202212, guid: f0727c22aee587a49a2394e31c0bc2d7, type: 3}
+  m_PrefabInstance: {fileID: 2073277730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1d9d96696f0245af926228ca3df7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &2110134750
 GameObject:
   m_ObjectHideFlags: 0
@@ -18071,11 +18631,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 28950277245352374, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -60
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 28950277245352374, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 28950277245352374, guid: 8c77057495cc0404f97bfc1b542863f8, type: 3}
       propertyPath: m_LocalPosition.z
