@@ -25,7 +25,7 @@ public class HealthSystem : MonoBehaviour, IDamageable, IEffectable
                 died?.Invoke();
             }
 
-            Debug.Log("Player HP: " + m_value);
+            Debug.Log(this.gameObject.name + " " + value);
         }
     }
 

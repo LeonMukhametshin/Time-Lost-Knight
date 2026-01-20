@@ -19,10 +19,10 @@ public class AttackSystem : MonoBehaviour
         //TODO
         m_slots = new Dictionary<AttackSlot, WeaponSlot>
         {
-            {AttackSlot.Main, new WeaponSlot(weaponConfigs[0], m_caster, m_runner, transform)},
-            {AttackSlot.Additional, new WeaponSlot(weaponConfigs[1], m_caster, m_runner, transform)},
-            {AttackSlot.AbilityE, new WeaponSlot(weaponConfigs[0], m_caster, m_runner, transform)},
-            {AttackSlot.AbilityQ, new WeaponSlot(weaponConfigs[0], m_caster, m_runner, transform)},
+            {AttackSlot.Main, new WeaponSlot(weaponConfigs[0], m_caster, m_runner)},
+            {AttackSlot.Additional, new WeaponSlot(weaponConfigs[1], m_caster, m_runner)},
+            {AttackSlot.AbilityE, new WeaponSlot(weaponConfigs[0], m_caster, m_runner)},
+            {AttackSlot.AbilityQ, new WeaponSlot(weaponConfigs[0], m_caster, m_runner)},
         };
 
     }

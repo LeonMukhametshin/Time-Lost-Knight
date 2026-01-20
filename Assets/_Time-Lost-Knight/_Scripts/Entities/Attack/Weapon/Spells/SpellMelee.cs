@@ -9,7 +9,6 @@ public class SpellMelee : MonoBehaviour, ISpellMelee
         
         foreach (var collider in colliders)
         {
-            Debug.Log(collider.name);
             var effectable = collider.GetComponent<IEffectable>();
             effects.ApplyEffect(effectable);
         }

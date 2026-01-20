@@ -1,26 +1,42 @@
 using UnityEngine;
 
-public class EnemyPatrolBehaviour : IEnemyBehaviuor
+public class EnemyPatrolBehaviour : MonoBehaviour, IEnemyBehaviour
 {
-    private Transform m_contactChecker;
-    private float m_moveSpeed;
-    private float m_rayLenght;
-    private LayerMask m_layerMask = LayerMask.NameToLayer("Ground");
-
-    private Vector2 m_moveDirection = Vector2.left;
-
+    [SerializeField] private Transform m_contactChecker;
     private Transform m_transform;
 
-    public EnemyPatrolBehaviour(Transform transform, Transform contactChecker, float moveSpeed, float rayLenght)
+    private float m_moveSpeed;
+    private float m_rayLenght;
+
+    private Vector2 m_moveDirection = Vector2.right;
+
+    private bool m_isInitilized;
+
+    public void Initialize(EnemyBehaviuorData data)
     {
         m_transform = transform;
-        m_contactChecker = contactChecker;
-        m_moveSpeed = moveSpeed;
-        m_rayLenght = rayLenght;
+        m_moveSpeed = data.moveSpeed;
+
+        if(data is PatrolBehaviourData patrolData)
+        {
+            m_rayLenght = patrolData.rayLenght;
+        } 
+
+        m_isInitilized = true;
+    }
+
+    public void Initialize(PatrolBehaviourData data)
+    {
+       
     }
 
     public void Move()
     {
+        if (!m_isInitilized)
+        {
+            return;
+        }
+
         if (HasContact(m_moveDirection))
         {
             Flip();
@@ -33,10 +49,8 @@ public class EnemyPatrolBehaviour : IEnemyBehaviuor
         Translate();
     }
 
-    private void Translate()
-    {
-        m_transform.Translate(m_moveDirection * m_moveSpeed * Time.deltaTime);
-    }
+    private void Translate() =>
+         m_transform.Translate(m_moveDirection * m_moveSpeed * Time.deltaTime);
 
     private void Flip()
     {
@@ -51,6 +65,5 @@ public class EnemyPatrolBehaviour : IEnemyBehaviuor
         Physics2D.Raycast(
             m_contactChecker.position,
             direction,
-            m_rayLenght,
-            m_layerMask);
+            m_rayLenght);
 }

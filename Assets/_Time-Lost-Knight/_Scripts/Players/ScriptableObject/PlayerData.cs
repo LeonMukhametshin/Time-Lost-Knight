@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
+[CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/Player/PlayerData")]
 public sealed class PlayerData : ScriptableObject
 {
     [Header("Health")]

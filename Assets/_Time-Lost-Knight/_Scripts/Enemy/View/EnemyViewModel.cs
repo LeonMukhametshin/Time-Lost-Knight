@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class EnemyViewModel : MonoBehaviour
 {
+    [SerializeField] private Transform m_playerTransform;
+
     [SerializeField] private EnemyData m_enemyData;
-
-    [SerializeField] private Transform m_contactChecker;
-    [SerializeField] private Transform[] m_waypoints;
-
     [SerializeField] private HealthSystem m_healthSystem;
 
-    private IEnemyBehaviuor m_enemyBehaviuor;
-    private IAttack m_attack;
+    private IEnemyBehaviour m_enemyBehaviuor;
 
     private void Awake()
     {
@@ -19,14 +16,30 @@ public class EnemyViewModel : MonoBehaviour
 
     private void Initialize()
     {
-        
+        // TODO Factory
+        // too dirty
+        switch(m_enemyData.enemyBehaviuorData)
+        {
+            case PatrolBehaviourData patrol:
+                m_enemyBehaviuor = 
+                    gameObject.GetComponent<IEnemyBehaviour>() ??
+                    gameObject.AddComponent<EnemyPatrolBehaviour>();
+                break;
+
+            case WaypontsBehaviourData wayponts:
+                m_enemyBehaviuor =
+                   gameObject.GetComponent<IEnemyBehaviour>() ??
+                   gameObject.AddComponent<EnemyWaypointBehaviour>();
+                break;
+        }
+
+        m_enemyBehaviuor.Initialize(m_enemyData.enemyBehaviuorData);
+
+        m_healthSystem.died += () => Destroy(gameObject);
     }
 
     private void Update()
     {
-        m_enemyBehaviuor?.Move();
+        m_enemyBehaviuor.Move();
     }
-
-    public void TakeDamage(int amout) =>
-        m_healthSystem?.TakeDamage(amout);
 }   
