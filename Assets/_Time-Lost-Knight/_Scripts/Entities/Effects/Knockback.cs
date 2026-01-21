@@ -6,9 +6,9 @@ public class Knockback : IEffect
 
     public void Apply(IEffectable effectable)
     {
-        if(effectable is IPhysics rigidbody)
+        if(effectable is IPhysics physics)
         {
-            rigidbody.AddForce(Vector2.up, ForceMode2D.Impulse);
+            physics.AddForce(Vector2.up * m_knockbackForce, ForceMode2D.Impulse);
         }
     }
 }

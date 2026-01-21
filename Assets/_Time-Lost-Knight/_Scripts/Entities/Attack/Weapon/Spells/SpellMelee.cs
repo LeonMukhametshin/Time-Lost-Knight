@@ -14,7 +14,7 @@ public class SpellMelee : MonoBehaviour, ISpellMelee
                 continue;
             }
 
-            var effectable = collider.GetComponent<IEffectable>();
+            var effectable = collider.GetComponents<IEffectable>();
             effects.ApplyEffect(effectable);
         }
     }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour, IControllable, IPhysics
+public class PlayerMovementController : MonoBehaviour, IControllable
 {
     public event Action<MovementStates> StateChanged;
 
@@ -165,7 +165,4 @@ public class PlayerMovementController : MonoBehaviour, IControllable, IPhysics
             m_abilityContext.canDash = true;
         }
     }
-
-    public void AddForce(Vector2 direction, ForceMode2D mode) =>
-          m_rigidbody2D.AddForce(direction, mode);
 }
