@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IPhysics
 {
+    [SerializeField] private Rigidbody2D m_rigidbody;
+
     [SerializeField] private PlayerData m_data;
     [SerializeField] private PlayerMovementController m_movementController;
     [SerializeField] private AttackInputHandler m_attackInput;
@@ -26,4 +28,7 @@ public class Player : MonoBehaviour
 
         m_healthSystem.valueChanged += () => Debug.Log(m_healthSystem.value);
     }
+
+    public void AddForce(Vector2 direction, ForceMode2D mode) =>
+         m_rigidbody.AddForce(direction, mode);
 }

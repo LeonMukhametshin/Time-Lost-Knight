@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac08f077880b84b439cee20adbb11e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  m_rigidbody2D: {fileID: 6426900264846686639}
+  m_rigidbody: {fileID: 6426900264846686639}
   m_data: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
   m_movementController: {fileID: 690846646958711590}
   m_attackInput:
