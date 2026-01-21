@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour, IControllable, IEffectable, IPhysics
+public class PlayerMovementController : MonoBehaviour, IControllable, IPhysics
 {
     public event Action<MovementStates> StateChanged;
 

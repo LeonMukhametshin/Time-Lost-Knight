@@ -533,14 +533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac08f077880b84b439cee20adbb11e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  m_playerData: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
+  m_data: {fileID: 0}
   m_movementController: {fileID: 2132262565}
-  m_input:
-    m_attack: {fileID: 0}
-    m_mainWeaponKey1: 0
-    m_mainWeaponKey2: 0
-    m_additionalWeaponKey1: 0
-    m_additionalWeaponKey2: 0
+  m_attackInput:
+    m_attackSystem: {fileID: 0}
+  m_healthSystem: {fileID: 0}
 --- !u!1001 &5143531373568336096
 PrefabInstance:
   m_ObjectHideFlags: 0
