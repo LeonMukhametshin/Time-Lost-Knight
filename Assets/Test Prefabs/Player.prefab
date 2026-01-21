@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 9026263305952894159}
   - component: {fileID: 4693504587764285441}
   - component: {fileID: 6426900264846686639}
+  - component: {fileID: 3703248096235816536}
   - component: {fileID: 690846646958711590}
   - component: {fileID: 4679144916373934245}
-  - component: {fileID: 3703248096235816536}
   - component: {fileID: 8074751223394936094}
-  m_Layer: 0
+  - component: {fileID: 6530746984427947629}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.01679, y: 0.08838, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6653771612297025441}
@@ -112,6 +113,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3703248096235816536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577326837089830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac08f077880b84b439cee20adbb11e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  m_rigidbody: {fileID: 6426900264846686639}
+  m_data: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
+  m_movementController: {fileID: 690846646958711590}
+  m_attackInput:
+    m_attackSystem: {fileID: 8074751223394936094}
+  m_healthSystem: {fileID: 6530746984427947629}
 --- !u!114 &690846646958711590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,22 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11030062ed19145a624e1cdc0edb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardInput
---- !u!114 &3703248096235816536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4577326837089830690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac08f077880b84b439cee20adbb11e65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  m_playerData: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
-  m_movementController: {fileID: 690846646958711590}
-  m_attackInput:
-    m_attackSystem: {fileID: 8074751223394936094}
 --- !u!114 &8074751223394936094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,11 +172,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackSystem
   m_attackPoint: {fileID: 3542599693499574088}
   weaponConfigs:
-  - {fileID: 11400000, guid: 1607744fa78ae7e4082dc7e3691d95d8, type: 2}
+  - {fileID: 11400000, guid: 810edfdaa3a50524dae9f1683f974364, type: 2}
   - {fileID: 11400000, guid: d54348e36db999446b5d6658a2c3aa80, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   m_runner: {fileID: 0}
+--- !u!114 &6530746984427947629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577326837089830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d5e59f86370ce4289eaed719aeb3e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &7841697187363177969
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +199,7 @@ GameObject:
   - component: {fileID: 4746622814344996938}
   - component: {fileID: 6944944241998528908}
   - component: {fileID: 2227486967614921221}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3542599693499574088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'AttackPoint '
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

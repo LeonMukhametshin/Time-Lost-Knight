@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public sealed class AttackInputHandler
 {
-    [SerializeField] private AttackSystem m_attackSystem;
+    [SerializeField] private PlayerAttackSystem m_attackSystem;
     
     private GameInput m_gameInput;
     private bool m_isInitialized;

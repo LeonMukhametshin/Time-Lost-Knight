@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSystem : MonoBehaviour
+public class PlayerAttackSystem : MonoBehaviour
 {
     [SerializeField] private Transform m_attackPoint;
 
