@@ -1,14 +1,17 @@
+using System;
 using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
 {
+    public event Action openChest;
+
     private bool m_isOpen;
 
     public bool isOpened { get => m_isOpen; }
     public string chestId { get => m_chestId; }
 
     [SerializeField] private string m_chestId;
-    [SerializeField] private GameObject m_itemPrefab;
+    [SerializeField] private GameObject[] m_itemPrefab;
     [SerializeField] private Sprite m_openedSprite;
 
     private void Awake()
@@ -26,24 +29,15 @@ public class Chest : MonoBehaviour, IInteractable
             return;
         }
 
-        Open();
-    }
-
-    private void Open()
-    {
         SetOpened(true);
-
-        if(m_itemPrefab)
-        {
-            GameObject droppedItem = Instantiate(m_itemPrefab, transform.position + Vector3.down, Quaternion.identity);
-        }
     }
 
     public void SetOpened(bool opened)
     {
-        if (m_isOpen = opened)
-        {
-            GetComponent<SpriteRenderer>().sprite = m_openedSprite;
-        }
+        m_isOpen = opened;
+        //TODO drop items sounds animation
+        //TODO objserver
+        GetComponent<SpriteRenderer>().sprite = m_openedSprite;
+        openChest?.Invoke();
     }
 }
