@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class InteractInput : MonoBehaviour
+public sealed class InteractInput : MonoBehaviour
 {
-    [SerializeField] private InteractionDetector m_interactionDetector;
+    [SerializeField] private InteractionController m_interactionController;
 
     private GameInput m_gameInput;
 
@@ -10,13 +11,18 @@ public class InteractInput : MonoBehaviour
     {
         m_gameInput = new GameInput();
         m_gameInput.Player.Enable();
+
+        m_gameInput.Player.Interact.performed += OnInteract;
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        if (m_gameInput.Player.Interact.WasPerformedThisFrame())
-        {
-            m_interactionDetector.OnInteract();
-        }
+        m_gameInput.Player.Interact.performed -= OnInteract;
+        m_gameInput.Player.Disable();
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        m_interactionController.Interact();
     }
 }
