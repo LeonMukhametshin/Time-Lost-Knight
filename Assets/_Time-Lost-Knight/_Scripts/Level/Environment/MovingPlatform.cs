@@ -20,6 +20,7 @@ public class MovingPlatform : Subject, IInteractable
         if (CanInteract())
         {
             m_movePlatform.Activate();
+            NotifyObservers();
         }
     }
 

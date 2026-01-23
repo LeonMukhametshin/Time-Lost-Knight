@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21010eab4f1010f45ab0510ca419beed, type: 3}
-  m_Name: Audio Config
+  m_Name: Moving Platform Audio Config
   m_EditorClassIdentifier: Assembly-CSharp::InteractionAudioConfig
-  <clip>k__BackingField: {fileID: 8300000, guid: 881746cf1df3f034d96456ca763b5f3e, type: 3}
+  <clip>k__BackingField: {fileID: 8300000, guid: 3cdecb85f1b56c6499b6be8afdb24ba7, type: 3}
   <volume>k__BackingField: 1
