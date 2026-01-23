@@ -2,37 +2,19 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] private bool m_isZParallax;
-
     [SerializeField] private Camera m_camera;
-    [SerializeField] private Transform m_subject;
+    [SerializeField] private float m_paralaxEffect;
 
-    private Vector3 m_startPosition;
-    private float m_startZ;
+    private float m_xPosition;
 
-    private Vector3 m_travel => (Vector3)m_camera.transform.position - m_startPosition;
-    private float m_distanceFromSubject => transform.position.z - m_subject.position.z;
-    private float m_clippingPlane => 
-        (m_camera.transform.position.z + (m_distanceFromSubject > 0 ? m_camera.farClipPlane : m_camera.nearClipPlane));
-    private float m_parallaxFactor => Mathf.Abs(m_distanceFromSubject) / m_clippingPlane;
-
-    private void Start()
+    private void Awake()
     {
-        m_startPosition = transform.position;
-        m_startZ = transform.position.z;
+        m_xPosition = transform.position.x;
     }
 
     private void LateUpdate()
     {
-        Vector3 newPosition = m_startPosition + m_travel * m_parallaxFactor;
-
-        if(m_isZParallax)
-        {
-            transform.position = new Vector3(newPosition.x, newPosition.y, m_startZ);
-        }
-        else
-        {
-            transform.position = newPosition;
-        }
+        float distX = (m_camera.transform.position.x * (1 - m_paralaxEffect));
+        transform.position = new Vector2(m_xPosition + distX, transform.position.y);
     }
 }
