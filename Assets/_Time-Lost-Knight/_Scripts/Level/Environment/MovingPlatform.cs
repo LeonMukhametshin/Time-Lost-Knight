@@ -22,14 +22,6 @@ public class MovingPlatform : MonoBehaviour
     private Tween m_tween;
     private bool m_isMoving = false;
 
-    private void OnEnable()
-    {
-        if (m_isLooped)
-        {
-            Activate();
-        }
-    }
-
     private void OnDestroy() =>
         m_tween?.Kill(true);
 
@@ -39,8 +31,13 @@ public class MovingPlatform : MonoBehaviour
 		{
 			throw new Exception("MovingPlatform requires at least 2 points");
 		}
+
 		transform.position = m_points[0].position;
-		
+
+        if (m_isLooped)
+        {
+            Activate();
+        }
     }
 
     private void Update()
@@ -99,7 +96,10 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag(Tags.Player))
+        {
             return;
+        }
+       
 
         Attach(collision.transform, collision.rigidbody);
     }
@@ -107,8 +107,10 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag(Tags.Player))
+        {
             return;
-
+        }
+            
         Detach(collision.transform, collision.rigidbody);
     }
 
