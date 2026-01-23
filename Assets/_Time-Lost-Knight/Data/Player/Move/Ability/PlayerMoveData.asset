@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1065a10538574364fb37da3f9612ebb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d427dd81c260714e8165ca753302562, type: 3}
   m_Name: PlayerMoveData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveData
   <runMaxSpeed>k__BackingField: 10
-  <runAcceleration>k__BackingField: 5
-  <runDeceleration>k__BackingField: 10
-  <airAccelMultiplier>k__BackingField: 5
+  <runAcceleration>k__BackingField: 2
+  <runDeceleration>k__BackingField: 2
+  <airAccelMultiplier>k__BackingField: 0
