@@ -3,7 +3,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     [SerializeField] private Camera m_camera;
-    [SerializeField] private float m_paralaxEffect;
+    [SerializeField][Range(0f, 1f)] private float m_paralaxEffect;
 
     private float m_xPosition;
 
@@ -15,6 +15,6 @@ public class Parallax : MonoBehaviour
     private void LateUpdate()
     {
         float distX = (m_camera.transform.position.x * (1 - m_paralaxEffect));
-        transform.position = new Vector2(m_xPosition + distX, transform.position.y);
+        transform.position = new Vector3(m_xPosition + distX, transform.position.y);
     }
 }
