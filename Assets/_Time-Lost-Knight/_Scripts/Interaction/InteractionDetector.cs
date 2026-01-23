@@ -4,10 +4,10 @@ using UnityEngine;
 
 public sealed class InteractionDetector : MonoBehaviour
 {
-    public event Action InteractablesChanged;
+    public event Action interactablesChanged;
 
     private List<IInteractable> m_interactables = new();
-    public List<IInteractable> Interactables => m_interactables;
+    public List<IInteractable> interactables => m_interactables;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +19,7 @@ public sealed class InteractionDetector : MonoBehaviour
         if (!m_interactables.Contains(interactable))
         {
             m_interactables.Add(interactable);
-            InteractablesChanged?.Invoke();
+            interactablesChanged?.Invoke();
         }
     }
 
@@ -32,7 +32,7 @@ public sealed class InteractionDetector : MonoBehaviour
 
         if (m_interactables.Remove(interactable))
         {
-            InteractablesChanged?.Invoke();
+            interactablesChanged?.Invoke();
         }
     }
 }

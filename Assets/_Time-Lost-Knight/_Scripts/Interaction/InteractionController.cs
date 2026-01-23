@@ -8,14 +8,14 @@ public sealed class InteractionController : MonoBehaviour
     private IInteractable m_current;
 
     private void OnEnable() =>
-        m_detector.InteractablesChanged += SelectBestInteractable;
+        m_detector.interactablesChanged += SelectBestInteractable;
 
     private void OnDestroy() =>
-          m_detector.InteractablesChanged -= SelectBestInteractable;
+          m_detector.interactablesChanged -= SelectBestInteractable;
 
     private void SelectBestInteractable()
     {
-        m_current = m_detector.Interactables
+        m_current = m_detector.interactables
           .Where(i => i.CanInteract())
           .OrderByDescending(i => i.priority)
           .ThenBy(i => Vector2.Distance(
@@ -35,6 +35,5 @@ public sealed class InteractionController : MonoBehaviour
         }
 
         m_current.Interact();
-        SelectBestInteractable();
     }
 }

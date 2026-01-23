@@ -11,15 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
   - Player
-  - Obst
-  - Entity
-<<<<<<< HEAD
   - 
-=======
-  - Interactable
->>>>>>> Develop
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -45,23 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Sky
-    uniqueID: 864994951
-    locked: 0
-  - name: Mountain
-    uniqueID: 3509103669
-    locked: 0
   - name: Background
-    uniqueID: 2209943901
+    uniqueID: 2090986381
     locked: 0
-  - name: Ground
-    uniqueID: 2148561313
-    locked: 0
-  - name: Foreground
-    uniqueID: 2461216199
+  - name: Enviroment
+    uniqueID: 58658165
     locked: 0
   - name: Player
-    uniqueID: 197238927
+    uniqueID: 4176029183
     locked: 0
   m_RenderingLayers:
   - Default
