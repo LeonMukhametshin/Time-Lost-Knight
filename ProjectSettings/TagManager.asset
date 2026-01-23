@@ -15,7 +15,11 @@ TagManager:
   - Player
   - Obst
   - Entity
+<<<<<<< HEAD
+  - 
+=======
   - Interactable
+>>>>>>> Develop
   - 
   - 
   - 

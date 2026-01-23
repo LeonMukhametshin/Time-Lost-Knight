@@ -1,76 +1,136 @@
+using DG.Tweening;
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovingPlatform : MonoBehaviour
 {
-	[SerializeField] private Transform m_pointA;
-	[SerializeField] private Transform m_pointB;
-	[SerializeField] private float m_speed =2f;
-	[SerializeField] private bool m_loop = true;
+    //TODO animation 
+	public Action StateChanged;
 
-	private Vector2 m_target;
-	private Vector2 m_prevPosition;
-	private Vector2 m_velocity;
+	[SerializeField] private Transform[] m_points;
+	[SerializeField][Min(0)] private float m_duration;
 
-	private void Start()
+    [SerializeField] private bool m_isLooped;
+
+    [SerializeField] private Ease m_ease = Ease.Linear;
+    [SerializeField] private LoopType m_loopType = LoopType.Yoyo;
+
+    private int m_currentIndex = 0;
+    private int m_direction = 1;
+
+    private Tween m_tween;
+    private bool m_isMoving = false;
+
+    private void OnDestroy() =>
+        m_tween?.Kill(true);
+
+    private void Awake()
 	{
-		if (m_pointA == null || m_pointB == null)
+		if(m_points is null || m_points.Length < 0)
 		{
-			enabled = false;
+			throw new Exception("MovingPlatform requires at least 2 points");
+		}
+
+		transform.position = m_points[0].position;
+
+        if (m_isLooped)
+        {
+            Activate();
+        }
+    }
+
+    private void Update()
+    {
+        // Test
+        if(!m_isLooped && Keyboard.current.oKey.wasPressedThisFrame)
+		{
+            Activate();
+        }
+    }
+
+    public void Activate()
+    {
+		if(m_isMoving)
+		{
 			return;
 		}
 
-		m_target = m_pointB.position;
-		m_prevPosition = (Vector2)transform.position;
-	}
+        int nextIndex = GetNextIndex();
+        m_isMoving = true;
 
-	private void FixedUpdate()
+        m_tween = transform
+            .DOMove(m_points[nextIndex].position, m_duration)
+			.SetEase(m_ease)
+			.OnComplete( () =>
+			{
+				m_currentIndex = nextIndex;
+				m_isMoving = false;
+				StateChanged?.Invoke();
+
+				if(m_isLooped )
+				{
+					Activate();
+                }
+			});
+    }
+
+	private int GetNextIndex()
 	{
-		Vector2 current = transform.position;
-		Vector2 next = Vector2.MoveTowards(current, m_target, m_speed * Time.fixedDeltaTime);
-		transform.position = new Vector3(next.x, next.y, transform.position.z);
+        int next = m_currentIndex + m_direction;
 
-		m_velocity = (next - m_prevPosition) / Time.fixedDeltaTime;
-		m_prevPosition = next;
+        if (next >= m_points.Length)
+        {
+            m_direction = -1;
+            next = m_points.Length - 2;
+        }
+        else if (next < 0)
+        {
+            m_direction = 1;
+            next = 1;
+        }
 
-		if (Vector2.Distance(next, m_target) <0.01f)
-		{
-			m_target = m_target == (Vector2)m_pointB.position ? (Vector2)m_pointA.position : (Vector2)m_pointB.position;
-			if (!m_loop) enabled = false;
-		}
-	}
+        return next;
+    }
 
-	public Vector2 GetVelocity()
-	{
-		return m_velocity;
-	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag(Tags.Player))
+        {
+            return;
+        }
+       
 
-	public void AttachTarget(Rigidbody2D targetRb)
-	{
-		if (targetRb == null) return;
-		targetRb.transform.SetParent(transform);
-	}
+        Attach(collision.transform, collision.rigidbody);
+    }
 
-	public void DetachTarget(Rigidbody2D targetRb)
-	{
-		if (targetRb == null) return;
-		targetRb.transform.SetParent(null);
-	}
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag(Tags.Player))
+        {
+            return;
+        }
+            
+        Detach(collision.transform, collision.rigidbody);
+    }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.CompareTag("Player"))
-		{
-			collision.transform.SetParent(transform);
-			if (collision.rigidbody != null) AttachTarget(collision.rigidbody);
-		}
-	}
+    private void Attach(Transform target, Rigidbody2D rb)
+    {
+        target.SetParent(transform);
 
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-		if (collision.gameObject.CompareTag("Player"))
-		{
-			collision.transform.SetParent(null);
-			if (collision.rigidbody != null) DetachTarget(collision.rigidbody);
-		}
-	}
+        if (rb is not null)
+        {
+            rb.interpolation = RigidbodyInterpolation2D.None;
+        }
+    }
+
+    private void Detach(Transform target, Rigidbody2D rb)
+    {
+        target.SetParent(null);
+
+        if (rb is not null)
+        {
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        }
+    }
 }

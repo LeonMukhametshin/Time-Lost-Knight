@@ -11,6 +11,16 @@ GameObject:
   - component: {fileID: 9026263305952894159}
   - component: {fileID: 4693504587764285441}
   - component: {fileID: 6426900264846686639}
+<<<<<<< HEAD
+  - component: {fileID: 690846646958711590}
+  - component: {fileID: 4679144916373934245}
+  - component: {fileID: 3703248096235816536}
+  - component: {fileID: 8074751223394936094}
+  - component: {fileID: 6760651064619140714}
+  m_Layer: 7
+  m_Name: Player
+  m_TagString: Untagged
+=======
   - component: {fileID: 3703248096235816536}
   - component: {fileID: 690846646958711590}
   - component: {fileID: 4679144916373934245}
@@ -19,6 +29,7 @@ GameObject:
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
+>>>>>>> Develop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +49,10 @@ Transform:
   m_Children:
   - {fileID: 6653771612297025441}
   - {fileID: 3542599693499574088}
+<<<<<<< HEAD
+=======
   - {fileID: 1747143152601608143}
+>>>>>>> Develop
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4693504587764285441
@@ -114,6 +128,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+<<<<<<< HEAD
+=======
 --- !u!114 &3703248096235816536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +148,7 @@ MonoBehaviour:
   m_attackInput:
     m_attackSystem: {fileID: 8074751223394936094}
   m_healthSystem: {fileID: 6530746984427947629}
+>>>>>>> Develop
 --- !u!114 &690846646958711590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +176,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11030062ed19145a624e1cdc0edb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardInput
+<<<<<<< HEAD
+--- !u!114 &3703248096235816536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577326837089830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac08f077880b84b439cee20adbb11e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  m_data: {fileID: 11400000, guid: 9a4ece3415aa5a94e8178719e0423ef4, type: 2}
+  m_movementController: {fileID: 690846646958711590}
+  m_attackInput:
+    m_attackSystem: {fileID: 8074751223394936094}
+  m_healthSystem: {fileID: 6760651064619140714}
+=======
+>>>>>>> Develop
 --- !u!114 &8074751223394936094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +213,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 810edfdaa3a50524dae9f1683f974364, type: 2}
   - {fileID: 11400000, guid: d54348e36db999446b5d6658a2c3aa80, type: 2}
   m_runner: {fileID: 0}
+<<<<<<< HEAD
+--- !u!114 &6760651064619140714
+=======
 --- !u!114 &6530746984427947629
+>>>>>>> Develop
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d5e59f86370ce4289eaed719aeb3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
+<<<<<<< HEAD
+=======
 --- !u!1 &4867772014571551396
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2df12087632b2a468d65c9e513e8040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+>>>>>>> Develop
 --- !u!1 &7841697187363177969
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,8 +429,13 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
+<<<<<<< HEAD
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+=======
   m_SortingLayerID: 197238927
   m_SortingLayer: 6
+>>>>>>> Develop
   m_SortingOrder: 0
   m_Sprite: {fileID: -794448126, guid: 754f43f8fc4997f42b16428846136321, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

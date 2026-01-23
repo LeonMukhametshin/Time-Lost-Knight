@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Enemy Galore 1 - Pixel Art.meta
 guid: a415899090c45344da5a539b78a43c8d
+========
+guid: d08336ecbde6aa247b8d7d9a259c2b61
+>>>>>>>> Develop:Assets/Enemy Galore 1 - Pixel Art/Animations.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
