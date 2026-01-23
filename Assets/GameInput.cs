@@ -150,6 +150,18 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""name"": ""AdditionalWeaponAttack2"",
                     ""type"": ""Button"",
                     ""id"": ""48dd5f3d-67a1-468a-ab30-5a4d02ddf416"",
+<<<<<<< HEAD
+=======
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""57fa4c18-054b-4fa7-a058-748d76eb39de"",
+>>>>>>> Develop
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -277,6 +289,17 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea669dcc-1d55-4cfc-a5da-6d3395602a4c"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -353,6 +376,10 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Player_MainWeaponAttack2 = m_Player.FindAction("MainWeaponAttack2", throwIfNotFound: true);
         m_Player_AdditionalWeaponAttack1 = m_Player.FindAction("AdditionalWeaponAttack1", throwIfNotFound: true);
         m_Player_AdditionalWeaponAttack2 = m_Player.FindAction("AdditionalWeaponAttack2", throwIfNotFound: true);
+<<<<<<< HEAD
+=======
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+>>>>>>> Develop
     }
 
     ~@GameInput()
@@ -440,6 +467,10 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MainWeaponAttack2;
     private readonly InputAction m_Player_AdditionalWeaponAttack1;
     private readonly InputAction m_Player_AdditionalWeaponAttack2;
+<<<<<<< HEAD
+=======
+    private readonly InputAction m_Player_Interact;
+>>>>>>> Develop
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -480,6 +511,13 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @AdditionalWeaponAttack2 => m_Wrapper.m_Player_AdditionalWeaponAttack2;
         /// <summary>
+<<<<<<< HEAD
+=======
+        /// Provides access to the underlying input action "Player/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        /// <summary>
+>>>>>>> Develop
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -526,6 +564,12 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @AdditionalWeaponAttack2.started += instance.OnAdditionalWeaponAttack2;
             @AdditionalWeaponAttack2.performed += instance.OnAdditionalWeaponAttack2;
             @AdditionalWeaponAttack2.canceled += instance.OnAdditionalWeaponAttack2;
+<<<<<<< HEAD
+=======
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+>>>>>>> Develop
         }
 
         /// <summary>
@@ -558,6 +602,12 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @AdditionalWeaponAttack2.started -= instance.OnAdditionalWeaponAttack2;
             @AdditionalWeaponAttack2.performed -= instance.OnAdditionalWeaponAttack2;
             @AdditionalWeaponAttack2.canceled -= instance.OnAdditionalWeaponAttack2;
+<<<<<<< HEAD
+=======
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+>>>>>>> Develop
         }
 
         /// <summary>
@@ -712,5 +762,15 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAdditionalWeaponAttack2(InputAction.CallbackContext context);
+<<<<<<< HEAD
+=======
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
+>>>>>>> Develop
     }
 }

@@ -17,12 +17,17 @@ MonoBehaviour:
   <weaponType>k__BackingField: 0
   m_effects:
   - rid: 8185653425489051749
+  - rid: 5340203121607966825
   <windupTime>k__BackingField: 0
   <cooldown>k__BackingField: 1
   <attackZone>k__BackingField: {x: 3, y: 3}
   references:
     version: 2
     RefIds:
+    - rid: 5340203121607966825
+      type: {class: Knockback, ns: , asm: Assembly-CSharp}
+      data:
+        m_knockbackForce: 10
     - rid: 8185653425489051749
       type: {class: Attack, ns: , asm: Assembly-CSharp}
       data:

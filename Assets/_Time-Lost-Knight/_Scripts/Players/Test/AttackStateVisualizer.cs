@@ -4,7 +4,7 @@ using UnityEngine;
 public class AttackStateVisualizer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_text;
-    [SerializeField] private AttackSystem m_attackSystem;
+    [SerializeField] private PlayerAttackSystem m_attackSystem;
 
     private void OnValidate()
     {
