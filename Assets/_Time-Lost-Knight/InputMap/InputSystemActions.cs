@@ -26,7 +26,7 @@ using UnityEngine.InputSystem.Utilities;
 /// using namespace UnityEngine;
 /// using UnityEngine.InputSystem;
 ///
-/// // Example of using an InputActionMap named "Player" from a UnityEngine.MonoBehaviour implementing callback interface.
+/// // Example of using an InputActionMap named "PlayerController" from a UnityEngine.MonoBehaviour implementing callback interface.
 /// public class Example : MonoBehaviour, MyActions.IPlayerActions
 /// {
 ///     private MyActions_Actions m_Actions;                  // Source code representation of asset.
@@ -35,7 +35,7 @@ using UnityEngine.InputSystem.Utilities;
 ///     void Awake()
 ///     {
 ///         m_Actions = new MyActions_Actions();              // Create asset object.
-///         m_Player = m_Actions.Player;                      // Extract action map object.
+///         m_Player = m_Actions.PlayerController;                      // Extract action map object.
 ///         m_Player.AddCallbacks(this);                      // Register callback interface IPlayerActions.
 ///     }
 ///
@@ -244,7 +244,7 @@ public partial class @InputSystemActions: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
+        // PlayerController
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
@@ -325,13 +325,13 @@ public partial class @InputSystemActions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
+    // PlayerController
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     /// <summary>
-    /// Provides access to m_attackInput actions defined in m_attackInput action map "Player".
+    /// Provides access to m_attackInput actions defined in m_attackInput action map "PlayerController".
     /// </summary>
     public struct PlayerActions
     {
@@ -342,11 +342,11 @@ public partial class @InputSystemActions: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@InputSystemActions wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying m_attackInput action "Player/moveDirection".
+        /// Provides access to the underlying m_attackInput action "PlayerController/moveDirection".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying m_attackInput action "Player/jump".
+        /// Provides access to the underlying m_attackInput action "PlayerController/jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         /// <summary>
@@ -497,7 +497,7 @@ public partial class @InputSystemActions: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all m_attackInput action callbacks associated with m_attackInput actions defined by "Player" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all m_attackInput action callbacks associated with m_attackInput actions defined by "PlayerController" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="PlayerActions.AddCallbacks(IPlayerActions)" />
     /// <seealso cref="PlayerActions.RemoveCallbacks(IPlayerActions)" />

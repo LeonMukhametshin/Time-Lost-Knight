@@ -26,7 +26,7 @@ using UnityEngine.InputSystem.Utilities;
 /// using namespace UnityEngine;
 /// using UnityEngine.InputSystem;
 ///
-/// // Example of using an InputActionMap named "Player" from a UnityEngine.MonoBehaviour implementing callback interface.
+/// // Example of using an InputActionMap named "PlayerController" from a UnityEngine.MonoBehaviour implementing callback interface.
 /// public class Example : MonoBehaviour, MyActions.IPlayerActions
 /// {
 ///     private MyActions_Actions m_Actions;                  // Source code representation of asset.
@@ -35,7 +35,7 @@ using UnityEngine.InputSystem.Utilities;
 ///     void Awake()
 ///     {
 ///         m_Actions = new MyActions_Actions();              // Create asset object.
-///         m_Player = m_Actions.Player;                      // Extract action map object.
+///         m_Player = m_Actions.PlayerController;                      // Extract action map object.
 ///         m_Player.AddCallbacks(this);                      // Register callback interface IPlayerActions.
 ///     }
 ///
@@ -364,7 +364,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
+        // PlayerController
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
@@ -451,7 +451,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
+    // PlayerController
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
@@ -463,7 +463,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AdditionalWeaponAttack2;
     private readonly InputAction m_Player_Interact;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Player".
+    /// Provides access to input actions defined in input action map "PlayerController".
     /// </summary>
     public struct PlayerActions
     {
@@ -474,35 +474,35 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/Move".
+        /// Provides access to the underlying input action "PlayerController/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Jump".
+        /// Provides access to the underlying input action "PlayerController/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Dash".
+        /// Provides access to the underlying input action "PlayerController/Dash".
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         /// <summary>
-        /// Provides access to the underlying input action "Player/MainWeaponAttack1".
+        /// Provides access to the underlying input action "PlayerController/MainWeaponAttack1".
         /// </summary>
         public InputAction @MainWeaponAttack1 => m_Wrapper.m_Player_MainWeaponAttack1;
         /// <summary>
-        /// Provides access to the underlying input action "Player/MainWeaponAttack2".
+        /// Provides access to the underlying input action "PlayerController/MainWeaponAttack2".
         /// </summary>
         public InputAction @MainWeaponAttack2 => m_Wrapper.m_Player_MainWeaponAttack2;
         /// <summary>
-        /// Provides access to the underlying input action "Player/AdditionalWeaponAttack1".
+        /// Provides access to the underlying input action "PlayerController/AdditionalWeaponAttack1".
         /// </summary>
         public InputAction @AdditionalWeaponAttack1 => m_Wrapper.m_Player_AdditionalWeaponAttack1;
         /// <summary>
-        /// Provides access to the underlying input action "Player/AdditionalWeaponAttack2".
+        /// Provides access to the underlying input action "PlayerController/AdditionalWeaponAttack2".
         /// </summary>
         public InputAction @AdditionalWeaponAttack2 => m_Wrapper.m_Player_AdditionalWeaponAttack2;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Interact".
+        /// Provides access to the underlying input action "PlayerController/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
@@ -689,7 +689,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerController" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="PlayerActions.AddCallbacks(IPlayerActions)" />
     /// <seealso cref="PlayerActions.RemoveCallbacks(IPlayerActions)" />

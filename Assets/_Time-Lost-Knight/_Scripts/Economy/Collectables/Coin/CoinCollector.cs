@@ -3,7 +3,7 @@ using UnityEngine;
 public class CoinCollector : MonoBehaviour
 {
     [SerializeField] private float m_pickupRadius = 2f;
-    [SerializeField] private Player m_player;
+    [SerializeField] private PlayerController m_player;
 
     private Wallet m_wallet;
 
