@@ -6,15 +6,9 @@ public class EnemyViewModel : MonoBehaviour
     [SerializeField] private HealthSystem m_healthSystem;
     [SerializeField] private EnemyAttackSystem m_enemyAttackSystem;
 
-    private Transform m_playerTransfrom;
     private IEnemyBehaviour m_enemyBehaviuor;
 
-    private void Awake()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
+    public void Initialize()
     {
         // TODO Factory
         // too dirty
@@ -34,18 +28,21 @@ public class EnemyViewModel : MonoBehaviour
         }
 
         m_enemyBehaviuor.Initialize(m_enemyData.enemyBehaviuorData);
-        m_enemyAttackSystem.Initialize(m_enemyData.weaponConfig, m_playerTransfrom, m_enemyData.weaponConfig.cooldown);
+        m_enemyAttackSystem.Initialize(m_enemyData.weaponConfig, m_enemyData.weaponConfig.cooldown);
 
         m_healthSystem.died += () => Destroy(gameObject);
     }
 
     private void Update()
     {
-        m_enemyBehaviuor.Move();
+        m_enemyBehaviuor?.Move();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        m_enemyAttackSystem.TryAttack();
+        if(collision.TryGetComponent<HealthSystem>(out var healt))
+        {
+            m_enemyAttackSystem.TryAttack();
+        }
     }
 }   

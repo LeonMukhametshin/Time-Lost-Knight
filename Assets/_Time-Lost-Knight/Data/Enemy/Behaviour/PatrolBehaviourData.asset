@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30badcbb7e163274090d87c01960fff5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d17e987b082a834884c2652b2b42eb3, type: 3}
   m_Name: PatrolBehaviourData
   m_EditorClassIdentifier: Assembly-CSharp::PatrolBehaviourData
   <moveSpeed>k__BackingField: 5
-  <contactChecker>k__BackingField: {fileID: 0}
-  <rayLenght>k__BackingField: 0.3
+  <rayLenght>k__BackingField: 1
