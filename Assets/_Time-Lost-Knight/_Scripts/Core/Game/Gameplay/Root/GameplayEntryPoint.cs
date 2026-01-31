@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameplayEntryPoint : MonoBehaviour
@@ -6,6 +7,7 @@ public class GameplayEntryPoint : MonoBehaviour
     public event Action GoToMainMenuSceneRequested;
 
     [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
+
 
     public void Run(UIRootView uiRoot)
     {

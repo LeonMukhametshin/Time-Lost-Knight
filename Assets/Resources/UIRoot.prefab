@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIRootView
   m_loadingScreen: {fileID: 1915906196347014694}
   m_uiSceneContainer: {fileID: 4979814157953530090}
+  m_loadingText: {fileID: 5395627006945771558}
 --- !u!1 &5120994744346202540
 GameObject:
   m_ObjectHideFlags: 0

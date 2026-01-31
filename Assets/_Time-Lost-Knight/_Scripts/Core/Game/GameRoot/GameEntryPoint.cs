@@ -12,7 +12,7 @@ public class GameEntryPoint
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void AutostartGame()
     {
-        Application.targetFrameRate = 100;
+        Application.targetFrameRate = 60;
 
         m_instance = new GameEntryPoint();
         m_instance.RunGame();
@@ -51,7 +51,6 @@ public class GameEntryPoint
 #endif
 
         m_coroutines.StartCoroutine(LoadAndStartGameplay());
-
     }
 
     private IEnumerator LoadAndStartGameplay()
