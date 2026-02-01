@@ -176,11 +176,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe73ed16c9864440aab9db46af1e249, type: 3}
---- !u!4 &145119477 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6783348955299353457, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
-  m_PrefabInstance: {fileID: 1895357158}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &156767207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,50 +583,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 422feb094587a5645ae93bc92b77bbe8, type: 3}
---- !u!1 &465686895
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 465686897}
-  - component: {fileID: 465686896}
-  m_Layer: 6
-  m_Name: Coroutine runner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &465686896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465686895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362dec798e7d7354bb0f09ef79d6a915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoroutineRunner
---- !u!4 &465686897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465686895}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 145119477}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &504778360
 GameObject:
   m_ObjectHideFlags: 0
@@ -10744,7 +10695,7 @@ PrefabInstance:
     - target: {fileID: 483804115287020913, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
       propertyPath: m_coroutineRunner
       value: 
-      objectReference: {fileID: 465686896}
+      objectReference: {fileID: 0}
     - target: {fileID: 6783348955299353457, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.18062
@@ -10788,17 +10739,11 @@ PrefabInstance:
     - target: {fileID: 7645549521313729224, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
       propertyPath: m_runner
       value: 
-      objectReference: {fileID: 465686896}
-    - target: {fileID: 7645549521313729224, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
-      propertyPath: weaponConfigs.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6783348955299353457, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 465686897}
+    m_RemovedGameObjects:
+    - {fileID: 4486233993710281763, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
 --- !u!4 &2041728144 stripped

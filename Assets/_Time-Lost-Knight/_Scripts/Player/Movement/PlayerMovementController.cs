@@ -7,7 +7,8 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 
     [SerializeField] private Rigidbody2D m_rigidbody2D;
     [SerializeField] private BoxCollider2D m_boxCollider2D;
-    [SerializeField] private CoroutineRunner m_coroutineRunner;
+
+    private CoroutineRunner m_coroutines;
 
     private PlayerMovementData m_movemnetData;
 
@@ -33,7 +34,7 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 
     private bool m_isInitialized = false;
 
-    public void Initialize(PlayerMovementData movemetData)
+    public void Initialize(PlayerMovementData movemetData, CoroutineRunner coroutine)
     {
         if (m_isInitialized)
         {
@@ -41,6 +42,7 @@ public class PlayerMovementController : MonoBehaviour, IControllable
         }
 
         m_movemnetData = movemetData;
+        m_coroutines = coroutine;
 
         CreateComponents();
         RegisterAbility();
@@ -62,7 +64,7 @@ public class PlayerMovementController : MonoBehaviour, IControllable
             (int)transform.localScale.x);
 
         m_abilitiesContainer = new AbilitiesContainer();
-        m_abilityFactory = new AbilityFactory(m_coroutineRunner);
+        m_abilityFactory = new AbilityFactory(m_coroutines);
     }
 
     private void RegisterAbility()

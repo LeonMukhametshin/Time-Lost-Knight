@@ -21,7 +21,6 @@ public class GameEntryPoint
     private GameEntryPoint()
     {
         m_coroutines = new GameObject("[COROUTINES]").AddComponent<CoroutineRunner>();
-        Object.DontDestroyOnLoad(m_coroutines.gameObject);
 
         var prefabUIRoot = Resources.Load<UIRootView>("UIRoot");
         m_uiRoot = Object.Instantiate(prefabUIRoot);
@@ -63,6 +62,7 @@ public class GameEntryPoint
         yield return new WaitForSeconds(1f);
 
         var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
+        sceneEntryPoint.Initialize(m_coroutines);
         sceneEntryPoint.Run(m_uiRoot);
 
         sceneEntryPoint.goToMainMenuSceneRequested += () =>

@@ -64,10 +64,10 @@ public sealed class WeaponSlot
     {
         if(m_attackRoutine is not null)
         {
-            m_runner.Stop(m_attackRoutine);
+            m_runner.StopCoroutine(m_attackRoutine);
         }
 
-        m_attackRoutine = m_runner.Run(AttackRoutine());
+        m_attackRoutine = m_runner.StartCoroutine(AttackRoutine());
     }
 
     private IEnumerator AttackRoutine()
