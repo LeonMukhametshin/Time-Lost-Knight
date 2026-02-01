@@ -5,8 +5,9 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 {
     public event Action<MovementStates> StateChanged;
 
-    [SerializeField] private Rigidbody2D m_rigidbody2D;
     [SerializeField] private BoxCollider2D m_boxCollider2D;
+
+    private Rigidbody2D m_rigidbody2D;
 
     private CoroutineRunner m_coroutines;
 
@@ -34,7 +35,7 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 
     private bool m_isInitialized = false;
 
-    public void Initialize(PlayerMovementData movemetData, CoroutineRunner coroutine)
+    public void Initialize(PlayerMovementData movemetData, CoroutineRunner coroutine, Rigidbody2D rigidbody)
     {
         if (m_isInitialized)
         {
@@ -43,6 +44,7 @@ public class PlayerMovementController : MonoBehaviour, IControllable
 
         m_movemnetData = movemetData;
         m_coroutines = coroutine;
+        m_rigidbody2D = rigidbody;
 
         CreateComponents();
         RegisterAbility();

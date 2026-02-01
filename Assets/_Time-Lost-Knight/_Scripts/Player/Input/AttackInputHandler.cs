@@ -1,46 +1,28 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine.InputSystem;
 
-[Serializable]
 public sealed class AttackInputHandler
 {
-    [SerializeField] private PlayerAttackSystem m_attackSystem;
+    private readonly PlayerAttackSystem m_attackSystem;
+    private readonly GameInput m_input;
 
-    private GameInput m_gameInput;
-    private bool m_isInitialized;
-
-    public void Update()
+    public AttackInputHandler(
+        GameInput input,
+        PlayerAttackSystem attackSystem,
+        CoroutineRunner coroutine)
     {
-        if(!m_isInitialized)
-        {
-            return;
-        }
-
-        if(m_gameInput.Player.MainWeaponAttack1.WasPerformedThisFrame())
-        {
-            m_attackSystem.Attack(AttackSlot.Main);
-        }
-        else if (m_gameInput.Player.MainWeaponAttack2.WasPerformedThisFrame())
-        {
-            m_attackSystem.Attack(AttackSlot.Additional);
-        }
-        else if(m_gameInput.Player.AdditionalWeaponAttack1.WasPerformedThisFrame())
-        {
-            m_attackSystem.Attack(AttackSlot.AbilityQ);
-        }
-        else if(m_gameInput.Player.AdditionalWeaponAttack2.WasPerformedThisFrame())
-        {
-            m_attackSystem.Attack(AttackSlot.AbilityE);
-        }
-    }
-
-    public void Initialize(CoroutineRunner coroutine)
-    {
-        m_gameInput = new GameInput();
-        m_gameInput.Player.Enable();
-
+        m_attackSystem = attackSystem;
         m_attackSystem.Initialize(coroutine);
 
-        m_isInitialized = true;
+        m_input = input;
+
+        Bind(m_input.Player.MainWeaponAttack1, AttackSlot.Main);
+        Bind(m_input.Player.MainWeaponAttack2, AttackSlot.Additional);
+        Bind(m_input.Player.AdditionalWeaponAttack1, AttackSlot.AbilityQ);
+        Bind(m_input.Player.AdditionalWeaponAttack2, AttackSlot.AbilityE);
+    }
+
+    private void Bind(InputAction action, AttackSlot slot)
+    {
+        action.performed += _ => m_attackSystem.Attack(slot);
     }
 }

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MeleeWeaponData
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeaponData
   <name>k__BackingField: MeleeWeapon
-  <view>k__BackingField: {fileID: 0}
+  <view>k__BackingField: {fileID: 1692994385990180168, guid: 456ef8baa3b46d943bd0f62dabf8c3ff, type: 3}
   <weaponType>k__BackingField: 0
   m_effects:
   - rid: 5340203349476900940
-  <windupTime>k__BackingField: 0
+  <windupTime>k__BackingField: 0.5
   <cooldown>k__BackingField: 2
   <attackZone>k__BackingField: {x: 3, y: 3}
   references:
@@ -26,4 +26,4 @@ MonoBehaviour:
     - rid: 5340203349476900940
       type: {class: Attack, ns: , asm: Assembly-CSharp}
       data:
-        m_damage: 0
+        m_damage: 20
