@@ -10789,6 +10789,10 @@ PrefabInstance:
       propertyPath: m_runner
       value: 
       objectReference: {fileID: 465686896}
+    - target: {fileID: 7645549521313729224, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
+      propertyPath: weaponConfigs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

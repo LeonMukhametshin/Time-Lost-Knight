@@ -1,15 +1,29 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameplayEntryPoint : MonoBehaviour
 {
-    public event Action GoToMainMenuSceneRequested;
+    public event Action goToMainMenuSceneRequested;
+    public event Action levelLoaded;
 
     [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
 
     [SerializeField] private GameObject m_playerPrefab;
     [SerializeField] private PlayerData m_playerData;
+
+    private void OnEnable()
+    {
+        levelLoaded += SpawnAndInitializePlayer;
+        levelLoaded += SpawnEnemy;
+    }
+
+    private void OnDisable()
+    {
+        levelLoaded -= SpawnAndInitializePlayer;
+        levelLoaded -= SpawnEnemy;
+    }
 
     public void Run(UIRootView uiRoot)
     {
@@ -18,7 +32,7 @@ public class GameplayEntryPoint : MonoBehaviour
 
         uiScene.GoToGameplayButtonClicked += () =>
         {
-            GoToMainMenuSceneRequested?.Invoke();
+            goToMainMenuSceneRequested?.Invoke();
         };
 
         LoadLevel();
@@ -32,7 +46,7 @@ public class GameplayEntryPoint : MonoBehaviour
             LoadSceneMode.Additive)
             .completed += _ =>
             {
-                SpawnAndInitializePlayer();
+                levelLoaded?.Invoke();
             };
     }
 
@@ -50,5 +64,17 @@ public class GameplayEntryPoint : MonoBehaviour
 
         var controller = m_playerPrefab.GetComponent<PlayerController>();
         controller.Initialize(m_playerData);
+    }
+
+    private void SpawnEnemy()
+    {
+        var spawner = FindFirstObjectByType<SpawnerEnemy>();
+
+        if(spawner is null)
+        {   
+            throw new Exception("SpawnerEnemy not found");   
+        }
+
+        spawner.Spawn();
     }
 }

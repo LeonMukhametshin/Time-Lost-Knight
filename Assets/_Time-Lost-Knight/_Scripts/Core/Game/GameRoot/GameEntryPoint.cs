@@ -65,7 +65,7 @@ public class GameEntryPoint
         var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
         sceneEntryPoint.Run(m_uiRoot);
 
-        sceneEntryPoint.GoToMainMenuSceneRequested += () =>
+        sceneEntryPoint.goToMainMenuSceneRequested += () =>
         {
             m_coroutines.StartCoroutine(LoadAndStartMainMenu());
         };
