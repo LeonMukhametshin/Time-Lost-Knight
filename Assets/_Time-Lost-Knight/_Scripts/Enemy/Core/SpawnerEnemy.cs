@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class SpawnerEnemy : MonoBehaviour
 {
-    [SerializeField] private EnemyViewModel[] m_enemies;
+    [SerializeReference] private EnemyData[] m_enemyDatas;
+    [SerializeField] private EnemyModel[] m_enemies;
     [SerializeField] private Transform[] m_spawnPoints;
 
     private void Start()
@@ -16,10 +17,13 @@ public class SpawnerEnemy : MonoBehaviour
         {
             var enemy = GetEnemy();
             var enemyInstance = GameObject.Instantiate(enemy, poin.position, poin.rotation);
-            enemyInstance.Initialize();
+            enemyInstance.Initialize(GetEnemyData());
         }
     }
 
-    private EnemyViewModel GetEnemy() =>
+    private EnemyModel GetEnemy() =>
         m_enemies[Random.Range(0, m_enemies.Length)];
+
+    private EnemyData GetEnemyData() =>
+        m_enemyDatas[Random.Range(0, m_enemyDatas.Length)];
 }

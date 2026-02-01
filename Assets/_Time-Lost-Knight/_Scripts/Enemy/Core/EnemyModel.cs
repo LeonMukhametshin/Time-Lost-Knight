@@ -1,21 +1,23 @@
 using UnityEngine;
 
-public class EnemyViewModel : MonoBehaviour
+public class EnemyModel : MonoBehaviour
 {
-    [SerializeField] private EnemyData m_enemyData;
     [SerializeField] private HealthSystem m_healthSystem;
     [SerializeField] private EnemyAttackSystem m_enemyAttackSystem;
 
     private IEnemyBehaviour m_enemyBehaviuor;
 
-    public void Initialize()
+    private EnemyData m_enemyData;
+    [SerializeField] private EnemyCollision m_enemyCollision;
+
+    public void Initialize(EnemyData data)
     {
-        // TODO Factory
-        // too dirty
-        switch(m_enemyData.enemyBehaviuorData)
+        m_enemyData = data;
+
+        switch (data.enemyBehaviuorData)
         {
             case PatrolBehaviourData patrol:
-                m_enemyBehaviuor = 
+                m_enemyBehaviuor =
                     gameObject.GetComponent<IEnemyBehaviour>() ??
                     gameObject.AddComponent<EnemyPatrolBehaviour>();
                 break;
@@ -31,6 +33,8 @@ public class EnemyViewModel : MonoBehaviour
         m_enemyAttackSystem.Initialize(m_enemyData.weaponConfig, m_enemyData.weaponConfig.cooldown);
 
         m_healthSystem.died += () => Destroy(gameObject);
+
+        m_enemyCollision.touchEnemy += Attack;
     }
 
     private void Update()
@@ -38,11 +42,8 @@ public class EnemyViewModel : MonoBehaviour
         m_enemyBehaviuor?.Move();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Attack()
     {
-        if(collision.TryGetComponent<HealthSystem>(out var healt))
-        {
-            m_enemyAttackSystem.TryAttack();
-        }
+        m_enemyAttackSystem.TryAttack();
     }
 }   

@@ -154,7 +154,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8328139414884581748}
   - component: {fileID: 4114221669008706206}
-  - component: {fileID: 4356380119950390776}
   - component: {fileID: 2946919238764056215}
   - component: {fileID: 3702410644198695420}
   - component: {fileID: 6344661370591875334}
@@ -182,6 +181,7 @@ Transform:
   m_Children:
   - {fileID: 7991127169256745356}
   - {fileID: 4963953079420621157}
+  - {fileID: 1555425803640212912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4114221669008706206
@@ -230,52 +230,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.64, y: 0.38}
   m_EdgeRadius: 0
---- !u!61 &4356380119950390776
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4643813181283472470}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.64, y: 0.38}
-  m_EdgeRadius: 0
 --- !u!50 &2946919238764056215
 Rigidbody2D:
   serializedVersion: 5
@@ -315,9 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03509bdba4482de41af9640c5a4c489b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyViewModel
-  m_enemyData: {fileID: 11400000, guid: 1defa1327ea960444a601412ef974cbe, type: 2}
   m_healthSystem: {fileID: 1246724560892271605}
   m_enemyAttackSystem: {fileID: 5048786935084974226}
+  m_enemyCollision: {fileID: 7745968365355957842}
 --- !u!114 &6344661370591875334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrolBehaviour
   m_contactChecker: {fileID: 4963953079420621157}
+  m_groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1246724560892271605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,3 +312,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89031fb65e47a664ba59c812b8f2d4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSystem
+--- !u!1 &4856479694945821331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1555425803640212912}
+  - component: {fileID: 4034508453132537172}
+  - component: {fileID: 7745968365355957842}
+  m_Layer: 8
+  m_Name: Attack Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1555425803640212912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856479694945821331}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8328139414884581748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4034508453132537172
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856479694945821331}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.4
+--- !u!114 &7745968365355957842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856479694945821331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85bc6312d09bec4ca13a99506a28661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollision
+  m_knockBackforce: 3
