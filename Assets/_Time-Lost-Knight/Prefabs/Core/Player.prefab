@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackSystem
   m_attackPoint: {fileID: 236804145828580960}
   weaponConfigs:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9af3c87eab3506643a7772b937c7962c, type: 2}
   m_runner: {fileID: 6914509083816545368}
 --- !u!114 &483804115287020913
 MonoBehaviour:
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementController
   m_rigidbody2D: {fileID: 2280021221023015590}
   m_boxCollider2D: {fileID: 3028779402870396807}
-  m_coroutineRunner: {fileID: 0}
+  m_coroutineRunner: {fileID: 6914509083816545368}
 --- !u!1 &2971172450447859775
 GameObject:
   m_ObjectHideFlags: 0

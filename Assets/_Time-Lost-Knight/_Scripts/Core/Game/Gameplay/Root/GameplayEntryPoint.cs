@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,18 +9,15 @@ public class GameplayEntryPoint : MonoBehaviour
 
     [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
 
-    [SerializeField] private GameObject m_playerPrefab;
-    [SerializeField] private PlayerData m_playerData;
-
     private void OnEnable()
     {
-        levelLoaded += SpawnAndInitializePlayer;
+        levelLoaded += SpawnPlayer;
         levelLoaded += SpawnEnemy;
     }
 
     private void OnDisable()
     {
-        levelLoaded -= SpawnAndInitializePlayer;
+        levelLoaded -= SpawnPlayer;
         levelLoaded -= SpawnEnemy;
     }
 
@@ -50,24 +46,22 @@ public class GameplayEntryPoint : MonoBehaviour
             };
     }
 
-    private void SpawnAndInitializePlayer()
+    private void SpawnPlayer()
     {
-        var spawnPoint = FindFirstObjectByType<PlayerSpawnPoint>();
+        //remove
+        var spawner = FindFirstObjectByType<SpawnerPlayer>();
 
-        if(spawnPoint is null)
+        if(spawner is null)
         {
             throw new Exception("PlayerSpawnPoint not found");
         }
 
-        var spawner = new PlayerSpawner(m_playerPrefab);
-        m_playerPrefab = spawner.Spawn(spawnPoint.transform);
-
-        var controller = m_playerPrefab.GetComponent<PlayerController>();
-        controller.Initialize(m_playerData);
+        spawner.Spawn();
     }
 
     private void SpawnEnemy()
     {
+        //remove
         var spawner = FindFirstObjectByType<SpawnerEnemy>();
 
         if(spawner is null)
