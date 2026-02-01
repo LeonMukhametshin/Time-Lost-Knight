@@ -1,5 +1,8 @@
+using System;
+
+[Serializable]
 public enum EnemyType
 {
-    Damageable,
-    Attack
+    Patrol,
+    Waypoint
 }

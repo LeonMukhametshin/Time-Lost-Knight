@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyPatrolBehaviour : MonoBehaviour, IEnemyBehaviour
 {
     [SerializeField] private Transform m_contactChecker;
+    [SerializeField] private LayerMask m_groundLayer;
     private Transform m_transform;
 
     private float m_moveSpeed;
@@ -23,11 +24,6 @@ public class EnemyPatrolBehaviour : MonoBehaviour, IEnemyBehaviour
         } 
 
         m_isInitilized = true;
-    }
-
-    public void Initialize(PatrolBehaviourData data)
-    {
-       
     }
 
     public void Move()
@@ -65,5 +61,6 @@ public class EnemyPatrolBehaviour : MonoBehaviour, IEnemyBehaviour
         Physics2D.Raycast(
             m_contactChecker.position,
             direction,
-            m_rayLenght);
+            m_rayLenght,
+            m_groundLayer);
 }

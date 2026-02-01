@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyAttackSystem : MonoBehaviour
 {
     private WeaponConfig m_weaponConfig;
-    private Transform m_target;
     private AttackCaster m_caster;
 
     private float m_attackTime;
@@ -11,7 +10,7 @@ public class EnemyAttackSystem : MonoBehaviour
 
     private bool m_isInitialized;
 
-    public void Initialize(WeaponConfig config, Transform target, float attackTime)
+    public void Initialize(WeaponConfig config, float attackTime)
     {
         if(m_isInitialized)
         {
@@ -19,7 +18,6 @@ public class EnemyAttackSystem : MonoBehaviour
         }
 
         m_weaponConfig = config;
-        m_target = target;
         m_attackTime = attackTime;
         m_caster = new AttackCaster(transform);
 

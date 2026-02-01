@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b19164745b9c524b91a49c09ee85484, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cb3589f89f57f547ab7fdef0dee4792, type: 3}
   m_Name: WaypontsBehaviourData
   m_EditorClassIdentifier: Assembly-CSharp::WaypontsBehaviourData
-  <moveSpeed>k__BackingField: 5
-  <wayponts>k__BackingField: []
+  <moveSpeed>k__BackingField: 3

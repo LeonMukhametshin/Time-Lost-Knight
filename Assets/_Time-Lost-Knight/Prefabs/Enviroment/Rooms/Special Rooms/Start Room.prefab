@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7557310438079877144}
   - component: {fileID: 1664639871829896266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Start Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 9122959403412518366}
   - component: {fileID: 1466044399294273008}
   - component: {fileID: 4054647015475471785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 5181061707721137131}
   - component: {fileID: 6214470127197256490}
   - component: {fileID: 6910946703064548092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4398197399898595308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Level Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1263,7 +1263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2707586327372709981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door Anchors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1296,7 +1296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4885135687549028895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door Anchor Left 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1327,7 +1327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3348540495346446708}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Door Anchors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 5189007112325744029}
   - component: {fileID: 188466838825252883}
   - component: {fileID: 3764448743204659992}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1896,7 +1896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6077071678905936129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Door Anchors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1928,7 +1928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4471638065569844356}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door Anchor Right 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
