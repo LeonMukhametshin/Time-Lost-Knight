@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public class MovementInputHandler 
+namespace Inputs
 {
-    private readonly GameInput m_input;
-    private readonly IControllable m_controllable;
-
-    public MovementInputHandler(GameInput input, IControllable controllable)
+    public class MovementInputHandler
     {
-        m_input = input;
-        m_controllable = controllable;
+        private readonly GameInput m_input;
+        private readonly IControllable m_controllable;
 
-        m_input.Player.Jump.performed += _ => m_controllable.Jump();
-        m_input.Player.Dash.performed += _ => m_controllable.Dash();
-    }
+        public MovementInputHandler(GameInput input, IControllable controllable)
+        {
+            m_input = input;
+            m_controllable = controllable;
 
-    public void Update()
-    {
-        Vector2 input = m_input.Player.Move.ReadValue<Vector2>();
-        m_controllable.Move(input);
+            m_input.Player.Jump.performed += _ => m_controllable.Jump();
+            m_input.Player.Dash.performed += _ => m_controllable.Dash();
+        }
+
+        public void Update()
+        {
+            Vector2 input = m_input.Player.Move.ReadValue<Vector2>();
+            m_controllable.Move(input);
+        }
     }
 }

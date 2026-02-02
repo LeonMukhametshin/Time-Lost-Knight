@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public sealed class InteractionInputHandler : MonoBehaviour
+namespace Inputs
 {
-    public InteractionInputHandler(
-       GameInput input,
-       InteractionController interactionController)
+    public sealed class InteractionInputHandler : MonoBehaviour
     {
-        input.Player.Interact.performed += _ =>
+        public InteractionInputHandler(
+           GameInput input,
+           InteractionController interactionController)
         {
-            interactionController.Interact();
-        };
+            input.Player.Interact.performed += _ =>
+            {
+                interactionController.Interact();
+            };
+        }
     }
 }
