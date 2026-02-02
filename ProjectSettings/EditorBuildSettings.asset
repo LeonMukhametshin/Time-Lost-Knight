@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Time-Lost-Knight/Scenes/Boot.unity
+    path: Assets/_Time-Lost-Knight/Scenes/Main/Boot.unity
     guid: 3c7bc8227d58a2b4086c8ca1a7691809
   - enabled: 1
-    path: Assets/_Time-Lost-Knight/Scenes/MainMenu.unity
+    path: Assets/_Time-Lost-Knight/Scenes/Main/MainMenu.unity
     guid: 1096862dda09cff47ba04aa7b7fcb270
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Time-Lost-Knight/Scenes/Main/Gameplay.unity
+    guid: 43451bfbd1e714d4f81c224363ffb6df
+  - enabled: 1
+    path: Assets/_Time-Lost-Knight/Scenes/Levels/Level_1.unity
+    guid: 7caa6c0c34064f74ab2c40b84193fd63
+  - enabled: 1
+    path: Assets/_Time-Lost-Knight/Scenes/Levels/Level Example.unity
+    guid: c06c0ce7f3e169b4494d29efabd9c8e1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

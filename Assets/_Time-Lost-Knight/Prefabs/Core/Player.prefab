@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6783348955299353457}
   - component: {fileID: 3028779402870396807}
   - component: {fileID: 2280021221023015590}
-  - component: {fileID: 439694082504234011}
+  - component: {fileID: 4218388444654062939}
   - component: {fileID: 471759215724388}
   - component: {fileID: 6228018142920976922}
   - component: {fileID: 7645549521313729224}
@@ -32,13 +32,14 @@ Transform:
   m_GameObject: {fileID: 425996699510080898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.06, y: 0.383, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4275029829567794044}
   - {fileID: 2903044222298679950}
   - {fileID: 236804145828580960}
+  - {fileID: 2049889053676295665}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3028779402870396807
@@ -114,7 +115,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &439694082504234011
+--- !u!114 &4218388444654062939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,15 +124,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 425996699510080898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eee17b75e0d4edc44818a6507343e7e6, type: 3}
+  m_Script: {fileID: 11500000, guid: a4ca2f95108539d4fad9ba839ba59664, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  m_rigidbody: {fileID: 2280021221023015590}
-  m_data: {fileID: 11400000, guid: f1c4150c0c587b148bce4945077994f9, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   m_movementController: {fileID: 483804115287020913}
   m_attackInput:
     m_attackSystem: {fileID: 7645549521313729224}
   m_healthSystem: {fileID: 6228018142920976922}
+  m_rigidbody: {fileID: 2280021221023015590}
 --- !u!114 &471759215724388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackSystem
   m_attackPoint: {fileID: 236804145828580960}
   weaponConfigs:
-  - {fileID: 0}
-  m_runner: {fileID: 0}
+  - {fileID: 11400000, guid: 9af3c87eab3506643a7772b937c7962c, type: 2}
+  m_runner: {fileID: 6914509083816545368}
 --- !u!114 &483804115287020913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementController
   m_rigidbody2D: {fileID: 2280021221023015590}
   m_boxCollider2D: {fileID: 3028779402870396807}
-  m_coroutineRunner: {fileID: 0}
+  m_coroutineRunner: {fileID: 6914509083816545368}
 --- !u!1 &2971172450447859775
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +346,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6783348955299353457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4486233993710281763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049889053676295665}
+  - component: {fileID: 6914509083816545368}
+  m_Layer: 0
+  m_Name: Coroutine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2049889053676295665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486233993710281763}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6783348955299353457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6914509083816545368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486233993710281763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362dec798e7d7354bb0f09ef79d6a915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoroutineRunner
 --- !u!1 &6577667189193534599
 GameObject:
   m_ObjectHideFlags: 0

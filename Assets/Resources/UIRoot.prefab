@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIRootView
   m_loadingScreen: {fileID: 1915906196347014694}
   m_uiSceneContainer: {fileID: 4979814157953530090}
+  m_loadingText: {fileID: 5395627006945771558}
 --- !u!1 &5120994744346202540
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +480,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 118.6
+  m_fontSize: 119.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -536,7 +537,7 @@ GameObject:
   - component: {fileID: 9194796870955584240}
   - component: {fileID: 3280603541786036177}
   m_Layer: 0
-  m_Name: UiCanvas
+  m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
