@@ -9,6 +9,20 @@ public class GameplayEntryPoint : MonoBehaviour
 
     [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
 
+    private bool m_isInitialized;
+
+    private CoroutineRunner m_coroutines;
+
+    public void Initialize(CoroutineRunner coroutine)
+    {
+        if(m_isInitialized)
+        {
+            return;
+        }
+
+        m_coroutines = coroutine;
+    }
+
     private void OnEnable()
     {
         levelLoaded += SpawnPlayer;
@@ -56,7 +70,7 @@ public class GameplayEntryPoint : MonoBehaviour
             throw new Exception("PlayerSpawnPoint not found");
         }
 
-        spawner.Spawn();
+        spawner.Spawn(m_coroutines);
     }
 
     private void SpawnEnemy()

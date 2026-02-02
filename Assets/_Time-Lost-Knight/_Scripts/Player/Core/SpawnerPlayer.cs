@@ -7,10 +7,10 @@ public sealed class SpawnerPlayer : MonoBehaviour
 
     [SerializeField] private Transform m_spawnPoint;
 
-    public void Spawn()
+    public void Spawn(CoroutineRunner coroutine)
     {
         var player = Object.Instantiate(m_player, m_spawnPoint.position, m_spawnPoint.rotation);
 
-        player.Initialize(m_playerData);
+        player.Initialize(m_playerData, coroutine);
     } 
 }

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour, IPhysics
 
     [SerializeField] private Rigidbody2D m_rigidbody;
 
+    private CoroutineRunner m_coroutines;
+
     private bool isInitialize = false;
 
     private void Update()
@@ -15,17 +17,20 @@ public class PlayerController : MonoBehaviour, IPhysics
         m_attackInput.Update();
     }
 
-    public void Initialize(PlayerData data)
+    public void Initialize(PlayerData data, CoroutineRunner coroutine)
     {
         if(isInitialize)
         {
             return;
-        }    
+        }
 
-        m_movementController.Initialize(data.playerMovement);
+        m_coroutines = coroutine;
+
+        m_movementController.Initialize(data.playerMovement, m_coroutines);
+        m_attackInput.Initialize(m_coroutines);
         m_healthSystem.Initialize(data.healthPoints);
 
-        m_attackInput.Initialize();
+        isInitialize = true;
     }
 
     public void AddForce(Vector2 direction, ForceMode2D mode) =>

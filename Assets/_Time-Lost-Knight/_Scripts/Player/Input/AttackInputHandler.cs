@@ -5,7 +5,7 @@ using UnityEngine;
 public sealed class AttackInputHandler
 {
     [SerializeField] private PlayerAttackSystem m_attackSystem;
-    
+
     private GameInput m_gameInput;
     private bool m_isInitialized;
 
@@ -34,11 +34,13 @@ public sealed class AttackInputHandler
         }
     }
 
-    public void Initialize()
+    public void Initialize(CoroutineRunner coroutine)
     {
         m_gameInput = new GameInput();
         m_gameInput.Player.Enable();
-        
+
+        m_attackSystem.Initialize(coroutine);
+
         m_isInitialized = true;
     }
 }
