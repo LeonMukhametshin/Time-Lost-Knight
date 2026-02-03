@@ -10,7 +10,6 @@ public class PlanformMover
     [SerializeField][Min(0)] private float m_duration;
 
     [SerializeField] private Ease m_ease = Ease.Linear;
-    [SerializeField] private LoopType m_loopType = LoopType.Yoyo;
 
     [SerializeField] private bool m_isLooped;
 
