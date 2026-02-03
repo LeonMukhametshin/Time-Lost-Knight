@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 3028779402870396807}
   - component: {fileID: 2280021221023015590}
   - component: {fileID: 4218388444654062939}
-  - component: {fileID: 471759215724388}
-  - component: {fileID: 6228018142920976922}
-  - component: {fileID: 7645549521313729224}
   - component: {fileID: 483804115287020913}
+  - component: {fileID: 6228018142920976922}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -37,9 +35,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4275029829567794044}
-  - {fileID: 2903044222298679950}
+  - {fileID: 7853925354465414157}
   - {fileID: 236804145828580960}
-  - {fileID: 2049889053676295665}
+  - {fileID: 8086151272163593705}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3028779402870396807
@@ -128,50 +126,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   m_movementController: {fileID: 483804115287020913}
-  m_attackInput:
-    m_attackSystem: {fileID: 7645549521313729224}
+  m_inputController: {fileID: 4712242923153513831}
+  m_interactionController: {fileID: 5700834861534272364}
+  m_attackSystem: {fileID: 1808267788916780338}
   m_healthSystem: {fileID: 6228018142920976922}
   m_rigidbody: {fileID: 2280021221023015590}
---- !u!114 &471759215724388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425996699510080898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7659b5bbb572148814222b2bbb5df2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KeyboardInput
---- !u!114 &6228018142920976922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425996699510080898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
---- !u!114 &7645549521313729224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425996699510080898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f88229bc831e454ea1520de89f79e2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackSystem
-  m_attackPoint: {fileID: 236804145828580960}
-  weaponConfigs:
-  - {fileID: 11400000, guid: 9af3c87eab3506643a7772b937c7962c, type: 2}
-  m_runner: {fileID: 6914509083816545368}
 --- !u!114 &483804115287020913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,9 +143,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb93422fc538974e9ce69d580292cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementController
-  m_rigidbody2D: {fileID: 2280021221023015590}
   m_boxCollider2D: {fileID: 3028779402870396807}
-  m_coroutineRunner: {fileID: 6914509083816545368}
+--- !u!114 &6228018142920976922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425996699510080898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
+--- !u!1 &2498899196091327796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8086151272163593705}
+  - component: {fileID: 4712242923153513831}
+  m_Layer: 6
+  m_Name: Input Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8086151272163593705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498899196091327796}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6783348955299353457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4712242923153513831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498899196091327796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4fc55aeee4c9a4e896e8f0041b1974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inputs.PlayerInputController
 --- !u!1 &2971172450447859775
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2903044222298679950}
   m_Layer: 6
-  m_Name: 'AttackPoint '
+  m_Name: Attack Point
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -339,57 +352,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3713116373913576583}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.594, y: -0.177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6783348955299353457}
+  m_Father: {fileID: 7853925354465414157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4486233993710281763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2049889053676295665}
-  - component: {fileID: 6914509083816545368}
-  m_Layer: 0
-  m_Name: Coroutine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2049889053676295665
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4486233993710281763}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6783348955299353457}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6914509083816545368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4486233993710281763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362dec798e7d7354bb0f09ef79d6a915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoroutineRunner
 --- !u!1 &6577667189193534599
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +373,7 @@ GameObject:
   - component: {fileID: 175171716439925838}
   - component: {fileID: 5700834861534272364}
   m_Layer: 6
-  m_Name: InteractionDetector
+  m_Name: 'Interaction Zone '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf6142ad8a3c314abf8055a4a4681a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractInput
-  m_interactionController: {fileID: 5700834861534272364}
 --- !u!114 &5700834861534272364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,3 +477,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
   m_detector: {fileID: 8802588682780852783}
+--- !u!1 &6629681133227424094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7853925354465414157}
+  - component: {fileID: 1808267788916780338}
+  m_Layer: 6
+  m_Name: AttackSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7853925354465414157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629681133227424094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2903044222298679950}
+  m_Father: {fileID: 6783348955299353457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808267788916780338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629681133227424094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f88229bc831e454ea1520de89f79e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackSystem
+  m_attackPoint: {fileID: 2903044222298679950}
+  weaponConfigs:
+  - {fileID: 11400000, guid: 9af3c87eab3506643a7772b937c7962c, type: 2}
