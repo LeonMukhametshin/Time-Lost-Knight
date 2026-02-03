@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Inputs;
 
-public class PlayerMovementController : MonoBehaviour, IControllable
+public class PlayerMovementController : MonoBehaviour
 {
     public event Action<MovementStates> StateChanged;
 

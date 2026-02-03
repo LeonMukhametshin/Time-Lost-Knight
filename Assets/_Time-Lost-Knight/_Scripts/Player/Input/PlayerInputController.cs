@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Inputs
 {
@@ -6,38 +7,75 @@ namespace Inputs
     {
         private GameInput m_gameInput;
 
-        private MovementInputHandler m_movementInput;
-        private AttackInputHandler m_attackInput;
-        private InteractionInputHandler m_interactInput;
+        public event Action<Vector2> move;
+        public event Action jump;
+        public event Action dash;
+        public event Action interact;
+        public event Action<AttackSlot> attack;
+
+        private Vector2 m_lastInput = Vector2.zero;
 
         private bool m_isInitialize;
 
-        private void OnDisable() =>
-            DeactivatePlayerInput();
-
-        public void Intialize(
-            PlayerMovementController movementContoller,
-            InteractionController interactionController,
-            PlayerAttackSystem attackSystem,
-            CoroutineRunner coroutine)
+        private void OnDisable()
         {
-            if(m_isInitialize)
+            Unsubscribe();
+            DeactivatePlayerInput();
+        }
+
+        public void Intialize()
+        {
+            if (m_isInitialize)
             {
                 return;
             }
 
             m_gameInput = new GameInput();
+
             ActivatePlayerInput();
-
-            m_movementInput = new MovementInputHandler(m_gameInput, movementContoller);
-            m_attackInput = new AttackInputHandler(m_gameInput, attackSystem, coroutine);
-            m_interactInput = new InteractionInputHandler(m_gameInput, interactionController);
-
+            Subscribe();
         }
 
-        private void Update() =>
-            m_movementInput.Update();
+        private void Subscribe()
+        {
+            m_gameInput.Player.Jump.performed += _ => jump?.Invoke();
+            m_gameInput.Player.Dash.performed += _ => dash?.Invoke(); ;
+            m_gameInput.Player.Interact.performed += _ => interact?.Invoke();
 
+            m_gameInput.Player.MainWeaponAttack1.performed += _ => attack?.Invoke(AttackSlot.Main);
+            m_gameInput.Player.MainWeaponAttack2.performed += _ => attack?.Invoke(AttackSlot.Additional);
+            m_gameInput.Player.AdditionalWeaponAttack1.performed += _ => attack?.Invoke(AttackSlot.AbilityQ);
+            m_gameInput.Player.AdditionalWeaponAttack2.performed += _ => attack?.Invoke(AttackSlot.AbilityE);
+        }
+        
+        private void Unsubscribe()
+        {
+            m_gameInput.Player.Jump.performed -= _ => jump?.Invoke();
+            m_gameInput.Player.Dash.performed -= _ => dash?.Invoke(); ;
+            m_gameInput.Player.Interact.performed -= _ => interact?.Invoke();
+
+            m_gameInput.Player.MainWeaponAttack1.performed -= _ => attack?.Invoke(AttackSlot.Main);
+            m_gameInput.Player.MainWeaponAttack2.performed -= _ => attack?.Invoke(AttackSlot.Additional);
+            m_gameInput.Player.AdditionalWeaponAttack1.performed -= _ => attack?.Invoke(AttackSlot.AbilityQ);
+            m_gameInput.Player.AdditionalWeaponAttack2.performed -= _ => attack?.Invoke(AttackSlot.AbilityE);
+        }
+
+        public void Update()
+        {
+            Vector2 input = m_gameInput.Player.Move.ReadValue<Vector2>();
+
+            if (input.sqrMagnitude > 0.01f)
+            {
+                move?.Invoke(input);
+                m_lastInput = input;
+            }
+            else if(input != m_lastInput)
+            {
+                move?.Invoke(Vector2.zero);
+                m_lastInput = Vector2.zero;
+            }
+        }
+         
         public void ActivatePlayerInput() =>
             m_gameInput.Player.Enable();
 

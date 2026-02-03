@@ -1,11 +1,9 @@
-using Inputs;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IPhysics
 {
     [SerializeField] private PlayerMovementController m_movementController;
 
-    [SerializeField] private PlayerInputController m_inputController;
     [SerializeField] private InteractionController m_interactionController;
     [SerializeField] private PlayerAttackSystem m_attackSystem;
 
@@ -28,12 +26,6 @@ public class PlayerController : MonoBehaviour, IPhysics
 
         m_healthSystem.Initialize(data.healthPoints);
         m_movementController.Initialize(data.playerMovement, m_coroutines, m_rigidbody);
-
-        m_inputController.Intialize(
-            m_movementController,
-            m_interactionController, 
-            m_attackSystem, 
-            m_coroutines);
 
         isInitialize = true;
     }
