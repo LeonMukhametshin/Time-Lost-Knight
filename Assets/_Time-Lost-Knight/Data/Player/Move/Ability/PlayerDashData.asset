@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5084e646730375645807afa0e6a7cf90, type: 3}
   m_Name: PlayerDashData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDashData
-  <dashSpeed>k__BackingField: 10
-  <dashAttackTime>k__BackingField: 1
-  <dashInputBufferTime>k__BackingField: 1
+  <dashSpeed>k__BackingField: 15
+  <duration>k__BackingField: 0.4

@@ -14,21 +14,11 @@ public class PlayerStateVisualizer : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        m_movementController.StateChanged += UpdateText;
+        m_movementController.m_fsm.stateChanged += UpdateText;
     }
 
-    private void OnDisable()
-    {
-        m_movementController.StateChanged -= UpdateText;
-    }
-
-    private void Awake()
-    {
-        UpdateText(MovementStates.Idle);
-    }
-
-    private void UpdateText(MovementStates states) =>
-        m_text.text = states.ToString();
+    private void UpdateText(MovementState state) =>
+        m_text.text = state.ToString();
 }

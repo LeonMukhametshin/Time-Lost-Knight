@@ -15,5 +15,5 @@ MonoBehaviour:
   <groundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 128
-  <groundCheckDistance>k__BackingField: 1
+  <groundCheckDistance>k__BackingField: 0.1
   <coyoteTime>k__BackingField: 0

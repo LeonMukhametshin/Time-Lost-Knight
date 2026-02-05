@@ -1,173 +1,103 @@
-using System;
-using UnityEngine;
 using Inputs;
+using TMPro;
+using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    public event Action<MovementStates> StateChanged;
+    [SerializeField] private TMP_Text m_text;
 
-    [SerializeField] private BoxCollider2D m_boxCollider2D;
+    public MovementStateMachine m_fsm { get; private set; }
 
-    private Rigidbody2D m_rigidbody2D;
+    [SerializeField] private PlayerInputController m_inputs;
+
+    [SerializeField] private BoxCollider2D m_collider;
+    [SerializeField] private Rigidbody2D m_rigidbody;
+
+    [SerializeField] private GroundContactChecker m_groundChecker;
+
+    private MovementAbilityCharges m_abilityResourceController;
+    private PlayerMovementData m_data;
 
     private CoroutineRunner m_coroutines;
 
-    private PlayerMovementData m_movemnetData;
-
-    private AbilitiesContainer m_abilitiesContainer;
-    private AbilityFactory m_abilityFactory;
-    private GroundChecker m_groundChecker;
-
-    private AbilityContext m_abilityContext;
-    private MovementStates m_state;
-
-    public MovementStates state
-    {
-        get => m_state;
-        set
-        {
-            if(m_state != value)
-            {
-                m_state = value;
-                StateChanged?.Invoke(m_state);
-            }
-        }
-    }
-
     private bool m_isInitialized = false;
 
-    public void Initialize(PlayerMovementData movemetData, CoroutineRunner coroutine, Rigidbody2D rigidbody)
+    public void Initialize(
+        PlayerMovementData movemetData,
+        CoroutineRunner coroutine)
     {
         if (m_isInitialized)
         {
             return;
         }
 
-        m_movemnetData = movemetData;
+        m_data = movemetData;
         m_coroutines = coroutine;
-        m_rigidbody2D = rigidbody;
+        m_groundChecker.Initialize(m_collider, m_data.m_groundCheckData);
 
-        CreateComponents();
-        RegisterAbility();
+
+        m_abilityResourceController = new MovementAbilityCharges(1, 1);
+
+        m_fsm = new MovementStateMachine();
+
+        m_fsm.AddState(new IdleMovementState(m_fsm, m_inputs, m_rigidbody, m_groundChecker, m_abilityResourceController));
+        m_fsm.AddState(new RunMovementState(m_fsm, m_inputs, m_rigidbody, m_data.m_moveData, m_groundChecker, m_abilityResourceController));
+        m_fsm.AddState(new JumpMovementState(m_fsm, m_inputs, m_rigidbody, m_data.m_jumpData, m_coroutines));
+        m_fsm.AddState(new FallMovementState(m_fsm, m_inputs, m_rigidbody));
+        m_fsm.AddState(new DashMovementState(m_fsm, m_rigidbody, transform, m_data.m_dashData, m_coroutines));
+
+        m_fsm.GetState<JumpMovementState>().jumpFineshed += JumpFinished;
+        m_fsm.GetState<DashMovementState>().dashFinished += DashFinished;
+
+        m_fsm.SetState<IdleMovementState>();
 
         m_isInitialized = true;
     }
 
-    private void CreateComponents()
+    private void DashFinished()
     {
-        m_groundChecker = new GroundChecker(
-            m_boxCollider2D, 
-            m_movemnetData.m_groundCheckData);
-
-        m_abilityContext = new AbilityContext(
-            Vector2.zero,
-            Vector2.zero,
-            false,
-            false,
-            (int)transform.localScale.x);
-
-        m_abilitiesContainer = new AbilitiesContainer();
-        m_abilityFactory = new AbilityFactory(m_coroutines);
-    }
-
-    private void RegisterAbility()
-    {
-        m_abilitiesContainer.RegisterAbility(
-            m_abilityFactory.Create(AbilityKey.Walk, m_rigidbody2D, m_movemnetData),
-            AbilityKey.Walk);
-
-        m_abilitiesContainer.RegisterAbility(
-            m_abilityFactory.Create(AbilityKey.Dash, m_rigidbody2D, m_movemnetData), 
-            AbilityKey.Dash);
-
-        m_abilitiesContainer.RegisterAbility(
-            m_abilityFactory.Create(AbilityKey.Jump, m_rigidbody2D, m_movemnetData),
-            AbilityKey.Jump);
-    }
-
-    private void Update() =>
-        UpdateState();
-
-    private void FixedUpdate() =>
-         UpdateAbilityContex();
-
-    public void Move(Vector2 direction)
-    {
-        if (direction.sqrMagnitude > 0.01f)
+        if(m_groundChecker.isGround)
         {
-            Flip(direction.x);
+            if(m_inputs.moveDirection.sqrMagnitude > 0.01f)
+            {
+                m_fsm.SetState<RunMovementState>();
+            }
+            else
+            {
+                m_fsm.SetState<IdleMovementState>();
+            }
         }
-
-        m_abilityContext.moveDirection = direction;
-
-        m_abilitiesContainer
-            .GetAbility(AbilityKey.Walk)
-            .Do(m_abilityContext);
-    }
-
-    public void Jump()
-    {
-        if(!m_groundChecker.IsGrounded())
+        else
         {
-            return;
-        }
-
-        m_abilitiesContainer
-            .GetAbility(AbilityKey.Jump)
-            .Do(m_abilityContext);
-    }
-
-    public void Dash()
-    {
-        if (!m_abilityContext.canDash)
-        {
-            return;
-        }
-
-        m_abilityContext.canDash = false;
-
-        state = MovementStates.Dash;
-        m_abilitiesContainer
-            .GetAbility(AbilityKey.Dash)
-            .Do(m_abilityContext);
-    }
-
-    private void Flip(float xDirection) =>
-        transform.localScale = xDirection < 0
-            ? new Vector2(-1, transform.localScale.y)
-            : new Vector2(1, transform.localScale.y);
-
-    private void UpdateState()
-    {
-        if(m_abilitiesContainer.GetAbility(AbilityKey.Dash).isActive)
-        {
-            state = MovementStates.Dash;
-            return;
-        }
-
-        if(!m_abilityContext.isGrounded)
-        {
-            state = m_abilityContext.velocity.y > 0.1f
-                ? MovementStates.Jump
-                : MovementStates.Fall;
-
-            return;
-        }
-
-        state = Mathf.Abs(m_abilityContext.moveDirection.x) > 0.01f
-            ? MovementStates.Walk
-            : MovementStates.Idle;
-    }
-
-    private void UpdateAbilityContex()
-    {
-        m_abilityContext.velocity = m_rigidbody2D.linearVelocity;
-        m_abilityContext.isGrounded = m_groundChecker.IsGrounded();
-        m_abilityContext.xScale = (int)transform.localScale.x;
-
-        if (m_abilityContext.isGrounded)
-        {
-            m_abilityContext.canDash = true;
+            m_fsm.SetState<FallMovementState>();
         }
     }
+
+    private void JumpFinished()
+    {
+        if (m_groundChecker.isGround)
+        {
+            m_fsm.SetState<IdleMovementState>();
+        }
+        else
+        {
+            m_fsm.SetState<FallMovementState>();
+        }
+    }
+
+    private void Update()
+    {
+        var input = m_inputs.moveDirection;
+        if(input.sqrMagnitude > 0 && m_fsm.currentState is not DashMovementState)
+        {
+            UpdateFacingDirection(input);
+        }
+
+        m_fsm.FixedUpdate();
+    }
+
+    private void UpdateFacingDirection(Vector2 direction) =>
+     transform.localScale = direction.x < 0
+        ? new Vector2(-1, transform.localScale.y)
+        : new Vector2(1, transform.localScale.y);
 }

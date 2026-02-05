@@ -12,5 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4794ab1b00039774d8a5701c3a35031b, type: 3}
   m_Name: PlayerJumpData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJumpData
-  <jumpForce>k__BackingField: 6
-  <jumpInputBufferTime>k__BackingField: 1
+  <isEnabledByDefault>k__BackingField: 0
+  <jumpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.67614
+      outSlope: 4.67614
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.05409493
+    - serializedVersion: 3
+      time: 0.5005575
+      value: 0.9993353
+      inSlope: -0.15398927
+      outSlope: -0.15398927
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14779682
+      outWeight: 0.12225218
+    - serializedVersion: 3
+      time: 1.0000257
+      value: 0.00000051036477
+      inSlope: -4.162132
+      outSlope: -4.162132
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.034894105
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <jumpHeight>k__BackingField: 5
+  <jumpDuration>k__BackingField: 0.7
+  <airMoveSpeed>k__BackingField: 5
+  <coyoteTime>k__BackingField: 0.2
+  <bufferTime>k__BackingField: 0.2

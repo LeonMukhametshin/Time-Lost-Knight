@@ -1,6 +1,7 @@
+using Inputs;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IPhysics
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerMovementController m_movementController;
 
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour, IPhysics
 
     [SerializeField] private HealthSystem m_healthSystem;
 
-    [SerializeField] private Rigidbody2D m_rigidbody;
+    [SerializeField] private PlayerInputController m_inputController;
 
     private CoroutineRunner m_coroutines;
 
@@ -24,12 +25,11 @@ public class PlayerController : MonoBehaviour, IPhysics
 
         m_coroutines = coroutine;
 
+        m_inputController.Intialize();
+
         m_healthSystem.Initialize(data.healthPoints);
-        m_movementController.Initialize(data.playerMovement, m_coroutines, m_rigidbody);
+        m_movementController.Initialize(data.playerMovement, m_coroutines);
 
         isInitialize = true;
     }
-
-    public void AddForce(Vector2 direction, ForceMode2D mode) =>
-         m_rigidbody.AddForce(direction, mode);
 }

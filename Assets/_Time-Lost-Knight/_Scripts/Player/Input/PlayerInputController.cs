@@ -7,13 +7,13 @@ namespace Inputs
     {
         private GameInput m_gameInput;
 
-        public event Action<Vector2> move;
+        public event Action move;
         public event Action jump;
         public event Action dash;
         public event Action interact;
         public event Action<AttackSlot> attack;
 
-        private Vector2 m_lastInput = Vector2.zero;
+        public Vector2 moveDirection { get; private set; }
 
         private bool m_isInitialize;
 
@@ -62,18 +62,13 @@ namespace Inputs
 
         public void Update()
         {
-            Vector2 input = m_gameInput.Player.Move.ReadValue<Vector2>();
+            if(!m_gameInput.Player.enabled)
+            {
+                return;
+            }
 
-            if (input.sqrMagnitude > 0.01f)
-            {
-                move?.Invoke(input);
-                m_lastInput = input;
-            }
-            else if(input != m_lastInput)
-            {
-                move?.Invoke(Vector2.zero);
-                m_lastInput = Vector2.zero;
-            }
+            moveDirection = m_gameInput.Player.Move.ReadValue<Vector2>();
+            move?.Invoke();
         }
          
         public void ActivatePlayerInput() =>

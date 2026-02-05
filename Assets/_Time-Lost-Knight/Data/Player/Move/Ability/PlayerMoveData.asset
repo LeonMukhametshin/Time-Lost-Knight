@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d427dd81c260714e8165ca753302562, type: 3}
   m_Name: PlayerMoveData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveData
-  <runMaxSpeed>k__BackingField: 10
-  <runAcceleration>k__BackingField: 2
-  <runDeceleration>k__BackingField: 2
-  <airAccelMultiplier>k__BackingField: 0
+  <runMaxSpeed>k__BackingField: 15
+  <runAcceleration>k__BackingField: 4
+  <runDeceleration>k__BackingField: 4
