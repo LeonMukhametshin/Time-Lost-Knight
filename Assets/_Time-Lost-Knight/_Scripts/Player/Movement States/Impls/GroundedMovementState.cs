@@ -30,16 +30,18 @@ public abstract class GroundedMovementState : MovementState
             return;
         }
 
+        m_abilityCharges.ConsumeJump();
         fsm.SetState<JumpMovementState>();
     }
 
     private void HandleDashInput()
     {
-        if(!m_abilityCharges.CanDash())
+        if(!m_abilityCharges.CanDash(m_groundChecker.isGround))
         {
             return;
         }
 
+        m_abilityCharges.ConsumeDash();
         fsm.SetState<DashMovementState>();
     }
 

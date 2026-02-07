@@ -53,11 +53,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private void DashFinished()
     {
-        if(m_groundChecker.isGround)
+        if (m_groundChecker.isGround)
         {
-            m_abilityController.ResetJump();
-            m_abilityController.ConsumeDash();
-
             if(m_inputs.moveDirection.sqrMagnitude > 0.01f)
             {
                 m_fsm.SetState<RunMovementState>();
@@ -75,8 +72,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private void JumpFinished()
     {
-        m_abilityController.ConsumeJump();
-
         if (m_groundChecker.isGround)
         {
             m_fsm.SetState<IdleMovementState>();

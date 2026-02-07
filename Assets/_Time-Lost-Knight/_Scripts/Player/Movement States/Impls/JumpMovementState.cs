@@ -55,7 +55,7 @@ public class JumpMovementState : AirborneMovementState
                 curveValue * m_jumpData.jumpHeight
             );
 
-            elapsed += Time.deltaTime;
+            elapsed += Time.fixedDeltaTime;
             yield return null;
         }
 
