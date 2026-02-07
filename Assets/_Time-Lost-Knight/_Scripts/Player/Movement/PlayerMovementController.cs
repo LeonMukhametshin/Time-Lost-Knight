@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private TMP_Text m_text;
+    [SerializeField] private TMP_Text m_velocityText;
 
     public MovementStateMachine m_fsm { get; private set; }
 
@@ -33,7 +34,7 @@ public class PlayerMovementController : MonoBehaviour
 
         m_data = movemetData;
         m_coroutines = coroutine;
-        m_groundChecker.Initialize(m_collider, m_data.m_groundCheckData);
+        m_groundChecker.Initialize(m_collider, m_data.groundCheckData);
 
 
         m_abilityResourceController = new MovementAbilityCharges(1, 1);
@@ -41,10 +42,10 @@ public class PlayerMovementController : MonoBehaviour
         m_fsm = new MovementStateMachine();
 
         m_fsm.AddState(new IdleMovementState(m_fsm, m_inputs, m_rigidbody, m_groundChecker, m_abilityResourceController));
-        m_fsm.AddState(new RunMovementState(m_fsm, m_inputs, m_rigidbody, m_data.m_moveData, m_groundChecker, m_abilityResourceController));
-        m_fsm.AddState(new JumpMovementState(m_fsm, m_inputs, m_rigidbody, m_data.m_jumpData, m_coroutines));
-        m_fsm.AddState(new FallMovementState(m_fsm, m_inputs, m_rigidbody));
-        m_fsm.AddState(new DashMovementState(m_fsm, m_rigidbody, transform, m_data.m_dashData, m_coroutines));
+        m_fsm.AddState(new RunMovementState(m_fsm, m_inputs, m_rigidbody, m_data.moveData, m_groundChecker, m_abilityResourceController));
+        m_fsm.AddState(new JumpMovementState(m_fsm, m_inputs, m_rigidbody, m_data.jumpData, m_coroutines));
+        m_fsm.AddState(new FallMovementState(m_fsm, m_inputs, m_rigidbody, m_data.fallData));
+        m_fsm.AddState(new DashMovementState(m_fsm, m_rigidbody, transform, m_data.dashData, m_coroutines));
 
         m_fsm.GetState<JumpMovementState>().jumpFineshed += JumpFinished;
         m_fsm.GetState<DashMovementState>().dashFinished += DashFinished;
@@ -92,7 +93,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             UpdateFacingDirection(input);
         }
-
+        
+        m_velocityText.text = m_rigidbody.linearVelocityY.ToString();
         m_fsm.FixedUpdate();
     }
 

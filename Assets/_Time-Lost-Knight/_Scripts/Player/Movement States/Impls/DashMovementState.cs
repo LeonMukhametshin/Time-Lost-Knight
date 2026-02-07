@@ -6,14 +6,14 @@ public class DashMovementState : MovementState
 {
     public event Action dashFinished;
 
-    private readonly PlayerDashData m_data;
+    private readonly DashData m_data;
     private readonly Rigidbody2D m_rigidbody;
     private readonly Transform m_transform;
 
     private readonly CoroutineRunner m_coroutines;
 
     public DashMovementState(MovementStateMachine fsm, Rigidbody2D rigidbody, Transform transform, 
-        PlayerDashData data, CoroutineRunner coroutine)
+        DashData data, CoroutineRunner coroutine)
         : base(fsm)
     {
         m_data = data;
@@ -47,5 +47,7 @@ public class DashMovementState : MovementState
         m_rigidbody.gravityScale = m_originalGravityScale;
 
         dashFinished?.Invoke();
+
+        Exit();
     }
 }

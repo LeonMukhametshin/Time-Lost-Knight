@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731e70cd29241714bb3286637a61f367, type: 3}
   m_Name: PlayerMovementData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementData
-  <m_moveData>k__BackingField: {fileID: 11400000, guid: c9d374192678e2346b5cd4d2ce99646a, type: 2}
-  <m_jumpData>k__BackingField: {fileID: 11400000, guid: b1c7953b39caf364eb2ca1db4f817a3a, type: 2}
-  <m_dashData>k__BackingField: {fileID: 11400000, guid: b6bd43195fabdc44aa63cb85fb4394d9, type: 2}
-  <m_groundCheckData>k__BackingField: {fileID: 11400000, guid: 8c7b110f6928ea943bf4663b3bedea84, type: 2}
+  <moveData>k__BackingField: {fileID: 11400000, guid: c9d374192678e2346b5cd4d2ce99646a, type: 2}
+  <jumpData>k__BackingField: {fileID: 11400000, guid: b1c7953b39caf364eb2ca1db4f817a3a, type: 2}
+  <dashData>k__BackingField: {fileID: 11400000, guid: b6bd43195fabdc44aa63cb85fb4394d9, type: 2}
+  <fallData>k__BackingField: {fileID: 11400000, guid: 686e14195d178604a8104c9311677924, type: 2}
+  <groundCheckData>k__BackingField: {fileID: 11400000, guid: 8c7b110f6928ea943bf4663b3bedea84, type: 2}

@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerJumpData", menuName = "Scriptable Objects/Player/PlayerJumpData")]
-public class PlayerJumpData : ScriptableObject
+[CreateAssetMenu(fileName = "JumpData", menuName = "Scriptable Objects/Player/JumpData")]
+public class JumpData : ScriptableObject
 {
     [field: SerializeField] public AnimationCurve jumpCurve { get; private set; }
     [field: SerializeField][Min(0)] public float jumpHeight { get; private set; }

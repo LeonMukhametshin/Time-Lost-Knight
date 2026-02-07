@@ -27,7 +27,7 @@ public class GroundContactChecker : MonoBehaviour
 
     private bool m_isInitialize;
 
-    public void Initialize(BoxCollider2D collider, PlayerGroundCheckData data)
+    public void Initialize(BoxCollider2D collider, GroundCheckData data)
     {
         if(m_isInitialize)
         {

@@ -7,12 +7,12 @@ public class JumpMovementState : AirborneMovementState
 {
     public event Action jumpFineshed;
 
-    private readonly PlayerJumpData m_jumpData;
+    private readonly JumpData m_jumpData;
     private readonly Rigidbody2D m_rigidbody;
     private readonly CoroutineRunner m_coroutines;
 
     public JumpMovementState(MovementStateMachine fsm, PlayerInputController inputs, 
-        Rigidbody2D rigidbody, PlayerJumpData data, 
+        Rigidbody2D rigidbody, JumpData data, 
         CoroutineRunner coroutine) 
         : base(fsm, rigidbody, inputs)
     {

@@ -4,11 +4,11 @@ using UnityEngine;
 public class RunMovementState : GroundedMovementState
 {
     private readonly Rigidbody2D m_rigidbody;
-    private readonly PlayerMoveData m_data;
+    private readonly WalkData m_data;
 
     protected Vector2 moveDirection;
 
-    public RunMovementState(MovementStateMachine fsm, PlayerInputController inputs, Rigidbody2D rigidbody, PlayerMoveData data, GroundContactChecker checker, 
+    public RunMovementState(MovementStateMachine fsm, PlayerInputController inputs, Rigidbody2D rigidbody, WalkData data, GroundContactChecker checker, 
         MovementAbilityCharges abilityResourceController) 
         : base(fsm, inputs, checker, abilityResourceController)
     {
