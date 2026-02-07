@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: DashData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDashData
   <dashSpeed>k__BackingField: 20
-  <duration>k__BackingField: 0.7
+  <duration>k__BackingField: 0.4
+  <cooldown>k__BackingField: 1
+  <maxDashes>k__BackingField: 1

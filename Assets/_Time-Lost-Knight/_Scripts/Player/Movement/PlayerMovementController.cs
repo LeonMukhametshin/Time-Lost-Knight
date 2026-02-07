@@ -1,12 +1,8 @@
 using Inputs;
-using TMPro;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    [SerializeField] private TMP_Text m_text;
-    [SerializeField] private TMP_Text m_velocityText;
-
     public MovementStateMachine m_fsm { get; private set; }
 
     [SerializeField] private PlayerInputController m_inputs;
@@ -16,7 +12,7 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] private GroundContactChecker m_groundChecker;
 
-    private MovementAbilityCharges m_abilityResourceController;
+    private MovementAbilityCharges m_abilityController;
     private PlayerMovementData m_data;
 
     private CoroutineRunner m_coroutines;
@@ -34,15 +30,15 @@ public class PlayerMovementController : MonoBehaviour
 
         m_data = movemetData;
         m_coroutines = coroutine;
+
         m_groundChecker.Initialize(m_collider, m_data.groundCheckData);
 
-
-        m_abilityResourceController = new MovementAbilityCharges(1, 1);
+        m_abilityController = new MovementAbilityCharges(movemetData.jumpData, movemetData.dashData);
 
         m_fsm = new MovementStateMachine();
 
-        m_fsm.AddState(new IdleMovementState(m_fsm, m_inputs, m_rigidbody, m_groundChecker, m_abilityResourceController));
-        m_fsm.AddState(new RunMovementState(m_fsm, m_inputs, m_rigidbody, m_data.moveData, m_groundChecker, m_abilityResourceController));
+        m_fsm.AddState(new IdleMovementState(m_fsm, m_inputs, m_rigidbody, m_groundChecker, m_abilityController));
+        m_fsm.AddState(new RunMovementState(m_fsm, m_inputs, m_rigidbody, m_data.moveData, m_groundChecker, m_abilityController));
         m_fsm.AddState(new JumpMovementState(m_fsm, m_inputs, m_rigidbody, m_data.jumpData, m_coroutines));
         m_fsm.AddState(new FallMovementState(m_fsm, m_inputs, m_rigidbody, m_data.fallData));
         m_fsm.AddState(new DashMovementState(m_fsm, m_rigidbody, transform, m_data.dashData, m_coroutines));
@@ -59,6 +55,9 @@ public class PlayerMovementController : MonoBehaviour
     {
         if(m_groundChecker.isGround)
         {
+            m_abilityController.ResetJump();
+            m_abilityController.ConsumeDash();
+
             if(m_inputs.moveDirection.sqrMagnitude > 0.01f)
             {
                 m_fsm.SetState<RunMovementState>();
@@ -76,6 +75,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private void JumpFinished()
     {
+        m_abilityController.ConsumeJump();
+
         if (m_groundChecker.isGround)
         {
             m_fsm.SetState<IdleMovementState>();
@@ -93,8 +94,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             UpdateFacingDirection(input);
         }
-        
-        m_velocityText.text = m_rigidbody.linearVelocityY.ToString();
+
         m_fsm.FixedUpdate();
     }
 

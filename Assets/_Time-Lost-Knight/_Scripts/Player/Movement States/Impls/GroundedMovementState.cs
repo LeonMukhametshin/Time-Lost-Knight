@@ -25,23 +25,21 @@ public abstract class GroundedMovementState : MovementState
 
     private void HandleJumpInput()
     {
-        if (!m_abilityCharges.CanJump())
+        if (!m_abilityCharges.CanJump(m_groundChecker.isGround))
         {
             return;
         }
 
-        m_abilityCharges.ConsumeJump();
         fsm.SetState<JumpMovementState>();
     }
 
     private void HandleDashInput()
     {
-        if(!m_abilityCharges.CanAirDash())
+        if(!m_abilityCharges.CanDash())
         {
             return;
         }
 
-        m_abilityCharges.ConsumeDash();
         fsm.SetState<DashMovementState>();
     }
 
@@ -54,6 +52,9 @@ public abstract class GroundedMovementState : MovementState
 
         if (m_groundChecker.isGround)
         {
+            m_abilityCharges.ResetJump();
+            m_abilityCharges.ResetDash();
+
             if (m_input.moveDirection.sqrMagnitude > 0.01f)
             {
                 fsm.SetState<RunMovementState>();
@@ -62,8 +63,6 @@ public abstract class GroundedMovementState : MovementState
             {
                 fsm.SetState<IdleMovementState>();
             }
-
-            m_abilityCharges.Reset();
         }
         else
         {

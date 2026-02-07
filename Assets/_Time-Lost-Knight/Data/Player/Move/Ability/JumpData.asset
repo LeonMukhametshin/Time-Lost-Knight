@@ -38,3 +38,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   <jumpHeight>k__BackingField: 5
   <jumpDuration>k__BackingField: 1
+  <maxJumps>k__BackingField: 1
+  <cooldown>k__BackingField: 2

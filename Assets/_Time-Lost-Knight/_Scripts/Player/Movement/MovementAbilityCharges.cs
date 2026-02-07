@@ -1,21 +1,42 @@
+using UnityEngine;
+
 public sealed class MovementAbilityCharges 
 {
+    private float m_jumpCooldown;
+    private float m_dashColdown;
+
     private int m_maxJumps;
-    private int m_maxAirDashes;
+
+    private float m_nextJumpTime;
+    private float m_nextDashTime;
 
     private int m_currentJumps;
-    private int m_currentAirDashes;
 
-    public MovementAbilityCharges(int jumps, int airDashes)
+    public MovementAbilityCharges(JumpData jumpData, DashData dashData)
     {
-        m_maxJumps = jumps;
-        m_maxAirDashes = airDashes;
+        m_maxJumps = jumpData.maxJumps;
 
-        Reset();
+        m_jumpCooldown = jumpData.cooldown;
+        m_dashColdown = dashData.cooldown;  
+
+        m_nextJumpTime = 0f;
+        m_nextDashTime = 0f;
+
+        ResetJump();
     }
 
-    public bool CanJump() => m_currentJumps > 0;
-    public bool CanAirDash() => m_currentAirDashes > 0;
+    public bool CanJump(bool isGrounded)
+    {
+        if (!isGrounded)
+        {
+            return false;
+        }
+
+        return Time.time >= m_nextJumpTime && m_currentJumps > 0;
+    }
+
+    public bool CanDash() => 
+        Time.time >= m_nextDashTime;
 
     public void ConsumeJump()
     {
@@ -25,21 +46,22 @@ public sealed class MovementAbilityCharges
         }
 
         m_currentJumps--;
+        m_nextJumpTime = Time.time + m_jumpCooldown;
     }
 
     public void ConsumeDash()
     {
-        if(m_currentAirDashes <= 0)
-        {
-            return;
-        }
-
-        m_currentAirDashes--;
+        m_nextDashTime = Time.time + m_dashColdown;
     }
 
-    public void Reset()
+    public void ResetJump()
     {
+        m_nextJumpTime = Time.time;
         m_currentJumps = m_maxJumps;
-        m_currentAirDashes = m_maxAirDashes;
+    }
+
+    public void ResetDash()
+    {
+        m_nextDashTime = Time.time;
     }
 }
