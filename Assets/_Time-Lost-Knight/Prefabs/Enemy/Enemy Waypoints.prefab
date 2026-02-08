@@ -285,7 +285,6 @@ GameObject:
   - component: {fileID: 2383917112531015650}
   - component: {fileID: 976531720930876921}
   - component: {fileID: 447417060532862740}
-  - component: {fileID: 7820747668061395796}
   m_Layer: 9
   m_Name: Components
   m_TagString: Untagged
@@ -396,21 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03509bdba4482de41af9640c5a4c489b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyViewModel
-  m_enemyData: {fileID: 11400000, guid: 2482472f9b4faf34fa359e1a61ba8a43, type: 2}
   m_healthSystem: {fileID: 2383917112531015650}
-  m_enemyAttackSystem: {fileID: 7820747668061395796}
---- !u!114 &7820747668061395796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5064453637111596685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89031fb65e47a664ba59c812b8f2d4b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSystem
+  m_enemyCollision: {fileID: 0}
 --- !u!1 &6891271716679844004
 GameObject:
   m_ObjectHideFlags: 0

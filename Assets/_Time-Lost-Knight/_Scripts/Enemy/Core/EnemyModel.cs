@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyModel : MonoBehaviour
 {
     [SerializeField] private HealthSystem m_healthSystem;
-    [SerializeField] private EnemyAttackSystem m_enemyAttackSystem;
 
     private IEnemyBehaviour m_enemyBehaviuor;
 
@@ -30,7 +29,6 @@ public class EnemyModel : MonoBehaviour
         }
 
         m_enemyBehaviuor.Initialize(m_enemyData.enemyBehaviuorData);
-        m_enemyAttackSystem.Initialize(m_enemyData.weaponConfig, m_enemyData.weaponConfig.cooldown);
 
         m_healthSystem.died += () => Destroy(gameObject);
 
@@ -44,6 +42,6 @@ public class EnemyModel : MonoBehaviour
 
     private void Attack()
     {
-        m_enemyAttackSystem.TryAttack();
+
     }
 }   

@@ -5,5 +5,4 @@ public sealed class EnemyData : ScriptableObject
 {
     [field: SerializeField] public int maxHealt { get; private set; }
     [field: SerializeField] public EnemyBehaviuorData enemyBehaviuorData { get; private set ;}
-    [field: SerializeField] public WeaponConfig weaponConfig { get; private set; }
 }

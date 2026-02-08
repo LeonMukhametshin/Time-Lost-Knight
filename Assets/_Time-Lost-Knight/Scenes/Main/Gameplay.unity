@@ -168,11 +168,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: -10
+  far clip plane: 10
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -309,8 +309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayEntryPoint
   m_sceneUIRootPrefab: {fileID: 2651557234109913633, guid: 6f7f877701dbda24b994203d6e2f2671, type: 3}
-  m_playerPrefab: {fileID: 425996699510080898, guid: 0fa51ef6beb88fc409b4a43e57a56781, type: 3}
-  m_playerData: {fileID: 11400000, guid: f1c4150c0c587b148bce4945077994f9, type: 2}
 --- !u!4 &1649492658
 Transform:
   m_ObjectHideFlags: 0

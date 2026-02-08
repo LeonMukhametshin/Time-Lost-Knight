@@ -11,13 +11,6 @@ public class EnemyCollision : MonoBehaviour
     {
         if(collision.TryGetComponent<IDamageable>(out var damageable))
         {
-            if(collision.TryGetComponent<IPhysics>(out var physics))
-            {
-                var direction = (collision.gameObject.transform.position - transform.position).normalized;
-
-                physics.AddForce(direction * m_knockbackForce, ForceMode2D.Impulse);
-            }
-
             touchEnemy?.Invoke();
         }
     }

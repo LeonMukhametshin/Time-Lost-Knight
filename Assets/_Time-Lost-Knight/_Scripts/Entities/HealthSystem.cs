@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour, IDamageable, IEffectable
+public class HealthSystem : MonoBehaviour, IDamageable
 {
     public event Action died;
-    public event Action<int> damaged;
     public event Action valueChanged;
 
     public float value

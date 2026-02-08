@@ -158,7 +158,6 @@ GameObject:
   - component: {fileID: 3702410644198695420}
   - component: {fileID: 6344661370591875334}
   - component: {fileID: 1246724560892271605}
-  - component: {fileID: 5048786935084974226}
   m_Layer: 8
   m_Name: Enemy Patrol
   m_TagString: Untagged
@@ -270,7 +269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyViewModel
   m_healthSystem: {fileID: 1246724560892271605}
-  m_enemyAttackSystem: {fileID: 5048786935084974226}
   m_enemyCollision: {fileID: 7745968365355957842}
 --- !u!114 &6344661370591875334
 MonoBehaviour:
@@ -300,18 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
---- !u!114 &5048786935084974226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4643813181283472470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89031fb65e47a664ba59c812b8f2d4b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSystem
 --- !u!1 &4856479694945821331
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,4 +379,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85bc6312d09bec4ca13a99506a28661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCollision
-  m_knockBackforce: 3
+  m_knockbackForce: 0

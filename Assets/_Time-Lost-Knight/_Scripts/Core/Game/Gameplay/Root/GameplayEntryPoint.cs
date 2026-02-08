@@ -63,14 +63,14 @@ public class GameplayEntryPoint : MonoBehaviour
     private void SpawnPlayer()
     {
         //remove
-        var spawner = FindFirstObjectByType<SpawnerPlayer>();
+        //var spawner = FindFirstObjectByType<SpawnerPlayer>();
 
-        if(spawner is null)
-        {
-            throw new Exception("PlayerSpawnPoint not found");
-        }
+        //if(spawner is null)
+        //{
+        //    throw new Exception("PlayerSpawnPoint not found");
+        //}
 
-        spawner.Spawn(m_coroutines);
+        //spawner.Spawn(m_coroutines);
     }
 
     private void SpawnEnemy()
