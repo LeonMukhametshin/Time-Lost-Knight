@@ -19,6 +19,8 @@ public class PlayerCombatController : MonoBehaviour
 
     [SerializeField] private Animator m_animator;
 
+    private float[] m_attackDetails = new float[2];
+
     private void OnEnable()
     {
         m_gameInput = new GameInput();
@@ -75,9 +77,16 @@ public class PlayerCombatController : MonoBehaviour
     {
         var detectedObject = Physics2D.OverlapCircleAll(m_attack1HitBoxPosition.position, m_attack1Radius, m_whatIsDamageable);
 
-        foreach (var damageables in detectedObject)
+        m_attackDetails[0] = m_attack1Damage;
+        m_attackDetails[1] = transform.position.x;
+
+        foreach (var obj in detectedObject)
         {
-            damageables.transform.parent.SendMessage("Damage", m_attack1Damage);
+            if(obj.gameObject.TryGetComponent<BasicEnemyController>(out var enemy))
+            {
+                enemy.Damage(m_attackDetails);
+            }
+       
             // Instantiate hit particle 
         }
     }   
