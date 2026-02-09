@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class State 
+{
+    protected FSM fsm;
+
+    protected Entity entity;
+    protected float startTime;
+
+    protected string animBoolName;
+
+    public State(FSM fsm, Entity entity, string animBoolName)
+    {
+        this.fsm = fsm;
+        this.entity = entity;
+        this.animBoolName = animBoolName;
+    }
+
+    public virtual void Enter() 
+    {
+        startTime = Time.time;
+        entity.animator.SetBool(animBoolName, true);
+    }
+
+    public virtual void Update() { }
+
+    public virtual void FixedUpdate() { }
+
+    public virtual void Exit()
+    {
+        entity.animator.SetBool(animBoolName, false);
+    }
+}
