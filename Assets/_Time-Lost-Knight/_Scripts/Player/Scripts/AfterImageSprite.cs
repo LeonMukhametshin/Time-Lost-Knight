@@ -16,7 +16,6 @@ public class AfterImageSprite : MonoBehaviour
     private float m_timeActivated;
     private float m_alpha;
 
-
     private void OnEnable()
     {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;

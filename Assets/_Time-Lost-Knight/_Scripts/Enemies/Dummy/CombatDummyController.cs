@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CombatDummyController : MonoBehaviour
+public class CombatDummyController : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject m_hitParticle;
 
@@ -44,17 +44,19 @@ public class CombatDummyController : MonoBehaviour
         CheckKnockback();
     }
 
-    private void Damage(float amount)
+    public void TakeDamage(float[] details)
     {
-        if(amount < 0)
+        if(details[0] < 0)
         {
             throw new ArgumentException("Damage can`t be negative");
         }
 
-        Instantiate(m_hitParticle, m_alive.gameObject.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0, 360f)));
+        m_currentHealth -= details[0];
 
-        m_currentHealth -= amount;
-        m_playerFacingDirection = m_playerController.GetFacingDirection();
+        m_playerFacingDirection = details[1] < m_alive.gameObject.transform.position.x
+            ? 1 : -1;
+
+        Instantiate(m_hitParticle, m_alive.gameObject.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0, 360f)));
 
         m_playerOnLeft = m_playerFacingDirection == 1
             ? true

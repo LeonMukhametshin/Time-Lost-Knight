@@ -1,8 +1,7 @@
-using R3.Triggers;
 using System;
 using UnityEngine;
 
-public class BasicEnemyController : MonoBehaviour
+public class BasicEnemyController : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject m_alive;
     [SerializeField] private Rigidbody2D m_rigidbody;
@@ -12,24 +11,36 @@ public class BasicEnemyController : MonoBehaviour
     [SerializeField] private GameObject m_deadthBloodParticle;
 
     [SerializeField] private Transform m_groundCheck;
-    [SerializeField] private Transform m_wallCheck;
+    [SerializeField] private Transform m_wallCheck; 
+    [SerializeField] private Transform m_touchDamageCheckPosition;
 
     [SerializeField] private LayerMask m_whatIsGround;
+    [SerializeField] private LayerMask m_whatIsPlayer;
 
     [SerializeField] private float m_movemetSpeed;
     [SerializeField] private float m_maxHealth;
     [SerializeField] private float m_groundCheckDistance;
     [SerializeField] private float m_wallCheckDistance;
     [SerializeField] private float m_knockbackDuration;
+    [SerializeField] private float m_lastTouchDamageTime;
+    [SerializeField] private float m_touchDamageCooldown;
+    [SerializeField] private float m_touchDamage;
+    [SerializeField] private float m_touchDamageWidth;
+    [SerializeField] private float m_touchDamageHeight;
     [SerializeField] private Vector2 m_knockbackSpeed;
 
     private EnemyState m_currentState;
 
     private Vector2 m_moveDirection;
+    private Vector2 m_touchDamageBotomLeft;
+    private Vector2 m_touchDamageTopRight;
+
     private float m_currentHealth;
     private float m_knockbackStartTime;
     private int m_facingDirection = 1;
     private int m_damageDirection;
+
+    private float[] m_attackDetails = new float[2];
 
     private bool m_groundDetected;
     private bool m_wallDetected;
@@ -64,7 +75,9 @@ public class BasicEnemyController : MonoBehaviour
     {
         m_groundDetected = Physics2D.Raycast(m_groundCheck.position, Vector2.down, m_groundCheckDistance, m_whatIsGround);
         m_wallDetected = Physics2D.Raycast(m_wallCheck.position, Vector2.right, m_wallCheckDistance, m_whatIsGround);
-   
+
+        CheckTouchDamage();
+
         if(!m_groundDetected || m_wallDetected)
         {
             Flip();
@@ -119,7 +132,35 @@ public class BasicEnemyController : MonoBehaviour
 
     }
 
-    public void Damage(float[] attackDetails)
+    private void CheckTouchDamage()
+    {
+        if(Time.time >= m_lastTouchDamageTime + m_touchDamageCooldown)
+        {
+            m_touchDamageBotomLeft.Set(m_touchDamageCheckPosition.position.x - (m_touchDamageWidth / 2),
+                m_touchDamageCheckPosition.position.y - (m_touchDamageHeight / 2));
+
+            m_touchDamageTopRight.Set(m_touchDamageCheckPosition.position.x + (m_touchDamageWidth / 2),
+                m_touchDamageCheckPosition.position.y + (m_touchDamageHeight / 2));
+
+            var hit = Physics2D.OverlapArea(m_touchDamageBotomLeft, m_touchDamageTopRight, m_whatIsPlayer);
+
+            if(hit is null )
+            {
+                return;
+            }
+            if(hit.TryGetComponent<IDamageable>(out var player))
+            {
+                m_lastTouchDamageTime = Time.time;
+                m_attackDetails[0] = m_touchDamage;
+                m_attackDetails[1] = m_alive.transform.position.x;
+
+                player.TakeDamage(m_attackDetails);
+                //TODO call player damage
+            }
+        }
+    }
+
+    public void TakeDamage(float[] attackDetails)
     {
         if(attackDetails[0] < 0)
         {
@@ -189,5 +230,19 @@ public class BasicEnemyController : MonoBehaviour
 
         Gizmos.DrawLine(m_wallCheck.position,
             new Vector2(m_wallCheck.position.x + m_wallCheckDistance, m_wallCheck.position.y));
+
+        Vector2 botomLeft = new Vector2(m_touchDamageCheckPosition.position.x - (m_touchDamageWidth / 2),
+                m_touchDamageCheckPosition.position.y - (m_touchDamageHeight / 2));
+        Vector2 botomRight = new Vector2(m_touchDamageCheckPosition.position.x + (m_touchDamageWidth / 2),
+                m_touchDamageCheckPosition.position.y - (m_touchDamageHeight / 2));
+        Vector2 topLeft = new Vector2(m_touchDamageCheckPosition.position.x - (m_touchDamageWidth / 2),
+                m_touchDamageCheckPosition.position.y + (m_touchDamageHeight / 2));
+        Vector2 topRight = new Vector2(m_touchDamageCheckPosition.position.x + (m_touchDamageWidth / 2),
+                m_touchDamageCheckPosition.position.y + (m_touchDamageHeight / 2));
+
+        Gizmos.DrawLine(botomLeft, botomRight);
+        Gizmos.DrawLine(botomRight, topRight);
+        Gizmos.DrawLine(topRight, topLeft);
+        Gizmos.DrawLine(topLeft, botomLeft);
     }
 }

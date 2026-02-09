@@ -1,15 +1,19 @@
 using UnityEngine;
 
-public class PlayerCombatController : MonoBehaviour
+public class PlayerCombatController : MonoBehaviour, IDamageable
 {
     private GameInput m_gameInput;
 
+    [SerializeField] private PlayerController m_controller;
+    [SerializeField] private PlayerStats m_playerStart;
+
     [SerializeField] private bool m_combatEnabled;
     [SerializeField] private float m_inputTimer;
-    [SerializeField] private Transform m_attack1HitBoxPosition;
-    [SerializeField] private LayerMask m_whatIsDamageable;
     [SerializeField] private float m_attack1Radius;
     [SerializeField] private float m_attack1Damage;
+
+    [SerializeField] private Transform m_attack1HitBoxPosition;
+    [SerializeField] private LayerMask m_whatIsDamageable;
 
     private bool m_gotInput = true;
     private bool m_isAttacking = false;
@@ -82,9 +86,15 @@ public class PlayerCombatController : MonoBehaviour
 
         foreach (var obj in detectedObject)
         {
-            if(obj.gameObject.TryGetComponent<BasicEnemyController>(out var enemy))
+            Debug.Log(obj.name);
+            if (obj.TryGetComponent<IDamageable>(out var damageable1))
             {
-                enemy.Damage(m_attackDetails);
+                damageable1.TakeDamage(m_attackDetails);
+                continue;
+            }
+            if (obj.gameObject.transform.parent.TryGetComponent<IDamageable>(out var damageable2))
+            {
+                damageable2.TakeDamage(m_attackDetails);
             }
        
             // Instantiate hit particle 
@@ -96,6 +106,21 @@ public class PlayerCombatController : MonoBehaviour
         m_isAttacking = false;
         m_animator.SetBool("isAttacking", m_isAttacking);
         m_animator.SetBool("attack1", false);
+    }
+
+    public void TakeDamage(float[] attackDetails)
+    {
+        if(m_controller.GetDashStatus())
+        {
+            return;
+        }
+
+        int direction = attackDetails[1] < transform.position.x
+            ? 1 : -1;
+
+        m_playerStart.DecreaseHealth(attackDetails[0]);
+
+        m_controller.Knockback(direction);
     }
 
     private void OnDrawGizmos()

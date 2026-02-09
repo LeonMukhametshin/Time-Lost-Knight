@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool m_ledgeDetacted;
     private bool m_checkJumpMultiplier;
     private bool m_isDashing;
+    private bool m_knockback;
 
     private Vector2 m_movementInputDirection;
     private Vector2 m_ledgePositionBotom;
@@ -60,9 +61,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_dashSpeed;
     [SerializeField] private float m_dashCooldown;
     [SerializeField] private float m_distanceBetweenImages;
+    [SerializeField] private float m_knockbackDuration;
 
     [SerializeField] private Vector2 m_wallHopDirection;
     [SerializeField] private Vector2 m_wallJumpDirection;
+    [SerializeField] private Vector2 m_knockbackDirection;
 
     private float m_jumpTimer;
     private float m_turnTimer;
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
     private float m_dashTimeLeft;
     private float m_lastImageXPosition;
     private float m_lastDash;
+    private float m_knockbackStartTime;
 
     [SerializeField] private float m_jumpTimerSet = 0.15f;
 
@@ -97,6 +101,7 @@ public class PlayerController : MonoBehaviour
         CheckJump();
         CheckLedgelimb();
         CheckDash();
+        CheckKnockbac();
     }
 
     private void FixedUpdate()
@@ -146,6 +151,22 @@ public class PlayerController : MonoBehaviour
             m_ledgeDetacted = true;
             m_ledgePositionBotom = m_wallCheck.position;
         }
+    }
+
+    private void CheckKnockbac()
+    {
+        if(Time.time > m_knockbackStartTime + m_knockbackDuration && m_knockback)
+        {
+            m_knockback = false;
+            m_rigidbody.linearVelocity = new Vector2(0f, m_rigidbody.linearVelocityY);
+        }
+    }
+
+    public void Knockback(int direction)
+    {
+        m_knockback = true;
+        m_knockbackStartTime = Time.time;
+        m_rigidbody.linearVelocity = new Vector2(m_knockbackDirection.x * direction, m_knockbackDirection.y);
     }
 
     private void CheckLedgelimb()
@@ -297,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if(!m_isWallSliding && m_canFlip)
+        if(!m_isWallSliding && m_canFlip && !m_knockback)
         {
             m_facingDirection *= -1;
             m_isFasingRight = !m_isFasingRight;
@@ -398,11 +419,11 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (!m_isGrounded && !m_isWallSliding && m_movementInputDirection.x == 0)
+        if (!m_isGrounded && !m_isWallSliding && m_movementInputDirection.x == 0 && !m_knockback)
         {
             m_rigidbody.linearVelocity = new Vector2(m_rigidbody.linearVelocityX * m_airDragMultiplier, m_rigidbody.linearVelocityY);
         }
-        else if(m_canMove)
+        else if(m_canMove && !m_knockback)
         {
             m_rigidbody.linearVelocity = new Vector2(m_movementSpeed * m_movementInputDirection.x, m_rigidbody.linearVelocityY);
         }
@@ -415,6 +436,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public bool GetDashStatus() =>
+         m_isDashing;
 
     private void OnDrawGizmos()
     {
