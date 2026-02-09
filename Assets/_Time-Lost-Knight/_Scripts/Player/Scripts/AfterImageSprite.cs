@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class AfterImageSprite : MonoBehaviour
 {
-    [SerializeField] private float m_activeTime = 0.1f;
-    [SerializeField] private float m_timeActivated;
-    [SerializeField] private float m_alpha;
+    [SerializeField] private SpriteRenderer m_spriteRenderer;
 
+    [SerializeField] private float m_activeTime = 0.1f;
     [SerializeField] private float m_alphaSet = 0.8f;
-    [SerializeField] private float m_alphaMultiplier = 0.85f;
+    [SerializeField] private float m_alphaDecay;
+
+    [SerializeField] private Color m_color;
 
     private Transform m_player;
     private SpriteRenderer m_playerSpriteRenderer;
-    [SerializeField] private SpriteRenderer m_spriteRenderer;
 
-    [SerializeField] private Color m_color;
+    private float m_timeActivated;
+    private float m_alpha;
+
 
     private void OnEnable()
     {
@@ -29,7 +31,7 @@ public class AfterImageSprite : MonoBehaviour
 
     private void Update()
     {
-        m_alpha *= m_alphaMultiplier;
+        m_alpha -= m_alphaDecay * Time.deltaTime;
         m_color = new Color(1f, 1f, 1f, m_alpha);
         m_spriteRenderer.color = m_color;
 
