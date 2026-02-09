@@ -1,10 +1,15 @@
-public class EnemyFirstIdleState : IdleState
+public class EnemyFirstLookForPlayerState : LookForPlayerState
 {
     private EnemyFirst m_enemy;
 
-    public EnemyFirstIdleState(FSM fsm, Entity entity, string animBoolName, IdleStateData data, EnemyFirst enemy) : base(fsm, entity, animBoolName, data)
+    public EnemyFirstLookForPlayerState(FSM fsm, Entity entity, string animBoolName, LookForPlayerStateData data, EnemyFirst enemyFirst) : base(fsm, entity, animBoolName, data)
     {
-        m_enemy = enemy;
+        this.m_enemy = enemyFirst;
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
     }
 
     public override void Enter()
@@ -30,7 +35,7 @@ public class EnemyFirstIdleState : IdleState
         {
             fsm.SetState(m_enemy.playerDetectedState);
         }
-        else if(isIdleTimeOver)
+        else if(isAllTurnsTimeDone)
         {
             fsm.SetState(m_enemy.moveState);
         }

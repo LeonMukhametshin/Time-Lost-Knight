@@ -40,7 +40,7 @@ public class BasicEnemyController : MonoBehaviour, IDamageable
     private int m_facingDirection = 1;
     private int m_damageDirection;
 
-    private float[] m_attackDetails = new float[2];
+    private AttackDetails m_attackDetails;
 
     private bool m_groundDetected;
     private bool m_wallDetected;
@@ -151,8 +151,8 @@ public class BasicEnemyController : MonoBehaviour, IDamageable
             if(hit.TryGetComponent<IDamageable>(out var player))
             {
                 m_lastTouchDamageTime = Time.time;
-                m_attackDetails[0] = m_touchDamage;
-                m_attackDetails[1] = m_alive.transform.position.x;
+                m_attackDetails.damageAmout = m_touchDamage;
+                m_attackDetails.position = m_alive.transform.position;
 
                 player.TakeDamage(m_attackDetails);
                 //TODO call player damage
@@ -160,18 +160,18 @@ public class BasicEnemyController : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(float[] attackDetails)
+    public void TakeDamage(AttackDetails attackDetails)
     {
-        if(attackDetails[0] < 0)
+        if(attackDetails.damageAmout < 0)
         {
             throw new ArgumentException("Damage can`t be negative");
         }
 
         Instantiate(m_hitParticle, m_alive.transform.position, Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(0f, 360f)));
 
-        m_currentHealth -= attackDetails[0];
+        m_currentHealth -= attackDetails.damageAmout;
 
-        m_damageDirection = attackDetails[1] > m_alive.gameObject.transform.position.x
+        m_damageDirection = attackDetails.position.x > m_alive.gameObject.transform.position.x
             ? -1 : 1;
 
         // Hit Particle

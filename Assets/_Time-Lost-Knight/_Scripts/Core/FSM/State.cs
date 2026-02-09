@@ -20,14 +20,20 @@ public class State
     {
         startTime = Time.time;
         entity.animator.SetBool(animBoolName, true);
+        DoChecks();
     }
-
-    public virtual void Update() { }
-
-    public virtual void FixedUpdate() { }
 
     public virtual void Exit()
     {
         entity.animator.SetBool(animBoolName, false);
     }
+
+    public virtual void Update() { }
+
+    public virtual void FixedUpdate()
+    {
+        DoChecks();
+    }
+
+    public virtual void DoChecks() { }
 }

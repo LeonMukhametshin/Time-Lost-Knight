@@ -6,6 +6,7 @@ public class IdleState : State
 
     protected bool flipAfterIdle;
     protected bool isIdleTimeOver;
+    protected bool isPlayerInMinAgroRange;
 
     protected float idleTime;
 
@@ -19,7 +20,6 @@ public class IdleState : State
         base.Enter();
 
         entity.SetVelocity(0f);
-
         isIdleTimeOver = false;
         SetRandomIdleTime();    
     }
@@ -49,11 +49,18 @@ public class IdleState : State
         base.FixedUpdate();
     }
 
-    public void SetFlipAfredIdle(bool flip)
+    public void SetFlipAfterIdle(bool flip)
     {
         flipAfterIdle = flip;
     }
 
     private void SetRandomIdleTime() =>
         idleTime = UnityEngine.Random.Range(data.minIdleTime, data.maxIdleTime);
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+    }
 }

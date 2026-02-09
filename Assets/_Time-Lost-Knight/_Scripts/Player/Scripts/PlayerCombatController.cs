@@ -11,6 +11,7 @@ public class PlayerCombatController : MonoBehaviour, IDamageable
     [SerializeField] private float m_inputTimer;
     [SerializeField] private float m_attack1Radius;
     [SerializeField] private float m_attack1Damage;
+    [SerializeField] private float m_stunDamageAmount;
 
     [SerializeField] private Transform m_attack1HitBoxPosition;
     [SerializeField] private LayerMask m_whatIsDamageable;
@@ -23,7 +24,7 @@ public class PlayerCombatController : MonoBehaviour, IDamageable
 
     [SerializeField] private Animator m_animator;
 
-    private float[] m_attackDetails = new float[2];
+    private AttackDetails attackDetails;
 
     private void OnEnable()
     {
@@ -81,20 +82,20 @@ public class PlayerCombatController : MonoBehaviour, IDamageable
     {
         var detectedObject = Physics2D.OverlapCircleAll(m_attack1HitBoxPosition.position, m_attack1Radius, m_whatIsDamageable);
 
-        m_attackDetails[0] = m_attack1Damage;
-        m_attackDetails[1] = transform.position.x;
+        attackDetails.damageAmout = m_attack1Damage;
+        attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = m_stunDamageAmount;
 
         foreach (var obj in detectedObject)
         {
-            Debug.Log(obj.name);
             if (obj.TryGetComponent<IDamageable>(out var damageable1))
             {
-                damageable1.TakeDamage(m_attackDetails);
+                damageable1.TakeDamage(attackDetails);
                 continue;
             }
             if (obj.gameObject.transform.parent.TryGetComponent<IDamageable>(out var damageable2))
             {
-                damageable2.TakeDamage(m_attackDetails);
+                damageable2.TakeDamage(attackDetails);
             }
        
             // Instantiate hit particle 
@@ -108,17 +109,17 @@ public class PlayerCombatController : MonoBehaviour, IDamageable
         m_animator.SetBool("attack1", false);
     }
 
-    public void TakeDamage(float[] attackDetails)
+    public void TakeDamage(AttackDetails attackDetails)
     {
         if(m_controller.GetDashStatus())
         {
             return;
         }
 
-        int direction = attackDetails[1] < transform.position.x
+        int direction = attackDetails.position.x < transform.position.x
             ? 1 : -1;
 
-        m_playerStart.DecreaseHealth(attackDetails[0]);
+        m_playerStart.DecreaseHealth(attackDetails.damageAmout);
 
         m_controller.Knockback(direction);
     }

@@ -14,7 +14,7 @@ public class Follower : MonoBehaviour
 
         transform.position = m_target.position + m_offcet;
     }
-
+    
     public void SetTarget(Transform target)
     {
         if (target is null || m_target == target)

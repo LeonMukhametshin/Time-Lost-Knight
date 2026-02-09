@@ -1,0 +1,56 @@
+using UnityEngine;
+
+public class EnemyFirstChargeState : ChargeState
+{
+    private EnemyFirst enemy;
+
+    public EnemyFirstChargeState(FSM fsm, Entity entity, string animBoolName, ChargeStateData data, EnemyFirst enemy) : base(fsm, entity, animBoolName, data)
+    {
+        this.enemy = enemy;
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (performCloseRangeAction)
+        {
+            fsm.SetState(enemy.meleeAttackState);
+        }
+        else if (!isDetectingLedge || isDetectingWall)
+        {
+            fsm.SetState(enemy.lookForPlayerState);
+        }
+        else if (isChargeTimeOver)
+        {
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.SetState(enemy.playerDetectedState);
+            }
+            else
+            {
+                fsm.SetState(enemy.lookForPlayerState);
+            }
+        } 
+    }
+}

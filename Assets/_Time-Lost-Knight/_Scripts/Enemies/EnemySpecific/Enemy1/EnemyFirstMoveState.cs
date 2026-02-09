@@ -22,15 +22,18 @@ public class EnemyFirstMoveState : MoveState
         base.Exit();
     }
 
-
     public override void Update()
     {
         base.Update();
 
-        if(isDetactingWall || !isDetactingLedge)
+        if(isPlayerInMinAgroRange)
         {
+            fsm.SetState(m_enemy.playerDetectedState);
+        }
+        else if(isDetactingWall || !isDetactingLedge)
+        {
+            m_enemy.idleState.SetFlipAfterIdle(true);
             fsm.SetState(m_enemy.idleState); 
-            m_enemy.idleState.SetFlipAfredIdle(true);
         }
     }
 

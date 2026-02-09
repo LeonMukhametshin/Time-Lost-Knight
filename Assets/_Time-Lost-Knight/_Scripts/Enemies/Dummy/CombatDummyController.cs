@@ -44,16 +44,16 @@ public class CombatDummyController : MonoBehaviour, IDamageable
         CheckKnockback();
     }
 
-    public void TakeDamage(float[] details)
+    public void TakeDamage(AttackDetails details)
     {
-        if(details[0] < 0)
+        if(details.damageAmout < 0)
         {
             throw new ArgumentException("Damage can`t be negative");
         }
 
-        m_currentHealth -= details[0];
+        m_currentHealth -= details.damageAmout;
 
-        m_playerFacingDirection = details[1] < m_alive.gameObject.transform.position.x
+        m_playerFacingDirection = details.position.x < m_alive.gameObject.transform.position.x
             ? 1 : -1;
 
         Instantiate(m_hitParticle, m_alive.gameObject.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0, 360f)));
