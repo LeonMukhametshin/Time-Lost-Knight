@@ -17,7 +17,7 @@ public class EnemyFirst : Entity
     [SerializeField] private ChargeStateData m_chargeStateData;
     [SerializeField] private LookForPlayerStateData m_lookForPlayerData;
     [SerializeField] private MeleeAttackStateData m_meleeAttackStateData;
-    [SerializeField] private StanStateData m_stanStateData;
+    [SerializeField] private StunStateData m_stanStateData;
     [SerializeField] private DeadStateData m_deadStateData;
 
     [SerializeField] private Transform m_meleeAttackPoint;
@@ -32,7 +32,7 @@ public class EnemyFirst : Entity
         chargeState = new EnemyFirstChargeState(fsm, this, EnemyAnimationConst.CHARGE, m_chargeStateData, this);
         lookForPlayerState = new EnemyFirstLookForPlayerState(fsm, this, EnemyAnimationConst.LOOK_FOR_PLAYER, m_lookForPlayerData, this);
         meleeAttackState = new EnemyFirstMeleeAttackState(fsm, this, EnemyAnimationConst.MELEE_ATTACK, m_meleeAttackPoint, m_meleeAttackStateData, this);
-        stanState = new EnemyFirstStanState(fsm, this, EnemyAnimationConst.STAN, m_stanStateData, this);
+        stanState = new EnemyFirstStanState(fsm, this, EnemyAnimationConst.STUN, m_stanStateData, this);
         deadState = new EnemyFirstDeadState(fsm, this, EnemyAnimationConst.DEAD, m_deadStateData, this);
 
         fsm.Initialize(moveState);

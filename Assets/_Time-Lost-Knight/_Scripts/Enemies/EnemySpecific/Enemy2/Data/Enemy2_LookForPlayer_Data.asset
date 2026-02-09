@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c6fefc84f33884592d29bed2259147, type: 3}
-  m_Name: Enemy1_MoveState_Data
-  m_EditorClassIdentifier: Assembly-CSharp::MoveStateData
-  <movementSpeed>k__BackingField: 5
+  m_Script: {fileID: 11500000, guid: d329c815676203c40818307828abf268, type: 3}
+  m_Name: Enemy2_LookForPlayer_Data
+  m_EditorClassIdentifier: Assembly-CSharp::LookForPlayerStateData
+  <amountOfTurns>k__BackingField: 3
+  <timeBetweenTurns>k__BackingField: 1

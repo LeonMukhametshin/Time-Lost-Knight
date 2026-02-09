@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StanState : State
 {
-    protected StanStateData data;
+    protected StunStateData data;
 
     protected bool isStunTimeOver;
     protected bool isGrounded;
@@ -11,7 +11,7 @@ public class StanState : State
     protected bool performCloseRangeAction;
     protected bool isPlayerInMinAgroRange;
 
-    public StanState(FSM fsm, Entity entity, string animBoolName, StanStateData data) : base(fsm, entity, animBoolName)
+    public StanState(FSM fsm, Entity entity, string animBoolName, StunStateData data) : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }

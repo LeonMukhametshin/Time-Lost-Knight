@@ -2,7 +2,7 @@ public class EnemyFirstStanState : StanState
 {
     private EnemyFirst enemy;
 
-    public EnemyFirstStanState(FSM fsm, Entity entity, string animBoolName, StanStateData data, EnemyFirst enemy) : base(fsm, entity, animBoolName, data)
+    public EnemyFirstStanState(FSM fsm, Entity entity, string animBoolName, StunStateData data, EnemyFirst enemy) : base(fsm, entity, animBoolName, data)
     {
         this.enemy = enemy;
     }
