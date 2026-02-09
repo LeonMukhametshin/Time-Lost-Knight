@@ -105,6 +105,11 @@ public class PlayerController : MonoBehaviour
         CheckSurroundings();
     }
 
+    public int GetFacingDirection()
+    {
+        return m_facingDirection;
+    }
+
     private void CheckIfWallSliding()
     {
         m_isWallSliding = m_isTouchingWall 
@@ -175,6 +180,12 @@ public class PlayerController : MonoBehaviour
             transform.position = m_ledgePosition1;
         }
     }
+
+    public void DisableFlip() =>
+         m_canFlip = false;
+
+    public void EnableFlip() =>
+        m_canFlip = true;
 
     public void FinishLedgeClimb()
     {
@@ -278,7 +289,7 @@ public class PlayerController : MonoBehaviour
 
         if(!m_isTouchingLedge)
         {
-            m_isWalking = m_rigidbody.linearVelocityX != 0
+            m_isWalking = Mathf.Abs(m_rigidbody.linearVelocityX) > 0.01f
                 ? true
                 : false;
         }
@@ -366,7 +377,7 @@ public class PlayerController : MonoBehaviour
             {
                 m_canMove = false;
                 m_canFlip = false;
-                m_rigidbody.linearVelocity = new Vector2(m_dashSpeed * m_facingDirection, m_rigidbody.linearVelocityY);
+                m_rigidbody.linearVelocity = new Vector2(m_dashSpeed * m_facingDirection, 0f);
                 m_dashTimeLeft -= Time.deltaTime;
 
                 if (Mathf.Abs(transform.position.x - m_lastImageXPosition) > m_distanceBetweenImages)
