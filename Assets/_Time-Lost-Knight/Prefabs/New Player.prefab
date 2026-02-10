@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5929763923768079364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LedgeCheck
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7582189447209578267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,8 @@ GameObject:
   - component: {fileID: 5103389817446359113}
   - component: {fileID: 8087917206546033383}
   - component: {fileID: 6503881218588609994}
-  m_Layer: 0
+  - component: {fileID: 8710087001248608649}
+  m_Layer: 6
   m_Name: New Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -148,7 +149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -118938113
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -432674713727891427, guid: c7355eb7b6ef5f544a72d058a04ed288, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -286,7 +287,7 @@ MonoBehaviour:
   m_airDragMultiplier: 0.95
   m_variableJumpHeightMultiplier: 0.5
   m_wallHopForce: 10
-  m_wallJumpForce: 20
+  m_wallJumpForce: 7
   m_turnTimerSet: 0.1
   m_wallJumpTimerSet: 0.5
   m_ledgeClimbXOffset1: 0.3
@@ -297,8 +298,10 @@ MonoBehaviour:
   m_dashSpeed: 50
   m_dashCooldown: 0.5
   m_distanceBetweenImages: 0.1
+  m_knockbackDuration: 0.2
   m_wallHopDirection: {x: 1, y: 0.5}
   m_wallJumpDirection: {x: 1, y: 2}
+  m_knockbackDirection: {x: 10, y: 5}
   m_jumpTimerSet: 0.15
 --- !u!114 &6503881218588609994
 MonoBehaviour:
@@ -312,15 +315,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52c7b477946030449b0074d361b9597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_controller: {fileID: 8087917206546033383}
+  m_playerStart: {fileID: 8710087001248608649}
   m_combatEnabled: 1
   m_inputTimer: 0.2
+  m_attack1Radius: 0.67
+  m_attack1Damage: 3
+  m_stunDamageAmount: 10
   m_attack1HitBoxPosition: {fileID: 4164319212734315528}
   m_whatIsDamageable:
     serializedVersion: 2
     m_Bits: 256
-  m_attack1Radius: 0.67
-  m_attack1Damage: 10
   m_animator: {fileID: 5103389817446359113}
+--- !u!114 &8710087001248608649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500045763608746008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac8eb1b52ec8794baa3ef417b2ae08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  m_maxHealth: 200
+  m_deathChunkParticle: {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
+  m_deathBloodParticle: {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
+  m_gameManager: {fileID: 0}
 --- !u!1 &8985360436456617370
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4164319212734315528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack1Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3955976738527708375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

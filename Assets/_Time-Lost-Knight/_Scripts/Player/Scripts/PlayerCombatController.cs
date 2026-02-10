@@ -57,7 +57,6 @@ public class PlayerCombatController : MonoBehaviour, IDamageable
 
     private void CheckAttacks()
     {
-
         if (Time.time >= m_lastInputTime + m_inputTimer)
         {
             m_gotInput = false;
@@ -97,8 +96,6 @@ public class PlayerCombatController : MonoBehaviour, IDamageable
             {
                 damageable2.TakeDamage(attackDetails);
             }
-       
-            // Instantiate hit particle 
         }
     }   
 
