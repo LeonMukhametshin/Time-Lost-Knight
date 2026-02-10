@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class EnemyTwoPlayerDetectedState : PlayerDetectedState
 {
     private EnemyTwo m_enemy;
@@ -28,9 +30,20 @@ public class EnemyTwoPlayerDetectedState : PlayerDetectedState
 
         if(performeCloseRangeAction)
         {
-            fsm.SetState(m_enemy.meleeAttackState);
+            if(Time.time >= m_enemy.dodgeState.startTime + m_enemy.m_dodgeStateData.dodgeCooldown)
+            {
+                fsm.SetState(m_enemy.dodgeState);
+            }
+            else
+            {
+                fsm.SetState(m_enemy.meleeAttackState);
+            }
         }
-        else if(!isPlayerInMaxAgroRange)
+        else if(performeLongRangeAction)
+        {
+            fsm.SetState(m_enemy.rangeAttackState);
+        }
+        else if (!isPlayerInMaxAgroRange)
         {
             fsm.SetState(m_enemy.playerDetectedState);
         }

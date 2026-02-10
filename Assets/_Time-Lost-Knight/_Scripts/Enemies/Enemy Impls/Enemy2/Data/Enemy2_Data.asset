@@ -17,11 +17,11 @@ MonoBehaviour:
   <wallCheckDistance>k__BackingField: 0.47
   <ledgeCheckDistance>k__BackingField: 0.33
   <groundCheckRadius>k__BackingField: 0.66
-  <maxAgroDistance>k__BackingField: 7.5
-  <minAgroDistance>k__BackingField: 3.17
+  <maxAgroDistance>k__BackingField: 7.54
+  <minAgroDistance>k__BackingField: 5.97
   <stunResistance>k__BackingField: 3
   <stunRecoveryTime>k__BackingField: 2
-  <closeRangeActionDistance>k__BackingField: 1
+  <closeRangeActionDistance>k__BackingField: 1.33
   hitParticle: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
   <groundLayer>k__BackingField:
     serializedVersion: 2

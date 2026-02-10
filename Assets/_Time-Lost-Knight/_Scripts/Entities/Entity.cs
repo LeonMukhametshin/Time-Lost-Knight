@@ -46,6 +46,8 @@ public class Entity : MonoBehaviour, IDamageable
     {
         fsm.currentState.Update();
 
+        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, rigidbody.linearVelocityY);
+
         if(Time.time >= m_lastDamageTime + data.stunRecoveryTime)
         {
             ResetStunResistance();
@@ -139,7 +141,6 @@ public class Entity : MonoBehaviour, IDamageable
         m_velocityWorkspace.Set(rigidbody.linearVelocityX, velocity);
         rigidbody.linearVelocity = m_velocityWorkspace;
     }
-
 
     public virtual void Flip()
     {

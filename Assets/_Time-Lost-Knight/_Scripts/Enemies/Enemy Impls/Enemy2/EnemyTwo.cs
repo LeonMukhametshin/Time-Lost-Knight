@@ -9,6 +9,8 @@ public class EnemyTwo : Entity
     public EnemyTwoLookForPlayerState lookForPlayerState { get; private set; }
     public EnemyTwoStunState stunState { get; private set; }
     public EnemyTwoDeadState deadState { get; private set; }
+    public EnemyTwoDodgeState dodgeState { get; private set; }
+    public EnemyTwoRangeAttackState rangeAttackState { get; private set; }
 
 
     [Header("DATAS")]
@@ -19,8 +21,11 @@ public class EnemyTwo : Entity
     [SerializeField] private LookForPlayerStateData m_lookForPlayerData;
     [SerializeField] private StunStateData m_stunStateData;
     [SerializeField] private DeadStateData m_deadStateData;
+    [field: SerializeField] public DodgeStateData m_dodgeStateData { get; private set; }
+    [SerializeField] public RangeAttackData m_rangeAttackData;
 
     [SerializeField] private Transform m_meleeAttackPosition;
+    [SerializeField] private Transform m_rangeAttackPosition;
 
     public override void Start()
     {
@@ -40,6 +45,10 @@ public class EnemyTwo : Entity
             EnemyAnimationConst.STUN, m_stunStateData, this);
         deadState = new EnemyTwoDeadState(fsm, this,
             EnemyAnimationConst.DEAD, m_deadStateData, this);
+        dodgeState = new EnemyTwoDodgeState(fsm, this,
+            EnemyAnimationConst.DODGE, m_dodgeStateData, this);
+        rangeAttackState = new EnemyTwoRangeAttackState(fsm, this,
+            EnemyAnimationConst.RANGED_ATTACK, m_rangeAttackPosition, m_rangeAttackData, this);
 
         fsm.Initialize(moveState);
     }
@@ -56,7 +65,11 @@ public class EnemyTwo : Entity
         {
             fsm.SetState(stunState);
         }
-        else if(!CheckPlayerInMinAgroRange())
+        else if(CheckPlayerInMinAgroRange())
+        {
+            fsm.SetState(rangeAttackState);
+        }
+        else if (!CheckPlayerInMinAgroRange())
         {
             lookForPlayerState.SetTurnImmediately(true);
             fsm.SetState(lookForPlayerState);

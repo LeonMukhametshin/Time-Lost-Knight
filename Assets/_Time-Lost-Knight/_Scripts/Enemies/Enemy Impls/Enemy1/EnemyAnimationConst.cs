@@ -8,4 +8,7 @@ public class EnemyAnimationConst
     public const string MELEE_ATTACK = "meleeAttack";
     public const string STUN = "stun";
     public const string DEAD = "dead";
+    public const string DODGE = "dodge";
+    public const string Y_VELOCITY = "yVelocity";
+    public const string RANGED_ATTACK = "rangedAttack";
 }

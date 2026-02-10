@@ -5,8 +5,8 @@ public class State
     protected FSM fsm;
 
     protected Entity entity;
-    protected float startTime;
-
+    public float startTime { get; protected set; } 
+    
     protected string animBoolName;
 
     public State(FSM fsm, Entity entity, string animBoolName)
