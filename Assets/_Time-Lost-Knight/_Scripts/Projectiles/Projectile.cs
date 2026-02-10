@@ -1,5 +1,3 @@
-using DG.Tweening;
-using System.Transactions;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
