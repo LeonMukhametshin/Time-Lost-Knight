@@ -26,13 +26,11 @@ public class GameplayEntryPoint : MonoBehaviour
     private void OnEnable()
     {
         levelLoaded += SpawnPlayer;
-        levelLoaded += SpawnEnemy;
     }
 
     private void OnDisable()
     {
         levelLoaded -= SpawnPlayer;
-        levelLoaded -= SpawnEnemy;
     }
 
     public void Run(UIRootView uiRoot)
@@ -63,26 +61,13 @@ public class GameplayEntryPoint : MonoBehaviour
     private void SpawnPlayer()
     {
         //remove
-        var spawner = FindFirstObjectByType<SpawnerPlayer>();
+        //var spawner = FindFirstObjectByType<SpawnerPlayer>();
 
-        if(spawner is null)
-        {
-            throw new Exception("PlayerSpawnPoint not found");
-        }
+        //if(spawner is null)
+        //{
+        //    throw new Exception("PlayerSpawnPoint not found");
+        //}
 
-        spawner.Spawn(m_coroutines);
-    }
-
-    private void SpawnEnemy()
-    {
-        //remove
-        var spawner = FindFirstObjectByType<SpawnerEnemy>();
-
-        if(spawner is null)
-        {   
-            throw new Exception("SpawnerEnemy not found");   
-        }
-
-        spawner.Spawn();
+        //spawner.Spawn(m_coroutines);
     }
 }
