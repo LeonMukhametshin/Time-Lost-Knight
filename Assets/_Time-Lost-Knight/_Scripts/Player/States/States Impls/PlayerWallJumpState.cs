@@ -4,7 +4,8 @@ public class PlayerWallJumpState : PlayerAbilytiState
 {
     private int m_wallJumpDirection;
 
-    public PlayerWallJumpState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerWallJumpState(Player player, PlayerFSM fsm,
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -13,19 +14,22 @@ public class PlayerWallJumpState : PlayerAbilytiState
     {
         base.Enter();
 
+        var jumpState = player.statesContainer.GetState<PlayerJumpState>();
         player.inputHandler.UseJumpInput();
-        player.statesContainer.jumpState.ResetAmountOfJumpsLeft();
+        jumpState.ResetAmountOfJumpsLeft();
         player.movement.SetVelocity(data.wallJumpVelocity, data.wallJumpAnge, m_wallJumpDirection);
         player.flipController.CheckIfShoudFlip(m_wallJumpDirection);
-        player.statesContainer.jumpState.DecreaseAmountOfJumpLeft();
+        jumpState.DecreaseAmountOfJumpLeft();
     }
 
     public override void Update()
     {
         base.Update();
 
-        player.animationController.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
-        player.animationController.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
+        player.animationController.animator
+            .SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
+        player.animationController.animator
+            .SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
 
         if(Time.time >= startTime + data.wallJumpTime)
         {

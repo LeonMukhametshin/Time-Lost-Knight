@@ -2,7 +2,8 @@ public class PlayerJumpState : PlayerAbilytiState
 {
     private int amountOfJumpsLeft;
 
-    public PlayerJumpState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerJumpState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
         amountOfJumpsLeft = playerData.amountOfJumps;
@@ -17,7 +18,7 @@ public class PlayerJumpState : PlayerAbilytiState
         isAbilityDone = true;
 
         DecreaseAmountOfJumpLeft();
-        player.statesContainer.airState.SetIsJumping();
+        player.statesContainer.GetState<PlayerInAirState>().SetIsJumping();
     }
 
     public bool CanJump() =>

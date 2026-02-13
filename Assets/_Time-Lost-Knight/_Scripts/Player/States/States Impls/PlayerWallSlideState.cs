@@ -1,6 +1,7 @@
 public class PlayerWallSlideState : PlayerWallTouchingState
 {
-    public PlayerWallSlideState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerWallSlideState(Player player, PlayerFSM fsm,
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -18,7 +19,7 @@ public class PlayerWallSlideState : PlayerWallTouchingState
 
         if (grabInput && yInput == 0)
         {
-            fsm.SetState(player.statesContainer.wallGrabState);
+            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
         }
     }
 }

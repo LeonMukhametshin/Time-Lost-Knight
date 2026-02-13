@@ -9,7 +9,8 @@ public class PlayerWallTouchingState : PlayerState
     protected bool grabInput;
     protected bool jumpInput;
 
-    public PlayerWallTouchingState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerWallTouchingState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -24,7 +25,8 @@ public class PlayerWallTouchingState : PlayerState
 
         if(isTouchingWall && !isTouchingLedge)
         {
-            player.statesContainer.GetState<PlayerLedgeClibmState>().SetDetectedPosition(player.transform.position);
+            player.statesContainer.GetState<PlayerLedgeClibmState>()
+                .SetDetectedPosition(player.transform.position);
         }
     }
 

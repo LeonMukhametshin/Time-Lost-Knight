@@ -1,6 +1,7 @@
 public class PlayerCrouchIdleState : PlayerGroundState
 {
-    public PlayerCrouchIdleState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName)
+    public PlayerCrouchIdleState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName)
         : base(player, fsm, playerData, animBoolName)
     {
     }

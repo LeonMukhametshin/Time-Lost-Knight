@@ -3,7 +3,8 @@ public class PlayerAbilytiState : PlayerState
     protected bool isAbilityDone;
     private bool m_isGrounded;
 
-    public PlayerAbilytiState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerAbilytiState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -26,16 +27,18 @@ public class PlayerAbilytiState : PlayerState
     {
         base.Update();
 
-        if(isAbilityDone)
+        if (!isAbilityDone)
         {
-            if(m_isGrounded && player.movement.currentVelocity.y < 0.1f)
-            {
-                fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
-            }
-            else
-            {
-                fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
-            }
+            return;
+        }
+
+        if (m_isGrounded && player.movement.currentVelocity.y < 0.1f)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+        }
+        else
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
         }
     }
 }

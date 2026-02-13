@@ -59,11 +59,11 @@ public class PlayerLedgeClibmState : PlayerState
         {
             if (m_isTouchingCeiling)
             {
-                fsm.SetState(player.statesContainer.crouchIdleState);
+                fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
             }
             else
             {
-                fsm.SetState(player.statesContainer.idleState);
+                fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
             }
         }
         else
@@ -84,12 +84,12 @@ public class PlayerLedgeClibmState : PlayerState
             }
             else if (m_yInput == -1 && m_isHanding && !m_isClimbing)
             {
-                fsm.SetState(player.statesContainer.airState);
+                fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
             }
             else if (m_jumpInput && !m_isClimbing)
             {
-                player.statesContainer.wallJumpState.DetermineWallJumpDirection(true);
-                fsm.SetState(player.statesContainer.wallJumpState);
+                player.statesContainer.GetState<PlayerWallJumpState>().DetermineWallJumpDirection(true);
+                fsm.SetState(player.statesContainer.GetState<PlayerWallJumpState>());
             }
         }
     }

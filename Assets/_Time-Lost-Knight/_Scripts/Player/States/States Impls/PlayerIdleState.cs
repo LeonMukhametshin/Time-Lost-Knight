@@ -1,6 +1,7 @@
 public class PlayerIdleState : PlayerGroundState
 {
-    public PlayerIdleState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName)
+    public PlayerIdleState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName)
         : base(player, fsm, playerData, animBoolName)
     {
     }

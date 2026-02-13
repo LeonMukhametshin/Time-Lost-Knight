@@ -1,6 +1,7 @@
 public class PlayerLandState : PlayerGroundState
 {
-    public PlayerLandState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerLandState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -16,11 +17,11 @@ public class PlayerLandState : PlayerGroundState
 
         if (xInput != 0)
         {
-            fsm.SetState(player.statesContainer.moveState);
+            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
         }
         else if (isAnimationFinished)
         {
-            fsm.SetState(player.statesContainer.idleState);
+            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
         }
     }
 }

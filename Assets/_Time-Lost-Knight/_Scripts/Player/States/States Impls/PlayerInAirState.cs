@@ -22,7 +22,8 @@ public class PlayerInAirState : PlayerState
     private bool m_wallJumpCoyoteTime;
     private float m_startWallJumpCoyoteTime;
 
-    public PlayerInAirState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerInAirState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -41,7 +42,7 @@ public class PlayerInAirState : PlayerState
 
         if(m_isTouchingWall && !m_isTouchingLedge)
         {
-            player.statesContainer.playerLedgeClibmState.SetDetectedPosition(player.transform.position);
+            player.statesContainer.GetState<PlayerLedgeClibmState>().SetDetectedPosition(player.transform.position);
         }
 
         if(!m_wallJumpCoyoteTime && !m_isTouchingWall && !m_isTouchingWallBack 
@@ -70,45 +71,52 @@ public class PlayerInAirState : PlayerState
         CheckInputs();
         CheckJumpMultiplier();
 
+        var jumpState = player.statesContainer.GetState<PlayerJumpState>();
+        var dashState = player.statesContainer.GetState<PlayerDashState>();
+
         if (m_isGrounded && player.movement.currentVelocity.y < 0.1f)
         {
-            fsm.SetState(player.statesContainer.landState);
+            fsm.SetState(player.statesContainer.GetState<PlayerLandState>());
         }
         else if(m_isTouchingWall && !m_isTouchingLedge && !m_isGrounded)
         {
-            fsm.SetState(player.statesContainer.playerLedgeClibmState);
+            fsm.SetState(player.statesContainer.GetState<PlayerLedgeClibmState>());
         }
         else if (m_jumpInput && (m_isTouchingWall || m_isTouchingWallBack || m_wallJumpCoyoteTime))
         {
             StopWallJumpCoyoteTime();
             m_isTouchingWall = player.collisionDetector.CheckWallTouch();
-            player.statesContainer.wallJumpState.DetermineWallJumpDirection(m_isTouchingWall);
-            fsm.SetState(player.statesContainer.wallJumpState);
+
+            var wallJumpState = player.statesContainer.GetState<PlayerWallJumpState>();
+            wallJumpState.DetermineWallJumpDirection(m_isTouchingWall);
+            fsm.SetState(wallJumpState);
         }
-        else if (m_jumpInput && player.statesContainer.jumpState.CanJump())
+        else if (m_jumpInput && jumpState.CanJump())
         {                       
-            fsm.SetState(player.statesContainer.jumpState);
+            fsm.SetState(jumpState);
         }
         else if (m_isTouchingWall && m_grabInput && m_isTouchingLedge)
         {
-            fsm.SetState(player.statesContainer.wallGrabState);
+            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
         }
         else if (m_isTouchingWall && m_xInput == player.collisionDetector.facingDirection 
             && player.movement.currentVelocity.y <= 0)
         {
-            fsm.SetState(player.statesContainer.wallSlideState);
+            fsm.SetState(player.statesContainer.GetState<PlayerWallSlideState>());
         }
-        else if(m_dashInput && player.statesContainer.dashState.CheckIfCanDash())
+        else if(m_dashInput && dashState.CheckIfCanDash())
         {
-            fsm.SetState(player.statesContainer.dashState);
+            fsm.SetState(dashState);
         }
         else
         {
             player.flipController.CheckIfShoudFlip(m_xInput);
             player.movement.SetVelocityX(data.movementSpeed * m_xInput);
 
-            player.animationController.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
-            player.animationController.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
+            player.animationController.animator
+                .SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
+            player.animationController.animator
+                .SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
         }
     }
 
@@ -142,7 +150,7 @@ public class PlayerInAirState : PlayerState
         if(m_coyoteTime && Time.time > startTime + data.coyoteTime)
         {
             m_coyoteTime = false;
-            player.statesContainer.jumpState.DecreaseAmountOfJumpLeft();
+            player.statesContainer.GetState<PlayerJumpState>().DecreaseAmountOfJumpLeft();
         }
     }
 

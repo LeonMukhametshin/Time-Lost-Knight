@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerCrouchMoveState : PlayerGroundState
 {
-    public PlayerCrouchMoveState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerCrouchMoveState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -24,19 +25,21 @@ public class PlayerCrouchMoveState : PlayerGroundState
     {
         base.Update();
 
-        if (!isExitingState)
+        if (isExitingState)
         {
-            player.movement.SetVelocityX(data.crouchMovementVelocity * player.collisionDetector.facingDirection);
-            player.flipController.CheckIfShoudFlip(xInput);
+            return;
+        }
 
-            if (xInput == 0)
-            {
-                fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
-            }
-            else if(yInput != -1 && !isTouchingCeiling)
-            {
-                fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
-            }
+        player.movement.SetVelocityX(data.crouchMovementVelocity * player.collisionDetector.facingDirection);
+        player.flipController.CheckIfShoudFlip(xInput);
+
+        if (xInput == 0)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+        }
+        else if (yInput != -1 && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
         }
     }
 }
