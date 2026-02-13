@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724399f35c1a93b449e4f57b4d960e5f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  <movementSpeed>k__BackingField: 13
-  <jumpVelocity>k__BackingField: 24.67
+  <movementSpeed>k__BackingField: 20
+  <jumpVelocity>k__BackingField: 24
   <amountOfJumps>k__BackingField: 1
   <wallJumpVelocity>k__BackingField: 20
   <wallJumpTime>k__BackingField: 0.4
   <wallJumpAnge>k__BackingField: {x: 1, y: 2}
   <coyoteTime>k__BackingField: 0.2
-  <jumpHeightMultiplier>k__BackingField: 0.39
-  <wallSlideVelocity>k__BackingField: 2.49
-  <wallClimbVelocity>k__BackingField: 3.67
+  <jumpHeightMultiplier>k__BackingField: 0.8
+  <wallSlideVelocity>k__BackingField: -2
+  <wallClimbVelocity>k__BackingField: 2
   <startOffset>k__BackingField: {x: 0.45, y: 0.9}
   <stopOffset>k__BackingField: {x: 0.4, y: 0.75}
   <dashCooldown>k__BackingField: 0.5
   <maxHoldTime>k__BackingField: 0.73
-  <holdTimeScale>k__BackingField: 0.76
-  <dashTime>k__BackingField: 0.37
-  <dashVelocity>k__BackingField: 23.9
+  <holdTimeScale>k__BackingField: 0.02
+  <dashTime>k__BackingField: 0.2
+  <dashVelocity>k__BackingField: 40
   <drag>k__BackingField: 0.79
   <dashEndYMultiplier>k__BackingField: 0.54
   <distanceBetweenAfterImages>k__BackingField: 0.39
