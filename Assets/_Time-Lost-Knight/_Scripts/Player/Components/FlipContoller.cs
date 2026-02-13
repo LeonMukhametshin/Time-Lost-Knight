@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class FlipContoller : MonoBehaviour
@@ -18,6 +19,6 @@ public class FlipContoller : MonoBehaviour
     private void Flip()
     {
         m_collisionDetector.facingDirection *= -1;
-        transform.Rotate(0f, 180f, 0f);
+        transform.eulerAngles += new Vector3(0f, 180f, 0f);
     }
 }
