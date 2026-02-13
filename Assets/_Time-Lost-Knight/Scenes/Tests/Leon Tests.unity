@@ -614,6 +614,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &800282226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6435266003297406978, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+  m_PrefabInstance: {fileID: 1193134012133968666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &800677592
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,8 +678,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0
-  far clip plane: 70
+  near clip plane: -10
+  far clip plane: 1000
   field of view: 60
   orthographic: 1
   orthographic size: 7
@@ -702,11 +707,11 @@ Transform:
   m_GameObject: {fileID: 800677592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.86, z: -10}
+  m_LocalPosition: {x: -19.78, y: 11.46, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1158385017}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &800677596
 MonoBehaviour:
@@ -1049,8 +1054,7 @@ Transform:
   m_LocalPosition: {x: -19.78, y: 8.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 800677595}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282044109
@@ -1761,6 +1765,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5129810502820567774, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
   m_PrefabInstance: {fileID: 1193134012133968666}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1874203894 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8830459990270249974, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+  m_PrefabInstance: {fileID: 1193134012133968666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1874203896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800282226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459f7d86b6e7cbe408b0e3d909fcbae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationTrigger
 --- !u!1 &1971072224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,10 +2333,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7302137115000031554, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 1874203894}
+    - target: {fileID: 7302137115000031554, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+      propertyPath: <animationController>k__BackingField
+      value: 
+      objectReference: {fileID: 1874203896}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6435266003297406978, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1874203896}
   m_SourcePrefab: {fileID: 100100000, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2324,3 +2356,4 @@ SceneRoots:
   - {fileID: 1773157694}
   - {fileID: 1158385017}
   - {fileID: 1193134012133968666}
+  - {fileID: 800677595}

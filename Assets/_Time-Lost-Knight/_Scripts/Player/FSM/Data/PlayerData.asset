@@ -35,9 +35,4 @@ MonoBehaviour:
   <crouchMovementVelocity>k__BackingField: 4.73
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 1.66
-  <groundCheckRadius>k__BackingField: 0.3
-  <ceilingCheckRadius>k__BackingField: 0.5
-  <wallCheckDistance>k__BackingField: 0.57
-  <groundLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 128
+  <checkersData>k__BackingField: {fileID: 11400000, guid: 9d098f2d11e69044c83c40bec00b0830, type: 2}

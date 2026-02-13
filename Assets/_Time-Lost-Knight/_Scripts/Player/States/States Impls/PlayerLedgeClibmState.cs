@@ -15,7 +15,8 @@ public class PlayerLedgeClibmState : PlayerState
     private bool m_jumpInput;
     private bool m_isTouchingCeiling;
 
-    public PlayerLedgeClibmState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerLedgeClibmState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -76,9 +77,10 @@ public class PlayerLedgeClibmState : PlayerState
 
             if (m_xInput == player.collisionDetector.facingDirection && m_isHanding && !m_isClimbing)
             {
-                CheckForSpace();
+                m_isTouchingCeiling = player.collisionDetector.CheckForSpace(m_cornerPosition);
+                player.animationController.animator.SetBool(PlayerAnimationConst.IS_TOUCHING_CEILING, m_isTouchingCeiling);
+                player.animationController.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, true);
                 m_isClimbing = true;
-                player.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, true);
             }
             else if (m_yInput == -1 && m_isHanding && !m_isClimbing)
             {
@@ -95,7 +97,7 @@ public class PlayerLedgeClibmState : PlayerState
     public override void AnimationFinishTriger()
     {
         base.AnimationFinishTriger();
-        player.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, false);
+        player.animationController.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, false);
     }
 
     public override void AnimationTrigger()
@@ -107,13 +109,4 @@ public class PlayerLedgeClibmState : PlayerState
 
     public void SetDetectedPosition(Vector2 position) =>
         m_detectedPosition = position;
-    
-    private void CheckForSpace()
-    {
-        m_isTouchingCeiling = Physics2D.Raycast(m_cornerPosition + (Vector2.up * 0.015f) 
-            + (Vector2.right * player.collisionDetector.facingDirection * 0.015f),
-            Vector2.up, data.standColliderHeight, data.groundLayer);
-
-        player.animator.SetBool(PlayerAnimationConst.IS_TOUCHING_CEILING, m_isTouchingCeiling);
-    }
 }

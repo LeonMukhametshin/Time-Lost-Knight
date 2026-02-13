@@ -19,20 +19,20 @@ public class StatesContainer
     private Player m_player;
     private PlayerData m_playerData;
 
-    public bool initialized { get; private set; }
+    public bool initialized { get; private set; } = false;
 
     public StatesContainer(Player player, PlayerData playerData)
     {
         m_player = player;
         m_playerData = playerData;
 
-        fsm = new PlayerFSM();
-
         CreateStates(m_player, m_playerData);
     }
 
     private void CreateStates(Player player, PlayerData data)
     {
+        fsm = new PlayerFSM();
+
         //TODO: factory 
         idleState = new PlayerIdleState(player, fsm, data, PlayerAnimationConst.IDLE);
         moveState = new PlayerMoveState(player, fsm, data, PlayerAnimationConst.MOVEMENT);
@@ -49,14 +49,15 @@ public class StatesContainer
         crouchMoveState = new PlayerCrouchMoveState(player, fsm, data, PlayerAnimationConst.CROUCH_MOVE);
     }
 
-    public void Initalize()
-    {
+    public void SetBaseState()
+    { 
         if(initialized)
         {
             return;
         }
-
+    
         fsm.Initialize(idleState);
+
         initialized = true;
     }
 }

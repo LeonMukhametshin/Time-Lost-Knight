@@ -2,56 +2,53 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public StatesContainer statesContainer { get; set; }
-
+    [Header("       ----  PLAYER DATA  ----")][Space(10)]
     [SerializeField] private PlayerData m_data;
 
+    [Header("       ----  UNITY COMPONENTS  ----")][Space(10)]
+    [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
-    [field: SerializeField] public Animator animator { get; private set; }
+    [SerializeField] private BoxCollider2D m_collider;
 
+    [field: Header("       ----  OTHER COMPONENTS  ----")][field: Space(10)]
     [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
-    [field: SerializeField] public Movement movement { get; private set; }
-    [field: SerializeField] public PlayerCollisionDetector collisionDetector { get; private set; }
-    [field: SerializeField] public PlayerColliderController colliderController { get; private set; }
+    [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
     [field: SerializeField] public PlayerAnimationController animationController { get; private set; }
-    [field: SerializeField] public FlipContoller flipController { get; private set; }
 
-    [field: SerializeField] public Transform dashDirectionIndicator {  get; private set; }
-  
+    [Header("       ----  CHECKERS  ----")][Space(10)]
+    [SerializeField] private CheckTransfomRef m_checkTransfom;
 
-    private void Awake()
+    public Movement movement { get; private set; }
+    public StatesContainer statesContainer { get; set; }
+    public FlipContoller flipController { get; private set; }
+    public CollisionDetector collisionDetector { get; private set; }
+    public ColliderController colliderController { get; private set; }
+
+
+    private void Awake() =>
+        InitializeComponents();
+
+    private void InitializeComponents()
     {
         movement = new Movement(m_rigidbody);
-
-        collisionDetector.Initialize(m_data.groundCheckRadius, 
-            m_data.ceilingCheckRadius, m_data.wallCheckDistance, m_data.groundLayer);
-
-        flipController.Initialize(collisionDetector);
-     
+        colliderController = new ColliderController(m_collider);
+        collisionDetector = new CollisionDetector(m_data.checkersData, m_checkTransfom, m_data.standColliderHeight);
+        flipController = new FlipContoller(transform, collisionDetector);
+ 
         statesContainer = new StatesContainer(this, m_data);
-        statesContainer.Initalize();
+        animationController.Initialize(m_animator, statesContainer);
 
-        animationController.Initialize(statesContainer);
+        statesContainer.SetBaseState();
     }
 
     private void Update()
     {
-        if (!statesContainer.initialized)
-        {
-            return;
-        }
-
         movement.Update();
-        statesContainer.fsm.currentState.Update();
+        statesContainer.fsm.Update();
     }
 
     private void FixedUpdate()
     {
-        if(!statesContainer.initialized)
-        {
-            return;
-        }
-
-        statesContainer.fsm.currentState.FixedUpdate();
+        statesContainer.fsm.FixedUpdate();
     }
 }

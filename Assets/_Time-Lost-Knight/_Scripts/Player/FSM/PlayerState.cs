@@ -11,31 +11,29 @@ public class PlayerState
     protected bool isAnimationFinished;
     protected bool isExitingState;
 
-    private string animBoolName;
+    private string m_animName;
 
     public PlayerState(Player player, PlayerFSM fsm, 
-        PlayerData playerData, string animBoolName)
+        PlayerData data, string animName)
     {
         this.player = player;
         this.fsm = fsm;
-        this.data = playerData;
-        this.animBoolName = animBoolName;
+        this.data = data;
+        this.m_animName = animName;
     }
 
     public virtual void Enter()
     {
         DoCheck();
-        player.animator.SetBool(animBoolName, true);
+        player.animationController.animator.SetBool(m_animName, true);
         startTime = Time.time;
         isAnimationFinished = false;
         isExitingState = false;
-
-        Debug.Log(animBoolName);
     } 
       
     public virtual void Exit()
     {
-        player.animator.SetBool(animBoolName, false);
+        player.animationController.animator.SetBool(m_animName, false);
         isExitingState = true;
     }
         

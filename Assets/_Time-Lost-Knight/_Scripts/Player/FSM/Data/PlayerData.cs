@@ -42,8 +42,5 @@ public class PlayerData : ScriptableObject
     [field: SerializeField][Min(0)] public float standColliderHeight { get; private set; }
 
     [Header("Check")]
-    [field: SerializeField][Min(0)] public float groundCheckRadius { get; private set; }
-    [field: SerializeField][Min(0)] public float ceilingCheckRadius { get; private set; }
-    [field: SerializeField][Min(0)] public float wallCheckDistance { get; private set; }
-    [field: SerializeField] public LayerMask groundLayer { get; private set; }
+    [field: SerializeField] public CheckersData checkersData { get; private set; }
 }

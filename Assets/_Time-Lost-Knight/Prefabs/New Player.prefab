@@ -228,12 +228,8 @@ GameObject:
   - component: {fileID: 6256467284129163076}
   - component: {fileID: 6453085681620009920}
   - component: {fileID: 287905422040476232}
-  - component: {fileID: 1126918431352507552}
-  - component: {fileID: 4815226921460965031}
   - component: {fileID: 7302137115000031554}
-  - component: {fileID: 5959976316857043765}
-  - component: {fileID: 5924875597578780202}
-  - component: {fileID: 1617679901079735892}
+  - component: {fileID: 1126918431352507552}
   m_Layer: 9
   m_Name: New Player
   m_TagString: Player
@@ -525,6 +521,30 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7302137115000031554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435266003297406978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76667626bac94ef49829804fb4fe586c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
+  m_rigidbody: {fileID: 6256467284129163076}
+  m_collider: {fileID: 6453085681620009920}
+  <animator>k__BackingField: {fileID: 8830459990270249974}
+  <inputHandler>k__BackingField: {fileID: 1126918431352507552}
+  <dashVizualizer>k__BackingField:
+    indecator: {fileID: 8881360740836153499}
+  m_checkTransfom:
+    groundCheck: {fileID: 7106985524915511270}
+    wallCheck: {fileID: 2848776604293388674}
+    ledgeCheck: {fileID: 8500792976824639704}
+    ceilingCheck: {fileID: 4580932176864417985}
 --- !u!114 &1126918431352507552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,80 +560,6 @@ MonoBehaviour:
   m_playerInput: {fileID: 287905422040476232}
   m_camera: {fileID: 0}
   m_inputHoldTime: 0.3
---- !u!114 &4815226921460965031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435266003297406978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459f7d86b6e7cbe408b0e3d909fcbae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
---- !u!114 &7302137115000031554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435266003297406978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76667626bac94ef49829804fb4fe586c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
-  m_rigidbody: {fileID: 6256467284129163076}
-  <animator>k__BackingField: {fileID: 8830459990270249974}
-  <inputHandler>k__BackingField: {fileID: 1126918431352507552}
-  <collisionDetector>k__BackingField: {fileID: 5924875597578780202}
-  <colliderController>k__BackingField: {fileID: 1617679901079735892}
-  <animationController>k__BackingField: {fileID: 4815226921460965031}
-  <flipController>k__BackingField: {fileID: 5959976316857043765}
-  <dashDirectionIndicator>k__BackingField: {fileID: 8881360740836153499}
---- !u!114 &5959976316857043765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435266003297406978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18034cfeffde10f45804d08fed55e2a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlipContoller
---- !u!114 &5924875597578780202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435266003297406978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fadfc93ecec1792498e7d0361003e6c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionDetector
-  m_groundCheck: {fileID: 7106985524915511270}
-  m_wallCheck: {fileID: 2848776604293388674}
-  m_ledgeCheck: {fileID: 8500792976824639704}
-  m_ceilingCheck: {fileID: 4580932176864417985}
---- !u!114 &1617679901079735892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435266003297406978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b89cd46c951a7d84c97eb6dc01df930d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerColliderController
-  <movementCollider>k__BackingField: {fileID: 6453085681620009920}
 --- !u!1 &7121822066334097646
 GameObject:
   m_ObjectHideFlags: 0

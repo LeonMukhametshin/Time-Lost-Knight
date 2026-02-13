@@ -23,4 +23,25 @@ public class PlayerFSM
         currentState = state;
         currentState.Enter();
     }
+
+    public void Update()
+    {
+        if(!m_isInitialized)
+        {
+            return;
+        }
+
+        currentState.Update();
+    }
+       
+
+    public void FixedUpdate()
+    {
+        if (!m_isInitialized)
+        {
+            return;
+        }
+
+        currentState.FixedUpdate();
+    }
 }

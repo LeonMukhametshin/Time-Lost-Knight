@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private Rigidbody2D m_projectileRigidboby;
     [SerializeField] private float m_gravity;
     [SerializeField] private LayerMask m_grondLayer;
     [SerializeField] private LayerMask m_playerLayer;
@@ -21,8 +21,8 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        rigidbody.gravityScale = 0f;
-        rigidbody.linearVelocity = transform.right * m_speed;
+        m_projectileRigidboby.gravityScale = 0f;
+        m_projectileRigidboby.linearVelocity = transform.right * m_speed;
 
         m_isGravityOn = false;
 
@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
 
             if (m_isGravityOn)
             {
-                float angle = Mathf.Atan2(rigidbody.linearVelocityY, rigidbody.linearVelocityX) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(m_projectileRigidboby.linearVelocityY, m_projectileRigidboby.linearVelocityX) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             }
         }
@@ -73,14 +73,14 @@ public class Projectile : MonoBehaviour
             if (groundHit is not null)
             {
                 m_hasHitGround = true;
-                rigidbody.gravityScale = 0f;
-                rigidbody.linearVelocity = Vector2.zero;
+                m_projectileRigidboby.gravityScale = 0f;
+                m_projectileRigidboby.linearVelocity = Vector2.zero;
             }
 
             if (Mathf.Abs(m_xStartPosition - transform.position.x) >= m_travelDistance && !m_isGravityOn)
             {
                 m_isGravityOn = true;
-                rigidbody.gravityScale = m_gravity;
+                m_projectileRigidboby.gravityScale = m_gravity;
             }
         }
     }

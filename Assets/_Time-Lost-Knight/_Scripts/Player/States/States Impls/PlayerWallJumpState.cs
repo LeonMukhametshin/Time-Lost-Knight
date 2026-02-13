@@ -24,8 +24,8 @@ public class PlayerWallJumpState : PlayerAbilytiState
     {
         base.Update();
 
-        player.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
-        player.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
+        player.animationController.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
+        player.animationController.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
 
         if(Time.time >= startTime + data.wallJumpTime)
         {

@@ -107,8 +107,8 @@ public class PlayerInAirState : PlayerState
             player.flipController.CheckIfShoudFlip(m_xInput);
             player.movement.SetVelocityX(data.movementSpeed * m_xInput);
 
-            player.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
-            player.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
+            player.animationController.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
+            player.animationController.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
         }
     }
 

@@ -13,7 +13,8 @@ public class PlayerDashState : PlayerAbilytiState
     private Vector2 m_dashDirectionInput;
     private Vector2 m_lastAfterImagePosition;
 
-    public PlayerDashState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerDashState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -31,7 +32,7 @@ public class PlayerDashState : PlayerAbilytiState
         Time.timeScale = data.holdTimeScale;
         startTime = Time.unscaledTime;
 
-        player.dashDirectionIndicator.gameObject.SetActive(true);
+        player.dashVizualizer.SetActive(true);
     }
 
     public override void Exit()
@@ -53,8 +54,8 @@ public class PlayerDashState : PlayerAbilytiState
             return;
         }
 
-        player.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
-        player.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, player.movement.currentVelocity.x);
+        player.animationController.animator.SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
+        player.animationController.animator.SetFloat(PlayerAnimationConst.X_VELOCITY, player.movement.currentVelocity.x);
 
         if (m_isHolding)
         {
@@ -68,7 +69,7 @@ public class PlayerDashState : PlayerAbilytiState
             }
 
             float angle = Vector2.SignedAngle(Vector2.right, m_dashDirection);
-            player.dashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 45f);
+            player.dashVizualizer.SetRotation(angle); 
 
             if (m_dashInputStop || Time.unscaledTime >= startTime + data.maxHoldTime)
             {
@@ -79,7 +80,7 @@ public class PlayerDashState : PlayerAbilytiState
                 player.flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
                 player.movement.SetDrag(data.drag);
                 player.movement.SetVelocity(data.dashVelocity, m_dashDirection);
-                player.dashDirectionIndicator.gameObject.SetActive(false);
+                player.dashVizualizer.SetActive(false);
 
                 PlaceAfterImage();
             }
@@ -107,7 +108,8 @@ public class PlayerDashState : PlayerAbilytiState
 
     private void CheckIfShoudPlaceAfterImage()
     {
-        if(Vector2.Distance(player.transform.position, m_lastAfterImagePosition) >= data.distanceBetweenAfterImages)
+        if(Vector2.Distance(player.transform.position, m_lastAfterImagePosition) 
+            >= data.distanceBetweenAfterImages)
         {
             PlaceAfterImage();
         }
