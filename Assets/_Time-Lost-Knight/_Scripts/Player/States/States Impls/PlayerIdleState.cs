@@ -22,11 +22,11 @@ public class PlayerIdleState : PlayerGroundState
 
         if (xInput != 0)
         {
-            fsm.SetState(player.statesContainer.moveState);
+            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
         }
         else if (yInput == -1)
         {
-            fsm.SetState(player.statesContainer.crouchIdleState);
+            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
         }
     }
 }

@@ -1,25 +1,13 @@
+using System;
+using System.Collections.Generic;
+
 public class StatesContainer
 {
     public PlayerFSM fsm { get; private set; }
-
-    public PlayerIdleState idleState { get; private set; }
-    public PlayerMoveState moveState { get; private set; }
-    public PlayerJumpState jumpState { get; private set; }
-    public PlayerInAirState airState { get; private set; }
-    public PlayerLandState landState { get; private set; }
-    public PlayerWallGrabState wallGrabState { get; private set; }
-    public PlayerWallSlideState wallSlideState { get; private set; }
-    public PlayerWallClimbState wallClimbState { get; private set; }
-    public PlayerWallJumpState wallJumpState { get; private set; }
-    public PlayerLedgeClibmState playerLedgeClibmState { get; private set; }
-    public PlayerDashState dashState { get; private set; }
-    public PlayerCrouchIdleState crouchIdleState { get; private set; }
-    public PlayerCrouchMoveState crouchMoveState { get; private set; }
-
     private Player m_player;
     private PlayerData m_playerData;
 
-    public bool initialized { get; private set; } = false;
+    private readonly Dictionary<Type, PlayerState> m_states = new();
 
     public StatesContainer(Player player, PlayerData playerData)
     {
@@ -33,31 +21,35 @@ public class StatesContainer
     {
         fsm = new PlayerFSM();
 
-        //TODO: factory 
-        idleState = new PlayerIdleState(player, fsm, data, PlayerAnimationConst.IDLE);
-        moveState = new PlayerMoveState(player, fsm, data, PlayerAnimationConst.MOVEMENT);
-        jumpState = new PlayerJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR);
-        airState = new PlayerInAirState(player, fsm, data, PlayerAnimationConst.IN_AIR);
-        landState = new PlayerLandState(player, fsm, data, PlayerAnimationConst.LAND);
-        wallSlideState = new PlayerWallSlideState(player, fsm, data, PlayerAnimationConst.WALL_SLIDE);
-        wallGrabState = new PlayerWallGrabState(player, fsm, data, PlayerAnimationConst.WALL_GRAB);
-        wallClimbState = new PlayerWallClimbState(player, fsm, data, PlayerAnimationConst.WALL_CLIMB);
-        wallJumpState = new PlayerWallJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR);
-        playerLedgeClibmState = new PlayerLedgeClibmState(player, fsm, data, PlayerAnimationConst.LEDGE_CLIMB_STATE);
-        dashState = new PlayerDashState(player, fsm, data, PlayerAnimationConst.IN_AIR);
-        crouchIdleState = new PlayerCrouchIdleState(player, fsm, data, PlayerAnimationConst.CROUCH_IDLE);
-        crouchMoveState = new PlayerCrouchMoveState(player, fsm, data, PlayerAnimationConst.CROUCH_MOVE);
+        RegisteState(new PlayerIdleState(player, fsm, data, PlayerAnimationConst.IDLE));
+        RegisteState(new PlayerMoveState(player, fsm, data, PlayerAnimationConst.MOVEMENT));
+        RegisteState(new PlayerJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerInAirState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerLandState(player, fsm, data, PlayerAnimationConst.LAND));
+        RegisteState(new PlayerWallSlideState(player, fsm, data, PlayerAnimationConst.WALL_SLIDE));
+        RegisteState(new PlayerWallGrabState(player, fsm, data, PlayerAnimationConst.WALL_GRAB));
+        RegisteState(new PlayerWallClimbState(player, fsm, data, PlayerAnimationConst.WALL_CLIMB));
+        RegisteState(new PlayerWallJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerWallJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerLedgeClibmState(player, fsm, data, PlayerAnimationConst.LEDGE_CLIMB_STATE));
+        RegisteState(new PlayerDashState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerCrouchIdleState(player, fsm, data, PlayerAnimationConst.CROUCH_IDLE));
+        RegisteState(new PlayerCrouchMoveState(player, fsm, data, PlayerAnimationConst.CROUCH_MOVE));
     }
 
     public void SetBaseState()
     { 
-        if(initialized)
+        if(fsm.currentState is not null)
         {
             return;
         }
-    
-        fsm.Initialize(idleState);
 
-        initialized = true;
+        fsm.Initialize(GetState<PlayerIdleState>());
     }
+
+    private void RegisteState<T>(T state) where T : PlayerState
+        => m_states[typeof(T)] = state;
+
+    public T GetState<T>() where T : PlayerState 
+        => (T)m_states[typeof(T)];
 }

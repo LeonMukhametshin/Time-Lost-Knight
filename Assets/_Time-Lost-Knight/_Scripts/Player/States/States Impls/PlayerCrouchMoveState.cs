@@ -31,11 +31,11 @@ public class PlayerCrouchMoveState : PlayerGroundState
 
             if (xInput == 0)
             {
-                fsm.SetState(player.statesContainer.crouchIdleState);
+                fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
             }
             else if(yInput != -1 && !isTouchingCeiling)
             {
-                fsm.SetState(player.statesContainer.moveState);
+                fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
             }
         }
     }

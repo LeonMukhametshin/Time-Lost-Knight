@@ -24,7 +24,7 @@ public class PlayerWallTouchingState : PlayerState
 
         if(isTouchingWall && !isTouchingLedge)
         {
-            player.statesContainer.playerLedgeClibmState.SetDetectedPosition(player.transform.position);
+            player.statesContainer.GetState<PlayerLedgeClibmState>().SetDetectedPosition(player.transform.position);
         }
     }
 
@@ -36,20 +36,21 @@ public class PlayerWallTouchingState : PlayerState
 
         if (jumpInput)
         {
-            player.statesContainer.wallJumpState.DetermineWallJumpDirection(isTouchingWall);
-            fsm.SetState(player.statesContainer.wallJumpState);
+            var wallJumpState = player.statesContainer.GetState<PlayerWallJumpState>();
+            wallJumpState.DetermineWallJumpDirection(isTouchingWall);
+            fsm.SetState(wallJumpState);
         }
         else if (isGrounded && !grabInput)
         {
-            fsm.SetState(player.statesContainer.idleState);
+            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
         }
         else if (!isTouchingWall || (xInput != player.collisionDetector.facingDirection  && !grabInput))
         {
-            fsm.SetState(player.statesContainer.airState);
+            fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
         }
         else if(isTouchingWall && !isTouchingLedge)
         {
-            fsm.SetState(player.statesContainer.playerLedgeClibmState);
+            fsm.SetState(player.statesContainer.GetState<PlayerLedgeClibmState>());
         }
     }
 

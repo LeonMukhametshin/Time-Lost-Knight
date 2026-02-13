@@ -12,7 +12,8 @@ public class PlayerGroundState : PlayerState
     private bool m_isTouchingLedge;
     private bool m_dashInput;
 
-    public PlayerGroundState(Player player, PlayerFSM fsm, PlayerData playerData, string animBoolName) 
+    public PlayerGroundState(Player player, PlayerFSM fsm, 
+        PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
     }
@@ -31,8 +32,8 @@ public class PlayerGroundState : PlayerState
     {
         base.Enter();
 
-        player.statesContainer.jumpState.ResetAmountOfJumpsLeft();
-        player.statesContainer.dashState.ResetCanDash();
+        player.statesContainer.GetState<PlayerJumpState>().ResetAmountOfJumpsLeft();
+        player.statesContainer.GetState<PlayerDashState>().ResetCanDash();
     }
 
     public override void Update()
@@ -41,22 +42,23 @@ public class PlayerGroundState : PlayerState
 
         CheckInputs();
 
-        if (m_jumpInput && player.statesContainer.jumpState.CanJump() && !isTouchingCeiling)
+        if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.jumpState);
+            fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
         }
         else if(!m_isGrounded)
         {
-            player.statesContainer.airState.StartCoyoteTime();
-            fsm.SetState(player.statesContainer.airState);
+            var airState = player.statesContainer.GetState<PlayerInAirState>();
+            airState.StartCoyoteTime();
+            fsm.SetState(airState);
         }
         else if(m_isTouchingWall && m_grabInput && m_isTouchingLedge)
         {
-            fsm.SetState(player.statesContainer.wallGrabState);
+            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
         }
-        else if (m_dashInput && player.statesContainer.dashState.CheckIfCanDash() && !isTouchingCeiling)
+        else if (m_dashInput && player.statesContainer.GetState<PlayerDashState>().CheckIfCanDash() && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.dashState);
+            fsm.SetState(player.statesContainer.GetState<PlayerDashState>());
         }
     }
 

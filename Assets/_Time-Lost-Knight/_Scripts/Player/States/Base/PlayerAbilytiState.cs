@@ -30,11 +30,11 @@ public class PlayerAbilytiState : PlayerState
         {
             if(m_isGrounded && player.movement.currentVelocity.y < 0.1f)
             {
-                fsm.SetState(player.statesContainer.idleState);
+                fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
             }
             else
             {
-                fsm.SetState(player.statesContainer.airState);
+                fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
             }
         }
     }
