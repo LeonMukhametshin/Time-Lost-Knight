@@ -1,6 +1,6 @@
-public class PlayerWallClimbState : PlayerWallTouchingState
+public class PlayerWallSlideState : PlayerWallTouchingState
 {
-    public PlayerWallClimbState(Player player, PlayerFSM fsm, 
+    public PlayerWallSlideState(Player player, PlayerFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
@@ -9,15 +9,14 @@ public class PlayerWallClimbState : PlayerWallTouchingState
     public override void Update()
     {
         base.Update();
+        player.movement.SetVelocityY(data.wallSlideVelocity);
 
-        if(isExitingState)
+        if (isExitingState)
         {
             return;
         }
 
-        player.movement.SetVelocityY(data.wallClimbVelocity);
-
-        if (yInput != 1)
+        if (grabInput && yInput == 0)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
         }

@@ -83,12 +83,12 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawDashDirectionInput = context.ReadValue<Vector2>();
 
-        if(m_playerInput.currentControlScheme == "Keyboard")
+        if (m_playerInput.currentControlScheme == "Keyboard")
         {
             rawDashDirectionInput = m_camera.ScreenToWorldPoint((Vector3)rawDashDirectionInput - transform.position);
         }
 
-        dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);   
+        dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
     }
 
     public void UseJumpInput() => 

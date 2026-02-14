@@ -1,6 +1,6 @@
-public class PlayerWallSlideState : PlayerWallTouchingState
+public class PlayerWallClimbState : PlayerWallTouchingState
 {
-    public PlayerWallSlideState(Player player, PlayerFSM fsm,
+    public PlayerWallClimbState(Player player, PlayerFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {
@@ -10,14 +10,14 @@ public class PlayerWallSlideState : PlayerWallTouchingState
     {
         base.Update();
 
-        if(isExitingState)
+        player.movement.SetVelocityY(data.wallClimbVelocity);
+
+        if (isExitingState)
         {
             return;
         }
 
-        player.movement.SetVelocityY(data.wallSlideVelocity);
-
-        if (grabInput && yInput == 0)
+        if (yInput != 1)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
         }

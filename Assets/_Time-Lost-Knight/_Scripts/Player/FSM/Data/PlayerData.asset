@@ -20,8 +20,8 @@ MonoBehaviour:
   <wallJumpAnge>k__BackingField: {x: 1, y: 2}
   <coyoteTime>k__BackingField: 0.2
   <jumpHeightMultiplier>k__BackingField: 0.8
-  <wallSlideVelocity>k__BackingField: -2
-  <wallClimbVelocity>k__BackingField: 2
+  <wallSlideVelocity>k__BackingField: 2
+  <wallClimbVelocity>k__BackingField: 3
   <startOffset>k__BackingField: {x: 0.45, y: 0.9}
   <stopOffset>k__BackingField: {x: 0.4, y: 0.75}
   <dashCooldown>k__BackingField: 0.5
