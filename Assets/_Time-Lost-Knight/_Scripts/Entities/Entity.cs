@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour, IDamageable
 
     public EntityData data;
 
-    public Rigidbody2D rigidbody { get; private set; }
+    public Rigidbody2D entityRigidbody { get; private set; }
     public Animator animator { get; private set; }
     public GameObject aliveGameObject { get; private set; }
 
@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour, IDamageable
     {
         //TODO: remove
         aliveGameObject = transform.Find("Alive").gameObject;
-        rigidbody = aliveGameObject.GetComponent<Rigidbody2D>();
+        entityRigidbody = aliveGameObject.GetComponent<Rigidbody2D>();
         animator = aliveGameObject.GetComponent<Animator>();
         animationToFSM = aliveGameObject.GetComponent<AnimationToFSM>();
 
@@ -46,7 +46,7 @@ public class Entity : MonoBehaviour, IDamageable
     {
         fsm.currentState.Update();
 
-        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, rigidbody.linearVelocityY);
+        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, entityRigidbody.linearVelocityY);
 
         if(Time.time >= m_lastDamageTime + data.stunRecoveryTime)
         {
@@ -61,15 +61,15 @@ public class Entity : MonoBehaviour, IDamageable
 
     public virtual void SetVelocity(float velocity)
     {
-        m_velocityWorkspace.Set(facingDirection * velocity, rigidbody.linearVelocityY);
-        rigidbody.linearVelocity = m_velocityWorkspace;
+        m_velocityWorkspace.Set(facingDirection * velocity, entityRigidbody.linearVelocityY);
+        entityRigidbody.linearVelocity = m_velocityWorkspace;
     }
 
     public virtual void SetVelocity(float velocity, Vector2 angle, int direction)
     {
         angle.Normalize();
         m_velocityWorkspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        rigidbody.linearVelocity = m_velocityWorkspace;
+        entityRigidbody.linearVelocity = m_velocityWorkspace;
     }
 
     public virtual bool CheckLedge() =>
@@ -138,8 +138,8 @@ public class Entity : MonoBehaviour, IDamageable
 
     public virtual void DamageHop(float velocity)
     {
-        m_velocityWorkspace.Set(rigidbody.linearVelocityX, velocity);
-        rigidbody.linearVelocity = m_velocityWorkspace;
+        m_velocityWorkspace.Set(entityRigidbody.linearVelocityX, velocity);
+        entityRigidbody.linearVelocity = m_velocityWorkspace;
     }
 
     public virtual void Flip()

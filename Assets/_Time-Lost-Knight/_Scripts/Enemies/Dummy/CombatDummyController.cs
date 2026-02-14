@@ -22,7 +22,7 @@ public class CombatDummyController : MonoBehaviour, IDamageable
     private int m_playerFacingDirection;
     private bool m_playerOnLeft;
 
-    [SerializeField] private PlayerController m_playerController;
+    //[SerializeField] private PlayerController m_playerController;
 
     [SerializeField] private DummyComponent m_alive;
     [SerializeField] private DummyComponent m_brokenTop;
