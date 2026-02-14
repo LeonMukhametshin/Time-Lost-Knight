@@ -22,12 +22,12 @@ public class PlayerWallGrabState : PlayerWallTouchingState
     {
         base.Update();
 
-        if(!isExitingState)
+        HoldPosition();
+
+        if (!isExitingState)
         {
             return;   
         }
-
-        HoldPosition();
 
         if (yInput > 0)
         {
