@@ -17,6 +17,7 @@ public class CollisionDetector
     private float m_wallCheckDistance;
 
     private LayerMask m_groundLayer;
+    private LayerMask m_platformLayer;
 
     private Vector2 m_workspace;
 
@@ -26,6 +27,7 @@ public class CollisionDetector
         m_ceilingCheckRadius = data.ceilingCheckRadius;
         m_wallCheckDistance = data.wallCheckDistance;
         m_groundLayer = data.groundLayer;
+        m_platformLayer = data.platformLayer;
 
         m_standColliderHeight = playerheight;
 
@@ -47,6 +49,9 @@ public class CollisionDetector
 
     public bool CheckTouchingLedge() =>
         Physics2D.Raycast(m_transformRef.ledgeCheck.position, Vector2.right * facingDirection, m_wallCheckDistance, m_groundLayer);
+
+    public bool CheckIsOnPlatform() =>
+        Physics2D.Raycast(m_transformRef.groundCheck.position, Vector2.down, m_groundCheckRadius, m_platformLayer);
 
     public bool CheckForSpace(Vector2 cornerPosition) =>
         Physics2D.Raycast(cornerPosition + (Vector2.up * TOLERANCE) + (Vector2.right * facingDirection * TOLERANCE),

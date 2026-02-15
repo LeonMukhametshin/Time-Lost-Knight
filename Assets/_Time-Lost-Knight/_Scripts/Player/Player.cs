@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
     [field: SerializeField] public PlayerAnimationController animationController { get; private set; }
+    [SerializeField] private CoroutineRunner m_coroutine;
 
     [Header("       ----  CHECKERS  ----")][Space(10)]
     [SerializeField] private CheckTransfomRef m_checkTransfom;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     public FlipContoller flipController { get; private set; }
     public CollisionDetector collisionDetector { get; private set; }
     public ColliderController colliderController { get; private set; }
+    public OneWayPlatformCollisionController oneWayPlatformCollisionController { get; private set; }
 
 
     private void Awake() =>
@@ -34,7 +36,9 @@ public class Player : MonoBehaviour
         colliderController = new ColliderController(m_collider);
         collisionDetector = new CollisionDetector(m_data.checkersData, m_checkTransfom, m_data.standColliderHeight);
         flipController = new FlipContoller(transform, collisionDetector);
- 
+
+        oneWayPlatformCollisionController = new OneWayPlatformCollisionController(m_coroutine, gameObject.layer,
+            m_data.oneWayPlatformLayer, m_data.dropThroughDuration);
         statesContainer = new StatesContainer(this, m_data);
         animationController.Initialize(m_animator, statesContainer);
 

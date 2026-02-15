@@ -12,6 +12,8 @@ public class PlayerGroundState : PlayerState
     private bool m_isTouchingLedge;
     private bool m_dashInput;
 
+    private bool m_dropDownInput;
+
     public PlayerGroundState(Player player, PlayerFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
@@ -26,6 +28,7 @@ public class PlayerGroundState : PlayerState
         m_isTouchingWall = player.collisionDetector.CheckWallTouch();
         m_isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
         isTouchingCeiling = player.collisionDetector.CheckCeilingCheck();
+
     }
 
     public override void Enter()
@@ -42,9 +45,16 @@ public class PlayerGroundState : PlayerState
 
         CheckInputs();
 
-        if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
+        m_dropDownInput = player.inputHandler.dropDownInput;
+
+        if(m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
+        }
+        else if (m_dropDownInput)
+        {
+            player.inputHandler.UseDropDownInput();
+            fsm.SetState(player.statesContainer.GetState<PlayerDropDownState>());
         }
         else if(!m_isGrounded)
         {

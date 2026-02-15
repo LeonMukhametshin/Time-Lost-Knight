@@ -35,6 +35,7 @@ public class StatesContainer
         RegisteState(new PlayerDashState(player, fsm, data, PlayerAnimationConst.IN_AIR));
         RegisteState(new PlayerCrouchIdleState(player, fsm, data, PlayerAnimationConst.CROUCH_IDLE));
         RegisteState(new PlayerCrouchMoveState(player, fsm, data, PlayerAnimationConst.CROUCH_MOVE));
+        RegisteState(new PlayerDropDownState(player, fsm, data, PlayerAnimationConst.IN_AIR));
     }
 
     public void SetBaseState()

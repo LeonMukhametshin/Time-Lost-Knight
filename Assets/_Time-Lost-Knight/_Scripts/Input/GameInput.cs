@@ -147,6 +147,15 @@ namespace Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Platform"",
+                    ""type"": ""Button"",
+                    ""id"": ""de7ac14f-a1e7-4c60-8797-0dcc634bdf77"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -314,6 +323,17 @@ namespace Inputs
                     ""action"": ""DashDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89bff9c8-bada-4b79-b741-048ff4b3fff0"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Platform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -389,6 +409,7 @@ namespace Inputs
             m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_DashDirection = m_Player.FindAction("DashDirection", throwIfNotFound: true);
+            m_Player_Platform = m_Player.FindAction("Platform", throwIfNotFound: true);
         }
 
         ~@GameInput()
@@ -475,6 +496,7 @@ namespace Inputs
         private readonly InputAction m_Player_Grab;
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_DashDirection;
+        private readonly InputAction m_Player_Platform;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -510,6 +532,10 @@ namespace Inputs
             /// Provides access to the underlying input action "Player/DashDirection".
             /// </summary>
             public InputAction @DashDirection => m_Wrapper.m_Player_DashDirection;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Platform".
+            /// </summary>
+            public InputAction @Platform => m_Wrapper.m_Player_Platform;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -554,6 +580,9 @@ namespace Inputs
                 @DashDirection.started += instance.OnDashDirection;
                 @DashDirection.performed += instance.OnDashDirection;
                 @DashDirection.canceled += instance.OnDashDirection;
+                @Platform.started += instance.OnPlatform;
+                @Platform.performed += instance.OnPlatform;
+                @Platform.canceled += instance.OnPlatform;
             }
 
             /// <summary>
@@ -583,6 +612,9 @@ namespace Inputs
                 @DashDirection.started -= instance.OnDashDirection;
                 @DashDirection.performed -= instance.OnDashDirection;
                 @DashDirection.canceled -= instance.OnDashDirection;
+                @Platform.started -= instance.OnPlatform;
+                @Platform.performed -= instance.OnPlatform;
+                @Platform.canceled -= instance.OnPlatform;
             }
 
             /// <summary>
@@ -730,6 +762,13 @@ namespace Inputs
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnDashDirection(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Platform" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnPlatform(InputAction.CallbackContext context);
         }
     }
 }
