@@ -8,8 +8,5 @@ public class Trap : MonoBehaviour
     public virtual void Activate() =>
          animator.SetTrigger(TrapAnimationConsts.ACTIVATE);
 
-    public virtual void Damage(Collider2D collision) 
-    {
-        Debug.Log("Trap Damage");
-    }
+    public virtual void Damage(Collider2D collision) { }
 }
