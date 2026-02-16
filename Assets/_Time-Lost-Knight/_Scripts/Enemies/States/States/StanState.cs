@@ -52,7 +52,7 @@ public class StanState : State
         if(isGrounded && Time.time >= startTime + data.stunKnockbactTime && !isMovementSropped)
         {
             isMovementSropped = true;
-            entity.SetVelocity(0f);
+            entity.SetVelocityX(0f);
         }
     }
 

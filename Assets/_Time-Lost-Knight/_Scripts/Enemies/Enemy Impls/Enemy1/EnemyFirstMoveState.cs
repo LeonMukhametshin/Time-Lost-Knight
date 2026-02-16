@@ -12,16 +12,6 @@ public class EnemyFirstMoveState : MoveState
         m_enemy = enemy;
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
@@ -35,10 +25,5 @@ public class EnemyFirstMoveState : MoveState
             m_enemy.idleState.SetFlipAfterIdle(true);
             fsm.SetState(m_enemy.idleState); 
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

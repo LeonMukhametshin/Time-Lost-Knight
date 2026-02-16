@@ -2,24 +2,11 @@ public class EnemyFirstPlayerDetectedState : PlayerDetectedState
 {
     private EnemyFirst m_enemy;
 
-    public EnemyFirstPlayerDetectedState(FSM fsm, Entity entity, string animBoolName, PlayerDetectedData data, EnemyFirst enemy) : base(fsm, entity, animBoolName, data)
+    public EnemyFirstPlayerDetectedState(FSM fsm, Entity entity, 
+        string animBoolName, PlayerDetectedData data, EnemyFirst enemy) 
+        : base(fsm, entity, animBoolName, data)
     {
         m_enemy = enemy;
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 
     public override void Update()

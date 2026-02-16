@@ -15,50 +15,22 @@ public class EnemyFirstMeleeAttackState : MeleeAttackState
         this.enemy = enemy;
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
 
-        if(isAnimationFinished)
+        if(!isAnimationFinished)
         {
-            if(isPlayerInMinAgroRange)
-            {
-                fsm.SetState(enemy.playerDetectedState);
-            }
-            else
-            {
-                fsm.SetState(enemy.lookForPlayerState);
-            }
+            return;
         }
-    }
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    public override void TriggerAttack()
-    {
-        base.TriggerAttack();
-    }
-
-    public override void FinishAttack()
-    {
-        base.FinishAttack();
+        if (isPlayerInMinAgroRange)
+        {
+            fsm.SetState(enemy.playerDetectedState);
+        }
+        else
+        {
+            fsm.SetState(enemy.lookForPlayerState);
+        }
     }
 }

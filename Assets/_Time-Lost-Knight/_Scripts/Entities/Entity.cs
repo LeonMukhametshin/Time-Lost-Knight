@@ -7,16 +7,15 @@ public class Entity : MonoBehaviour
 
     public EntityData data;
 
-    public Rigidbody2D entityRigidbody { get; private set; }
-    public Animator animator { get; private set; }
-    public GameObject aliveGameObject { get; private set; }
+    [field: SerializeField] public Rigidbody2D entityRigidbody { get; private set; }
+    [field: SerializeField] public Animator animator { get; private set; }
+    [field: SerializeField] public AnimationToFSM animationToFSM { get; private set; }
 
     [SerializeField] private Transform m_wallCheck;
     [SerializeField] private Transform m_ledgeCheck;
     [SerializeField] private Transform m_playerCheck;
     [SerializeField] private Transform m_groundCheck;
 
-    public AnimationToFSM animationToFSM { get; private set; }
     public int facingDirection { get; private set; } = 1;
     public int lastDamageDirection { get; private set; }
 
@@ -28,14 +27,8 @@ public class Entity : MonoBehaviour
     private float m_currentStunResistance;
     private float m_lastDamageTime;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
-        //TODO: remove
-        aliveGameObject = transform.Find("Alive").gameObject;
-        entityRigidbody = aliveGameObject.GetComponent<Rigidbody2D>();
-        animator = aliveGameObject.GetComponent<Animator>();
-        animationToFSM = aliveGameObject.GetComponent<AnimationToFSM>();
-
         m_currentHealth = data.maxHealth;
         m_currentStunResistance = data.stunResistance;
 
@@ -54,12 +47,10 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public virtual void FixedUpdate()
-    {
+    public virtual void FixedUpdate() =>
         fsm.currentState.FixedUpdate();
-    }
 
-    public virtual void SetVelocity(float velocity)
+    public virtual void SetVelocityX(float velocity)
     {
         m_velocityWorkspace.Set(facingDirection * velocity, entityRigidbody.linearVelocityY);
         entityRigidbody.linearVelocity = m_velocityWorkspace;
@@ -77,22 +68,22 @@ public class Entity : MonoBehaviour
             data.wallCheckDistance, data.groundLayer);
 
     public virtual bool CheckWall() =>
-        Physics2D.Raycast(m_wallCheck.position, aliveGameObject.transform.right,
+        Physics2D.Raycast(m_wallCheck.position, transform.right,
             data.wallCheckDistance, data.groundLayer);
 
     public virtual bool CheckGround() =>
         Physics2D.OverlapCircle(m_groundCheck.position, data.groundCheckRadius, data.groundLayer);
 
     public virtual bool CheckPlayerInMinAgroRange() =>
-        Physics2D.Raycast(m_playerCheck.position, aliveGameObject.transform.right,
+        Physics2D.Raycast(m_playerCheck.position, transform.right,
             data.minAgroDistance, data.playerLayer);
 
     public virtual bool CheckPlayerInMaxAgroRange() =>
-        Physics2D.Raycast(m_playerCheck.position, aliveGameObject.transform.right,
+        Physics2D.Raycast(m_playerCheck.position, transform.right,
             data.maxAgroDistance, data.playerLayer);
 
     public virtual bool CheckPlayerInCloseRangeAction() =>
-        Physics2D.Raycast(m_playerCheck.position, aliveGameObject.transform.right, data.closeRangeActionDistance, data.playerLayer);
+        Physics2D.Raycast(m_playerCheck.position, transform.right, data.closeRangeActionDistance, data.playerLayer);
     
     public void TakeDamage(AttackDetails details)
     {
@@ -119,10 +110,10 @@ public class Entity : MonoBehaviour
 
         DamageHop(data.damageHopSpeed);
 
-        Instantiate(data.hitParticle, aliveGameObject.transform.position,
+        Instantiate(data.hitParticle, transform.position,
             Quaternion.Euler(0f , 0f, UnityEngine.Random.Range(0f, 360f)));
 
-        lastDamageDirection = attackDetails.position.x > aliveGameObject.transform.position.x
+        lastDamageDirection = attackDetails.position.x > transform.position.x
             ? -1 : 1;
 
         if(m_currentStunResistance <= 0 )
@@ -145,7 +136,7 @@ public class Entity : MonoBehaviour
     public virtual void Flip()
     {
         facingDirection *= -1;
-        aliveGameObject.transform.Rotate(0f, 180f, 0f);
+        transform.Rotate(0f, 180f, 0f);
     }
 
     public virtual void OnDrawGizmos()

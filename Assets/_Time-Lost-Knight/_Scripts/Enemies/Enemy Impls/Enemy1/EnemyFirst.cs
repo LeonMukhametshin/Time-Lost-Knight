@@ -22,9 +22,9 @@ public class EnemyFirst : Entity
 
     [SerializeField] private Transform m_meleeAttackPoint;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         moveState = new EnemyFirstMoveState(fsm, this, EnemyAnimationConst.MOVE, m_moveData, this);
         idleState = new EnemyFirstIdleState(fsm, this, EnemyAnimationConst.IDLE, m_idleData, this);

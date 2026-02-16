@@ -19,7 +19,7 @@ public class ChargeState : State
         base.Enter();
 
         isChargeTimeOver = false;
-        entity.SetVelocity(data.chargeSpeed);
+        entity.SetVelocityX(data.chargeSpeed);
     }
 
     public override void Exit()

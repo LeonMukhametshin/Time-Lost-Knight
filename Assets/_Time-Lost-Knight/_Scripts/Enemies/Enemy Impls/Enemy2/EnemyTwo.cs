@@ -27,9 +27,9 @@ public class EnemyTwo : Entity
     [SerializeField] private Transform m_meleeAttackPosition;
     [SerializeField] private Transform m_rangeAttackPosition;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         idleState = new EnemyTwoIdleState(fsm, this,
             EnemyAnimationConst.IDLE, m_idleStateData, this);
