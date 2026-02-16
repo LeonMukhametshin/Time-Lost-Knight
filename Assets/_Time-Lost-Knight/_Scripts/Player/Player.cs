@@ -26,7 +26,42 @@ public class Player : MonoBehaviour
 
 
     private void Awake() =>
+        ResolveReferences();
+
+    private void ResolveReferences()
+    {
+        if(m_animator == null)
+        {
+            m_animator = GetComponent<Animator>();
+        }
+
+        if(m_rigidbody == null)
+        {
+            m_rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        if(m_collider == null)
+        {
+            m_collider = GetComponent<BoxCollider2D>();
+        }
+
+        if(inputHandler == null)
+        {
+            inputHandler = GetComponent<PlayerInputHandler>();
+        }
+
+        if(animationController == null)
+        {
+            animationController = GetComponent<PlayerAnimationController>();
+        }
+
+        if(animationController == null)
+        {
+            animationController = gameObject.AddComponent<PlayerAnimationController>();
+        }
+
         InitializeComponents();
+    }
 
     private void InitializeComponents()
     {
