@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Entity : MonoBehaviour, IDamageable
+public class Entity : MonoBehaviour
 {
     public FSM fsm;
 

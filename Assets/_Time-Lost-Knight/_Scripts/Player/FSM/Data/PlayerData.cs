@@ -41,6 +41,6 @@ public class PlayerData : ScriptableObject
     [field: SerializeField][Min(0)] public float crouchColliderHeight { get; private set; }
     [field: SerializeField][Min(0)] public float standColliderHeight { get; private set; }
 
-    [Header("Check")]
+    [Header("Check")]   
     [field: SerializeField] public CheckersData checkersData { get; private set; }
 }

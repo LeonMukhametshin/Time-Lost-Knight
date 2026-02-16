@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class BasicEnemyController : MonoBehaviour, IDamageable
+public class BasicEnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject m_alive;
     [SerializeField] private Rigidbody2D m_rigidbody;
@@ -154,7 +154,7 @@ public class BasicEnemyController : MonoBehaviour, IDamageable
                 m_attackDetails.damageAmout = m_touchDamage;
                 m_attackDetails.position = m_alive.transform.position;
 
-                player.TakeDamage(m_attackDetails);
+                //player.TakeDamage(m_attackDetails);
                 //TODO call player damage
             }
         }

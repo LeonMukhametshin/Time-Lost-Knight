@@ -25,14 +25,14 @@ public class PlayerLedgeClibmState : PlayerState
     {
         base.Enter();
 
-        player.movement.SetVelocityZero();
+        core.movement.SetVelocityZero();
 
         player.transform.position = m_detectedPosition;
-        m_cornerPosition = player.collisionDetector.DetermineCornerPosition();
+        m_cornerPosition = core.collisionDetector.DetermineCornerPosition();
 
-        m_startPosition.Set(m_cornerPosition.x - (player.collisionDetector.facingDirection * data.startOffset.x),
+        m_startPosition.Set(m_cornerPosition.x - (core.collisionDetector.facingDirection * data.startOffset.x),
             m_cornerPosition.y - data.startOffset.y);
-        m_stopPosition.Set(m_cornerPosition.x + (player.collisionDetector.facingDirection * data.startOffset.y),
+        m_stopPosition.Set(m_cornerPosition.x + (core.collisionDetector.facingDirection * data.startOffset.y),
             m_cornerPosition.y + data.startOffset.y);
 
         player.transform.position = m_startPosition;
@@ -72,14 +72,14 @@ public class PlayerLedgeClibmState : PlayerState
             m_yInput = player.inputHandler.normalizedInputY;
             m_jumpInput = player.inputHandler.jumpInput;
 
-            player.movement.SetVelocityZero();
+            core.movement.SetVelocityZero();
             player.transform.position = m_startPosition;
 
-            if (m_xInput == player.collisionDetector.facingDirection && m_isHanding && !m_isClimbing)
+            if (m_xInput == core.collisionDetector.facingDirection && m_isHanding && !m_isClimbing)
             {
-                m_isTouchingCeiling = player.collisionDetector.CheckForSpace(m_cornerPosition);
-                player.animationController.animator.SetBool(PlayerAnimationConst.IS_TOUCHING_CEILING, m_isTouchingCeiling);
-                player.animationController.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, true);
+                m_isTouchingCeiling = core.collisionDetector.CheckForSpace(m_cornerPosition);
+                player.animationController.animator.SetBool(PlayerAnimation—onstants.IS_TOUCHING_CEILING, m_isTouchingCeiling);
+                player.animationController.animator.SetBool(PlayerAnimation—onstants.LEDGE_CLIMB, true);
                 m_isClimbing = true;
             }
             else if (m_yInput == -1 && m_isHanding && !m_isClimbing)
@@ -97,7 +97,7 @@ public class PlayerLedgeClibmState : PlayerState
     public override void AnimationFinishTriger()
     {
         base.AnimationFinishTriger();
-        player.animationController.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, false);
+        player.animationController.animator.SetBool(PlayerAnimation—onstants.LEDGE_CLIMB, false);
     }
 
     public override void AnimationTrigger()

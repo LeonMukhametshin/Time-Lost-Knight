@@ -10,8 +10,8 @@ public class PlayerMoveState : PlayerGroundState
     {
         base.Update();
 
-        player.movement.SetVelocityX(data.movementSpeed * xInput);
-        player.flipController.CheckIfShoudFlip(xInput);
+        core.movement.SetVelocityX(data.movementSpeed * xInput);
+        core.flipController.CheckIfShoudFlip(xInput);
 
         if(isExitingState)
         {

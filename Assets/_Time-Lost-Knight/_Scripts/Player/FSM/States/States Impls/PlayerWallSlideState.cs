@@ -9,7 +9,7 @@ public class PlayerWallSlideState : PlayerWallTouchingState
     public override void Update()
     {
         base.Update();
-        player.movement.SetVelocityY(data.wallSlideVelocity);
+        core.movement.SetVelocityY(data.wallSlideVelocity);
 
         if (isExitingState)
         {

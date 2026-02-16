@@ -27,7 +27,7 @@ public class PlayerDashState : PlayerAbilytiState
         player.inputHandler.UseDashInput();
 
         m_isHolding = true;
-        m_dashDirection = Vector2.right * player.collisionDetector.facingDirection;
+        m_dashDirection = Vector2.right * core.collisionDetector.facingDirection;
 
         Time.timeScale = data.holdTimeScale;
         startTime = Time.unscaledTime;
@@ -39,9 +39,9 @@ public class PlayerDashState : PlayerAbilytiState
     {
         base.Exit();
 
-        if(player.movement.currentVelocity.y > 0)
+        if(core.movement.currentVelocity.y > 0)
         {
-            player.movement.SetVelocityX(player.movement.currentVelocity.y * data.dashEndYMultiplier);
+            core.movement.SetVelocityX(core.movement.currentVelocity.y * data.dashEndYMultiplier);
         }
     }
 
@@ -55,9 +55,9 @@ public class PlayerDashState : PlayerAbilytiState
         }
 
         player.animationController.animator
-            .SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
+            .SetFloat(PlayerAnimationÑonstants.Y_VELOCITY, core.movement.currentVelocity.y);
         player.animationController.animator
-            .SetFloat(PlayerAnimationConst.X_VELOCITY, player.movement.currentVelocity.x);
+            .SetFloat(PlayerAnimationÑonstants.X_VELOCITY, core.movement.currentVelocity.x);
 
         if (m_isHolding)
         {
@@ -79,9 +79,9 @@ public class PlayerDashState : PlayerAbilytiState
                 Time.timeScale = 1f;
                 startTime = Time.time;
 
-                player.flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
-                player.movement.SetDrag(data.drag);
-                player.movement.SetVelocity(data.dashVelocity, m_dashDirection);
+                core.flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
+                core.movement.SetDrag(data.drag);
+                core.movement.SetVelocity(data.dashVelocity, m_dashDirection);
                 player.dashVizualizer.SetActive(false);
 
                 PlaceAfterImage();
@@ -89,12 +89,12 @@ public class PlayerDashState : PlayerAbilytiState
         }
         else
         {
-            player.movement.SetVelocity(data.dashVelocity, m_dashDirection);
+            core.movement.SetVelocity(data.dashVelocity, m_dashDirection);
             CheckIfShoudPlaceAfterImage();
 
             if (Time.time >= startTime + data.dashTime)
             {
-                player.movement.SetDrag(0f);
+                core.movement.SetDrag(0f);
                 isAbilityDone = true;
                 m_lastDashTime = Time.time;
             }

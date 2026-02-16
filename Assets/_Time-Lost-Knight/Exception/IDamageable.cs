@@ -1,4 +1,4 @@
 public interface IDamageable
 {
-    void TakeDamage(AttackDetails details);
+    void TakeDamage(float amout);
 }

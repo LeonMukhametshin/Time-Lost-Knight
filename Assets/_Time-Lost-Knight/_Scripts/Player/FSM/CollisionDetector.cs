@@ -1,14 +1,12 @@
-using System;
 using UnityEngine;
 
-[Serializable]
-public class CollisionDetector 
+public class CollisionDetector : CoreComponent
 {
     private const float TOLERANCE = 0.015f;
 
     public int facingDirection { get; set; }
 
-    [SerializeField] private CheckTransfomRef m_transformRef;
+    [SerializeField] private CheckTransfomsRef m_transformRef;
 
     private float m_standColliderHeight;
 
@@ -20,7 +18,7 @@ public class CollisionDetector
 
     private Vector2 m_workspace;
 
-    public CollisionDetector(CheckersData data, CheckTransfomRef transformRef, float playerheight)
+    public CollisionDetector(CheckersData data, CheckTransfomsRef transformRef, float playerheight)
     {
         m_groundCheckRadius = data.groundCheckRadius;
         m_ceilingCheckRadius = data.ceilingCheckRadius;

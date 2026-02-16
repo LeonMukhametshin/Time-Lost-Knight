@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CombatDummyController : MonoBehaviour, IDamageable
+public class CombatDummyController : MonoBehaviour
 {
     [SerializeField] private GameObject m_hitParticle;
 

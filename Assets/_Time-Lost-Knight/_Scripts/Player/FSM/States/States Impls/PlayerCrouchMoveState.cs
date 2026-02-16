@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerCrouchMoveState : PlayerGroundState
 {
     public PlayerCrouchMoveState(Player player, PlayerFSM fsm, 
@@ -30,8 +28,8 @@ public class PlayerCrouchMoveState : PlayerGroundState
             return;
         }
 
-        player.movement.SetVelocityX(data.crouchMovementVelocity * player.collisionDetector.facingDirection);
-        player.flipController.CheckIfShoudFlip(xInput);
+        core.movement.SetVelocityX(data.crouchMovementVelocity * core.flipController.facingDirection);
+        core.flipController.CheckIfShoudFlip(xInput);
 
         if (xInput == 0)
         {

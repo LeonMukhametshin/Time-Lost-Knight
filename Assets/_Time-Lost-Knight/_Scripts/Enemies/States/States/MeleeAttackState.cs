@@ -48,7 +48,7 @@ public class MeleeAttackState : AttackState
         {
             if(obj.TryGetComponent<IDamageable>(out var damageable))
             {
-                damageable.TakeDamage(attackDetails);
+                //damageable.TakeDamage(attackDetails);
             }
         }
     }

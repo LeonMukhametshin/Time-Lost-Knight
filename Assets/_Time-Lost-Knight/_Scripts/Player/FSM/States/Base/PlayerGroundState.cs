@@ -1,3 +1,5 @@
+using UnityEngine.InputSystem.LowLevel;
+
 public class PlayerGroundState : PlayerState
 {
     protected int xInput;
@@ -22,10 +24,10 @@ public class PlayerGroundState : PlayerState
     {
         base.DoCheck();
 
-        m_isGrounded = player.collisionDetector.CheckGrounded();
-        m_isTouchingWall = player.collisionDetector.CheckWallTouch();
-        m_isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
-        isTouchingCeiling = player.collisionDetector.CheckCeilingCheck();
+        m_isGrounded = core.collisionDetector.CheckGrounded();
+        m_isTouchingWall = core.collisionDetector.CheckWallTouch();
+        m_isTouchingLedge = core.collisionDetector.CheckTouchingLedge();
+        isTouchingCeiling = core.collisionDetector.CheckCeilingCheck();
     }
 
     public override void Enter()
@@ -42,7 +44,15 @@ public class PlayerGroundState : PlayerState
 
         CheckInputs();
 
-        if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
+        if (player.inputHandler.attackInputs[(int)CombatInputs.primary] && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerPrimaryAttackState>());
+        }
+        else if (player.inputHandler.attackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerSecondaryAttackState>());
+        }
+        else if(m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
         }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +17,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool dashInput { get; private set; }
     public bool dashInputStop { get; private set; }
 
+    public bool[] attackInputs { get; private set; }
+
     [SerializeField] private PlayerInput m_playerInput;
     [SerializeField] private Camera m_camera;
 
@@ -23,6 +26,12 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float m_jumpInputStartTime;
     private float m_dashInputStartTime;
+
+    private void Start()
+    {
+        int count = Enum.GetValues(typeof(CombatInputs)).Length;
+        attackInputs = new bool[count];
+    }
 
     private void Update()
     {
@@ -110,6 +119,32 @@ public class PlayerInputHandler : MonoBehaviour
         if(Time.time >= m_dashInputStartTime + m_inputHoldTime)
         {
             dashInput = false;
+        }
+    }
+
+    public void OnPrimaryAttackInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            attackInputs[(int)CombatInputs.primary] = true;
+        }
+
+        if(context.canceled)
+        {
+            attackInputs[(int)CombatInputs.primary] = false;
+        }
+    }
+
+    public void OnSecondaryAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            attackInputs[(int)CombatInputs.secondary] = true;
+        }
+
+        if (context.canceled)
+        {
+            attackInputs[(int)CombatInputs.secondary] = false;
         }
     }
 }

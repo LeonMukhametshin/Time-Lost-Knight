@@ -13,7 +13,7 @@ public class PlayerAbilytiState : PlayerState
     {
         base.DoCheck();
 
-        m_isGrounded = player.collisionDetector.CheckGrounded();
+        m_isGrounded = core.collisionDetector.CheckGrounded();
     }
 
     public override void Enter()
@@ -32,7 +32,7 @@ public class PlayerAbilytiState : PlayerState
             return;
         }
 
-        if (m_isGrounded && player.movement.currentVelocity.y < 0.1f)
+        if (m_isGrounded && core.movement.currentVelocity.y < 0.1f)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
         }
