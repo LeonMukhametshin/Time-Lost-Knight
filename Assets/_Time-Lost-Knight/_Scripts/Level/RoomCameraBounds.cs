@@ -1,28 +1,21 @@
-using System.Reflection;
 using UnityEngine;
+using Unity.Cinemachine;
 
 [RequireComponent(typeof(Collider2D))]
 public class RoomCameraBounds : MonoBehaviour
 {
     [SerializeField] private Collider2D m_roomCollider;
-    [SerializeField] private MonoBehaviour m_confiner;
+    [SerializeField] private CinemachineConfiner2D m_confiner;
     [SerializeField][Min(0f)] private float m_centerSmoothTime = 0.15f;
 
-    private Component m_adapter;
+    private CinemachineAdapter m_adapter;
     private bool m_isSwitching;
-    private PropertyInfo m_boundingShapeProperty;
-    private MethodInfo m_invalidateCacheMethod;
-    private MethodInfo m_centerCameraSmoothlyMethod;
 
-    private void Awake()
-    {
-        CacheMembers();
-    }
+    private void Awake() =>
+        ResolveReferences();
 
-    private void OnValidate()
-    {
-        CacheMembers();
-    }
+    private void OnValidate() =>
+        ResolveReferences();
 
     private void Reset()
     {
@@ -32,45 +25,32 @@ public class RoomCameraBounds : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        ResolveReferences();
         if (!other.CompareTag(Tags.Player)) return;
         if (m_confiner == null || m_roomCollider == null) return;
 
-        if (m_boundingShapeProperty == null) return;
-        m_boundingShapeProperty.SetValue(m_confiner, m_roomCollider);
-        m_invalidateCacheMethod?.Invoke(m_confiner, null);
+        m_confiner.BoundingShape2D = m_roomCollider;
+        m_confiner.InvalidateCache();
 
         if (!m_isSwitching)
         {
-            m_centerCameraSmoothlyMethod?.Invoke(m_adapter, new object[] { m_centerSmoothTime });
+            if (m_adapter != null)
+                m_adapter.CenterCameraSmoothly(m_centerSmoothTime);
         }
     }
 
-    private void CacheMembers()
+    private void ResolveReferences()
     {
-        m_boundingShapeProperty = null;
-        m_invalidateCacheMethod = null;
-        m_centerCameraSmoothlyMethod = null;
-        m_adapter = null;
+        if (m_roomCollider == null)
+            m_roomCollider = GetComponent<Collider2D>();
 
-        if (m_confiner == null) return;
+        if (m_confiner == null)
+            m_confiner = FindAnyObjectByType<CinemachineConfiner2D>();
 
-        var type = m_confiner.GetType();
-        m_boundingShapeProperty = type.GetProperty("BoundingShape2D", BindingFlags.Instance | BindingFlags.Public);
-        m_invalidateCacheMethod = type.GetMethod("InvalidateCache", BindingFlags.Instance | BindingFlags.Public);
+        if (m_confiner == null)
+            return;
 
-        m_adapter = m_confiner.GetComponent("CinemachineAdapter");
-        if (m_adapter == null) return;
-
-        m_centerCameraSmoothlyMethod = m_adapter.GetType().GetMethod(
-            "CenterCameraSmoothly",
-            BindingFlags.Instance | BindingFlags.Public,
-            null,
-            new[] { typeof(float) },
-            null
-        );
-        if (m_centerCameraSmoothlyMethod == null)
-        {
-            m_adapter = null;
-        }
+        if (m_adapter == null || m_adapter.gameObject != m_confiner.gameObject)
+            m_adapter = m_confiner.GetComponent<CinemachineAdapter>();
     }
 }
