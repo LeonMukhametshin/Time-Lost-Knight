@@ -1476,7 +1476,7 @@ GameObject:
   - component: {fileID: 1126338971447795525}
   - component: {fileID: 4464719049249984288}
   - component: {fileID: 8876555739774045565}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 341393958768000560}
   - component: {fileID: 3874045086771897043}
   - component: {fileID: 8810031631909486929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,7 +1933,7 @@ GameObject:
   - component: {fileID: 7906857973998356409}
   - component: {fileID: 7542078081309285163}
   - component: {fileID: 1430309492813347306}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3086,7 +3086,7 @@ GameObject:
   - component: {fileID: 521035942603102382}
   - component: {fileID: 3990602201469844864}
   - component: {fileID: 9034087545644102959}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3443,7 +3443,7 @@ GameObject:
   - component: {fileID: 7837893074684389113}
   - component: {fileID: 318325600800762634}
   - component: {fileID: 4932266113104257788}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
