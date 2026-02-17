@@ -1,11 +1,15 @@
+using UnityEngine;
+
 public class PlayerDropDownState : PlayerState
 {
     private bool m_isGrounded;
+    private float duration;
 
     public PlayerDropDownState(Player player, PlayerFSM fsm,
         PlayerData playerData, string animBoolName)
         : base(player, fsm, playerData, animBoolName)
     {
+        duration = playerData.dropThroughDuration;
     }
 
     public override void Enter()
@@ -14,6 +18,8 @@ public class PlayerDropDownState : PlayerState
 
         player.oneWayPlatformCollisionController.SetIgnorePlatform();
         player.movement.SetVelocityY(-data.dropVelocity);
+
+        startTime = Time.time;
     }
 
     public override void DoCheck()
@@ -26,7 +32,7 @@ public class PlayerDropDownState : PlayerState
     {
         base.Update();
 
-        if (!m_isGrounded)
+        if (!m_isGrounded && Time.time >= startTime + duration)
         {
             var inAirState = player.statesContainer.GetState<PlayerInAirState>();
             inAirState.StartCoyoteTime();
