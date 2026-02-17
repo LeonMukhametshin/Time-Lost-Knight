@@ -44,8 +44,6 @@ public class PlayerData : ScriptableObject
     [Header("Check")]
     [field: SerializeField] public CheckersData checkersData { get; private set; }
 
-    [Header("Collider controller")]
-    [field: SerializeField] public ColliderControllerData colliderControllerData { get; private set; }
 
     [Header("One Way Platform")]
     [field: SerializeField] public int oneWayPlatformLayer { get; private set; }

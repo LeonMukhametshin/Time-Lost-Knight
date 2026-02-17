@@ -28,7 +28,6 @@ public class PlayerGroundState : PlayerState
         m_isTouchingWall = player.collisionDetector.CheckWallTouch();
         m_isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
         isTouchingCeiling = player.collisionDetector.CheckCeilingCheck();
-
     }
 
     public override void Enter()

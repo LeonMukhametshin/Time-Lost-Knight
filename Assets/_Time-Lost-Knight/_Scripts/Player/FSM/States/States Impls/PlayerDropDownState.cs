@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerDropDownState : PlayerState
 {
-    private bool m_isGrounded;
     private float duration;
 
     public PlayerDropDownState(Player player, PlayerFSM fsm,
@@ -22,17 +21,11 @@ public class PlayerDropDownState : PlayerState
         startTime = Time.time;
     }
 
-    public override void DoCheck()
-    {
-        base.DoCheck();
-        m_isGrounded = player.collisionDetector.CheckGrounded();
-    }
-
     public override void Update()
     {
         base.Update();
 
-        if (!m_isGrounded && Time.time >= startTime + duration)
+        if (Time.time >= startTime + duration)
         {
             var inAirState = player.statesContainer.GetState<PlayerInAirState>();
             inAirState.StartCoyoteTime();

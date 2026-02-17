@@ -1939,7 +1939,7 @@ GameObject:
   - component: {fileID: 2004102114}
   - component: {fileID: 2004102113}
   m_Layer: 7
-  m_Name: Wall (1)
+  m_Name: 'Wall '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
