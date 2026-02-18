@@ -39,4 +39,4 @@ MonoBehaviour:
   <colliderControllerData>k__BackingField: {fileID: 11400000, guid: 4b04fa0329b64684a859a56d102a8414, type: 2}
   <oneWayPlatformLayer>k__BackingField: 10
   <dropThroughDuration>k__BackingField: 0.2
-  <dropVelocity>k__BackingField: 20
+  <dropVelocity>k__BackingField: 10

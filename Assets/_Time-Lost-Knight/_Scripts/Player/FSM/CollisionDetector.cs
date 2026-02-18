@@ -26,6 +26,7 @@ public class CollisionDetector
         m_groundCheckRadius = data.groundCheckRadius;
         m_ceilingCheckRadius = data.ceilingCheckRadius;
         m_wallCheckDistance = data.wallCheckDistance;
+
         m_groundLayer = data.groundLayer;
         m_platformLayer = data.platformLayer;
 
@@ -42,16 +43,20 @@ public class CollisionDetector
         Physics2D.OverlapCircle(m_transformRef.ceilingCheck.position, m_ceilingCheckRadius, m_groundLayer);
 
     public bool CheckWallTouch() =>
-        Physics2D.Raycast(m_transformRef.wallCheck.position, Vector2.right * facingDirection, m_wallCheckDistance, m_groundLayer);
+        Physics2D.Raycast(m_transformRef.wallCheck.position, Vector2.right * facingDirection, 
+            m_wallCheckDistance, m_groundLayer);
 
     public bool CheckWallTouchBask() =>
-        Physics2D.Raycast(m_transformRef.wallCheck.position, Vector2.right * -facingDirection, m_wallCheckDistance, m_groundLayer);
+        Physics2D.Raycast(m_transformRef.wallCheck.position, Vector2.right * -facingDirection, 
+            m_wallCheckDistance, m_groundLayer);
 
     public bool CheckTouchingLedge() =>
-        Physics2D.Raycast(m_transformRef.ledgeCheck.position, Vector2.right * facingDirection, m_wallCheckDistance, m_groundLayer);
+        Physics2D.Raycast(m_transformRef.ledgeCheck.position, Vector2.right * facingDirection,
+            m_wallCheckDistance, m_groundLayer);
 
     public bool CheckIsOnPlatform() =>
-        Physics2D.Raycast(m_transformRef.groundCheck.position, Vector2.down, m_groundCheckRadius, m_platformLayer);
+        Physics2D.Raycast(m_transformRef.groundCheck.position, Vector2.down, m_groundCheckRadius,
+            m_platformLayer);
 
     public bool CheckForSpace(Vector2 cornerPosition) =>
         Physics2D.Raycast(cornerPosition + (Vector2.up * TOLERANCE) + (Vector2.right * facingDirection * TOLERANCE),
@@ -68,7 +73,8 @@ public class CollisionDetector
         float yDistance = yHit.distance;
 
         m_workspace.Set((xDistance + TOLERANCE) * facingDirection, 0f);
-        m_workspace.Set(m_transformRef.wallCheck.position.x + (xDistance * facingDirection), m_transformRef.ledgeCheck.position.y - yDistance);
+        m_workspace.Set(m_transformRef.wallCheck.position.x + (xDistance * facingDirection), 
+            m_transformRef.ledgeCheck.position.y - yDistance);
 
         return m_workspace;
     }

@@ -326,6 +326,17 @@ namespace Inputs
                 },
                 {
                     ""name"": """",
+                    ""id"": ""51454a83-c356-4c6c-b49b-a8933fb998f9"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Platform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""89bff9c8-bada-4b79-b741-048ff4b3fff0"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
