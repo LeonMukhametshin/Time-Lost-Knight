@@ -1,15 +1,10 @@
 using UnityEngine;
 
-public class ColliderController
+public class ColliderController : CoreComponent
 {
-    private BoxCollider2D colider;
+    [SerializeField] private BoxCollider2D colider;
 
     private Vector2 m_workspace;
-
-    public ColliderController(BoxCollider2D colder)
-    {
-        this.colider = colder;
-    }
 
     public void SetColliderHeight(float height)
     {

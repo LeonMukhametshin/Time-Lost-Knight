@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class EnemyFirstChargeState : ChargeState
 {
     private EnemyFirst enemy;

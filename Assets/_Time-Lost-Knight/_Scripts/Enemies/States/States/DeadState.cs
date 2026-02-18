@@ -4,7 +4,9 @@ public class DeadState : State
 {
     protected DeadStateData data;
 
-    public DeadState(FSM fsm, Entity entity, string animBoolName, DeadStateData data) : base(fsm, entity, animBoolName)
+    public DeadState(FSM fsm, Entity entity, 
+        string animBoolName, DeadStateData data) 
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }

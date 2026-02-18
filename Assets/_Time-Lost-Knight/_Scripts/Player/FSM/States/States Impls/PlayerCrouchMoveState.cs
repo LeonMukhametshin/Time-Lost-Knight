@@ -1,5 +1,17 @@
 public class PlayerCrouchMoveState : PlayerGroundState
 {
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+    protected ColliderController colliderController
+    {
+        get => m_colliderController ??= core.GetCoreComponent<ColliderController>();
+    }
+
+    private FlipContoller m_flipContoller;
+    private ColliderController m_colliderController;
+
     public PlayerCrouchMoveState(Player player, PlayerFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
@@ -10,13 +22,13 @@ public class PlayerCrouchMoveState : PlayerGroundState
     {
         base.Enter();
 
-        player.colliderController.SetColliderHeight(data.crouchColliderHeight);
+        colliderController.SetColliderHeight(data.crouchColliderHeight);
     }
 
     public override void Exit()
     {
         base.Exit();
-        player.colliderController.SetColliderHeight(data.standColliderHeight);
+        colliderController.SetColliderHeight(data.standColliderHeight);
     }
 
     public override void Update()
@@ -28,8 +40,8 @@ public class PlayerCrouchMoveState : PlayerGroundState
             return;
         }
 
-        core.movement.SetVelocityX(data.crouchMovementVelocity * core.flipController.facingDirection);
-        core.flipController.CheckIfShoudFlip(xInput);
+        movement.SetVelocityX(data.crouchMovementVelocity * flipController.facingDirection);
+        flipController.CheckIfShoudFlip(xInput);
 
         if (xInput == 0)
         {

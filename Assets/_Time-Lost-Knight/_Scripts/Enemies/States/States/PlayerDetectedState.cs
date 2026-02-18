@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class PlayerDetectedState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
     protected PlayerDetectedData data;
 
     protected bool isPlayerInMinAgroRange;
@@ -9,7 +15,9 @@ public class PlayerDetectedState : State
     protected bool performeLongRangeAction;
     protected bool performeCloseRangeAction;
     protected bool isDetectingLedge;
-    public PlayerDetectedState(FSM fsm, Entity entity, string animBoolName, PlayerDetectedData data) : base(fsm, entity, animBoolName)
+    public PlayerDetectedState(FSM fsm, Entity entity, 
+        string animBoolName, PlayerDetectedData data) 
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
@@ -29,13 +37,9 @@ public class PlayerDetectedState : State
         base.Enter();
 
         performeLongRangeAction = false;
-        entity.SetVelocityX(0f);
+        movement.SetVelocityX(0f);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
     public override void Update()
     {
         base.Update();
@@ -44,10 +48,5 @@ public class PlayerDetectedState : State
         {
             performeLongRangeAction = true;
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

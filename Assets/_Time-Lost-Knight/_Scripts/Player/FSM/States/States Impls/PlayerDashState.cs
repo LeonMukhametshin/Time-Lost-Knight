@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerAbilytiState
 {
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private FlipContoller m_flipContoller;
+
     public bool canDash { get; private set; }
     
     private bool m_isHolding;
@@ -27,7 +34,7 @@ public class PlayerDashState : PlayerAbilytiState
         player.inputHandler.UseDashInput();
 
         m_isHolding = true;
-        m_dashDirection = Vector2.right * core.collisionDetector.facingDirection;
+        m_dashDirection = Vector2.right * flipController.facingDirection;
 
         Time.timeScale = data.holdTimeScale;
         startTime = Time.unscaledTime;
@@ -39,9 +46,9 @@ public class PlayerDashState : PlayerAbilytiState
     {
         base.Exit();
 
-        if(core.movement.currentVelocity.y > 0)
+        if(movement.currentVelocity.y > 0)
         {
-            core.movement.SetVelocityX(core.movement.currentVelocity.y * data.dashEndYMultiplier);
+            movement.SetVelocityX(movement.currentVelocity.y * data.dashEndYMultiplier);
         }
     }
 
@@ -55,9 +62,9 @@ public class PlayerDashState : PlayerAbilytiState
         }
 
         player.animationController.animator
-            .SetFloat(PlayerAnimationÑonstants.Y_VELOCITY, core.movement.currentVelocity.y);
+            .SetFloat(PlayerAnimationÑonstants.Y_VELOCITY, movement.currentVelocity.y);
         player.animationController.animator
-            .SetFloat(PlayerAnimationÑonstants.X_VELOCITY, core.movement.currentVelocity.x);
+            .SetFloat(PlayerAnimationÑonstants.X_VELOCITY, movement.currentVelocity.x);
 
         if (m_isHolding)
         {
@@ -79,9 +86,9 @@ public class PlayerDashState : PlayerAbilytiState
                 Time.timeScale = 1f;
                 startTime = Time.time;
 
-                core.flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
-                core.movement.SetDrag(data.drag);
-                core.movement.SetVelocity(data.dashVelocity, m_dashDirection);
+                flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
+                movement.SetDrag(data.drag);
+                movement.SetVelocity(data.dashVelocity, m_dashDirection);
                 player.dashVizualizer.SetActive(false);
 
                 PlaceAfterImage();
@@ -89,12 +96,12 @@ public class PlayerDashState : PlayerAbilytiState
         }
         else
         {
-            core.movement.SetVelocity(data.dashVelocity, m_dashDirection);
+            movement.SetVelocity(data.dashVelocity, m_dashDirection);
             CheckIfShoudPlaceAfterImage();
 
             if (Time.time >= startTime + data.dashTime)
             {
-                core.movement.SetDrag(0f);
+                movement.SetDrag(0f);
                 isAbilityDone = true;
                 m_lastDashTime = Time.time;
             }

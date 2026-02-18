@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
@@ -7,10 +6,17 @@ public class Entity : MonoBehaviour
 
     public EntityData data;
 
-    [field: SerializeField] public Rigidbody2D entityRigidbody { get; private set; }
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
+    [field: SerializeField] public Core core { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
     [field: SerializeField] public AnimationToFSM animationToFSM { get; private set; }
 
+    //TODO: remove after tests
     [SerializeField] private Transform m_wallCheck;
     [SerializeField] private Transform m_ledgeCheck;
     [SerializeField] private Transform m_playerCheck;
@@ -23,15 +29,11 @@ public class Entity : MonoBehaviour
     protected bool isStunned;
 
     private Vector2 m_velocityWorkspace;
-    private float m_currentHealth;
-    private float m_currentStunResistance;
+
     private float m_lastDamageTime;
 
     public virtual void Awake()
     {
-        m_currentHealth = data.maxHealth;
-        m_currentStunResistance = data.stunResistance;
-
         fsm = new FSM();
     }
 
@@ -39,7 +41,7 @@ public class Entity : MonoBehaviour
     {
         fsm.currentState.Update();
 
-        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, entityRigidbody.linearVelocityY);
+        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rigidbody2D.linearVelocityY);
 
         if(Time.time >= m_lastDamageTime + data.stunRecoveryTime)
         {
@@ -49,19 +51,6 @@ public class Entity : MonoBehaviour
 
     public virtual void FixedUpdate() =>
         fsm.currentState.FixedUpdate();
-
-    public virtual void SetVelocityX(float velocity)
-    {
-        m_velocityWorkspace.Set(facingDirection * velocity, entityRigidbody.linearVelocityY);
-        entityRigidbody.linearVelocity = m_velocityWorkspace;
-    }
-
-    public virtual void SetVelocity(float velocity, Vector2 angle, int direction)
-    {
-        angle.Normalize();
-        m_velocityWorkspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        entityRigidbody.linearVelocity = m_velocityWorkspace;
-    }
 
     public virtual bool CheckLedge() =>
         Physics2D.Raycast(m_ledgeCheck.position, Vector2.down,
@@ -84,61 +73,13 @@ public class Entity : MonoBehaviour
 
     public virtual bool CheckPlayerInCloseRangeAction() =>
         Physics2D.Raycast(m_playerCheck.position, transform.right, data.closeRangeActionDistance, data.playerLayer);
-    
-    public void TakeDamage(AttackDetails details)
-    {
-        Damage(details);
-    }
 
     public virtual void ResetStunResistance()
     {
         isStunned = false;
-        m_currentStunResistance = data.stunResistance;
     }
 
-    public virtual void Damage(AttackDetails attackDetails)
-    {
-        if(attackDetails.damageAmout < 0)
-        {
-            throw new ArgumentException("Damage can`t be negative");
-        }
-
-        m_lastDamageTime = Time.time;
-
-        m_currentStunResistance -= attackDetails.stunDamageAmount;
-        m_currentHealth -= attackDetails.damageAmout;
-
-        DamageHop(data.damageHopSpeed);
-
-        Instantiate(data.hitParticle, transform.position,
-            Quaternion.Euler(0f , 0f, UnityEngine.Random.Range(0f, 360f)));
-
-        lastDamageDirection = attackDetails.position.x > transform.position.x
-            ? -1 : 1;
-
-        if(m_currentStunResistance <= 0 )
-        {
-            isStunned = true;
-        }
-
-        if(m_currentHealth <= 0)
-        {
-            isDead = true;
-        }
-    }
-
-    public virtual void DamageHop(float velocity)
-    {
-        m_velocityWorkspace.Set(entityRigidbody.linearVelocityX, velocity);
-        entityRigidbody.linearVelocity = m_velocityWorkspace;
-    }
-
-    public virtual void Flip()
-    {
-        facingDirection *= -1;
-        transform.Rotate(0f, 180f, 0f);
-    }
-
+    //TODO: remove after tests
     public virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(m_wallCheck.position,

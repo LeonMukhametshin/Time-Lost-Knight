@@ -1,55 +1,64 @@
 using UnityEngine;
 
-public class Movement : CoreComponent
+public class Movement : CoreComponent, IUpdate
 {
-    public Rigidbody2D rigidbody { get; private set; }
+    [field: SerializeField] public Rigidbody2D rigidbody2D { get; private set; }
     public Vector2 currentVelocity { get; private set; }
+    public bool canSetVelocity { get; set; } = true;
 
     private Vector2 m_workspace;
 
-    public Movement(Rigidbody2D rigidbody)
+    public override void Awake()
     {
-        this.rigidbody = rigidbody;
+        base.Awake();
+
+        core.AddUpdateComponent(this);
     }
 
     public void Update() =>
-        currentVelocity = rigidbody.linearVelocity;
+        currentVelocity = rigidbody2D.linearVelocity;
 
     public void SetDrag(float linearDamping) =>
-        rigidbody.linearDamping = linearDamping;
+        rigidbody2D.linearDamping = linearDamping;
 
     public void SetVelocity(float velocity, Vector2 angle, int direction)
     {
         angle.Normalize();
         m_workspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        rigidbody.linearVelocity = m_workspace;
+        rigidbody2D.linearVelocity = m_workspace;
         currentVelocity = m_workspace;
     }
 
     public void SetVelocity(float velocity, Vector2 direction)
     {
         m_workspace = direction * velocity;
-        rigidbody.linearVelocity = m_workspace;
-        currentVelocity = m_workspace;
+        SetFinalVelocity();
     }
 
     public void SetVelocityZero()
     {
-        rigidbody.linearVelocity = Vector2.zero;
-        currentVelocity = Vector2.zero;
+        m_workspace = Vector2.zero;
+        SetFinalVelocity();
     }
 
     public void SetVelocityX(float velocity)
     {
-        m_workspace.Set(velocity, rigidbody.linearVelocityY);
-        rigidbody.linearVelocity = m_workspace;
-        currentVelocity = m_workspace;
+        m_workspace.Set(velocity, currentVelocity.y);
+        SetFinalVelocity();
     }
 
     public void SetVelocityY(float velocity)
     {
-        m_workspace.Set(rigidbody.linearVelocityX, velocity);
-        rigidbody.linearVelocity = m_workspace;
-        currentVelocity = m_workspace;
+        m_workspace.Set(currentVelocity.x, velocity);
+        SetFinalVelocity();
+    }
+
+    private void SetFinalVelocity()
+    {
+        if (canSetVelocity)
+        {
+            rigidbody2D.linearVelocity = m_workspace;
+            currentVelocity = m_workspace;
+        }
     }
 }

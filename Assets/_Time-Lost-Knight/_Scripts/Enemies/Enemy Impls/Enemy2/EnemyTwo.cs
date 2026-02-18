@@ -50,30 +50,9 @@ public class EnemyTwo : Entity
         rangeAttackState = new EnemyTwoRangeAttackState(fsm, this,
             EnemyAnimationConst.RANGED_ATTACK, m_rangeAttackPosition, m_rangeAttackData, this);
 
+        animationToFSM.Initialize(meleeAttackState);
+
         fsm.Initialize(moveState);
-    }
-
-    public override void Damage(AttackDetails attackDetails)
-    {
-        base.Damage(attackDetails);
-
-        if (isDead)
-        {
-            fsm.SetState(deadState);
-        }
-        else if (isStunned && fsm.currentState != stunState)
-        {
-            fsm.SetState(stunState);
-        }
-        else if(CheckPlayerInMinAgroRange())
-        {
-            fsm.SetState(rangeAttackState);
-        }
-        else if (!CheckPlayerInMinAgroRange())
-        {
-            lookForPlayerState.SetTurnImmediately(true);
-            fsm.SetState(lookForPlayerState);
-        }
     }
 
     public override void OnDrawGizmos()

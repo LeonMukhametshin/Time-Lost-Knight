@@ -1,13 +1,18 @@
-using Unity.VisualScripting;
-
 public class PlayerAttackState : PlayerAbilytiState
 {
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private FlipContoller m_flipContoller;
+
     private Weapon m_weapon;
 
-    private float m_velocityToSet;
-    private bool m_setVelocity;
-
     private int xInput;
+    private float m_velocityToSet;
+
+    private bool setVelocity;
     private bool checkShouldFlip;
 
     public PlayerAttackState(Player player, PlayerFSM fsm,
@@ -20,7 +25,7 @@ public class PlayerAttackState : PlayerAbilytiState
     {
         base.Enter();
 
-        m_setVelocity = false;
+        setVelocity = false;
         m_weapon.EnterWeapon();
     }
 
@@ -39,12 +44,12 @@ public class PlayerAttackState : PlayerAbilytiState
 
         if(checkShouldFlip)
         {
-            core.flipController.CheckIfShoudFlip(xInput);
+            flipController.CheckIfShoudFlip(xInput);
         }
 
-        if (m_setVelocity)
+        if (setVelocity)
         {
-            core.movement.SetVelocityX(m_velocityToSet * core.collisionDetector.facingDirection);
+            movement.SetVelocityX(m_velocityToSet * flipController.facingDirection);
         }
     }
 
@@ -68,30 +73,12 @@ public class PlayerAttackState : PlayerAbilytiState
 
     public void SetPlayerVelocity(float velocity)
     {
-        core.movement.SetVelocityX(velocity * core.collisionDetector.facingDirection);
+        movement.SetVelocityX(velocity * flipController.facingDirection);
 
         m_velocityToSet = velocity;
-        m_setVelocity = true;
+        movement.canSetVelocity = true;
     }
 
     public void SetFlipCheck(bool value) =>
          checkShouldFlip = value;
-}
-
-public class PlayerPrimaryAttackState : PlayerAttackState
-{
-    public PlayerPrimaryAttackState(Player player, PlayerFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
-    {
-    }
-}
-
-public class PlayerSecondaryAttackState : PlayerAttackState
-{
-    public PlayerSecondaryAttackState(Player player, PlayerFSM fsm,
-        PlayerData playerData, string animBoolName)
-        : base(player, fsm, playerData, animBoolName)
-    {
-    }
 }

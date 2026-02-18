@@ -1,5 +1,11 @@
 public class PlayerWallSlideState : PlayerWallTouchingState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
     public PlayerWallSlideState(Player player, PlayerFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
@@ -9,7 +15,7 @@ public class PlayerWallSlideState : PlayerWallTouchingState
     public override void Update()
     {
         base.Update();
-        core.movement.SetVelocityY(data.wallSlideVelocity);
+        movement.SetVelocityY(data.wallSlideVelocity);
 
         if (isExitingState)
         {

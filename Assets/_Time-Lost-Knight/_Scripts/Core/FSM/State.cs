@@ -3,17 +3,18 @@ using UnityEngine;
 public class State 
 {
     protected FSM fsm;
-
+    protected Core core;
     protected Entity entity;
-    public float startTime { get; protected set; } 
     
     protected string animBoolName;
+    public float startTime { get; protected set; } 
 
     public State(FSM fsm, Entity entity, string animBoolName)
     {
         this.fsm = fsm;
         this.entity = entity;
         this.animBoolName = animBoolName;
+        core = entity.core;
     }
 
     public virtual void Enter() 

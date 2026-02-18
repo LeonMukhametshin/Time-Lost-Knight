@@ -2,6 +2,23 @@ using UnityEngine;
 
 public class PlayerLedgeClibmState : PlayerState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    protected CollisionDetector collisionDetector
+    {
+        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    }
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private Movement m_movement;
+    private CollisionDetector m_collisionDetector;
+    private FlipContoller m_flipContoller;
+
     private bool m_isHanding;
     private bool m_isClimbing;
 
@@ -25,14 +42,14 @@ public class PlayerLedgeClibmState : PlayerState
     {
         base.Enter();
 
-        core.movement.SetVelocityZero();
+        movement.SetVelocityZero();
 
         player.transform.position = m_detectedPosition;
-        m_cornerPosition = core.collisionDetector.DetermineCornerPosition();
+        m_cornerPosition = collisionDetector.DetermineCornerPosition();
 
-        m_startPosition.Set(m_cornerPosition.x - (core.collisionDetector.facingDirection * data.startOffset.x),
+        m_startPosition.Set(m_cornerPosition.x - (flipController.facingDirection * data.startOffset.x),
             m_cornerPosition.y - data.startOffset.y);
-        m_stopPosition.Set(m_cornerPosition.x + (core.collisionDetector.facingDirection * data.startOffset.y),
+        m_stopPosition.Set(m_cornerPosition.x + (flipController.facingDirection * data.startOffset.y),
             m_cornerPosition.y + data.startOffset.y);
 
         player.transform.position = m_startPosition;
@@ -72,12 +89,12 @@ public class PlayerLedgeClibmState : PlayerState
             m_yInput = player.inputHandler.normalizedInputY;
             m_jumpInput = player.inputHandler.jumpInput;
 
-            core.movement.SetVelocityZero();
+            movement.SetVelocityZero();
             player.transform.position = m_startPosition;
 
-            if (m_xInput == core.collisionDetector.facingDirection && m_isHanding && !m_isClimbing)
+            if (m_xInput == flipController.facingDirection && m_isHanding && !m_isClimbing)
             {
-                m_isTouchingCeiling = core.collisionDetector.CheckForSpace(m_cornerPosition);
+                m_isTouchingCeiling = collisionDetector.CheckForSpace(m_cornerPosition);
                 player.animationController.animator.SetBool(PlayerAnimation—onstants.IS_TOUCHING_CEILING, m_isTouchingCeiling);
                 player.animationController.animator.SetBool(PlayerAnimation—onstants.LEDGE_CLIMB, true);
                 m_isClimbing = true;

@@ -15,10 +15,16 @@ MonoBehaviour:
   m_attackDetails:
   - attackName: Left slash
     movementSpeed: 10
-    damageAmount: 50
+    damageAmount: 20
+    knokbackStringht: 10
+    angle: {x: 2, y: 2}
   - attackName: Right slash
     movementSpeed: 15
-    damageAmount: 10
+    damageAmount: 20
+    knokbackStringht: 10
+    angle: {x: 2, y: 2}
   - attackName: Up slash
     movementSpeed: 20
-    damageAmount: 30
+    damageAmount: 20
+    knokbackStringht: 10
+    angle: {x: 2, y: 2}

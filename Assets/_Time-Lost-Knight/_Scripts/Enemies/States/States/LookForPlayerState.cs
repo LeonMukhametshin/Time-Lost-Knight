@@ -1,9 +1,17 @@
-using System.Runtime.Serialization;
-using System.Xml;
 using UnityEngine;
 
 public class LookForPlayerState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
     protected LookForPlayerStateData data;
 
     protected bool turnImmediately;
@@ -15,7 +23,12 @@ public class LookForPlayerState : State
 
     protected int amountOfTurnsDone;
 
-    public LookForPlayerState(FSM fsm, Entity entity, string animBoolName, LookForPlayerStateData data) : base(fsm, entity, animBoolName)
+    private Movement m_movement;
+    private FlipContoller m_flipContoller;
+
+    public LookForPlayerState(FSM fsm, Entity entity,
+        string animBoolName, LookForPlayerStateData data)
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
@@ -37,43 +50,33 @@ public class LookForPlayerState : State
         lastTurnTime = startTime;
         amountOfTurnsDone = 0;
 
-        entity.SetVelocityX(0);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
+        movement.SetVelocityX(0);
     }
 
     public override void Update()
     {
         base.Update();
 
-        if(turnImmediately)
+        if (turnImmediately)
         {
-            entity.Flip();
+            flipController.Flip();
             lastTurnTime = Time.time;
             amountOfTurnsDone++;
             turnImmediately = false;
         }
         else if ((Time.time >= lastTurnTime + data.timeBetweenTurns && !isAllTurnsDone))
         {
-            entity.Flip();
+            flipController.Flip();
             lastTurnTime = Time.time;
             amountOfTurnsDone++;
         }
 
-        if(amountOfTurnsDone >= data.amountOfTurns)
+        if (amountOfTurnsDone >= data.amountOfTurns)
         {
             isAllTurnsDone = true;
         }
 
-        if(Time.time >= lastTurnTime + data.timeBetweenTurns && isAllTurnsDone)
+        if (Time.time >= lastTurnTime + data.timeBetweenTurns && isAllTurnsDone)
         {
             isAllTurnsTimeDone = true;
         }

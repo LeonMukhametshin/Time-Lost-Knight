@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "AttackingWeaponData", menuName = "Scriptable Objects/Attacking_Weapon_Data")]
 public class AttackingWeaponData : WeaponData
@@ -13,7 +12,6 @@ public class AttackingWeaponData : WeaponData
         protected set => attackDetails = value;
     }
  
-
     private void OnEnable()
     {
         amountOfAttacks = m_attackDetails.Length;

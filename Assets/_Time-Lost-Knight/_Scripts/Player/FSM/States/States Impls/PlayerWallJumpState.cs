@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class PlayerWallJumpState : PlayerAbilytiState
 {
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+    private FlipContoller m_flipContoller;
+
     private int m_wallJumpDirection;
 
     public PlayerWallJumpState(Player player, PlayerFSM fsm,
@@ -17,8 +23,8 @@ public class PlayerWallJumpState : PlayerAbilytiState
         var jumpState = player.statesContainer.GetState<PlayerJumpState>();
         player.inputHandler.UseJumpInput();
         jumpState.ResetAmountOfJumpsLeft();
-        core.movement.SetVelocity(data.wallJumpVelocity, data.wallJumpAnge, m_wallJumpDirection);
-        core.flipController.CheckIfShoudFlip(m_wallJumpDirection);
+        movement.SetVelocity(data.wallJumpVelocity, data.wallJumpAnge, m_wallJumpDirection);
+        flipController.CheckIfShoudFlip(m_wallJumpDirection);
         jumpState.DecreaseAmountOfJumpLeft();
     }
 
@@ -27,9 +33,9 @@ public class PlayerWallJumpState : PlayerAbilytiState
         base.Update();
 
         player.animationController.animator
-            .SetFloat(PlayerAnimationÑonstants.Y_VELOCITY, core.movement.currentVelocity.y);
+            .SetFloat(PlayerAnimationÑonstants.Y_VELOCITY, movement.currentVelocity.y);
         player.animationController.animator
-            .SetFloat(PlayerAnimationÑonstants.X_VELOCITY, Mathf.Abs(core.movement.currentVelocity.x));
+            .SetFloat(PlayerAnimationÑonstants.X_VELOCITY, Mathf.Abs(movement.currentVelocity.x));
 
         if(Time.time >= startTime + data.wallJumpTime)
         {
@@ -40,7 +46,7 @@ public class PlayerWallJumpState : PlayerAbilytiState
     public void DetermineWallJumpDirection(bool isTouchingWall)
     {
         m_wallJumpDirection = isTouchingWall
-            ? -core.collisionDetector.facingDirection
-            : core.collisionDetector.facingDirection;
+            ? -flipController.facingDirection
+            : flipController.facingDirection;
     }
 }

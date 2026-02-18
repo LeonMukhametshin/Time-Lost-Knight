@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4349175232199219536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Damage Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5922379920995721786}
   - component: {fileID: 3598972257908515841}
   - component: {fileID: 1968267990922463981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e4732169799924fab6921144913aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  rigidbody: {fileID: 3598972257908515841}
+  m_projectileRigidboby: {fileID: 3598972257908515841}
   m_gravity: 3
   m_grondLayer:
     serializedVersion: 2

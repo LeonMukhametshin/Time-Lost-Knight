@@ -35,6 +35,8 @@ public class EnemyFirst : Entity
         stanState = new EnemyFirstStanState(fsm, this, EnemyAnimationConst.STUN, m_stanStateData, this);
         deadState = new EnemyFirstDeadState(fsm, this, EnemyAnimationConst.DEAD, m_deadStateData, this);
 
+        animationToFSM.Initialize(meleeAttackState);
+
         fsm.Initialize(moveState);
     }
 
@@ -43,19 +45,5 @@ public class EnemyFirst : Entity
         base.OnDrawGizmos();
 
         Gizmos.DrawWireSphere(m_meleeAttackPoint.position, m_meleeAttackStateData.attackRadius);
-    }
-
-    public override void Damage(AttackDetails attackDetails)
-    {
-        base.Damage(attackDetails);
-
-        if (isDead)
-        {
-            fsm.SetState(deadState);
-        }
-        else if (isStunned && fsm.currentState != stanState)
-        {
-            fsm.SetState(stanState);
-        }
     }
 }

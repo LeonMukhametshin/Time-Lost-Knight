@@ -3,7 +3,8 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponData weaponData;
-    
+    [SerializeField] protected Core core;
+
     [SerializeField] protected Animator baseAnimator;
     [SerializeField] protected Animator weaponAnimator;
 
@@ -50,7 +51,7 @@ public abstract class Weapon : MonoBehaviour
         state.SetPlayerVelocity(weaponData.movementSpeed[attackCounter]);
 
     public virtual void AnimatonStopMovementTrigger() =>
-         state.SetPlayerVelocity(0f);
+        state.SetPlayerVelocity(0f);
 
     public virtual void AnimationTurnOffFlipTrigger() =>
         state.SetFlipCheck(false);

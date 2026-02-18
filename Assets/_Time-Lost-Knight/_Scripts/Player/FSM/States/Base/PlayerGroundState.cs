@@ -1,7 +1,18 @@
-using UnityEngine.InputSystem.LowLevel;
-
 public class PlayerGroundState : PlayerState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected CollisionDetector collisionDetector
+    {
+        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private CollisionDetector m_collisionDetector;
+
     protected int xInput;
     protected int yInput;
 
@@ -24,10 +35,10 @@ public class PlayerGroundState : PlayerState
     {
         base.DoCheck();
 
-        m_isGrounded = core.collisionDetector.CheckGrounded();
-        m_isTouchingWall = core.collisionDetector.CheckWallTouch();
-        m_isTouchingLedge = core.collisionDetector.CheckTouchingLedge();
-        isTouchingCeiling = core.collisionDetector.CheckCeilingCheck();
+        m_isGrounded = collisionDetector.CheckGrounded();
+        m_isTouchingWall = collisionDetector.CheckWallTouch();
+        m_isTouchingLedge = collisionDetector.CheckTouchingLedge();
+        isTouchingCeiling = collisionDetector.CheckCeilingCheck();
     }
 
     public override void Enter()

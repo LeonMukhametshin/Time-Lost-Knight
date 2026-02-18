@@ -1,11 +1,18 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
 
 public class AttackingWeapon : Weapon
 {
+    protected FlipContoller flipContoller
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+    private FlipContoller m_flipContoller;
+
     protected AttackingWeaponData attackingWeaponData;
     private List<IDamageable> m_detectedDamageble = new();
+    private List<IKnockbackable> m_detectedKnockbackables = new();
 
     protected override void Awake()
     {
@@ -32,6 +39,11 @@ public class AttackingWeapon : Weapon
         {
             item.TakeDamage(details.damageAmount);
         }
+
+        foreach(var item in m_detectedKnockbackables.ToList())
+        {
+            item.Knockback(details.angle, details.knokbackStringht, flipContoller.facingDirection);
+        }
     }
 
     public void AddToDetected(Collider2D collision)
@@ -39,7 +51,11 @@ public class AttackingWeapon : Weapon
         if(collision.TryGetComponent<IDamageable>(out var damageable))
         {
             m_detectedDamageble.Add(damageable);
-            Debug.Log("AddToDetected " + collision.name);
+        }
+
+        if(collision.TryGetComponent<IKnockbackable>(out var knockbackable))
+        {
+            m_detectedKnockbackables.Add(knockbackable);
         }
     }
 
@@ -48,12 +64,11 @@ public class AttackingWeapon : Weapon
         if (collision.TryGetComponent<IDamageable>(out var damageable))
         {
             m_detectedDamageble.Remove(damageable);
-            Debug.Log("RemoveToDetected " + collision.name);
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
+        if (collision.TryGetComponent<IKnockbackable>(out var knockbackable))
+        {
+            m_detectedKnockbackables.Remove(knockbackable);
+        }
     }
 }

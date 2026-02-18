@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class DodgeState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
     protected DodgeStateData data;
 
     protected bool performCloseRangeAction;
@@ -10,7 +16,9 @@ public class DodgeState : State
     protected bool isGrounded;
     protected bool isDodgeOver;
 
-    public DodgeState(FSM fsm, Entity entity, string animBoolName, DodgeStateData data) : base(fsm, entity, animBoolName)
+    public DodgeState(FSM fsm, Entity entity, 
+        string animBoolName, DodgeStateData data) 
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
@@ -29,12 +37,7 @@ public class DodgeState : State
         base.Enter();
 
         isDodgeOver = false;
-        entity.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -entity.facingDirection);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
+        movement.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -entity.facingDirection);
     }
 
     public override void Update()
@@ -45,10 +48,5 @@ public class DodgeState : State
         {
             isDodgeOver = true;
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

@@ -2,6 +2,13 @@ public class EnemyFirstPlayerDetectedState : PlayerDetectedState
 {
     private EnemyFirst m_enemy;
 
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+    private FlipContoller m_flipContoller;
+
+
     public EnemyFirstPlayerDetectedState(FSM fsm, Entity entity, 
         string animBoolName, PlayerDetectedData data, EnemyFirst enemy) 
         : base(fsm, entity, animBoolName, data)
@@ -27,7 +34,7 @@ public class EnemyFirstPlayerDetectedState : PlayerDetectedState
         }
         else if(!isDetectingLedge)
         {
-            entity.Flip();
+            flipController.Flip();
             fsm.SetState(m_enemy.moveState);
         }
     }

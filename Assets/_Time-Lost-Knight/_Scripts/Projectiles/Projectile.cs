@@ -4,51 +4,42 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_projectileRigidboby;
     [SerializeField] private float m_gravity;
+    
     [SerializeField] private LayerMask m_grondLayer;
     [SerializeField] private LayerMask m_playerLayer;
+
     [SerializeField] private Transform m_damagePosition;
     [SerializeField] private float m_damageRadius;
 
-    private AttackDetails m_attackDetails;
-    private float m_speed;
-    private float m_travelDistance;
+    private RangeAttackData m_data;
+
     private float m_xStartPosition;
 
     private bool m_isGravityOn;
     private bool m_hasHitGround;
 
-    private bool m_isInitialize;
-
     private void Start()
     {
         m_projectileRigidboby.gravityScale = 0f;
-        m_projectileRigidboby.linearVelocity = transform.right * m_speed;
-
+        m_projectileRigidboby.linearVelocity = transform.right * m_data.speed;
         m_isGravityOn = false;
-
         m_xStartPosition = transform.position.x;
     }
 
-    public void Initialize(float speed, float travelDistance, float damage)
+    public void Initialize(RangeAttackData data)
     {
-        if (m_isInitialize)
+        if(m_data is not null)
         {
-                return;
+            return;
         }
 
-        m_speed = speed;
-        m_travelDistance = travelDistance;
-        m_attackDetails.damageAmout = damage;
-
-        m_isInitialize = true;
+        m_data = data;
     }
 
     private void Update()
     {
         if (!m_hasHitGround)
         {
-            m_attackDetails.position = transform.position;
-
             if (m_isGravityOn)
             {
                 float angle = Mathf.Atan2(m_projectileRigidboby.linearVelocityY, m_projectileRigidboby.linearVelocityX) * Mathf.Rad2Deg;
@@ -59,34 +50,31 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!m_hasHitGround)
+        if (m_hasHitGround)
         {
-            var damageHit = Physics2D.OverlapCircle(m_damagePosition.position, m_damageRadius, m_playerLayer);
-            var groundHit = Physics2D.OverlapCircle(m_damagePosition.position, m_damageRadius, m_grondLayer);
-
-            if (damageHit is not null && damageHit.TryGetComponent<IDamageable>(out var damageable))
-            {
-                //damageable.TakeDamage(m_attackDetails);
-                Destroy(gameObject);
-            }
-
-            if (groundHit is not null)
-            {
-                m_hasHitGround = true;
-                m_projectileRigidboby.gravityScale = 0f;
-                m_projectileRigidboby.linearVelocity = Vector2.zero;
-            }
-
-            if (Mathf.Abs(m_xStartPosition - transform.position.x) >= m_travelDistance && !m_isGravityOn)
-            {
-                m_isGravityOn = true;
-                m_projectileRigidboby.gravityScale = m_gravity;
-            }
+            return;
         }
-    }
+        var damageHit = Physics2D.OverlapCircle(m_damagePosition.position, m_damageRadius, m_playerLayer);
+        var groundHit = Physics2D.OverlapCircle(m_damagePosition.position, m_damageRadius, m_grondLayer);
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(m_damagePosition.position, m_damageRadius);
+        if (damageHit is not null && damageHit.TryGetComponent<IDamageable>(out var damageable))
+        {
+            Debug.Log("Damage " + damageHit.gameObject.name);
+            damageable.TakeDamage(m_data.damage);
+            Destroy(gameObject);
+        }
+
+        if (groundHit is not null)
+        {
+            m_hasHitGround = true;
+            m_projectileRigidboby.gravityScale = 0f;
+            m_projectileRigidboby.linearVelocity = Vector2.zero;
+        }
+
+        if (Mathf.Abs(m_xStartPosition - transform.position.x) >= m_data.trevelDistance && !m_isGravityOn)
+        {
+            m_isGravityOn = true;
+            m_projectileRigidboby.gravityScale = m_gravity;
+        }
     }
 }
