@@ -39,6 +39,17 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable, IUpdate
     public void Knockback(Vector2 angle, float strength, int direction)
     {
         m_movement.SetVelocity(strength, angle, direction);
+        KnockbackSetParameters();
+    }
+
+    public void Knockback(Vector2 angle, float strength)
+    {
+        m_movement.SetVelocity(strength, angle);
+        KnockbackSetParameters();
+    }
+
+    private void KnockbackSetParameters()
+    {
         m_movement.canSetVelocity = false;
         isKnockbackActive = true;
         knockbackStartTime = Time.time;
@@ -55,4 +66,5 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable, IUpdate
             m_movement.canSetVelocity = true;
         }
     }
+
 }

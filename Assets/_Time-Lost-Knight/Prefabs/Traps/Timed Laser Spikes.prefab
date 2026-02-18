@@ -174,8 +174,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedSpikes
   <damage>k__BackingField: 10
-  <animator>k__BackingField: {fileID: 0}
-  duration: 5.84
+  <animator>k__BackingField: {fileID: 1310909530803630464}
+  duration: 2.83
+  m_attackDetails:
+    damageAmount: 10
+    knokbackStringht: 10
+    angle: {x: 0, y: 1}
 --- !u!1 &7208458224648979093
 GameObject:
   m_ObjectHideFlags: 0
