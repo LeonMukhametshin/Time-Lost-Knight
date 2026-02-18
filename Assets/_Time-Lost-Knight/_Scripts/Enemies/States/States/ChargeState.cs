@@ -8,6 +8,12 @@ public class ChargeState : State
     }
     private Movement m_movement;
 
+    protected FlipContoller flipContoller
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+    private FlipContoller m_flipContoller;
+
     protected ChargeStateData data;
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
@@ -27,7 +33,7 @@ public class ChargeState : State
         base.Enter();
 
         isChargeTimeOver = false;
-        movement.SetVelocityX(data.chargeSpeed);
+        movement.SetVelocity(data.chargeSpeed, Vector2.right, flipContoller.facingDirection);
     }
 
     public override void Exit()
