@@ -28,7 +28,6 @@ public class PlayerState
     public virtual void Enter()
     {
         DoCheck();
-        Debug.Log(this + " ENTER");
         player.animationController.animator.SetBool(m_animName, true);
         startTime = Time.time;
         isAnimationFinished = false;

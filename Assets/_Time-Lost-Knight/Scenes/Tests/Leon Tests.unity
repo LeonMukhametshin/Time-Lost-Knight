@@ -1599,6 +1599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jump-through platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7904978270266994572, guid: ad5ffce85e4a5c24f802367b906bfe38, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2587,25 +2591,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 113260093428395522, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1126918431352507552, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
       propertyPath: m_camera
       value: 
       objectReference: {fileID: 800677594}
-    - target: {fileID: 1360985436452541737, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225791965333901956, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579768335346860876, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
+    - target: {fileID: 3642082112200106297, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+      propertyPath: m_groundCheckRadius
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 5129810502820567774, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2647,26 +2639,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5911856572875265932, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6435266003297406978, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6435266003297406978, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7121822066334097646, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7302137115000031554, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_coroutine
-      value: 
-      objectReference: {fileID: 2096872367}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

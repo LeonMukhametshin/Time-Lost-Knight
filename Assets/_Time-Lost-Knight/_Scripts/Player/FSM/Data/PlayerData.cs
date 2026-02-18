@@ -41,10 +41,6 @@ public class PlayerData : ScriptableObject
     [field: SerializeField][Min(0)] public float crouchColliderHeight { get; private set; }
     [field: SerializeField][Min(0)] public float standColliderHeight { get; private set; }
 
-    [Header("Check")]   
-    [field: SerializeField] public CheckersData checkersData { get; private set; }
-
-
     [Header("One Way Platform")]
     [field: SerializeField] public int oneWayPlatformLayer { get; private set; }
     [field: SerializeField][field: Min(0)] public float dropThroughDuration { get; private set; } = 0.25f;

@@ -1,5 +1,18 @@
 public class PlayerGroundState : PlayerState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected CollisionDetector collisionDetector
+    {
+        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private CollisionDetector m_collisionDetector;
+
     protected int xInput;
     protected int yInput;
 
@@ -8,6 +21,7 @@ public class PlayerGroundState : PlayerState
     private bool m_jumpInput;
     private bool m_isGrounded;
     private bool m_isTouchingWall;
+    private bool m_isTouchingPlatform;
     private bool m_grabInput;
     private bool m_isTouchingLedge;
     private bool m_dashInput;
@@ -24,10 +38,11 @@ public class PlayerGroundState : PlayerState
     {
         base.DoCheck();
 
-        m_isGrounded = player.collisionDetector.CheckGrounded();
-        m_isTouchingWall = player.collisionDetector.CheckWallTouch();
-        m_isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
-        isTouchingCeiling = player.collisionDetector.CheckCeilingCheck();
+        m_isGrounded = collisionDetector.CheckGrounded();
+        m_isTouchingWall = collisionDetector.CheckWallTouch();
+        m_isTouchingLedge = collisionDetector.CheckTouchingLedge();
+        isTouchingCeiling = collisionDetector.CheckCeilingCheck();
+        m_isTouchingPlatform = collisionDetector.CheckTouckingPlatform();
     }
 
     public override void Enter()
@@ -50,7 +65,7 @@ public class PlayerGroundState : PlayerState
         {
             fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
         }
-        else if (m_dropDownInput)
+        else if (m_dropDownInput && m_isTouchingPlatform)
         {
             player.inputHandler.UseDropDownInput();
             fsm.SetState(player.statesContainer.GetState<PlayerDropDownState>());

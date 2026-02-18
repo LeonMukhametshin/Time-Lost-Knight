@@ -1,51 +1,34 @@
 using UnityEngine;
-using System.Collections;
 
-public class OneWayPlatformCollisionController
+public class OneWayPlatformCollisionController : CoreComponent
 {
-    private CoroutineRunner m_coroutineRunner;
-    private int m_playerLayer;
-    private int m_platformLayer;
+    [SerializeField] private int m_playerLayer;
+    [SerializeField] private int m_platformLayer;
+
+    private float m_timer;
     private float m_duration;
 
-    private Coroutine m_ignoreRoutine;
+    private bool m_ignorePlatform = true;
 
-    public OneWayPlatformCollisionController(CoroutineRunner coroutineRunner, 
-        int playerLayer, int platformLayer, float duration)
+    private void Update()
     {
-        m_coroutineRunner = coroutineRunner;
-        m_playerLayer = playerLayer;
-        m_platformLayer = platformLayer;
-        m_duration = duration;
+        if(Time.time >= m_timer + m_duration && m_ignorePlatform)
+        {
+            ResetCollision();
+        }
     }
 
     public void SetIgnorePlatform()
     {
-        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, true);
+        m_ignorePlatform = true;
+        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, m_ignorePlatform);
 
-        if (m_ignoreRoutine != null)
-        {
-            m_coroutineRunner.StopCoroutine(m_ignoreRoutine);
-        }
-
-        m_ignoreRoutine = m_coroutineRunner.StartCoroutine(IgnoreRoutine());
+        m_timer = Time.time;
     }
 
-    public void ResetCollision()
+    private void ResetCollision()
     {
-        if (m_ignoreRoutine != null)
-        {
-            m_coroutineRunner.StopCoroutine(m_ignoreRoutine);
-            m_ignoreRoutine = null;
-        }
-
-        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, false);
-    }
-
-    private IEnumerator IgnoreRoutine()
-    {
-        yield return new WaitForSeconds(m_duration);
-        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, false);
-        m_ignoreRoutine = null;
+        m_ignorePlatform = false;
+        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, m_ignorePlatform);
     }
 }

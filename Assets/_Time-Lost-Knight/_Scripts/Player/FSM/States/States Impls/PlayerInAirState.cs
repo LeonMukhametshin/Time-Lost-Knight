@@ -142,9 +142,9 @@ public class PlayerInAirState : PlayerState
             movement.SetVelocityX(data.movementSpeed * m_xInput);
 
             player.animationController.animator
-                .SetFloat(PlayerAnimation—onstants.Y_VELOCITY, movement.currentVelocity.y);
+                .SetFloat(PlayerAnimationConstants.Y_VELOCITY, movement.currentVelocity.y);
             player.animationController.animator
-                .SetFloat(PlayerAnimation—onstants.X_VELOCITY, Mathf.Abs(movement.currentVelocity.x));
+                .SetFloat(PlayerAnimationConstants.X_VELOCITY, Mathf.Abs(movement.currentVelocity.x));
         }
     }
 

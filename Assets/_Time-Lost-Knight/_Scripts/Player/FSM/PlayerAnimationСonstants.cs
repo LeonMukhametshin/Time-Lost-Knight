@@ -1,4 +1,4 @@
-public class PlayerAnimation—onstants
+public class PlayerAnimationConstants
 {
     public const string IDLE = "idle";
     public const string MOVEMENT = "movement";

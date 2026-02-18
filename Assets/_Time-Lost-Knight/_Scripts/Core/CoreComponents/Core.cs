@@ -1,15 +1,15 @@
-using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class Core : MonoBehaviour
 {
     private readonly List<CoreComponent> coreComponents = new();   
-    private List<IUpdate> components = new();
+    private List<IUpdate> updateComponents = new();
 
     public void Update()
     {
-        foreach (var componetn in components)
+        foreach (var componetn in updateComponents)
         {
             componetn.Update();
         }
@@ -17,12 +17,12 @@ public class Core : MonoBehaviour
 
     public void AddUpdateComponent(IUpdate component)
     {
-        if (components.Contains(component))
+        if (updateComponents.Contains(component))
         {
             return;
         }
 
-        components.Add(component);
+        updateComponents.Add(component);
     }
 
     public void AddCoreComponent(CoreComponent coreComponent)
