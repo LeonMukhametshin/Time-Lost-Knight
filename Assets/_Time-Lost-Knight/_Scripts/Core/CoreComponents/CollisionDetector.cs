@@ -30,7 +30,8 @@ public class CollisionDetector : CoreComponent
     }
 
     public bool CheckGrounded() =>
-        Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_groundLayer);
+        Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_groundLayer) ||
+        Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_platform);
 
     public bool CheckCeilingCheck() =>
         Physics2D.OverlapCircle(m_ceilingCheck.position, m_ceilingCheckRadius, m_groundLayer);

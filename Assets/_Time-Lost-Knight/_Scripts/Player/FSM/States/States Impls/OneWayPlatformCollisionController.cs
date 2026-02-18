@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class OneWayPlatformCollisionController : CoreComponent
 {
+    [SerializeField] private float m_duration;
+
     [SerializeField] private int m_playerLayer;
     [SerializeField] private int m_platformLayer;
 
     private float m_timer;
-    private float m_duration;
 
     private bool m_ignorePlatform = true;
 
