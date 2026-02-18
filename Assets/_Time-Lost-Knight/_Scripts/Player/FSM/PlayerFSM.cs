@@ -19,9 +19,9 @@ public class PlayerFSM
 
     public void SetState(PlayerState state)
     {
-        currentState.Exit();
+        currentState?.Exit();
         currentState = state;
-        currentState.Enter();
+        currentState?.Enter();
     }
 
     public void Update()

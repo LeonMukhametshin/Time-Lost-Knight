@@ -2596,8 +2596,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 800677594}
     - target: {fileID: 3642082112200106297, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-      propertyPath: m_groundCheckRadius
-      value: 0.66
+      propertyPath: m_ceilingCheckRadius
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5129810502820567774, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
       propertyPath: m_LocalPosition.x
