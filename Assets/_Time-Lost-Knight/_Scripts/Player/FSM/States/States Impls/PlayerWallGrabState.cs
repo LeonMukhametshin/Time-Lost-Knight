@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class PlayerWallGrabState : PlayerWallTouchingState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    private Movement m_movement;
+
     private Vector2 m_holdPosition;
 
     public PlayerWallGrabState(Player player, PlayerFSM fsm,
@@ -43,6 +50,6 @@ public class PlayerWallGrabState : PlayerWallTouchingState
     {
         player.transform.position = m_holdPosition;
 
-        player.movement.SetVelocityZero();
+        movement.SetVelocityZero();
     }
 }

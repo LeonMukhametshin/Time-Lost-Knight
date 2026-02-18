@@ -1,5 +1,11 @@
 public class PlayerWallClimbState : PlayerWallTouchingState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
     public PlayerWallClimbState(Player player, PlayerFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
@@ -10,7 +16,7 @@ public class PlayerWallClimbState : PlayerWallTouchingState
     {
         base.Update();
 
-        player.movement.SetVelocityY(data.wallClimbVelocity);
+        movement.SetVelocityY(data.wallClimbVelocity);
 
         if (isExitingState)
         {

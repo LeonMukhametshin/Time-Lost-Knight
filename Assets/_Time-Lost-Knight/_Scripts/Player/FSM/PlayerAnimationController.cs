@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    public Animator animator { get; private set; }
+    [field: SerializeField] public Animator animator { get; private set; }
     private StatesContainer m_container;
 
-    public void Initialize(Animator animator, StatesContainer container)
+    public void Initialize(StatesContainer container)
     {
         m_container = container;
-        this.animator = animator;
     }
 
     private void AnimationTrigger() =>

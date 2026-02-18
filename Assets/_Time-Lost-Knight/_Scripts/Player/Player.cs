@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [field: SerializeField] public Core core { get; private set;  }
+
     [Header("       ----  PLAYER DATA  ----")][Space(10)]
     [SerializeField] private PlayerData m_data;
 
     [Header("       ----  UNITY COMPONENTS  ----")][Space(10)]
-    [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody2D m_rigidbody;
     [SerializeField] private BoxCollider2D m_collider;
 
@@ -14,36 +15,25 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
     [field: SerializeField] public PlayerAnimationController animationController { get; private set; }
+    [field: SerializeField] public PlayerInventory inventory { get; private set; }
 
-    [Header("       ----  CHECKERS  ----")][Space(10)]
-    [SerializeField] private CheckTransfomRef m_checkTransfom;
-
-    public Movement movement { get; private set; }
     public StatesContainer statesContainer { get; set; }
-    public FlipContoller flipController { get; private set; }
-    public CollisionDetector collisionDetector { get; private set; }
-    public ColliderController colliderController { get; private set; }
 
-
-    private void Awake() =>
-        InitializeComponents();
-
-    private void InitializeComponents()
+    private void Awake()
     {
-        movement = new Movement(m_rigidbody);
-        colliderController = new ColliderController(m_collider);
-        collisionDetector = new CollisionDetector(m_data.checkersData, m_checkTransfom, m_data.standColliderHeight);
-        flipController = new FlipContoller(transform, collisionDetector);
- 
         statesContainer = new StatesContainer(this, m_data);
-        animationController.Initialize(m_animator, statesContainer);
+        animationController.Initialize(statesContainer);
 
         statesContainer.SetBaseState();
+
+        statesContainer.GetState<PlayerPrimaryAttackState>()
+            .SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
+        //statesContainer.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
     }
 
     private void Update()
     {
-        movement.Update();
+        core.Update();
         statesContainer.fsm.Update();
     }
 

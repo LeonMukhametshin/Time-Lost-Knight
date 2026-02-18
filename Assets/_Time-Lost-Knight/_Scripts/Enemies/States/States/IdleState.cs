@@ -2,6 +2,19 @@ using UnityEngine;
 
 public class IdleState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private Movement m_movement;
+    private FlipContoller m_flipContoller;
+
     protected IdleStateData data;
 
     protected bool flipAfterIdle;
@@ -10,7 +23,9 @@ public class IdleState : State
 
     protected float idleTime;
 
-    public IdleState(FSM fsm, Entity entity, string animBoolName, IdleStateData data) : base(fsm, entity, animBoolName)
+    public IdleState(FSM fsm, Entity entity, 
+        string animBoolName, IdleStateData data) 
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
@@ -19,7 +34,7 @@ public class IdleState : State
     {
         base.Enter();
 
-        entity.SetVelocity(0f);
+        movement.SetVelocityX(0f);
         isIdleTimeOver = false;
         SetRandomIdleTime();    
     }
@@ -30,7 +45,7 @@ public class IdleState : State
 
         if (flipAfterIdle)
         {
-            entity.Flip();
+            flipController.Flip();
         }
     }
 

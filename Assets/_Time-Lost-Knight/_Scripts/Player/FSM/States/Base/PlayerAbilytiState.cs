@@ -1,5 +1,17 @@
 public class PlayerAbilytiState : PlayerState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
+    protected CollisionDetector collisionDetector
+    {
+        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    }
+    private CollisionDetector m_collisionDetector;
+
     protected bool isAbilityDone;
     private bool m_isGrounded;
 
@@ -13,7 +25,7 @@ public class PlayerAbilytiState : PlayerState
     {
         base.DoCheck();
 
-        m_isGrounded = player.collisionDetector.CheckGrounded();
+        m_isGrounded = collisionDetector.CheckGrounded();
     }
 
     public override void Enter()
@@ -32,7 +44,7 @@ public class PlayerAbilytiState : PlayerState
             return;
         }
 
-        if (m_isGrounded && player.movement.currentVelocity.y < 0.1f)
+        if (m_isGrounded && movement.currentVelocity.y < 0.1f)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
         }

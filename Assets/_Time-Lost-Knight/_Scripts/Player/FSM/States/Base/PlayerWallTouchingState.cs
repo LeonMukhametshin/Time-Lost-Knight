@@ -1,5 +1,18 @@
 public class PlayerWallTouchingState : PlayerState
 {
+    protected FlipContoller flipContoller
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    protected CollisionDetector collisionDetector
+    {
+        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    }
+
+    private FlipContoller m_flipContoller;
+    private CollisionDetector m_collisionDetector;
+
     protected int xInput;
     protected int yInput;
 
@@ -19,9 +32,9 @@ public class PlayerWallTouchingState : PlayerState
     {
         base.DoCheck();
 
-        isGrounded = player.collisionDetector.CheckGrounded();
-        isTouchingWall = player.collisionDetector.CheckWallTouch();
-        isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
+        isGrounded = collisionDetector.CheckGrounded();
+        isTouchingWall = collisionDetector.CheckWallTouch();
+        isTouchingLedge = collisionDetector.CheckTouchingLedge();
 
         if(isTouchingWall && !isTouchingLedge)
         {
@@ -46,7 +59,7 @@ public class PlayerWallTouchingState : PlayerState
         {
             fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
         }
-        else if (!isTouchingWall || (xInput != player.collisionDetector.facingDirection  && !grabInput))
+        else if (!isTouchingWall || (xInput != flipContoller.facingDirection  && !grabInput))
         {
             fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
         }

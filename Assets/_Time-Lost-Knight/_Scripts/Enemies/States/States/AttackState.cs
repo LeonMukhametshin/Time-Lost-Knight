@@ -1,13 +1,20 @@
-using System;
 using UnityEngine;
 
 public class AttackState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
     protected Transform attackPosition;
     protected bool isAnimationFinished;
     protected bool isPlayerInMinAgroRange;
 
-    public AttackState(FSM fsm, Entity entity, string animBoolName, Transform attackPosition) : base(fsm, entity, animBoolName)
+    public AttackState(FSM fsm, Entity entity, 
+        string animBoolName, Transform attackPosition) 
+        : base(fsm, entity, animBoolName)
     {
         this.attackPosition = attackPosition;
     }
@@ -25,22 +32,7 @@ public class AttackState : State
 
         entity.animationToFSM.attackState = this;
         isAnimationFinished = false;
-        entity.SetVelocity(0f);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-    
-    public override void Update()
-    {
-        base.Update();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
+        movement.SetVelocityX(0f);
     }
 
     public virtual void TriggerAttack()

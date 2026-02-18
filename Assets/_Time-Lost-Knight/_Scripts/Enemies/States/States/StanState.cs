@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class StanState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
+
     protected StunStateData data;
 
     protected bool isStunTimeOver;
@@ -11,7 +18,9 @@ public class StanState : State
     protected bool performCloseRangeAction;
     protected bool isPlayerInMinAgroRange;
 
-    public StanState(FSM fsm, Entity entity, string animBoolName, StunStateData data) : base(fsm, entity, animBoolName)
+    public StanState(FSM fsm, Entity entity, 
+        string animBoolName, StunStateData data) 
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
@@ -31,7 +40,7 @@ public class StanState : State
 
         isStunTimeOver = false;
         isMovementSropped = false;
-        entity.SetVelocity(data.stunKnockbackSpeed, data.stunKnockbackAngle, entity.lastDamageDirection);
+        movement.SetVelocity(data.stunKnockbackSpeed, data.stunKnockbackAngle, entity.lastDamageDirection);
     }
 
     public override void Exit()
@@ -52,12 +61,7 @@ public class StanState : State
         if(isGrounded && Time.time >= startTime + data.stunKnockbactTime && !isMovementSropped)
         {
             isMovementSropped = true;
-            entity.SetVelocity(0f);
+            movement.SetVelocityX(0f);
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

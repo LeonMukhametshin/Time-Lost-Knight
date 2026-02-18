@@ -1,32 +1,12 @@
-using UnityEngine;
-
 public class EnemyFirstChargeState : ChargeState
 {
     private EnemyFirst enemy;
 
-    public EnemyFirstChargeState(FSM fsm, Entity entity, string animBoolName, ChargeStateData data, EnemyFirst enemy) : base(fsm, entity, animBoolName, data)
+    public EnemyFirstChargeState(FSM fsm, Entity entity, 
+        string animBoolName, ChargeStateData data, EnemyFirst enemy) 
+        : base(fsm, entity, animBoolName, data)
     {
         this.enemy = enemy;
-    }
-
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 
     public override void Update()

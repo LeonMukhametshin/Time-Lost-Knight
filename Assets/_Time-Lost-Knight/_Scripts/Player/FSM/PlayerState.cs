@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerState
 {
+    protected Core core;
+
     protected Player player;
     protected PlayerFSM fsm;
     protected PlayerData data;
@@ -20,6 +22,7 @@ public class PlayerState
         this.fsm = fsm;
         this.data = data;
         this.m_animName = animName;
+        core = player.core;
     }
 
     public virtual void Enter()

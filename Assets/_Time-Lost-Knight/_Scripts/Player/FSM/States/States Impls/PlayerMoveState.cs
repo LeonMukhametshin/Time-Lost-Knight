@@ -1,5 +1,12 @@
 public class PlayerMoveState : PlayerGroundState
 {
+    protected FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private FlipContoller m_flipContoller;
+
     public PlayerMoveState(Player player, PlayerFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
@@ -10,8 +17,8 @@ public class PlayerMoveState : PlayerGroundState
     {
         base.Update();
 
-        player.movement.SetVelocityX(data.movementSpeed * xInput);
-        player.flipController.CheckIfShoudFlip(xInput);
+        movement.SetVelocityX(data.movementSpeed * xInput);
+        flipController.CheckIfShoudFlip(xInput);
 
         if(isExitingState)
         {

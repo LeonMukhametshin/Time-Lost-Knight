@@ -1,10 +1,6 @@
-using System.Collections.Generic;
-
 public class FSM 
 {
     public State currentState;
-
-    private List<State> states;
 
     public void Initialize(State startingState)
     {

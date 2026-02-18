@@ -1,5 +1,18 @@
 public class PlayerGroundState : PlayerState
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected CollisionDetector collisionDetector
+    {
+        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private CollisionDetector m_collisionDetector;
+
     protected int xInput;
     protected int yInput;
 
@@ -22,10 +35,10 @@ public class PlayerGroundState : PlayerState
     {
         base.DoCheck();
 
-        m_isGrounded = player.collisionDetector.CheckGrounded();
-        m_isTouchingWall = player.collisionDetector.CheckWallTouch();
-        m_isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
-        isTouchingCeiling = player.collisionDetector.CheckCeilingCheck();
+        m_isGrounded = collisionDetector.CheckGrounded();
+        m_isTouchingWall = collisionDetector.CheckWallTouch();
+        m_isTouchingLedge = collisionDetector.CheckTouchingLedge();
+        isTouchingCeiling = collisionDetector.CheckCeilingCheck();
     }
 
     public override void Enter()
@@ -42,7 +55,15 @@ public class PlayerGroundState : PlayerState
 
         CheckInputs();
 
-        if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
+        if (player.inputHandler.attackInputs[(int)CombatInputs.primary] && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerPrimaryAttackState>());
+        }
+        else if (player.inputHandler.attackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerSecondaryAttackState>());
+        }
+        else if(m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
         }

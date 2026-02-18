@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class ChargeState : State
 {
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+    private Movement m_movement;
+
     protected ChargeStateData data;
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
@@ -9,7 +15,9 @@ public class ChargeState : State
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
 
-    public ChargeState(FSM fsm, Entity entity, string animBoolName, ChargeStateData data) : base(fsm, entity, animBoolName)
+    public ChargeState(FSM fsm, Entity entity, 
+        string animBoolName, ChargeStateData data) 
+        : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
@@ -19,7 +27,7 @@ public class ChargeState : State
         base.Enter();
 
         isChargeTimeOver = false;
-        entity.SetVelocity(data.chargeSpeed);
+        movement.SetVelocityX(data.chargeSpeed);
     }
 
     public override void Exit()
