@@ -305,10 +305,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector
   core: {fileID: 5575267192742571841}
-  groundCheck: {fileID: 355550322775319378}
-  wallCheck: {fileID: 8141373714086151164}
-  ledgeCheck: {fileID: 1904053704195604307}
-  ceilingCheck: {fileID: 8840584218124634011}
+  m_groundCheck: {fileID: 355550322775319378}
+  m_wallCheck: {fileID: 8141373714086151164}
+  m_ledgeCheck: {fileID: 1904053704195604307}
+  m_ceilingCheck: {fileID: 0}
   m_standColliderHeight: 1.87
   m_groundCheckRadius: 0.51
   m_ceilingCheckRadius: 1.17
@@ -316,6 +316,9 @@ MonoBehaviour:
   m_groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  m_platform:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &5098973452007585899
 GameObject:
   m_ObjectHideFlags: 0
