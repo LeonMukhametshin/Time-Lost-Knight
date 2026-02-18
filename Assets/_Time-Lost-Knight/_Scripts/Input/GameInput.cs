@@ -279,7 +279,7 @@ namespace Inputs
                 {
                     ""name"": """",
                     ""id"": ""ffcafce7-d755-4e04-8ef8-cf6a82716b9d"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
