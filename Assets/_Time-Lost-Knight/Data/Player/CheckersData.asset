@@ -17,4 +17,7 @@ MonoBehaviour:
   <wallCheckDistance>k__BackingField: 0.57
   <groundLayer>k__BackingField:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
+  <platformLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1024

@@ -36,3 +36,7 @@ MonoBehaviour:
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 1.66
   <checkersData>k__BackingField: {fileID: 11400000, guid: 9d098f2d11e69044c83c40bec00b0830, type: 2}
+  <colliderControllerData>k__BackingField: {fileID: 11400000, guid: 4b04fa0329b64684a859a56d102a8414, type: 2}
+  <oneWayPlatformLayer>k__BackingField: 10
+  <dropThroughDuration>k__BackingField: 0.2
+  <dropVelocity>k__BackingField: 10

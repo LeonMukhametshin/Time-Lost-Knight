@@ -21,22 +21,21 @@ public class StatesContainer
     {
         fsm = new PlayerFSM();
 
-        RegisteState(new PlayerIdleState(player, fsm, data, PlayerAnimation—onstants.IDLE));
-        RegisteState(new PlayerMoveState(player, fsm, data, PlayerAnimation—onstants.MOVEMENT));
-        RegisteState(new PlayerJumpState(player, fsm, data, PlayerAnimation—onstants.IN_AIR));
-        RegisteState(new PlayerInAirState(player, fsm, data, PlayerAnimation—onstants.IN_AIR));
-        RegisteState(new PlayerLandState(player, fsm, data, PlayerAnimation—onstants.LAND));
-        RegisteState(new PlayerWallSlideState(player, fsm, data, PlayerAnimation—onstants.WALL_SLIDE));
-        RegisteState(new PlayerWallGrabState(player, fsm, data, PlayerAnimation—onstants.WALL_GRAB));
-        RegisteState(new PlayerWallClimbState(player, fsm, data, PlayerAnimation—onstants.WALL_CLIMB));
-        RegisteState(new PlayerWallJumpState(player, fsm, data, PlayerAnimation—onstants.IN_AIR));
-        RegisteState(new PlayerWallJumpState(player, fsm, data, PlayerAnimation—onstants.IN_AIR));
-        RegisteState(new PlayerLedgeClibmState(player, fsm, data, PlayerAnimation—onstants.LEDGE_CLIMB_STATE));
-        RegisteState(new PlayerDashState(player, fsm, data, PlayerAnimation—onstants.IN_AIR));
-        RegisteState(new PlayerCrouchIdleState(player, fsm, data, PlayerAnimation—onstants.CROUCH_IDLE));
-        RegisteState(new PlayerCrouchMoveState(player, fsm, data, PlayerAnimation—onstants.CROUCH_MOVE));
-        RegisteState(new PlayerPrimaryAttackState(player, fsm, data, PlayerAnimation—onstants.ATTACK));
-        RegisteState(new PlayerSecondaryAttackState(player, fsm, data, PlayerAnimation—onstants.ATTACK));
+        RegisteState(new PlayerIdleState(player, fsm, data, PlayerAnimationConst.IDLE));
+        RegisteState(new PlayerMoveState(player, fsm, data, PlayerAnimationConst.MOVEMENT));
+        RegisteState(new PlayerJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerInAirState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerLandState(player, fsm, data, PlayerAnimationConst.LAND));
+        RegisteState(new PlayerWallSlideState(player, fsm, data, PlayerAnimationConst.WALL_SLIDE));
+        RegisteState(new PlayerWallGrabState(player, fsm, data, PlayerAnimationConst.WALL_GRAB));
+        RegisteState(new PlayerWallClimbState(player, fsm, data, PlayerAnimationConst.WALL_CLIMB));
+        RegisteState(new PlayerWallJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerWallJumpState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerLedgeClibmState(player, fsm, data, PlayerAnimationConst.LEDGE_CLIMB_STATE));
+        RegisteState(new PlayerDashState(player, fsm, data, PlayerAnimationConst.IN_AIR));
+        RegisteState(new PlayerCrouchIdleState(player, fsm, data, PlayerAnimationConst.CROUCH_IDLE));
+        RegisteState(new PlayerCrouchMoveState(player, fsm, data, PlayerAnimationConst.CROUCH_MOVE));
+        RegisteState(new PlayerDropDownState(player, fsm, data, PlayerAnimationConst.IN_AIR));
     }
 
     public void SetBaseState()

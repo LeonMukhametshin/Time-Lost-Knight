@@ -16,6 +16,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool grabInput { get; private set; }
     public bool dashInput { get; private set; }
     public bool dashInputStop { get; private set; }
+    public bool dropDownInput { get; private set; }
 
     public bool[] attackInputs { get; private set; }
 
@@ -100,11 +101,26 @@ public class PlayerInputHandler : MonoBehaviour
         dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
     }
 
+    public void OnDropDownInput(InputAction.CallbackContext contex)
+    {
+        if (contex.started)
+        {
+            dropDownInput = true;
+        }
+        if (contex.canceled)
+        {
+            dropDownInput = false;
+        }
+    }
+
     public void UseJumpInput() => 
         jumpInput = false;
 
     public void UseDashInput() =>
         dashInput = false;
+
+    public void UseDropDownInput() =>
+        dropDownInput = false;
 
     private void CheckJumpInputHoldTime()
     {

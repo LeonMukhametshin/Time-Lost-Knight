@@ -43,4 +43,10 @@ public class PlayerData : ScriptableObject
 
     [Header("Check")]   
     [field: SerializeField] public CheckersData checkersData { get; private set; }
+
+
+    [Header("One Way Platform")]
+    [field: SerializeField] public int oneWayPlatformLayer { get; private set; }
+    [field: SerializeField][field: Min(0)] public float dropThroughDuration { get; private set; } = 0.25f;
+    [field: SerializeField][field: Min(0)] public float dropVelocity { get; private set; } = 3f;
 }

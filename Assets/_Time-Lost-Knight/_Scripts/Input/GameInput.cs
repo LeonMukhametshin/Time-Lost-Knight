@@ -149,18 +149,9 @@ namespace Inputs
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Primary Attack"",
+                    ""name"": ""Platform"",
                     ""type"": ""Button"",
-                    ""id"": ""0d078869-803b-4bfa-ba77-e657e28fb965"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Secondary Attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""a2cb51d3-b4a8-4e63-8026-057db2d3cb2a"",
+                    ""id"": ""de7ac14f-a1e7-4c60-8797-0dcc634bdf77"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -270,7 +261,7 @@ namespace Inputs
                 {
                     ""name"": """",
                     ""id"": ""ffcafce7-d755-4e04-8ef8-cf6a82716b9d"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -335,45 +326,34 @@ namespace Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""16c3ef61-c56a-44ff-89f1-e2c2f95fa0ab"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""51454a83-c356-4c6c-b49b-a8933fb998f9"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Primary Attack"",
+                    ""action"": ""Platform"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""abbb4d3c-9bff-4bf6-a174-e447fb551445"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""id"": ""89bff9c8-bada-4b79-b741-048ff4b3fff0"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Primary Attack"",
+                    ""action"": ""Platform"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0034f3d9-7914-4963-a8ed-3a6ec3102da2"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""1f55434a-a59c-40e2-b231-0c1f8c551e5f"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Secondary Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cd0784b0-f2a4-4790-8ce1-cb2c7a1c186a"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Secondary Attack"",
+                    ""action"": ""Platform"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -451,8 +431,7 @@ namespace Inputs
             m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_DashDirection = m_Player.FindAction("DashDirection", throwIfNotFound: true);
-            m_Player_PrimaryAttack = m_Player.FindAction("Primary Attack", throwIfNotFound: true);
-            m_Player_SecondaryAttack = m_Player.FindAction("Secondary Attack", throwIfNotFound: true);
+            m_Player_Platform = m_Player.FindAction("Platform", throwIfNotFound: true);
         }
 
         ~@GameInput()
@@ -539,8 +518,7 @@ namespace Inputs
         private readonly InputAction m_Player_Grab;
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_DashDirection;
-        private readonly InputAction m_Player_PrimaryAttack;
-        private readonly InputAction m_Player_SecondaryAttack;
+        private readonly InputAction m_Player_Platform;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -577,13 +555,9 @@ namespace Inputs
             /// </summary>
             public InputAction @DashDirection => m_Wrapper.m_Player_DashDirection;
             /// <summary>
-            /// Provides access to the underlying input action "Player/PrimaryAttack".
+            /// Provides access to the underlying input action "Player/Platform".
             /// </summary>
-            public InputAction @PrimaryAttack => m_Wrapper.m_Player_PrimaryAttack;
-            /// <summary>
-            /// Provides access to the underlying input action "Player/SecondaryAttack".
-            /// </summary>
-            public InputAction @SecondaryAttack => m_Wrapper.m_Player_SecondaryAttack;
+            public InputAction @Platform => m_Wrapper.m_Player_Platform;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -628,12 +602,9 @@ namespace Inputs
                 @DashDirection.started += instance.OnDashDirection;
                 @DashDirection.performed += instance.OnDashDirection;
                 @DashDirection.canceled += instance.OnDashDirection;
-                @PrimaryAttack.started += instance.OnPrimaryAttack;
-                @PrimaryAttack.performed += instance.OnPrimaryAttack;
-                @PrimaryAttack.canceled += instance.OnPrimaryAttack;
-                @SecondaryAttack.started += instance.OnSecondaryAttack;
-                @SecondaryAttack.performed += instance.OnSecondaryAttack;
-                @SecondaryAttack.canceled += instance.OnSecondaryAttack;
+                @Platform.started += instance.OnPlatform;
+                @Platform.performed += instance.OnPlatform;
+                @Platform.canceled += instance.OnPlatform;
             }
 
             /// <summary>
@@ -663,12 +634,9 @@ namespace Inputs
                 @DashDirection.started -= instance.OnDashDirection;
                 @DashDirection.performed -= instance.OnDashDirection;
                 @DashDirection.canceled -= instance.OnDashDirection;
-                @PrimaryAttack.started -= instance.OnPrimaryAttack;
-                @PrimaryAttack.performed -= instance.OnPrimaryAttack;
-                @PrimaryAttack.canceled -= instance.OnPrimaryAttack;
-                @SecondaryAttack.started -= instance.OnSecondaryAttack;
-                @SecondaryAttack.performed -= instance.OnSecondaryAttack;
-                @SecondaryAttack.canceled -= instance.OnSecondaryAttack;
+                @Platform.started -= instance.OnPlatform;
+                @Platform.performed -= instance.OnPlatform;
+                @Platform.canceled -= instance.OnPlatform;
             }
 
             /// <summary>
@@ -817,19 +785,12 @@ namespace Inputs
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnDashDirection(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "Primary Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "Platform" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnPrimaryAttack(InputAction.CallbackContext context);
-            /// <summary>
-            /// Method invoked when associated input action "Secondary Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnSecondaryAttack(InputAction.CallbackContext context);
+            void OnPlatform(InputAction.CallbackContext context);
         }
     }
 }
