@@ -39,5 +39,6 @@ public class Player : MonoBehaviour
     {
         core.Update();
         statesContainer.fsm.Update();
+        statesContainer.fsm.FixedUpdate();
     }
 }

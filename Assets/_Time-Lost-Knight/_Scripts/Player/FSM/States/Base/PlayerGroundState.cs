@@ -59,9 +59,15 @@ public class PlayerGroundState : PlayerState
 
         CheckInputs();
 
-        m_dropDownInput = player.inputHandler.dropDownInput;
-
-        if(m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
+        if (player.inputHandler.attackInputs[(int)CombatInputs.primary] && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerPrimaryAttackState>());
+        }
+        else if (player.inputHandler.attackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
+        {
+            fsm.SetState(player.statesContainer.GetState<PlayerSecondaryAttackState>());
+        }
+        else if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
         }
@@ -94,5 +100,6 @@ public class PlayerGroundState : PlayerState
         m_jumpInput = player.inputHandler.jumpInput;
         m_grabInput = player.inputHandler.grabInput;
         m_dashInput = player.inputHandler.dashInput;
+        m_dropDownInput = player.inputHandler.dropDownInput;
     }
 }
