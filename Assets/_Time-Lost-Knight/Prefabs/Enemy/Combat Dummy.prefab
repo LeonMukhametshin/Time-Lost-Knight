@@ -518,7 +518,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6552172661396512498}
-  - component: {fileID: 1851517244195817269}
   m_Layer: 0
   m_Name: Combat Dummy
   m_TagString: Untagged
@@ -544,35 +543,3 @@ Transform:
   - {fileID: 2065694957882739744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1851517244195817269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7434704146274272103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0d8199effe64c4e942c189748fa038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatDummyController
-  m_hitParticle: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
-  m_maxHealth: 50
-  m_applyKnockback: 1
-  m_knockbackSpeedX: 10
-  m_knockbackSpeedY: 5
-  m_knockbackDuration: 0.1
-  m_knockbackDeathSpeedX: 15
-  m_knockbackDeathSpeedY: 8
-  m_deathTorque: 1
-  m_playerController: {fileID: 0}
-  m_alive:
-    gameObject: {fileID: 461373154780072256}
-    rigidbody: {fileID: 1070122563692996143}
-  m_brokenTop:
-    gameObject: {fileID: 6806313261160147}
-    rigidbody: {fileID: 6998526161339278286}
-  m_brokenBotom:
-    gameObject: {fileID: 1654382511170970787}
-    rigidbody: {fileID: 700512342102093528}
-  m_animator: {fileID: 2466301520663307804}

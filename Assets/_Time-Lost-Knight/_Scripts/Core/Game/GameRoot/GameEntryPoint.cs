@@ -15,6 +15,7 @@ public class GameEntryPoint
         Application.targetFrameRate = 60;
 
         m_instance = new GameEntryPoint();
+
         m_instance.RunGame();
     }
 
@@ -22,6 +23,7 @@ public class GameEntryPoint
     {
         m_coroutines = new GameObject("[COROUTINES]").AddComponent<CoroutineRunner>();
 
+        //TODO: adressables
         var prefabUIRoot = Resources.Load<UIRootView>("UIRoot");
         m_uiRoot = Object.Instantiate(prefabUIRoot);
         Object.DontDestroyOnLoad(m_uiRoot.gameObject);
@@ -62,7 +64,6 @@ public class GameEntryPoint
         yield return new WaitForSeconds(1f);
 
         var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
-        sceneEntryPoint.Initialize(m_coroutines);
         sceneEntryPoint.Run(m_uiRoot);
 
         sceneEntryPoint.goToMainMenuSceneRequested += () =>

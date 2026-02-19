@@ -4,7 +4,11 @@ public class CollisionDetector : CoreComponent
 {
     private const float TOLERANCE = 0.015f;
 
-    public FlipContoller flipController { get; private set; }
+    private FlipContoller m_flipContoller;
+    public FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
 
     [SerializeField] private Transform m_groundCheck;
     [SerializeField] private Transform m_wallCheck;
@@ -25,8 +29,6 @@ public class CollisionDetector : CoreComponent
     public override void Awake()
     {
         base.Awake();
-
-        flipController = core.GetCoreComponent<FlipContoller>();
     }
 
     public bool CheckGrounded() =>

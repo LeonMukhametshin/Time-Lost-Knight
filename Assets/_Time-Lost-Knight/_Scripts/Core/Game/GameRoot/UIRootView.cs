@@ -7,7 +7,7 @@ public class UIRootView : MonoBehaviour
     [SerializeField] private Transform m_uiSceneContainer;
     [SerializeField] private TMP_Text m_loadingText;
 
-    private readonly string[] m_phrases =
+    [SerializeField] private string[] m_phrases =
     {
         "Phrases1...",
         "Phrases2...",

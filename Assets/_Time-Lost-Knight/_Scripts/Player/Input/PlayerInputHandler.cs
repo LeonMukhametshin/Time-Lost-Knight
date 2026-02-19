@@ -20,10 +20,10 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool[] attackInputs { get; private set; }
 
-    [SerializeField] private PlayerInput m_playerInput;
-    [SerializeField] private Camera m_camera;
+    // [SerializeField] private PlayerInput m_playerInput;
 
     [SerializeField] private float m_inputHoldTime;
+    private Camera m_camera;
 
     private float m_jumpInputStartTime;
     private float m_dashInputStartTime;
@@ -32,6 +32,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         int count = Enum.GetValues(typeof(CombatInputs)).Length;
         attackInputs = new bool[count];
+
+        m_camera = Camera.main;
     }
 
     private void Update()
@@ -93,10 +95,11 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawDashDirectionInput = context.ReadValue<Vector2>();
 
-        if (m_playerInput.currentControlScheme == "Keyboard")
+        //TODO: select keyboard/gamepad
+        /*if (m_playerInput.currentControlScheme == "Keyboard")
         {
             rawDashDirectionInput = m_camera.ScreenToWorldPoint((Vector3)rawDashDirectionInput - transform.position);
-        }
+        }*/
 
         dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
     }

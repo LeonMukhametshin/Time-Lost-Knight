@@ -20,5 +20,5 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private Entity GetEntity =>
-        m_enemies[UnityEngine.Random.Range(0, m_enemies.Length)];
+        m_enemies[Random.Range(0, m_enemies.Length)];
 }
