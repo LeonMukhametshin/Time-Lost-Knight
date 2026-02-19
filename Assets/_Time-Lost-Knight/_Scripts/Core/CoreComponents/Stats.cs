@@ -1,43 +1,21 @@
-using System;
 using UnityEngine;
 
 public class Stats : CoreComponent
 {
-    public event Action died;
-
     [SerializeField] private float maxHealth = 100f;
-    private float currentHealth;
+
+    [field: SerializeField] public HealthSystem healthSystem { get; private set; }
 
     public override void Awake()
     {
         base.Awake();
 
-        currentHealth = maxHealth;
+        healthSystem.Initialize(maxHealth);
     }
 
-    public void DecreaseHealth(float value)
-    {
-        if(value <= 0 )
-        {
-            throw new ArgumentOutOfRangeException(nameof(value), "value cannot be hegative");
-        }
+    public void DecreaseHealth(float value) =>
+         healthSystem.Decrease(value);
 
-        currentHealth -= value;
-
-        if(currentHealth <= 0)
-        {
-            currentHealth = 0;
-            died?.Invoke();
-        }
-    }
-
-    public void IncreaseHealth(float value)
-    {
-        if (value <= 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(value), "value cannot be hegative");
-        }
-
-        currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
-    }
+    public void IncreaseHealth(float value) =>
+          healthSystem.Increase(value);
 }

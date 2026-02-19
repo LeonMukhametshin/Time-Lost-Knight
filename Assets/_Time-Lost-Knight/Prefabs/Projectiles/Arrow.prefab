@@ -170,6 +170,6 @@ MonoBehaviour:
     m_Bits: 128
   m_playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_damagePosition: {fileID: 4349175232199219536}
   m_damageRadius: 0.17

@@ -19,45 +19,41 @@ public class HealthSystem : MonoBehaviour
 
             valueChanged?.Invoke();
 
-            if (m_value is 0)
+            if (m_value == 0)
             {
                 died?.Invoke();
             }
-
-            Debug.Log(this.gameObject.name + " " + value);
         }
     }
 
     private float m_value;
+    public float maxValue { get; private set;  }
 
-    private bool m_isInitialize = false;
-
-    public void Initialize(int value)
+    public void Initialize(float maxHealth)
     {
-        if(m_isInitialize)
-        {
-            return;
-        }
-        m_value = value;
+        m_value = maxHealth;
+        maxValue = maxHealth;
     }
 
-    public void Heal(int heal)
+    public void Increase(float value)
     {
-        if (heal < 0)
+        if (value < 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(heal), "Heal cannot be hegative");
+            throw new ArgumentOutOfRangeException(nameof(value), "Heal cannot be hegative");
         }
           
-        value += heal;
+        this.value += value;
     }
 
-    public void TakeDamage(float damage)
+    public void Decrease(float damage)
     {
         if (damage < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(damage), "Heal cannot be hegative");
         }
-
-        value -= damage;
+        Debug.Log("DO Value " + value);
+        this.value -= damage;
+        Debug.Log("Posle Value " + value);
     }
+
 }
