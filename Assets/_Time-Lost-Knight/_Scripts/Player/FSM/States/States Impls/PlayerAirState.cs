@@ -155,7 +155,7 @@ public class PlayerAirState : PlayerState
         {
             if (m_jumpInputStop)
             {
-                movement.SetVelocityY(movement.currentVelocity.y * data.jumpHeightMultiplier);
+                movement.SetVelocityY(movement.currentVelocity.y * Mathf.Clamp01(data.jumpHeightMultiplier));
                 m_isJumping = false;
             }
             else if (movement.currentVelocity.y <= 0f)

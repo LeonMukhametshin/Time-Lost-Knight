@@ -36,13 +36,13 @@ public class Movement : CoreComponent, IUpdate
 
     public void SetVelocityX(float velocity)
     {
-        m_workspace.Set(velocity, currentVelocity.y);
+        m_workspace.Set(velocity, rigidbody2D.linearVelocityY);
         SetFinalVelocity();
     }
 
     public void SetVelocityY(float velocity)
     {
-        m_workspace.Set(currentVelocity.x, velocity);
+        m_workspace.Set(rigidbody2D.linearVelocityX, velocity);
         SetFinalVelocity();
     }
 

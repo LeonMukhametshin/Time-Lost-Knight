@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerLedgeClibmState : PlayerState
+public class PlayerLedgeClibmState : PlayerState, IAnimationTrigger
 {
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
@@ -108,15 +108,15 @@ public class PlayerLedgeClibmState : PlayerState
         }
     }
 
-    public override void FinishAttack()
+    public override void FinishAnimation()
     {
-        base.FinishAttack();
+        base.FinishAnimation();
         player.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, false);
     }
 
-    public override void TriggerAttack()
+    public override void TriggerAnimation()
     {
-        base.TriggerAttack();
+        base.TriggerAnimation();
 
         m_isHanding = true;
     }

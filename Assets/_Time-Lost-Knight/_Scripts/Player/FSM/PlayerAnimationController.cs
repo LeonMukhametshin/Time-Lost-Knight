@@ -14,12 +14,12 @@ public class PlayerAnimationController : MonoBehaviour
     private void AnimationTrigger()
     {
         var state = fsm.currentState as PlayerState;
-        state.TriggerAttack();
+        state.TriggerAnimation();
     }
 
     private void AnimationFinishTrigger()
     {
         var state = fsm.currentState as PlayerState;
-        state.FinishAttack();
+        state.FinishAnimation();
     }
 }

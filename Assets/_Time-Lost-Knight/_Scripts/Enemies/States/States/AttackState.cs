@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackState : EnemyState, IAnimationAttackTrigger
+public class AttackState : EnemyState, IAnimationTrigger
 {
     protected Transform attackPosition;
 
@@ -39,14 +39,14 @@ public class AttackState : EnemyState, IAnimationAttackTrigger
         movement.SetVelocityX(0f);
     }
 
-    public virtual void TriggerAttack() { }
+    public virtual void TriggerAnimation() { }
 
-    public virtual void FinishAttack() =>
+    public virtual void FinishAnimation() =>
         isAnimationFinished = true;
 }
 
-public interface IAnimationAttackTrigger
+public interface IAnimationTrigger
 {
-    void TriggerAttack();
-    void FinishAttack();
+    void TriggerAnimation();
+    void FinishAnimation();
 }

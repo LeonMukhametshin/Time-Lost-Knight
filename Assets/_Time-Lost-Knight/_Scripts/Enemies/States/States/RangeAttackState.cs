@@ -15,9 +15,9 @@ public class RangeAttackState : AttackState
         this.data = data;
     }
 
-    public override void TriggerAttack()
+    public override void TriggerAnimation()
     {
-        base.TriggerAttack();
+        base.TriggerAnimation();
 
         projectile = GameObject.Instantiate(data.projectile, attackPosition.position, attackPosition.rotation);
         projectileScript = projectile.GetComponent<Projectile>();

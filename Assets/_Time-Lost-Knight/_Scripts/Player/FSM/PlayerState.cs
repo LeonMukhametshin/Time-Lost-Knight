@@ -30,8 +30,8 @@ public class PlayerState : EntityState
         isExitingState = true;
     }
 
-    public virtual void TriggerAttack() { }
+    public virtual void TriggerAnimation() { }
 
-    public virtual void FinishAttack() =>
+    public virtual void FinishAnimation() =>
         isAnimationFinished = true;
 }

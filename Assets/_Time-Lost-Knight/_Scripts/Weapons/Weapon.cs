@@ -45,7 +45,7 @@ public abstract class Weapon : MonoBehaviour
     }
 
     public virtual void AnimationFinishTrigger() =>
-        state.FinishAttack();
+        state.FinishAnimation();
 
     public virtual void AnimatonStartMovementTrigger() =>
         state.SetPlayerVelocity(weaponData.movementSpeed[attackCounter]);

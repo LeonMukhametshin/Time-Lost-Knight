@@ -1,11 +1,9 @@
-using TMPro;
 using UnityEngine;
 
 public class Player : Entity
 {
     [SerializeField] private PlayerData m_data;
 
-    [SerializeField] private TextMeshProUGUI m_textMeshProUGUI;
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
     [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
@@ -35,7 +33,9 @@ public class Player : Entity
         fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
         fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
 
-        animationToFSM.Initialize(fsm.GetState<PlayerPrimaryAttackState>());
+        animationToFSM.Initialize(fsm.GetState<PlayerLedgeClibmState>());
+
+
 
         fsm.ChangeState<PlayerIdleState>();
     }
@@ -43,6 +43,5 @@ public class Player : Entity
     public override void Update()
     {
         base.Update();
-        m_textMeshProUGUI.text = fsm.currentState.ToString();
     }
 }

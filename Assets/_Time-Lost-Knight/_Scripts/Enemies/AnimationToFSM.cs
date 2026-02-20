@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class AnimationToFSM : MonoBehaviour
 {
-    public IAnimationAttackTrigger attackState;
+    public IAnimationTrigger attackState;
 
-    public void Initialize(IAnimationAttackTrigger attackState)
+    public void Initialize(IAnimationTrigger attackState)
     {
         this.attackState = attackState;
     }
 
     private void TriggerAttack()
     {
-        attackState.TriggerAttack();
+        attackState.TriggerAnimation();
     }
 
     private void FinishAttack()
     {
-        attackState.FinishAttack();
+        attackState.FinishAnimation();
     }
 }

@@ -17,9 +17,9 @@ public class MeleeAttackState : AttackState
         this.data = data;
     }
 
-    public override void TriggerAttack()
+    public override void TriggerAnimation()
     {
-        base.TriggerAttack();
+        base.TriggerAnimation();
 
         var detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, 
             data.attackRadius, data.playerMask);

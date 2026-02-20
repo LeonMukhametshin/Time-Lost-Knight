@@ -25,18 +25,10 @@ public class EnemyCollisionDetector : CollisionDetector
     public virtual bool CheckPlayerInCloseRangeAction() =>
         Physics2D.Raycast(m_playerChecker.position, transform.right, m_closeRangeActionDistance, m_playerLayer);
 
-
-    //TODO: remove after tests
-    private FlipContoller m_flipContoller;
-    private FlipContoller flipContoller
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-
     public virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(m_wallCheck.position,
-            m_wallCheck.position + (Vector3)(Vector2.right * flipContoller.facingDirection * m_wallCheckDistance));
+            m_wallCheck.position + (Vector3)(Vector2.right * flipController.facingDirection * m_wallCheckDistance));
         Gizmos.DrawLine(m_ledgeCheck.position,
             m_ledgeCheck.position + (Vector3)(Vector2.down * m_wallCheckDistance));
 
