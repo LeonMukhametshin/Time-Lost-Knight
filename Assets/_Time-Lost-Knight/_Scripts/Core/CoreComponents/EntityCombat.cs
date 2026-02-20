@@ -12,12 +12,6 @@ public class EntityCombat : Combat, IKnockbackable, IUpdate
     private bool isKnockbackActive;
     private float knockbackStartTime;
 
-    public override void Awake()
-    {
-        base.Awake();
-        core.AddUpdateComponent(this);
-    }
-
     public void Update()
     {
         CheckKnockback();

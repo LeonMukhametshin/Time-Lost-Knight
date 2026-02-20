@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class PlayerAirState : PlayerState
 {
-    protected FlipContoller flipController => 
-        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
 
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
     protected PlayerCollisionDetector collisionDetector => 
         m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
-
 
     private Movement m_movement;
     private FlipContoller m_flipContoller;

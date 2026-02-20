@@ -6,12 +6,12 @@ public class PlayerAbilytiState : PlayerState
     protected FlipContoller flipController =>
         m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-    protected CollisionDetector collisionDetector => 
-        m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+    protected PlayerCollisionDetector collisionDetector => 
+        m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
 
     private Movement m_movement;
     private FlipContoller m_flipContoller;
-    private CollisionDetector m_collisionDetector;
+    private PlayerCollisionDetector m_collisionDetector;
 
     protected bool isAbilityDone;
     private bool m_isGrounded;

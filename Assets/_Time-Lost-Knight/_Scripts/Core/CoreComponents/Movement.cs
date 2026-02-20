@@ -8,13 +8,6 @@ public class Movement : CoreComponent, IUpdate
 
     private Vector2 m_workspace;
 
-    public override void Awake()
-    {
-        base.Awake();
-
-        core.AddUpdateComponent(this);
-    }
-
     public void Update() =>
         currentVelocity = rigidbody2D.linearVelocity;
 

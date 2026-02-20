@@ -41,8 +41,11 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public virtual void FixedUpdate() =>
+    public virtual void FixedUpdate() 
+    {
         fsm.FixedUpdate();
+    }
+    
 
     public virtual void ResetStunResistance()
     {

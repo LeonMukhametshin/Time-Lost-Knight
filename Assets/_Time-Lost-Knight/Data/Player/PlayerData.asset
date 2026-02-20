@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724399f35c1a93b449e4f57b4d960e5f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  <stunRecoveryTime>k__BackingField: 1.18
   <movementSpeed>k__BackingField: 20
   <jumpVelocity>k__BackingField: 24
   <amountOfJumps>k__BackingField: 1
@@ -35,8 +36,6 @@ MonoBehaviour:
   <crouchMovementVelocity>k__BackingField: 4.73
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 1.66
-  <checkersData>k__BackingField: {fileID: 11400000, guid: 9d098f2d11e69044c83c40bec00b0830, type: 2}
-  <colliderControllerData>k__BackingField: {fileID: 11400000, guid: 4b04fa0329b64684a859a56d102a8414, type: 2}
   <oneWayPlatformLayer>k__BackingField: 10
   <dropThroughDuration>k__BackingField: 0.2
   <dropVelocity>k__BackingField: 10

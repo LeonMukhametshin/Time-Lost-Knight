@@ -21,7 +21,6 @@ public class Core : MonoBehaviour
 
         if (coreComponents.ContainsKey(type))
         {
-            Debug.LogWarning($"Core already contains component of type {type}");
             return;
         }
 
@@ -33,7 +32,7 @@ public class Core : MonoBehaviour
         }
     }
 
-    public void AddUpdateComponent(IUpdate component)
+    private void AddUpdateComponent(IUpdate component)
     {
         if (updateComponents.Contains(component))
         {

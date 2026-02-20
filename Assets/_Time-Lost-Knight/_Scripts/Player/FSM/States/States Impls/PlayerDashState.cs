@@ -42,7 +42,7 @@ public class PlayerDashState : PlayerAbilytiState
 
         if(movement.currentVelocity.y > 0)
         {
-            movement.SetVelocityX(movement.currentVelocity.y * data.dashEndYMultiplier);
+            movement.SetVelocityY(movement.currentVelocity.y * data.dashEndYMultiplier);
         }
     }
 
