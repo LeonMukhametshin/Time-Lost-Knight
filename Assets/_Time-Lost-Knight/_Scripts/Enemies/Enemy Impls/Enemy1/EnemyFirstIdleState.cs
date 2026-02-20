@@ -2,7 +2,7 @@ public class EnemyFirstIdleState : IdleState
 {
     private EnemyFirst m_enemy;
 
-    public EnemyFirstIdleState(FSM fsm, Entity entity, 
+    public EnemyFirstIdleState(EnemyFSM fsm, Entity entity, 
         string animBoolName, IdleStateData data, EnemyFirst enemy) 
         : base(fsm, entity, animBoolName, data)
     {

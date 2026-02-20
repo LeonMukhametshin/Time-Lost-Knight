@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IdleState : State
+public class IdleState : EnemyState
 {
     protected IdleStateData data;
 
@@ -10,27 +10,22 @@ public class IdleState : State
 
     protected float idleTime;
 
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-    private EnemyCollisionDetector enemyCollisionDetector
-    {
-        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-    }
-
+    protected FlipContoller flipController =>
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+   
+    private EnemyCollisionDetector enemyCollisionDetector => 
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    
     private Movement m_movement;
     private FlipContoller m_flipContoller;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public IdleState(FSM fsm, Entity entity, 
-        string animBoolName, IdleStateData data) 
-        : base(fsm, entity, animBoolName)
+    public IdleState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, IdleStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.data = data;
     }
@@ -64,18 +59,16 @@ public class IdleState : State
         }
     }
 
-    public void SetFlipAfterIdle(bool flip)
+    public override void DoCheck()
     {
-        flipAfterIdle = flip;
-    }
-
-    private void SetRandomIdleTime() =>
-        idleTime = UnityEngine.Random.Range(data.minIdleTime, data.maxIdleTime);
-
-    public override void DoChecks()
-    {
-        base.DoChecks();
+        base.DoCheck();
 
         isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
+
+    public void SetFlipAfterIdle(bool flip) =>
+        flipAfterIdle = flip;
+
+    private void SetRandomIdleTime() =>
+        idleTime = Random.Range(data.minIdleTime, data.maxIdleTime);
 }

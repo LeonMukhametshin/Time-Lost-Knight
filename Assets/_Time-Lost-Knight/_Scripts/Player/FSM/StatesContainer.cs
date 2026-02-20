@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class StatesContainer
 {
-    public PlayerFSM fsm { get; private set; }
+    public EntityFSM fsm { get; private set; }
     private Player m_player;
     private PlayerData m_playerData;
 
@@ -19,7 +19,7 @@ public class StatesContainer
 
     private void CreateStates(Player player, PlayerData data)
     {
-        fsm = new PlayerFSM();
+        fsm = new EntityFSM();
 
         RegisteState(new PlayerIdleState(player, fsm, data, PlayerAnimationConstants.IDLE));
         RegisteState(new PlayerMoveState(player, fsm, data, PlayerAnimationConstants.MOVEMENT));
@@ -40,13 +40,8 @@ public class StatesContainer
     }
 
     public void SetBaseState()
-    { 
-        if(fsm.currentState is not null)
-        {
-            return;
-        }
-
-        fsm.Initialize(GetState<PlayerIdleState>());
+    {
+        fsm.ChangeState<PlayerIdleState>();
     }
 
     private void RegisteState<T>(T state) where T : PlayerState

@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class EnemyTwoPlayerDetectedState : PlayerDetectedState
 {
-    private EnemyTwo m_enemy;
-
-    public EnemyTwoPlayerDetectedState(FSM fsm, Entity entity, 
-        string animBoolName, PlayerDetectedData data, EnemyTwo enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyTwoPlayerDetectedState(EntityFSM fsm, Core core, 
+        string animBoolName, 
+        Entity entity, PlayerDetectedData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -17,22 +15,24 @@ public class EnemyTwoPlayerDetectedState : PlayerDetectedState
 
         if(performeCloseRangeAction)
         {
-            if(Time.time >= m_enemy.dodgeState.startTime + m_enemy.m_dodgeStateData.dodgeCooldown)
+            var dodgeState = fsm.GetState<EnemyTwoDodgeState>();
+            if(Time.time >= dodgeState.startTime 
+                + dodgeState.data.dodgeCooldown)
             {
-                fsm.SetState(m_enemy.dodgeState);
+                fsm.ChangeState<EnemyTwoDodgeState>();
             }
             else
             {
-                fsm.SetState(m_enemy.meleeAttackState);
+                fsm.ChangeState<EnemyTwoMeleeAttackState>();
             }
         }
         else if(performeLongRangeAction)
         {
-            fsm.SetState(m_enemy.rangeAttackState);
+            fsm.ChangeState<EnemyTwoRangeAttackState>();
         }
         else if (!isPlayerInMaxAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
     }
 }

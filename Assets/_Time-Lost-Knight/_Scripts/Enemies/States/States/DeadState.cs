@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class DeadState : State
+public class DeadState : EnemyState
 {
     protected DeadStateData data;
 
-    public DeadState(FSM fsm, Entity entity, 
-        string animBoolName, DeadStateData data) 
-        : base(fsm, entity, animBoolName)
+    public DeadState(float startTime, string animBoolName, 
+        Entity entity, DeadStateData data) 
+        : base(startTime, animBoolName, entity)
     {
         this.data = data;
     }

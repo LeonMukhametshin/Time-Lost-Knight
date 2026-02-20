@@ -2,7 +2,7 @@ public class PlayerJumpState : PlayerAbilytiState
 {
     private int amountOfJumpsLeft;
 
-    public PlayerJumpState(Player player, PlayerFSM fsm, 
+    public PlayerJumpState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

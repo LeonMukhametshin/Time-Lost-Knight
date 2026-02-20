@@ -2,7 +2,7 @@ public class EnemyTwoLookForPlayerState : LookForPlayerState
 {
     private EnemyTwo m_enemy;
 
-    public EnemyTwoLookForPlayerState(FSM fsm, Entity entity, 
+    public EnemyTwoLookForPlayerState(EnemyFSM fsm, Entity entity, 
         string animBoolName, LookForPlayerStateData data, EnemyTwo enemy) 
         : base(fsm, entity, animBoolName, data)
     {

@@ -2,7 +2,7 @@ public class EnemyTwoStunState : StanState
 {
     private EnemyTwo m_enemy;
 
-    public EnemyTwoStunState(FSM fsm, Entity entity,
+    public EnemyTwoStunState(EnemyFSM fsm, Entity entity,
         string animBoolName, StunStateData data, EnemyTwo enemy) 
         : base(fsm, entity, animBoolName, data)
     {

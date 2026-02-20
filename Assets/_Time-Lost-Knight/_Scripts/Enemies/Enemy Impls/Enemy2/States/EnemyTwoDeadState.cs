@@ -2,7 +2,7 @@ public class EnemyTwoDeadState : DeadState
 {
     private EnemyTwo m_enemy;
 
-    public EnemyTwoDeadState(FSM fsm, Entity entity, 
+    public EnemyTwoDeadState(EnemyFSM fsm, Entity entity, 
         string animBoolName, DeadStateData data, EnemyTwo enemy) 
         : base(fsm, entity, animBoolName, data)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LookForPlayerState : State
+public class LookForPlayerState : EnemyState
 {
     protected LookForPlayerStateData data;
 
@@ -32,16 +32,16 @@ public class LookForPlayerState : State
     private FlipContoller m_flipContoller;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public LookForPlayerState(FSM fsm, Entity entity,
+    public LookForPlayerState(EnemyFSM fsm, Entity entity,
         string animBoolName, LookForPlayerStateData data)
         : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
         isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }

@@ -9,7 +9,7 @@ public class EnemyFirstPlayerDetectedState : PlayerDetectedState
     private FlipContoller m_flipContoller;
 
 
-    public EnemyFirstPlayerDetectedState(FSM fsm, Entity entity, 
+    public EnemyFirstPlayerDetectedState(EnemyFSM fsm, Entity entity, 
         string animBoolName, PlayerDetectedData data, EnemyFirst enemy) 
         : base(fsm, entity, animBoolName, data)
     {

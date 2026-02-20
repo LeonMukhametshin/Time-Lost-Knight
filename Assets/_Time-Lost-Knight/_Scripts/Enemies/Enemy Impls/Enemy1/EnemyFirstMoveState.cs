@@ -2,7 +2,7 @@ public class EnemyFirstMoveState : MoveState
 {
     private EnemyFirst m_enemy;
 
-    public EnemyFirstMoveState(FSM fsm, 
+    public EnemyFirstMoveState(EnemyFSM fsm, 
         Entity entity, 
         string animBoolName, 
         MoveStateData data, 

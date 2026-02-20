@@ -7,7 +7,7 @@ public class RangeAttackState : AttackState
     protected GameObject projectile;
     protected Projectile projectileScript;
 
-    public RangeAttackState(FSM fsm, Entity entity, 
+    public RangeAttackState(EnemyFSM fsm, Entity entity, 
         string animBoolName, Transform attackPosition, RangeAttackData data) 
         : base(fsm, entity, animBoolName, attackPosition)
     {

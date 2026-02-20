@@ -7,7 +7,7 @@ public class PlayerCrouchIdleState : PlayerGroundState
 
     private ColliderController m_colliderController;
 
-    public PlayerCrouchIdleState(Player player, PlayerFSM fsm, 
+    public PlayerCrouchIdleState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName)
         : base(player, fsm, playerData, animBoolName)
     {

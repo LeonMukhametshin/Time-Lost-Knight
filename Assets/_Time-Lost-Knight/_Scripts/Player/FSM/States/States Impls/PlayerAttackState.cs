@@ -15,7 +15,7 @@ public class PlayerAttackState : PlayerAbilytiState
     private bool setVelocity;
     private bool checkShouldFlip;
 
-    public PlayerAttackState(Player player, PlayerFSM fsm,
+    public PlayerAttackState(Player player, EntityFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

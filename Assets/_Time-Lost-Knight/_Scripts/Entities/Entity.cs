@@ -2,9 +2,13 @@
 
 public class Entity : MonoBehaviour
 {
-    public FSM fsm;
+    [field: SerializeField] public Core core { get; private set; }
 
     public EntityData data;
+
+
+
+    public EntityFSM fsm;
 
     protected Movement movement
     {
@@ -12,7 +16,6 @@ public class Entity : MonoBehaviour
     }
     private Movement m_movement;
 
-    [field: SerializeField] public Core core { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
     [field: SerializeField] public AnimationToFSM animationToFSM { get; private set; }
 
@@ -24,12 +27,12 @@ public class Entity : MonoBehaviour
 
     public virtual void Awake()
     {
-        fsm = new FSM();
+        fsm = new EntityFSM();
     }
 
     public virtual void Update()
     {
-        fsm.currentState.Update();
+        fsm.Update();
 
         animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rigidbody2D.linearVelocityY);
 
@@ -40,7 +43,7 @@ public class Entity : MonoBehaviour
     }
 
     public virtual void FixedUpdate() =>
-        fsm.currentState.FixedUpdate();
+        fsm.FixedUpdate();
 
     public virtual void ResetStunResistance()
     {

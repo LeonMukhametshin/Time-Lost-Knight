@@ -4,7 +4,7 @@ public class EnemyFirstMeleeAttackState : MeleeAttackState
 {
     private EnemyFirst enemy;
 
-    public EnemyFirstMeleeAttackState(FSM fsm, 
+    public EnemyFirstMeleeAttackState(EnemyFSM fsm, 
         Entity entity, 
         string animBoolName, 
         Transform attackPosition, 

@@ -12,7 +12,7 @@ public class PlayerCrouchMoveState : PlayerGroundState
     private FlipContoller m_flipContoller;
     private ColliderController m_colliderController;
 
-    public PlayerCrouchMoveState(Player player, PlayerFSM fsm, 
+    public PlayerCrouchMoveState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

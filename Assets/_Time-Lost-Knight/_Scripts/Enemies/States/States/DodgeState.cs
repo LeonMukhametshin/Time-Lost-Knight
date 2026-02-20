@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DodgeState : State
+public class DodgeState : EnemyState
 {
-    protected DodgeStateData data;
+    public DodgeStateData data { get; private set; }
 
     protected bool performCloseRangeAction;
     protected bool isPlayerInMaxAgroRange;
@@ -29,16 +29,16 @@ public class DodgeState : State
     private FlipContoller m_flipController;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public DodgeState(FSM fsm, Entity entity, 
+    public DodgeState(EnemyFSM fsm, Entity entity, 
         string animBoolName, DodgeStateData data) 
         : base(fsm, entity, animBoolName)
     {
-        this.data = data;
+        this.data = data
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
         performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
         isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();

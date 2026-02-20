@@ -2,7 +2,7 @@ public class EnemyTwoDodgeState : DodgeState
 {
     private EnemyTwo m_enemy;
 
-    public EnemyTwoDodgeState(FSM fsm, Entity entity,
+    public EnemyTwoDodgeState(EnemyFSM fsm, Entity entity,
         string animBoolName, DodgeStateData data, EnemyTwo enemy)
         : base(fsm, entity, animBoolName, data)
     {

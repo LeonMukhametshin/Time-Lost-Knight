@@ -15,7 +15,7 @@ public class PlayerAbilytiState : PlayerState
     protected bool isAbilityDone;
     private bool m_isGrounded;
 
-    public PlayerAbilytiState(Player player, PlayerFSM fsm, 
+    public PlayerAbilytiState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

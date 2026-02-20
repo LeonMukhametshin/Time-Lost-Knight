@@ -32,7 +32,7 @@ public class PlayerLedgeClibmState : PlayerState
     private bool m_jumpInput;
     private bool m_isTouchingCeiling;
 
-    public PlayerLedgeClibmState(Player player, PlayerFSM fsm, 
+    public PlayerLedgeClibmState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

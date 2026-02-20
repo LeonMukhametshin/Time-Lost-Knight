@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Zenject;
 
 public class StateMachine
 {
-    private IState m_currentState;
+    public IState currentState => m_currentState;
+    protected IState m_currentState;
 
     protected Dictionary<Type, IState> m_states = new();
 

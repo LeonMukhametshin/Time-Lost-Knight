@@ -7,7 +7,7 @@ public class PlayerMoveState : PlayerGroundState
 
     private FlipContoller m_flipContoller;
 
-    public PlayerMoveState(Player player, PlayerFSM fsm,
+    public PlayerMoveState(Player player, EntityFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

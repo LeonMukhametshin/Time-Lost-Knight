@@ -11,9 +11,9 @@ public class MeleeAttackState : AttackState
 
     private FlipContoller m_flipContoller;
 
-    public MeleeAttackState(FSM fsm, Entity entity, 
-        string animBoolName, Transform attackPosition, MeleeAttackStateData data) 
-        : base(fsm, entity, animBoolName, attackPosition)
+    public MeleeAttackState(float startTime, string animBoolName,
+        Entity entity, Transform attackPosition, MeleeAttackStateData data) 
+        : base(startTime, animBoolName, entity, attackPosition)
     {
         this.data = data;
     }

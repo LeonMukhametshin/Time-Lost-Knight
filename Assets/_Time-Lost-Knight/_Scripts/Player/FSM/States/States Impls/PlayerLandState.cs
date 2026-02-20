@@ -1,6 +1,6 @@
 public class PlayerLandState : PlayerGroundState
 {
-    public PlayerLandState(Player player, PlayerFSM fsm, 
+    public PlayerLandState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

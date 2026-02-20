@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class EnemyTwo : Entity
-{
+{  
     public EnemyTwoIdleState idleState { get; private set; }
     public EnemyTwoMoveState moveState { get; private set; }
     public EnemyTwoPlayerDetectedState playerDetectedState { get; private set; }
@@ -31,12 +31,13 @@ public class EnemyTwo : Entity
     {
         base.Awake();
 
-        idleState = new EnemyTwoIdleState(fsm, this,
-            EnemyAnimationConst.IDLE, m_idleStateData, this);
-        moveState = new EnemyTwoMoveState(fsm, this, 
-            EnemyAnimationConst.MOVE, m_moveStateData, this);
-        playerDetectedState = new EnemyTwoPlayerDetectedState(fsm, this, 
-            EnemyAnimationConst.PLAYER_DETECTED, m_playerDetectedData, this);
+        idleState = new EnemyTwoIdleState(fsm, core, EnemyAnimationConst.IDLE, 
+            this, m_idleStateData);
+        moveState = new EnemyTwoMoveState(fsm, core, EnemyAnimationConst.MOVE, 
+            this, m_moveStateData);
+        playerDetectedState = new EnemyTwoPlayerDetectedState(fsm, core, EnemyAnimationConst.PLAYER_DETECTED, 
+            this, m_playerDetectedData);
+
         meleeAttackState = new EnemyTwoMeleeAttackState(fsm, this, 
             EnemyAnimationConst.MELEE_ATTACK, m_meleeAttackPosition, m_meleeAttackData, this);
         lookForPlayerState = new EnemyTwoLookForPlayerState(fsm, this, 
@@ -52,6 +53,6 @@ public class EnemyTwo : Entity
 
         animationToFSM.Initialize(meleeAttackState);
 
-        fsm.Initialize(moveState);
+        fsm.ChangeState<EnemyTwoMoveState>();
     }
 }

@@ -1,10 +1,10 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-    private readonly List<CoreComponent> coreComponents = new();   
+    private readonly Dictionary<Type, CoreComponent> coreComponents = new();
     private List<IUpdate> updateComponents = new();
 
     public void Update()
@@ -15,7 +15,25 @@ public class Core : MonoBehaviour
         }
     }
 
-    public void AddUpdateComponent(IUpdate component)
+    public void AddCoreComponent(CoreComponent component)
+    {
+        var type = component.GetType();
+
+        if (coreComponents.ContainsKey(type))
+        {
+            Debug.LogWarning($"Core already contains component of type {type}");
+            return;
+        }
+
+        coreComponents.Add(type, component);
+
+        if (component is IUpdate updateComponent)
+        {
+            AddUpdateComponent(updateComponent);
+        }
+    }
+
+    private void AddUpdateComponent(IUpdate component)
     {
         if (updateComponents.Contains(component))
         {
@@ -25,32 +43,14 @@ public class Core : MonoBehaviour
         updateComponents.Add(component);
     }
 
-    public void AddCoreComponent(CoreComponent coreComponent)
-    {
-        if (coreComponents.Contains(coreComponent))
-        {
-            return;
-        }
-
-        coreComponents.Add(coreComponent);
-    }
 
     public T GetCoreComponent<T>() where T : CoreComponent
     {
-        var component = coreComponents.OfType<T>().FirstOrDefault();
-
-        if(component)
+        if (coreComponents.TryGetValue(typeof(T), out var component))
         {
-            return component;
+            return component as T;
         }
 
-        component = GetComponentInChildren<T>();
-
-        if (component is null)
-        {
-            throw new System.Exception();
-        }
-
-        return component;
+        throw new Exception($"Core component of type {typeof(T)} not found.");
     }
 }

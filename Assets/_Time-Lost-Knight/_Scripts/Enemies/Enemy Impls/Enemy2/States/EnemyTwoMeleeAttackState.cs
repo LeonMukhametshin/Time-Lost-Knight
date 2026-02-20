@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class EnemyTwoMeleeAttackState : MeleeAttackState
 {
-    private EnemyTwo m_enemy;
-
-    public EnemyTwoMeleeAttackState(FSM fsm, Entity entity, string animBoolName, 
-        Transform attackPosition, MeleeAttackStateData data, EnemyTwo enemy) 
-        : base(fsm, entity, animBoolName, attackPosition, data)
+    public EnemyTwoMeleeAttackState(float startTime, string animBoolName,
+        Entity entity, Transform attackPosition, MeleeAttackStateData data)
+        : base(startTime, animBoolName, entity, attackPosition, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -22,11 +19,11 @@ public class EnemyTwoMeleeAttackState : MeleeAttackState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<PlayerDetectedState>();
         }
         else if (!isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.lookForPlayerState);
+            fsm.ChangeState<LookForPlayerState>();
         }
     }
 }

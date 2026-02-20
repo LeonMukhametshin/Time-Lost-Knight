@@ -6,7 +6,7 @@ public class PlayerWallSlideState : PlayerWallTouchingState
     }
     private Movement m_movement;
 
-    public PlayerWallSlideState(Player player, PlayerFSM fsm,
+    public PlayerWallSlideState(Player player, EntityFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

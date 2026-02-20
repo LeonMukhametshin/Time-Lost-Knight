@@ -1,12 +1,9 @@
 public class EnemyTwoIdleState : IdleState
 {
-    public EnemyTwo m_enemy;
-
-    public EnemyTwoIdleState(FSM fsm, Entity entity, 
-        string animBoolName, IdleStateData data, EnemyTwo enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyTwoIdleState(EntityFSM fsm, Core core,
+        string animBoolName, Entity entity, IdleStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -15,11 +12,11 @@ public class EnemyTwoIdleState : IdleState
 
         if(isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<PlayerDetectedState>();
         }
         else if (isIdleTimeOver)
         {
-            fsm.SetState(m_enemy.moveState);
+            fsm.ChangeState<MoveState>();
         }
     }
 }

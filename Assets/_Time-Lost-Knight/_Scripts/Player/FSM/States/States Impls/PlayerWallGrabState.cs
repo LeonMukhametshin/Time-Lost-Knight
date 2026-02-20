@@ -11,7 +11,7 @@ public class PlayerWallGrabState : PlayerWallTouchingState
 
     private Vector2 m_holdPosition;
 
-    public PlayerWallGrabState(Player player, PlayerFSM fsm,
+    public PlayerWallGrabState(Player player, EntityFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

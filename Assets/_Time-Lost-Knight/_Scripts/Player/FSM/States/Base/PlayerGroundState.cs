@@ -28,7 +28,7 @@ public class PlayerGroundState : PlayerState
 
     private bool m_dropDownInput;
 
-    public PlayerGroundState(Player player, PlayerFSM fsm, 
+    public PlayerGroundState(Player player, EntityFSM fsm, 
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

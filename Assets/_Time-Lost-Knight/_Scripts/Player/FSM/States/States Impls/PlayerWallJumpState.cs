@@ -10,7 +10,7 @@ public class PlayerWallJumpState : PlayerAbilytiState
 
     private int m_wallJumpDirection;
 
-    public PlayerWallJumpState(Player player, PlayerFSM fsm,
+    public PlayerWallJumpState(Player player, EntityFSM fsm,
         PlayerData playerData, string animBoolName) 
         : base(player, fsm, playerData, animBoolName)
     {

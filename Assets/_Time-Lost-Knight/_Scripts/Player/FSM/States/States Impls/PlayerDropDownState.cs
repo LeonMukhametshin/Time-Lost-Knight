@@ -18,7 +18,7 @@ public class PlayerDropDownState : PlayerState
     private float m_duration;
 
 
-    public PlayerDropDownState(Player player, PlayerFSM fsm,
+    public PlayerDropDownState(Player player, EntityFSM fsm,
         PlayerData playerData, string animBoolName)
         : base(player, fsm, playerData, animBoolName)
     {

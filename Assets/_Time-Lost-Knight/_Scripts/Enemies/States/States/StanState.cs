@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StanState : State
+public class StanState : EnemyState
 {
     protected StunStateData data;
 
@@ -24,16 +24,16 @@ public class StanState : State
     private Movement m_movement;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public StanState(FSM fsm, Entity entity, 
+    public StanState(EnemyFSM fsm, Entity entity, 
         string animBoolName, StunStateData data) 
         : base(fsm, entity, animBoolName)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
         isGrounded = enemyCollisionDetector.CheckGrounded();
         performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();

@@ -2,7 +2,7 @@ public class EnemyFirstChargeState : ChargeState
 {
     private EnemyFirst enemy;
 
-    public EnemyFirstChargeState(FSM fsm, Entity entity, 
+    public EnemyFirstChargeState(EnemyFSM fsm, Entity entity, 
         string animBoolName, ChargeStateData data, EnemyFirst enemy) 
         : base(fsm, entity, animBoolName, data)
     {

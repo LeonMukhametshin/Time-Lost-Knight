@@ -1,12 +1,9 @@
 public class EnemyTwoMoveState : MoveState
 {
-    private EnemyTwo m_enemy;
-
-    public EnemyTwoMoveState(FSM fsm, Entity entity, 
-        string animBoolName, MoveStateData data, EnemyTwo enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyTwoMoveState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, MoveStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -15,12 +12,12 @@ public class EnemyTwoMoveState : MoveState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<PlayerDetectedState>();
         }
         else if (isDetactingWall || !isDetactingLedge)
         {
-            m_enemy.idleState.SetFlipAfterIdle(true);
-            fsm.SetState(m_enemy.idleState);
+            fsm.GetState<EnemyTwoIdleState>().SetFlipAfterIdle(true);
+            fsm.ChangeState<EnemyTwoIdleState>();
         }
     }
 }

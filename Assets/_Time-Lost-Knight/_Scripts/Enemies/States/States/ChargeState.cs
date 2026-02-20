@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChargeState : State
+public class ChargeState : EnemyState
 {
     protected ChargeStateData data;
     protected bool isPlayerInMinAgroRange;
@@ -28,7 +28,7 @@ public class ChargeState : State
     private FlipContoller m_flipContoller;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public ChargeState(FSM fsm, Entity entity, 
+    public ChargeState(EnemyFSM fsm, Entity entity, 
         string animBoolName, ChargeStateData data) 
         : base(fsm, entity, animBoolName)
     {
@@ -53,9 +53,9 @@ public class ChargeState : State
         }
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
         isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
         isDetectingLedge = enemyCollisionDetector.CheckLedge();

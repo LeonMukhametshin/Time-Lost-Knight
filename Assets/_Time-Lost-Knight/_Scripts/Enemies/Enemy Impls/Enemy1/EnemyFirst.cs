@@ -37,6 +37,6 @@ public class EnemyFirst : Entity
 
         animationToFSM.Initialize(meleeAttackState);
 
-        fsm.Initialize(moveState);
+        fsm.SetState(moveState);
     }
 }

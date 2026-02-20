@@ -4,7 +4,7 @@ public class EnemyTwoRangeAttackState : RangeAttackState
 {
     private EnemyTwo m_enemy;
 
-    public EnemyTwoRangeAttackState(FSM fsm, Entity entity, 
+    public EnemyTwoRangeAttackState(EnemyFSM fsm, Entity entity, 
         string animBoolName, Transform attackPosition, RangeAttackData data, EnemyTwo enemy) 
         : base(fsm, entity, animBoolName, attackPosition, data)
     {

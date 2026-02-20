@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackState : State
+public class AttackState : EnemyState
 {
     protected Transform attackPosition;
     protected bool isAnimationFinished;
@@ -19,16 +19,16 @@ public class AttackState : State
     private Movement m_movement;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public AttackState(FSM fsm, Entity entity, 
-        string animBoolName, Transform attackPosition) 
-        : base(fsm, entity, animBoolName)
+    public AttackState(float startTime, string animBoolName,
+        Entity entity, Transform attackPosition) 
+        : base(startTime, animBoolName, entity)
     {
         this.attackPosition = attackPosition;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
         isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
