@@ -1,12 +1,9 @@
 public class EnemyTwoDodgeState : DodgeState
 {
-    private EnemyTwo m_enemy;
-
-    public EnemyTwoDodgeState(EnemyFSM fsm, Entity entity,
-        string animBoolName, DodgeStateData data, EnemyTwo enemy)
-        : base(fsm, entity, animBoolName, data)
+    public EnemyTwoDodgeState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, DodgeStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -20,15 +17,15 @@ public class EnemyTwoDodgeState : DodgeState
 
         if (isPlayerInMaxAgroRange && performCloseRangeAction)
         {
-            fsm.SetState(m_enemy.meleeAttackState);
+            fsm.ChangeState<EnemyTwoMeleeAttackState>();
         }
         else if (isPlayerInMaxAgroRange && !performCloseRangeAction)
         {
-            fsm.SetState(m_enemy.rangeAttackState);
+            fsm.ChangeState<EnemyTwoRangeAttackState>();
         }
         else if (!isPlayerInMaxAgroRange)
         {
-            fsm.SetState(m_enemy.lookForPlayerState);
+            fsm.ChangeState<EnemyTwoLookForPlayerState>();
         }
     }
 }

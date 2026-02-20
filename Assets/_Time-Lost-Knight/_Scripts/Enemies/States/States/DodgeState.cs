@@ -10,30 +10,24 @@ public class DodgeState : EnemyState
     protected bool isGrounded;
     protected bool isDodgeOver;
 
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    private FlipContoller flipContoller
-    {
-        get => m_flipController ??= core.GetCoreComponent<FlipContoller>();
-    }
+    private FlipContoller flipContoller => 
+        m_flipController ??= core.GetCoreComponent<FlipContoller>();
 
-    private EnemyCollisionDetector enemyCollisionDetector
-    {
-        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-    }
+    private EnemyCollisionDetector enemyCollisionDetector => 
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;
     private FlipContoller m_flipController;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public DodgeState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, DodgeStateData data) 
-        : base(fsm, entity, animBoolName)
+    public DodgeState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, DodgeStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
-        this.data = data
+        this.data = data;
     }
 
     public override void DoCheck()

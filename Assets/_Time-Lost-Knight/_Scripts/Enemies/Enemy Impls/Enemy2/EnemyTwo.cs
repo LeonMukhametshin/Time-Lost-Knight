@@ -37,6 +37,10 @@ public class EnemyTwo : Entity
             this, m_moveStateData);
         playerDetectedState = new EnemyTwoPlayerDetectedState(fsm, core, EnemyAnimationConst.PLAYER_DETECTED, 
             this, m_playerDetectedData);
+        dodgeState = new EnemyTwoDodgeState(fsm, core, EnemyAnimationConst.DODGE,
+            this, m_dodgeStateData);
+        
+        rangeAttackState = new EnemyTwoRangeAttackState(fsm, this,
 
         meleeAttackState = new EnemyTwoMeleeAttackState(fsm, this, 
             EnemyAnimationConst.MELEE_ATTACK, m_meleeAttackPosition, m_meleeAttackData, this);
@@ -46,9 +50,6 @@ public class EnemyTwo : Entity
             EnemyAnimationConst.STUN, m_stunStateData, this);
         deadState = new EnemyTwoDeadState(fsm, this,
             EnemyAnimationConst.DEAD, m_deadStateData, this);
-        dodgeState = new EnemyTwoDodgeState(fsm, this,
-            EnemyAnimationConst.DODGE, m_dodgeStateData, this);
-        rangeAttackState = new EnemyTwoRangeAttackState(fsm, this,
             EnemyAnimationConst.RANGED_ATTACK, m_rangeAttackPosition, m_rangeAttackData, this);
 
         animationToFSM.Initialize(meleeAttackState);

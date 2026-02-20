@@ -3,25 +3,22 @@ using UnityEngine;
 public class AttackState : EnemyState
 {
     protected Transform attackPosition;
+
     protected bool isAnimationFinished;
     protected bool isPlayerInMinAgroRange;
 
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    private EnemyCollisionDetector enemyCollisionDetector
-    {
-        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-    }
+    private EnemyCollisionDetector enemyCollisionDetector => 
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public AttackState(float startTime, string animBoolName,
-        Entity entity, Transform attackPosition) 
-        : base(startTime, animBoolName, entity)
+    public AttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, Transform attackPosition) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.attackPosition = attackPosition;
     }
