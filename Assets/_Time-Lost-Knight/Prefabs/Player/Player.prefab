@@ -797,8 +797,8 @@ GameObject:
   - component: {fileID: 6256467284129163076}
   - component: {fileID: 6453085681620009920}
   - component: {fileID: 7302137115000031554}
-  - component: {fileID: 1720691514665249094}
   - component: {fileID: 3170822670122882001}
+  - component: {fileID: 4589479619646289466}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -994,26 +994,13 @@ MonoBehaviour:
   <core>k__BackingField: {fileID: 252118916741010994}
   data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
   <animator>k__BackingField: {fileID: 8830459990270249974}
-  <animationToFSM>k__BackingField: {fileID: 0}
+  <animationToFSM>k__BackingField: {fileID: 4589479619646289466}
   m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
   <inventory>k__BackingField: {fileID: 3170822670122882001}
   <dashVizualizer>k__BackingField:
     indecator: {fileID: 8881360740836153499}
   <inputHandler>k__BackingField: {fileID: 8068713137059887045}
-  <animationController>k__BackingField: {fileID: 1720691514665249094}
---- !u!114 &1720691514665249094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6435266003297406978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459f7d86b6e7cbe408b0e3d909fcbae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationTrigger
-  <animator>k__BackingField: {fileID: 8830459990270249974}
+  <animationController>k__BackingField: {fileID: 0}
 --- !u!114 &3170822670122882001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1016,18 @@ MonoBehaviour:
   weapons:
   - {fileID: 4940170725263228073}
   - {fileID: 4940170725263228073}
+--- !u!114 &4589479619646289466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435266003297406978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2453719fbec0e94e99576d0a8de31bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationToFSM
 --- !u!1 &7558514727442098133
 GameObject:
   m_ObjectHideFlags: 0

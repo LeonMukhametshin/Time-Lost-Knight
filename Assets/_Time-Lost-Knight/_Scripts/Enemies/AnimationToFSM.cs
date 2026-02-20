@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AnimationToFSM : MonoBehaviour
 {
-    public AttackState attackState;
+    public IAnimationAttackTrigger attackState;
 
-    public void Initialize(AttackState attackState)
+    public void Initialize(IAnimationAttackTrigger attackState)
     {
         this.attackState = attackState;
     }

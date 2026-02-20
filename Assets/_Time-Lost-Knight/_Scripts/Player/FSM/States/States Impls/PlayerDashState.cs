@@ -55,9 +55,9 @@ public class PlayerDashState : PlayerAbilytiState
             return;
         }
 
-        player.animationController.animator
+        player.animator
             .SetFloat(PlayerAnimationConstants.Y_VELOCITY, movement.currentVelocity.y);
-        player.animationController.animator
+        player.animator
             .SetFloat(PlayerAnimationConstants.X_VELOCITY, movement.currentVelocity.x);
 
         if (m_isHolding)

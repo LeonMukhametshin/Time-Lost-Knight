@@ -18,7 +18,7 @@ public class PlayerState : EntityState
     {
         base.Enter();
 
-        player.animationController.animator.SetBool(animBoolName, true);
+        player.animator.SetBool(animBoolName, true);
         
         isAnimationFinished = false;
         isExitingState = false;
@@ -26,12 +26,12 @@ public class PlayerState : EntityState
       
     public override void Exit()
     {
-        player.animationController.animator.SetBool(animBoolName, false);
+        player.animator.SetBool(animBoolName, false);
         isExitingState = true;
     }
 
-    public virtual void AnimationTrigger() { }
+    public virtual void TriggerAttack() { }
 
-    public virtual void AnimationFinishTriger() =>
+    public virtual void FinishAttack() =>
         isAnimationFinished = true;
 }

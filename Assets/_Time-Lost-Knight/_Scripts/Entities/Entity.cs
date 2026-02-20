@@ -8,7 +8,6 @@ public class Entity : MonoBehaviour
     //TODO: remove 
     public EntityData data;
 
-
     protected Movement movement
     {
         get => m_movement ??= core.GetCoreComponent<Movement>();
@@ -36,7 +35,7 @@ public class Entity : MonoBehaviour
 
         animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rigidbody2D.linearVelocityY);
 
-        if(Time.time >= m_lastDamageTime + data.stunRecoveryTime)
+        if (Time.time >= m_lastDamageTime + data.stunRecoveryTime)
         {
             ResetStunResistance();
         }

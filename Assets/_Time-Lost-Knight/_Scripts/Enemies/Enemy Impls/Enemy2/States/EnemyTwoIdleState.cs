@@ -12,11 +12,11 @@ public class EnemyTwoIdleState : IdleState
 
         if(isPlayerInMinAgroRange)
         {
-            fsm.ChangeState<PlayerDetectedState>();
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
         else if (isIdleTimeOver)
         {
-            fsm.ChangeState<MoveState>();
+            fsm.ChangeState<EnemyTwoMoveState>();
         }
     }
 }

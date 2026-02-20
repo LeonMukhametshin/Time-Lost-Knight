@@ -20,11 +20,11 @@ public class EnemyTwoMeleeAttackState : MeleeAttackState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.ChangeState<PlayerDetectedState>();
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
         else if (!isPlayerInMinAgroRange)
         {
-            fsm.ChangeState<LookForPlayerState>();
+            fsm.ChangeState<EnemyTwoLookForPlayerState>();
         }
     }
 }

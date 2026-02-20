@@ -45,12 +45,27 @@ public class Core : MonoBehaviour
 
 
     public T GetCoreComponent<T>() where T : CoreComponent
-    {
+    { 
+        if(!coreComponents.ContainsKey(typeof(T)))
+        {
+            CacheCoreComponents();
+        }
+
         if (coreComponents.TryGetValue(typeof(T), out var component))
         {
             return component as T;
         }
 
         throw new Exception($"Core component of type {typeof(T)} not found.");
+    }
+
+    private void CacheCoreComponents()
+    {
+        var components = GetComponentsInChildren<CoreComponent>(true);
+
+        foreach (var component in components)
+        {
+            AddCoreComponent(component);
+        }
     }
 }

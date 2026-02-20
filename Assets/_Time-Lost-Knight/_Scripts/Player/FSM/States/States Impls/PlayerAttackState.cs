@@ -1,4 +1,4 @@
-public class PlayerAttackState : PlayerAbilytiState
+public class PlayerAttackState : PlayerAbilytiState, IAnimationAttackTrigger
 {
     private Weapon m_weapon;
 
@@ -53,16 +53,16 @@ public class PlayerAttackState : PlayerAbilytiState
         m_weapon.Initialize(this);
     }
       
-    public override void AnimationFinishTriger()
+    public override void FinishAttack()
     {
-        base.AnimationFinishTriger();
+        base.FinishAttack();
 
         isAbilityDone = true;
     }
 
-    public override void AnimationTrigger()
+    public override void TriggerAttack()
     {
-        base.AnimationTrigger();
+        base.TriggerAttack();
     }
 
     public void SetPlayerVelocity(float velocity)

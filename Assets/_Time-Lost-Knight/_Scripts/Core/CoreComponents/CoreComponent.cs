@@ -6,6 +6,6 @@ public class CoreComponent : MonoBehaviour
 
     public virtual void Awake()
     {
-        core.AddCoreComponent(this);
+        //core.AddCoreComponent(this);
     }
 }

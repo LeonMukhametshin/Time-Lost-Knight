@@ -12,7 +12,7 @@ public class EnemyTwoMoveState : MoveState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.ChangeState<PlayerDetectedState>();
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
         else if (isDetactingWall || !isDetactingLedge)
         {

@@ -32,7 +32,7 @@ public class EnemyTwoPlayerDetectedState : PlayerDetectedState
         }
         else if (!isPlayerInMaxAgroRange)
         {
-            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
+            fsm.ChangeState<EnemyTwoLookForPlayerState>();
         }
     }
 }

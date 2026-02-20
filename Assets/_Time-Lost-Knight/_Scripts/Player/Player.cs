@@ -7,15 +7,12 @@ public class Player : Entity
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
     [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
-    [field: SerializeField] public PlayerAnimationController animationController { get; private set; }
 
     public StatesContainer statesContainer { get; set; }
 
     public override void Awake()
     {
         base.Awake();
-
-        animationController.Initialize(fsm);
 
         fsm.Initialize(
             new PlayerIdleState(fsm, core, PlayerAnimationConstants.IDLE, this, m_data),
@@ -37,5 +34,7 @@ public class Player : Entity
 
         fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
         fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
+
+        animationToFSM.Initialize(fsm.GetState<PlayerPrimaryAttackState>());
     }
 }

@@ -92,8 +92,8 @@ public class PlayerLedgeClibmState : PlayerState
             if (m_xInput == flipController.facingDirection && m_isHanding && !m_isClimbing)
             {
                 m_isTouchingCeiling = collisionDetector.CheckForSpace(m_cornerPosition);
-                player.animationController.animator.SetBool(PlayerAnimationConstants.IS_TOUCHING_CEILING, m_isTouchingCeiling);
-                player.animationController.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, true);
+                player.animator.SetBool(PlayerAnimationConstants.IS_TOUCHING_CEILING, m_isTouchingCeiling);
+                player.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, true);
                 m_isClimbing = true;
             }
             else if (m_yInput == -1 && m_isHanding && !m_isClimbing)
@@ -108,15 +108,15 @@ public class PlayerLedgeClibmState : PlayerState
         }
     }
 
-    public override void AnimationFinishTriger()
+    public override void FinishAttack()
     {
-        base.AnimationFinishTriger();
-        player.animationController.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, false);
+        base.FinishAttack();
+        player.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, false);
     }
 
-    public override void AnimationTrigger()
+    public override void TriggerAttack()
     {
-        base.AnimationTrigger();
+        base.TriggerAttack();
 
         m_isHanding = true;
     }
