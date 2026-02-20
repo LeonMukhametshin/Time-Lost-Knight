@@ -9,40 +9,22 @@ public class EnemyTwoStunState : StanState
         m_enemy = enemy;
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
 
-        if(isStunTimeOver)
+        if (!isStunTimeOver)
         {
-            if(isPlayerInMinAgroRange)
-            {
-                fsm.SetState(m_enemy.playerDetectedState);
-            }
-            else
-            {
-                fsm.SetState(m_enemy.lookForPlayerState);
-            }
+            return;
         }
-    }
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
+        if (isPlayerInMinAgroRange)
+        {
+            fsm.SetState(m_enemy.playerDetectedState);
+        }
+        else
+        {
+            fsm.SetState(m_enemy.lookForPlayerState);
+        }
     }
 }

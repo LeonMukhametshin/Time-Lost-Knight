@@ -161,7 +161,6 @@ Transform:
   - {fileID: 2786914272809730338}
   - {fileID: 3526357138830887509}
   - {fileID: 2915707534267293753}
-  - {fileID: 2452851215107195534}
   - {fileID: 3134218189377721648}
   - {fileID: 4124883000661571689}
   - {fileID: 1934731693525962937}
@@ -309,9 +308,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3526357138830887509}
-  - component: {fileID: 1557854559712046994}
+  - component: {fileID: 4336550727911445288}
   m_Layer: 8
-  m_Name: 'Collisigon Detection '
+  m_Name: 'Collision Detection '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,12 +332,11 @@ Transform:
   - {fileID: 355550322775319378}
   - {fileID: 8141373714086151164}
   - {fileID: 1904053704195604307}
-  - {fileID: 5154363163488629944}
   - {fileID: 8840584218124634011}
   - {fileID: 4459822305754538618}
   m_Father: {fileID: 3284459747886018487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1557854559712046994
+--- !u!114 &4336550727911445288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -347,24 +345,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 4483649642237139500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f69bd5e6d1511747931eef1d6223af7, type: 3}
+  m_Script: {fileID: 11500000, guid: bc89eb6d018ae2c43b6f2fc2a4dbbc97, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollisionDetector
   core: {fileID: 5575267192742571841}
   m_groundCheck: {fileID: 355550322775319378}
   m_wallCheck: {fileID: 8141373714086151164}
   m_ledgeCheck: {fileID: 1904053704195604307}
-  m_ceilingCheck: {fileID: 0}
-  m_standColliderHeight: 1.87
-  m_groundCheckRadius: 0.51
-  m_ceilingCheckRadius: 1.17
-  m_wallCheckDistance: 2.3
+  m_groundCheckRadius: 1
+  m_wallCheckDistance: 1
   m_groundLayer:
     serializedVersion: 2
     m_Bits: 128
   m_platform:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 64
+  m_playerChecker: {fileID: 8840584218124634011}
+  m_playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  m_minAgroDistance: 3
+  m_maxAgroDistance: 15
+  m_closeRangeActionDistance: 1
 --- !u!1 &5098973452007585899
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,37 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipContoller
   core: {fileID: 5575267192742571841}
   m_entityTransform: {fileID: 8692355869706984015}
---- !u!1 &6823152362142786183
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5154363163488629944}
-  m_Layer: 8
-  m_Name: TouchDamage Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5154363163488629944
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823152362142786183}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.26000023, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3526357138830887509}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7379465964733839750
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,8 +484,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2915707534267293753}
-  - component: {fileID: 5161526116726291036}
   - component: {fileID: 7192516743991032053}
+  - component: {fileID: 3953231882485173088}
   m_Layer: 8
   m_Name: Combat
   m_TagString: Untagged
@@ -537,21 +508,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3284459747886018487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5161526116726291036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379465964733839750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288e811a4b72f0f41a267ef4f0d7d695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Combat
-  core: {fileID: 5575267192742571841}
-  damageParticles: {fileID: 2508979075604653123, guid: 0606fb16001a8ef449b6b59974783a5c, type: 3}
-  maxKnockbackTime: 0.2
 --- !u!61 &7192516743991032053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -598,6 +554,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.77, y: 1.21}
   m_EdgeRadius: 0
+--- !u!114 &3953231882485173088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379465964733839750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54abdb57939063a459566a15a5c51e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
+  core: {fileID: 5575267192742571841}
+  m_healthSystem: {fileID: 1096920159427811913}
+  maxKnockbackTime: 0.2
+  damageParticles: {fileID: 2508979075604653123, guid: 0606fb16001a8ef449b6b59974783a5c, type: 3}
+  m_movement: {fileID: 6615317728592770505}
+  m_particleManager: {fileID: 8710348411523027100}
+  m_collisionDetector: {fileID: 4336550727911445288}
 --- !u!1 &7558229737639305807
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,10 +793,6 @@ MonoBehaviour:
   <core>k__BackingField: {fileID: 5575267192742571841}
   <animator>k__BackingField: {fileID: 1297166882728797537}
   <animationToFSM>k__BackingField: {fileID: 1255148350463277060}
-  m_wallCheck: {fileID: 8141373714086151164}
-  m_ledgeCheck: {fileID: 1904053704195604307}
-  m_playerCheck: {fileID: 8840584218124634011}
-  m_groundCheck: {fileID: 355550322775319378}
   m_idleData: {fileID: 11400000, guid: 08ad3944ac781de44bac9ef96feb5c6b, type: 2}
   m_moveData: {fileID: 11400000, guid: e4e2467a12aeabd4fa2ccc5a74292939, type: 2}
   m_playerDetectedData: {fileID: 11400000, guid: ae84519425e013644a7cbcbba7350709, type: 2}
@@ -893,53 +864,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3526357138830887509}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &9214925055484612707
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2452851215107195534}
-  - component: {fileID: 4874140007319486044}
-  m_Layer: 0
-  m_Name: 'Stats '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2452851215107195534
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9214925055484612707}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.769609, y: 4.5211897, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3284459747886018487}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4874140007319486044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9214925055484612707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b855a94ad4b374daa7555873414221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Stats
-  core: {fileID: 5575267192742571841}
-  maxHealth: 100
-  <healthSystem>k__BackingField: {fileID: 1096920159427811913}
 --- !u!1001 &8741809075643050356
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -54,11 +54,4 @@ public class EnemyTwo : Entity
 
         fsm.Initialize(moveState);
     }
-
-    public override void OnDrawGizmos()
-    {
-        base.OnDrawGizmos();
-
-        Gizmos.DrawWireSphere(m_meleeAttackPosition.position, m_meleeAttackData.attackRadius);
-    }
 }

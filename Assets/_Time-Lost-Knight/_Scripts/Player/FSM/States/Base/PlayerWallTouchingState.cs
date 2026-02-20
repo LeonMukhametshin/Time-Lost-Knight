@@ -5,13 +5,13 @@ public class PlayerWallTouchingState : PlayerState
         get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
     }
 
-    protected CollisionDetector collisionDetector
+    protected PlayerCollisionDetector collisionDetector
     {
-        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+        get => m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
     }
 
     private FlipContoller m_flipContoller;
-    private CollisionDetector m_collisionDetector;
+    private PlayerCollisionDetector m_collisionDetector;
 
     protected int xInput;
     protected int yInput;

@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class IdleState : State
 {
+    protected IdleStateData data;
+
+    protected bool flipAfterIdle;
+    protected bool isIdleTimeOver;
+    protected bool isPlayerInMinAgroRange;
+
+    protected float idleTime;
+
     protected Movement movement
     {
         get => m_movement ??= core.GetCoreComponent<Movement>();
@@ -11,17 +19,14 @@ public class IdleState : State
     {
         get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
     }
+    private EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
 
     private Movement m_movement;
     private FlipContoller m_flipContoller;
-
-    protected IdleStateData data;
-
-    protected bool flipAfterIdle;
-    protected bool isIdleTimeOver;
-    protected bool isPlayerInMinAgroRange;
-
-    protected float idleTime;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
 
     public IdleState(FSM fsm, Entity entity, 
         string animBoolName, IdleStateData data) 
@@ -59,11 +64,6 @@ public class IdleState : State
         }
     }
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
     public void SetFlipAfterIdle(bool flip)
     {
         flipAfterIdle = flip;
@@ -76,6 +76,6 @@ public class IdleState : State
     {
         base.DoChecks();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
 }

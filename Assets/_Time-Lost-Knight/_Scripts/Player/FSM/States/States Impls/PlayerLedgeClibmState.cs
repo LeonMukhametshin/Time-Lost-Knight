@@ -6,9 +6,9 @@ public class PlayerLedgeClibmState : PlayerState
     {
         get => m_movement ??= core.GetCoreComponent<Movement>();
     }
-    protected CollisionDetector collisionDetector
+    protected PlayerCollisionDetector collisionDetector
     {
-        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+        get => m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
     }
     protected FlipContoller flipController
     {
@@ -16,7 +16,7 @@ public class PlayerLedgeClibmState : PlayerState
     }
 
     private Movement m_movement;
-    private CollisionDetector m_collisionDetector;
+    private PlayerCollisionDetector m_collisionDetector;
     private FlipContoller m_flipContoller;
 
     private bool m_isHanding;

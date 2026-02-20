@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 91968264193152762}
-  - component: {fileID: 3642082112200106297}
+  - component: {fileID: 11228364877641928}
   m_Layer: 6
   m_Name: Collisigon Det
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 4580932176864417985}
   m_Father: {fileID: 4168734567582219985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3642082112200106297
+--- !u!114 &11228364877641928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,24 +45,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 32359992973853075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f69bd5e6d1511747931eef1d6223af7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f7e2afe15c0dbe4f9d35dfb95fa61a2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionDetector
   core: {fileID: 252118916741010994}
   m_groundCheck: {fileID: 7106985524915511270}
   m_wallCheck: {fileID: 2848776604293388674}
   m_ledgeCheck: {fileID: 8500792976824639704}
-  m_ceilingCheck: {fileID: 4580932176864417985}
-  m_standColliderHeight: 1.65
-  m_groundCheckRadius: 0.66
-  m_ceilingCheckRadius: 0.4
-  m_wallCheckDistance: 0.7
+  m_groundCheckRadius: 0.3
+  m_wallCheckDistance: 0.6
   m_groundLayer:
     serializedVersion: 2
     m_Bits: 128
   m_platform:
     serializedVersion: 2
     m_Bits: 1024
+  m_ceilingCheck: {fileID: 4580932176864417985}
+  m_standColliderHeight: 1.6
+  m_ceilingCheckRadius: 0.3
 --- !u!1 &113260093428395522
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +396,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7867679640447803679}
-  - component: {fileID: 3528209837224850898}
   - component: {fileID: 5263223856725546001}
+  - component: {fileID: 2768314361117217595}
   m_Layer: 6
   m_Name: Combat
   m_TagString: Untagged
@@ -420,21 +420,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4168734567582219985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3528209837224850898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767112754070748925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288e811a4b72f0f41a267ef4f0d7d695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Combat
-  core: {fileID: 252118916741010994}
-  damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
-  maxKnockbackTime: 0.2
 --- !u!61 &5263223856725546001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -481,6 +466,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.73, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &2768314361117217595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767112754070748925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54abdb57939063a459566a15a5c51e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
+  core: {fileID: 252118916741010994}
+  m_healthSystem: {fileID: 5831911865482849867}
+  maxKnockbackTime: 0.2
+  damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
+  m_movement: {fileID: 4712963472513488763}
+  m_particleManager: {fileID: 1132260391636800272}
+  m_collisionDetector: {fileID: 11228364877641928}
 --- !u!1 &4579768335346860876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,53 +1028,6 @@ MonoBehaviour:
   weapons:
   - {fileID: 4940170725263228073}
   - {fileID: 4940170725263228073}
---- !u!1 &6638701610863554666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6189847004268721748}
-  - component: {fileID: 5204477425866931049}
-  m_Layer: 6
-  m_Name: Stats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6189847004268721748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6638701610863554666}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4168734567582219985}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5204477425866931049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6638701610863554666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b855a94ad4b374daa7555873414221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Stats
-  core: {fileID: 252118916741010994}
-  maxHealth: 100
-  <healthSystem>k__BackingField: {fileID: 5831911865482849867}
 --- !u!1 &7558514727442098133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,7 +1268,6 @@ Transform:
   - {fileID: 3009275549684355075}
   - {fileID: 7867679640447803679}
   - {fileID: 1961100918976719310}
-  - {fileID: 6189847004268721748}
   - {fileID: 1623328590119028583}
   - {fileID: 3036405697922723483}
   - {fileID: 1508083000996857810}
@@ -1549,6 +1505,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4196716988244389478, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_healthComponent
+      value: 
+      objectReference: {fileID: 5831911865482849867}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

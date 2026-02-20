@@ -11,51 +11,22 @@ public class EnemyTwoMeleeAttackState : MeleeAttackState
         m_enemy = enemy;
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
 
-        if (isAnimationFinished)
+        if (!isAnimationFinished)
         {
-            if (isPlayerInMinAgroRange)
-            {
-                fsm.SetState(m_enemy.playerDetectedState);
-            }
-            else if (!isPlayerInMinAgroRange) 
-            {
-                fsm.SetState(m_enemy.lookForPlayerState);
-            }
+            return;
+        }
+
+        if (isPlayerInMinAgroRange)
+        {
+            fsm.SetState(m_enemy.playerDetectedState);
+        }
+        else if (!isPlayerInMinAgroRange)
+        {
+            fsm.SetState(m_enemy.lookForPlayerState);
         }
     }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    public override void TriggerAttack()
-    {
-        base.TriggerAttack();
-    }
-
-    public override void FinishAttack()
-    {
-        base.FinishAttack();
-    }
-
 }

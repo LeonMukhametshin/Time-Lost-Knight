@@ -51,9 +51,6 @@ public class HealthSystem : MonoBehaviour
         {
             throw new ArgumentOutOfRangeException(nameof(damage), "Heal cannot be hegative");
         }
-        Debug.Log("DO Value " + value);
         this.value -= damage;
-        Debug.Log("Posle Value " + value);
     }
-
 }

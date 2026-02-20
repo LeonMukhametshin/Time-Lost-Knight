@@ -24,17 +24,13 @@ public class State : IState
         DoChecks();
     }
 
-    public virtual void Exit()
-    {
+    public virtual void Exit() =>
         entity.animator.SetBool(animBoolName, false);
-    }
 
     public virtual void Update() { }
 
-    public virtual void FixedUpdate()
-    {
-        DoChecks();
-    }
+    public virtual void FixedUpdate() =>
+          DoChecks();
 
     public virtual void DoChecks() { }
 }

@@ -12,14 +12,14 @@ public class PlayerInAirState : PlayerState
         get => m_movement ??= core.GetCoreComponent<Movement>();
     }
 
-    protected CollisionDetector collisionDetector
+    protected PlayerCollisionDetector collisionDetector
     {
-        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+        get => m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
     }
 
     private Movement m_movement;
     private FlipContoller m_flipContoller;
-    private CollisionDetector m_collisionDetector;
+    private PlayerCollisionDetector m_collisionDetector;
 
     private int m_xInput;
     private bool m_dashInput;
@@ -56,7 +56,7 @@ public class PlayerInAirState : PlayerState
 
         m_isGrounded = collisionDetector.CheckGrounded();
         m_isTouchingWall = collisionDetector.CheckWallTouch();
-        m_isTouchingWallBack = collisionDetector.CheckWallTouchBask();
+        m_isTouchingWallBack = collisionDetector.CheckWallTouchBack();
         m_isTouchingLedge = collisionDetector.CheckTouchingLedge();
 
         if(m_isTouchingWall && !m_isTouchingLedge)

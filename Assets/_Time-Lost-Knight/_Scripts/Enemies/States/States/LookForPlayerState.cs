@@ -2,16 +2,6 @@ using UnityEngine;
 
 public class LookForPlayerState : State
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-
     protected LookForPlayerStateData data;
 
     protected bool turnImmediately;
@@ -23,8 +13,24 @@ public class LookForPlayerState : State
 
     protected int amountOfTurnsDone;
 
+    private Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    private FlipContoller flipController
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
+
     private Movement m_movement;
     private FlipContoller m_flipContoller;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
 
     public LookForPlayerState(FSM fsm, Entity entity,
         string animBoolName, LookForPlayerStateData data)
@@ -37,7 +43,7 @@ public class LookForPlayerState : State
     {
         base.DoChecks();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()
@@ -82,8 +88,6 @@ public class LookForPlayerState : State
         }
     }
 
-    public void SetTurnImmediately(bool flip)
-    {
-        turnImmediately = flip;
-    }
+    public void SetTurnImmediately(bool flip) =>
+         turnImmediately = flip;
 }

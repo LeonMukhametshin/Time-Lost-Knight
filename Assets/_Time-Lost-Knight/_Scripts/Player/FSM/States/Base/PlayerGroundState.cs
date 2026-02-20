@@ -5,13 +5,13 @@ public class PlayerGroundState : PlayerState
         get => m_movement ??= core.GetCoreComponent<Movement>();
     }
 
-    protected CollisionDetector collisionDetector
+    protected PlayerCollisionDetector collisionDetector
     {
-        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+        get => m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
     }
 
     private Movement m_movement;
-    private CollisionDetector m_collisionDetector;
+    private PlayerCollisionDetector m_collisionDetector;
 
     protected int xInput;
     protected int yInput;

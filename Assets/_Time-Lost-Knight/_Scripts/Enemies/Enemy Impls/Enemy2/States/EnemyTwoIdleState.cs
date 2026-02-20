@@ -2,24 +2,11 @@ public class EnemyTwoIdleState : IdleState
 {
     public EnemyTwo m_enemy;
 
-    public EnemyTwoIdleState(FSM fsm, Entity entity, string animBoolName, IdleStateData data, EnemyTwo enemy) : base(fsm, entity, animBoolName, data)
+    public EnemyTwoIdleState(FSM fsm, Entity entity, 
+        string animBoolName, IdleStateData data, EnemyTwo enemy) 
+        : base(fsm, entity, animBoolName, data)
     {
         m_enemy = enemy;
-    }
-
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 
     public override void Update()
@@ -34,10 +21,5 @@ public class EnemyTwoIdleState : IdleState
         {
             fsm.SetState(m_enemy.moveState);
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

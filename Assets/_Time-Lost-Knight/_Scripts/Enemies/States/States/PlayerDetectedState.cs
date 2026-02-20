@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class PlayerDetectedState : State
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-    private Movement m_movement;
-
     protected PlayerDetectedData data;
 
     protected bool isPlayerInMinAgroRange;
@@ -15,6 +9,20 @@ public class PlayerDetectedState : State
     protected bool performeLongRangeAction;
     protected bool performeCloseRangeAction;
     protected bool isDetectingLedge;
+
+    private Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    private EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
+
     public PlayerDetectedState(FSM fsm, Entity entity, 
         string animBoolName, PlayerDetectedData data) 
         : base(fsm, entity, animBoolName)
@@ -26,16 +34,15 @@ public class PlayerDetectedState : State
     {
         base.DoChecks();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
-        isDetectingLedge = entity.CheckLedge();
-        performeCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        isDetectingLedge = enemyCollisionDetector.CheckLedge();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
+        performeCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
     }
 
     public override void Enter()
     {
         base.Enter();
-
         performeLongRangeAction = false;
         movement.SetVelocityX(0f);
     }

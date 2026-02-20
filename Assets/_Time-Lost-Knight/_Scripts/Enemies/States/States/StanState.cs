@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class StanState : State
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-    private Movement m_movement;
-
-
     protected StunStateData data;
 
     protected bool isStunTimeOver;
@@ -17,6 +10,19 @@ public class StanState : State
 
     protected bool performCloseRangeAction;
     protected bool isPlayerInMinAgroRange;
+
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
 
     public StanState(FSM fsm, Entity entity, 
         string animBoolName, StunStateData data) 
@@ -29,9 +35,9 @@ public class StanState : State
     {
         base.DoChecks();
 
-        isGrounded = entity.CheckGround();
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isGrounded = enemyCollisionDetector.CheckGrounded();
+        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()

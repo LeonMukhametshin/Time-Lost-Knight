@@ -2,24 +2,11 @@ public class EnemyTwoLookForPlayerState : LookForPlayerState
 {
     private EnemyTwo m_enemy;
 
-    public EnemyTwoLookForPlayerState(FSM fsm, Entity entity, string animBoolName, LookForPlayerStateData data, EnemyTwo enemy) : base(fsm, entity, animBoolName, data)
+    public EnemyTwoLookForPlayerState(FSM fsm, Entity entity, 
+        string animBoolName, LookForPlayerStateData data, EnemyTwo enemy) 
+        : base(fsm, entity, animBoolName, data)
     {
         m_enemy = enemy;
-    }
-
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 
     public override void Update()
@@ -34,10 +21,5 @@ public class EnemyTwoLookForPlayerState : LookForPlayerState
         {
             fsm.SetState(m_enemy.moveState);
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

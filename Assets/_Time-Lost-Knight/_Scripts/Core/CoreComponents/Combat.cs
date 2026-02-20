@@ -1,69 +1,19 @@
 using UnityEngine;
 
-public class Combat : CoreComponent, IDamageable, IKnockbackable, IUpdate
+public abstract class Combat : CoreComponent, IDamageable
 {
-    [SerializeField] private GameObject damageParticles;
-
-    private Stats m_stats;
-    private Movement m_movement;
-    private ParticleManager m_particleManager;
-    private CollisionDetector m_collisionDetector;
-
-    [SerializeField] private float maxKnockbackTime = 0.2f;
-
-    private bool isKnockbackActive;
-    private float knockbackStartTime;
+    [SerializeField] private HealthSystem m_healthSystem;
 
     public override void Awake()
     {
         base.Awake();
-        m_stats = core.GetCoreComponent<Stats>();
-        m_movement = core.GetCoreComponent<Movement>();
-        m_particleManager = core.GetCoreComponent<ParticleManager>();
-        m_collisionDetector = core.GetCoreComponent<CollisionDetector>();
-        core.AddUpdateComponent(this);
+        //TODO: remove 
+        m_healthSystem.Initialize(100);
     }
 
-    public void Update()
+    public virtual void TakeDamage(float amount)
     {
-        CheckKnockback();
+        m_healthSystem.Decrease(amount);
+      
     }
-
-    public void TakeDamage(float amount)
-    {
-        m_stats.DecreaseHealth(amount);
-        m_particleManager.StartParticlesWithRandomRotation(damageParticles);
-    }
-
-    public void Knockback(Vector2 angle, float strength, int direction)
-    {
-        m_movement.SetVelocity(strength, angle, direction);
-        KnockbackSetParameters();
-    }
-
-    public void Knockback(Vector2 angle, float strength)
-    {
-        m_movement.SetVelocity(strength, angle);
-        KnockbackSetParameters();
-    }
-
-    private void KnockbackSetParameters()
-    {
-        m_movement.canSetVelocity = false;
-        isKnockbackActive = true;
-        knockbackStartTime = Time.time;
-    }
-
-    private void CheckKnockback()
-    {
-        if (isKnockbackActive 
-            && ((m_movement.currentVelocity.y <= 0.01f
-            && m_collisionDetector.CheckGrounded()) 
-            || Time.time >= knockbackStartTime + maxKnockbackTime))
-        {
-            isKnockbackActive = false;
-            m_movement.canSetVelocity = true;
-        }
-    }
-
 }

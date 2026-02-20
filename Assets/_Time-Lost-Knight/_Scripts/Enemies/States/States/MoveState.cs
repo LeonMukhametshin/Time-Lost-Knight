@@ -1,5 +1,11 @@
 public class MoveState : State
 {
+    protected MoveStateData data;
+
+    protected bool isDetactingWall;
+    protected bool isDetactingLedge;
+    protected bool isPlayerInMinAgroRange;
+
     protected Movement movement
     {
         get => m_movement ??= core.GetCoreComponent<Movement>();
@@ -10,14 +16,14 @@ public class MoveState : State
         get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
     }
 
+    private EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
+
     private Movement m_movement;
     private FlipContoller m_flipContoller;
-
-    protected MoveStateData data;
-
-    protected bool isDetactingWall;
-    protected bool isDetactingLedge;
-    protected bool isPlayerInMinAgroRange;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
 
     public MoveState(FSM fsm, Entity entity, 
         string animBoolName, MoveStateData data) 
@@ -28,9 +34,9 @@ public class MoveState : State
 
     public override void DoChecks()
     {
-        isDetactingLedge = entity.CheckLedge();
-        isDetactingWall = entity.CheckWall();
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isDetactingLedge = enemyCollisionDetector.CheckLedge();
+        isDetactingWall = enemyCollisionDetector.CheckWallTouch();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()
@@ -42,7 +48,6 @@ public class MoveState : State
     public override void Update()
     {
         base.Update();
-
         movement.SetVelocityX(data.movementSpeed * flipController.facingDirection);
     }
 }

@@ -4,10 +4,11 @@ public class MeleeAttackState : AttackState
 {
     protected MeleeAttackStateData data;
 
-    protected FlipContoller flipContoller
+    private FlipContoller flipContoller
     {
         get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
     }
+
     private FlipContoller m_flipContoller;
 
     public MeleeAttackState(FSM fsm, Entity entity, 

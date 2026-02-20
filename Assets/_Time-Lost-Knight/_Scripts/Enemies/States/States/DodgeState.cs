@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class DodgeState : State
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-    private Movement m_movement;
-
     protected DodgeStateData data;
 
     protected bool performCloseRangeAction;
@@ -15,6 +9,25 @@ public class DodgeState : State
 
     protected bool isGrounded;
     protected bool isDodgeOver;
+
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    private FlipContoller flipContoller
+    {
+        get => m_flipController ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private FlipContoller m_flipController;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
 
     public DodgeState(FSM fsm, Entity entity, 
         string animBoolName, DodgeStateData data) 
@@ -27,9 +40,9 @@ public class DodgeState : State
     {
         base.DoChecks();
 
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-        isPlayerInMaxAgroRange = entity.CheckPlayerInMinAgroRange();
-        isGrounded = entity.CheckGround();
+        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
+        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isGrounded = enemyCollisionDetector.CheckWallTouch();
     }
 
     public override void Enter()
@@ -37,7 +50,7 @@ public class DodgeState : State
         base.Enter();
 
         isDodgeOver = false;
-        movement.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -entity.facingDirection);
+        movement.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -flipContoller.facingDirection);
     }
 
     public override void Update()

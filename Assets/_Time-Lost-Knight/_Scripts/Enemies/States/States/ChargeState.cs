@@ -2,24 +2,31 @@ using UnityEngine;
 
 public class ChargeState : State
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-    private Movement m_movement;
-
-    protected FlipContoller flipContoller
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-    private FlipContoller m_flipContoller;
-
     protected ChargeStateData data;
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
+
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
+    protected FlipContoller flipContoller
+    {
+        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    }
+
+    private EnemyCollisionDetector enemyCollisionDetector
+    {
+        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+    }
+
+    private Movement m_movement;
+    private FlipContoller m_flipContoller;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
 
     public ChargeState(FSM fsm, Entity entity, 
         string animBoolName, ChargeStateData data) 
@@ -36,11 +43,6 @@ public class ChargeState : State
         movement.SetVelocity(data.chargeSpeed, Vector2.right, flipContoller.facingDirection);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
@@ -51,18 +53,13 @@ public class ChargeState : State
         }
     }
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
     public override void DoChecks()
     {
         base.DoChecks();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-        isDetectingLedge = entity.CheckLedge();
-        isDetectingWall = entity.CheckWall();
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isDetectingLedge = enemyCollisionDetector.CheckLedge();
+        isDetectingWall = enemyCollisionDetector.CheckWallTouch();
+        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
     }
 }
