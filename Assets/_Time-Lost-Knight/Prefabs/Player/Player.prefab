@@ -992,14 +992,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   <core>k__BackingField: {fileID: 252118916741010994}
+  data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
+  <animator>k__BackingField: {fileID: 8830459990270249974}
+  <animationToFSM>k__BackingField: {fileID: 0}
   m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
-  m_rigidbody: {fileID: 6256467284129163076}
-  m_collider: {fileID: 6453085681620009920}
-  <inputHandler>k__BackingField: {fileID: 8068713137059887045}
+  <inventory>k__BackingField: {fileID: 3170822670122882001}
   <dashVizualizer>k__BackingField:
     indecator: {fileID: 8881360740836153499}
+  <inputHandler>k__BackingField: {fileID: 8068713137059887045}
   <animationController>k__BackingField: {fileID: 1720691514665249094}
-  <inventory>k__BackingField: {fileID: 3170822670122882001}
 --- !u!114 &1720691514665249094
 MonoBehaviour:
   m_ObjectHideFlags: 0

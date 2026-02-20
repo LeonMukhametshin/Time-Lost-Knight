@@ -2,13 +2,12 @@
 
 public class Entity : MonoBehaviour
 {
+    public EntityFSM fsm { get; private set; } 
     [field: SerializeField] public Core core { get; private set; }
 
+    //TODO: remove 
     public EntityData data;
 
-
-
-    public EntityFSM fsm;
 
     protected Movement movement
     {
@@ -33,6 +32,7 @@ public class Entity : MonoBehaviour
     public virtual void Update()
     {
         fsm.Update();
+        core.Update();
 
         animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rigidbody2D.linearVelocityY);
 

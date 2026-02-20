@@ -1,12 +1,10 @@
 public class EnemyTwoStunState : StanState
 {
-    private EnemyTwo m_enemy;
-
-    public EnemyTwoStunState(EnemyFSM fsm, Entity entity,
-        string animBoolName, StunStateData data, EnemyTwo enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyTwoStunState(EntityFSM fsm, Core core,
+        string animBoolName, Entity entity, 
+        StunStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -20,11 +18,11 @@ public class EnemyTwoStunState : StanState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
         else
         {
-            fsm.SetState(m_enemy.lookForPlayerState);
+            fsm.ChangeState<EnemyTwoLookForPlayerState>();
         }
     }
 }

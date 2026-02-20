@@ -2,17 +2,6 @@ using UnityEngine;
 
 public class EnemyTwo : Entity
 {  
-    public EnemyTwoIdleState idleState { get; private set; }
-    public EnemyTwoMoveState moveState { get; private set; }
-    public EnemyTwoPlayerDetectedState playerDetectedState { get; private set; }
-    public EnemyTwoMeleeAttackState meleeAttackState { get; private set; }
-    public EnemyTwoLookForPlayerState lookForPlayerState { get; private set; }
-    public EnemyTwoStunState stunState { get; private set; }
-    public EnemyTwoDeadState deadState { get; private set; }
-    public EnemyTwoDodgeState dodgeState { get; private set; }
-    public EnemyTwoRangeAttackState rangeAttackState { get; private set; }
-
-
     [Header("DATAS")]
     [SerializeField] private IdleStateData m_idleStateData;
     [SerializeField] private MoveStateData m_moveStateData;
@@ -21,8 +10,8 @@ public class EnemyTwo : Entity
     [SerializeField] private LookForPlayerStateData m_lookForPlayerData;
     [SerializeField] private StunStateData m_stunStateData;
     [SerializeField] private DeadStateData m_deadStateData;
-    [field: SerializeField] public DodgeStateData m_dodgeStateData { get; private set; }
     [SerializeField] public RangeAttackData m_rangeAttackData;
+    [SerializeField] private DodgeStateData m_dodgeStateData;
 
     [SerializeField] private Transform m_meleeAttackPosition;
     [SerializeField] private Transform m_rangeAttackPosition;
@@ -31,29 +20,20 @@ public class EnemyTwo : Entity
     {
         base.Awake();
 
-        idleState = new EnemyTwoIdleState(fsm, core, EnemyAnimationConst.IDLE, 
-            this, m_idleStateData);
-        moveState = new EnemyTwoMoveState(fsm, core, EnemyAnimationConst.MOVE, 
-            this, m_moveStateData);
-        playerDetectedState = new EnemyTwoPlayerDetectedState(fsm, core, EnemyAnimationConst.PLAYER_DETECTED, 
-            this, m_playerDetectedData);
-        dodgeState = new EnemyTwoDodgeState(fsm, core, EnemyAnimationConst.DODGE,
-            this, m_dodgeStateData);
-        
-        rangeAttackState = new EnemyTwoRangeAttackState(fsm, this,
+        fsm.Initialize(
+            new EnemyTwoIdleState(fsm, core, EnemyAnimationConst.IDLE, this, m_idleStateData),
+            new EnemyTwoMoveState(fsm, core, EnemyAnimationConst.MOVE, this, m_moveStateData),
+            new EnemyTwoPlayerDetectedState(fsm, core, EnemyAnimationConst.PLAYER_DETECTED, this, m_playerDetectedData),
+            new EnemyTwoDodgeState(fsm, core, EnemyAnimationConst.DODGE, this, m_dodgeStateData),
+            new EnemyTwoRangeAttackState(fsm, core, EnemyAnimationConst.RANGED_ATTACK, this, m_rangeAttackPosition, m_rangeAttackData),
+            new EnemyTwoMeleeAttackState(fsm, core, EnemyAnimationConst.MELEE_ATTACK, this, m_meleeAttackPosition, m_meleeAttackData),
+            new EnemyTwoLookForPlayerState(fsm, core, EnemyAnimationConst.LOOK_FOR_PLAYER, this, m_lookForPlayerData),
+            new EnemyTwoStunState(fsm, core, EnemyAnimationConst.STUN, this, m_stunStateData),
+            new EnemyTwoDeadState(fsm, core, EnemyAnimationConst.DEAD, this, m_deadStateData));
 
-        meleeAttackState = new EnemyTwoMeleeAttackState(fsm, this, 
-            EnemyAnimationConst.MELEE_ATTACK, m_meleeAttackPosition, m_meleeAttackData, this);
-        lookForPlayerState = new EnemyTwoLookForPlayerState(fsm, this, 
-            EnemyAnimationConst.LOOK_FOR_PLAYER, m_lookForPlayerData, this);
-        stunState = new EnemyTwoStunState(fsm, this, 
-            EnemyAnimationConst.STUN, m_stunStateData, this);
-        deadState = new EnemyTwoDeadState(fsm, this,
-            EnemyAnimationConst.DEAD, m_deadStateData, this);
-            EnemyAnimationConst.RANGED_ATTACK, m_rangeAttackPosition, m_rangeAttackData, this);
 
-        animationToFSM.Initialize(meleeAttackState);
+        animationToFSM.Initialize(fsm.GetState<EnemyTwoMeleeAttackState>());
 
-        fsm.ChangeState<EnemyTwoMoveState>();
+        fsm.ChangeState<EnemyTwoIdleState>();
     }
 }

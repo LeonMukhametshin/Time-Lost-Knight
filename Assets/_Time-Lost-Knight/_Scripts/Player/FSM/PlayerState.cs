@@ -4,12 +4,14 @@ public class PlayerState : EntityState
 
     protected bool isAnimationFinished;
     protected bool isExitingState;
+    protected PlayerData data;
 
     public PlayerState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player) 
+        string animBoolName, Player player, PlayerData data) 
         : base(fsm, core, animBoolName)
     {
         this.player = player;
+        this.data = data;
     }
 
     public override void Enter()

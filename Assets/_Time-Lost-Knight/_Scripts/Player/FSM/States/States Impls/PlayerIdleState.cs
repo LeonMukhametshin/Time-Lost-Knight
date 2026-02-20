@@ -1,8 +1,9 @@
 public class PlayerIdleState : PlayerGroundState
 {
-    public PlayerIdleState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName)
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerIdleState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -23,11 +24,11 @@ public class PlayerIdleState : PlayerGroundState
 
         if (xInput != 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
+            fsm.ChangeState<PlayerMoveState>();
         }
         else if (yInput == -1)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+            fsm.ChangeState<PlayerCrouchIdleState>();
         }
     }
 }

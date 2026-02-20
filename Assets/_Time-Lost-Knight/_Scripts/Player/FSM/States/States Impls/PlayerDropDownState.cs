@@ -2,27 +2,23 @@ using UnityEngine;
 
 public class PlayerDropDownState : PlayerState
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    protected OneWayPlatformCollisionController oneWayPlatformCollisionController
-    {
-        get => m_oneWayPlatformCollision ??= core.GetCoreComponent<OneWayPlatformCollisionController>();
-    }
-
+    protected OneWayPlatformCollisionController oneWayPlatformCollisionController => 
+        m_oneWayPlatformCollision ??= core.GetCoreComponent<OneWayPlatformCollisionController>();
+    
     private Movement m_movement;
     private OneWayPlatformCollisionController m_oneWayPlatformCollision;
 
     private float m_duration;
 
-
-    public PlayerDropDownState(Player player, EntityFSM fsm,
-        PlayerData playerData, string animBoolName)
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerDropDownState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
-        m_duration = playerData.dropThroughDuration;
+        m_duration = data.dropThroughDuration;
     }
 
     public override void Enter()
@@ -42,9 +38,9 @@ public class PlayerDropDownState : PlayerState
 
         if (Time.time >= startTime + m_duration)
         {
-            var inAirState = player.statesContainer.GetState<PlayerInAirState>();
+            var inAirState = fsm.GetState<PlayerAirState>();
             inAirState.StartCoyoteTime();
-            fsm.SetState(inAirState);
+            fsm.ChangeState<PlayerAirState>();
         }
     }
 }

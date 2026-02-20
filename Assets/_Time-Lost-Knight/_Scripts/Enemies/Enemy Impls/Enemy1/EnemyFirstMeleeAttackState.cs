@@ -2,17 +2,11 @@ using UnityEngine;
 
 public class EnemyFirstMeleeAttackState : MeleeAttackState
 {
-    private EnemyFirst enemy;
-
-    public EnemyFirstMeleeAttackState(EnemyFSM fsm, 
-        Entity entity, 
-        string animBoolName, 
-        Transform attackPosition, 
-        MeleeAttackStateData data, 
-        EnemyFirst enemy) 
-        : base(fsm, entity, animBoolName, attackPosition, data)
+    public EnemyFirstMeleeAttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        Transform attackPosition, MeleeAttackStateData data) 
+        : base(fsm, core, animBoolName, entity, attackPosition, data)
     {
-        this.enemy = enemy;
     }
 
     public override void Update()
@@ -26,11 +20,11 @@ public class EnemyFirstMeleeAttackState : MeleeAttackState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.SetState(enemy.playerDetectedState);
+            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
         }
         else
         {
-            fsm.SetState(enemy.lookForPlayerState);
+            fsm.ChangeState<EnemyFirstLookForPlayerState>();
         }
     }
 }

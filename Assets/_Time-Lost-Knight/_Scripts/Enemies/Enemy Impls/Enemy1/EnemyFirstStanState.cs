@@ -1,12 +1,10 @@
 public class EnemyFirstStanState : StanState
 {
-    private EnemyFirst enemy;
-
-    public EnemyFirstStanState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, StunStateData data, EnemyFirst enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyFirstStanState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        StunStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        this.enemy = enemy;
     }
 
     public override void Update()
@@ -20,16 +18,16 @@ public class EnemyFirstStanState : StanState
 
         if (performCloseRangeAction)
         {
-            fsm.SetState(enemy.meleeAttackState);
+            fsm.ChangeState<EnemyFirstMeleeAttackState>();
         }
         else if (isPlayerInMinAgroRange)
         {
-            fsm.SetState(enemy.chargeState);
+            fsm.ChangeState<EnemyFirstChargeState>();
         }
         else
         {
-            enemy.lookForPlayerState.SetTurnImmediately(true);
-            fsm.SetState(enemy.lookForPlayerState);
+            fsm.GetState<EnemyFirstLookForPlayerState>().SetTurnImmediately(true);
+            fsm.ChangeState<EnemyFirstLookForPlayerState>();
         }
     }
 }

@@ -1,20 +1,18 @@
 public class PlayerCrouchMoveState : PlayerGroundState
 {
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-    protected ColliderController colliderController
-    {
-        get => m_colliderController ??= core.GetCoreComponent<ColliderController>();
-    }
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
+    protected ColliderController colliderController => 
+        m_colliderController ??= core.GetCoreComponent<ColliderController>();
 
     private FlipContoller m_flipContoller;
     private ColliderController m_colliderController;
 
-    public PlayerCrouchMoveState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerCrouchMoveState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -45,11 +43,11 @@ public class PlayerCrouchMoveState : PlayerGroundState
 
         if (xInput == 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+            fsm.ChangeState<PlayerCrouchIdleState>();
         }
         else if (yInput != -1 && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
+            fsm.ChangeState<PlayerMoveState>();
         }
     }
 }

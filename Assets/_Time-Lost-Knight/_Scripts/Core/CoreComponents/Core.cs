@@ -33,7 +33,7 @@ public class Core : MonoBehaviour
         }
     }
 
-    private void AddUpdateComponent(IUpdate component)
+    public void AddUpdateComponent(IUpdate component)
     {
         if (updateComponents.Contains(component))
         {

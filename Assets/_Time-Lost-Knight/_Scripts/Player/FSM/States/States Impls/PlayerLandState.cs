@@ -1,14 +1,10 @@
 public class PlayerLandState : PlayerGroundState
 {
-    public PlayerLandState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerLandState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
     }
 
     public override void Update()
@@ -22,11 +18,11 @@ public class PlayerLandState : PlayerGroundState
 
         if (xInput != 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
+            fsm.ChangeState<PlayerMoveState>();
         }
         else if (isAnimationFinished)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+            fsm.ChangeState<PlayerIdleState>();
         }
     }
 }

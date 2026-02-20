@@ -1,15 +1,14 @@
 public class PlayerMoveState : PlayerGroundState
 {
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
     private FlipContoller m_flipContoller;
 
-    public PlayerMoveState(Player player, EntityFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerMoveState(EntityFSM fsm, Core core,
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -27,11 +26,11 @@ public class PlayerMoveState : PlayerGroundState
 
         if (xInput == 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+            fsm.ChangeState<PlayerIdleState>();
         }
         else if (yInput == -1)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+            fsm.ChangeState<PlayerCrouchIdleState>();
         }
     }
 }

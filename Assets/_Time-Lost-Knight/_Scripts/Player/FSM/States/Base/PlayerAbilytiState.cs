@@ -1,23 +1,25 @@
 public class PlayerAbilytiState : PlayerState
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-    private Movement m_movement;
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    protected CollisionDetector collisionDetector
-    {
-        get => m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
-    }
+    protected FlipContoller flipController =>
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
+    protected CollisionDetector collisionDetector => 
+        m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+
+    private Movement m_movement;
+    private FlipContoller m_flipContoller;
     private CollisionDetector m_collisionDetector;
 
     protected bool isAbilityDone;
     private bool m_isGrounded;
 
-    public PlayerAbilytiState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerAbilytiState(EntityFSM fsm, Core core,
+        string animBoolName, Player player,
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -46,11 +48,11 @@ public class PlayerAbilytiState : PlayerState
 
         if (m_isGrounded && movement.currentVelocity.y < 0.1f)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+            fsm.ChangeState<PlayerIdleState>();
         }
         else
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
+            fsm.ChangeState<PlayerAirState>();
         }
     }
 }

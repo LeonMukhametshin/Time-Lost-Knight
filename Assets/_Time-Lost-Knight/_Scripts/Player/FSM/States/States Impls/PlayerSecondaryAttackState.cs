@@ -1,8 +1,9 @@
 public class PlayerSecondaryAttackState : PlayerAttackState
 {
-    public PlayerSecondaryAttackState(Player player, EntityFSM fsm,
-        PlayerData playerData, string animBoolName)
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerSecondaryAttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player,
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 }

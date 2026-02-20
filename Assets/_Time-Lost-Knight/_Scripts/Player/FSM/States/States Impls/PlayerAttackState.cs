@@ -1,12 +1,5 @@
 public class PlayerAttackState : PlayerAbilytiState
 {
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-
-    private FlipContoller m_flipContoller;
-
     private Weapon m_weapon;
 
     private int xInput;
@@ -15,9 +8,10 @@ public class PlayerAttackState : PlayerAbilytiState
     private bool setVelocity;
     private bool checkShouldFlip;
 
-    public PlayerAttackState(Player player, EntityFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerAttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 

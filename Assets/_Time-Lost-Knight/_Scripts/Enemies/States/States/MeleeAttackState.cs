@@ -4,16 +4,15 @@ public class MeleeAttackState : AttackState
 {
     protected MeleeAttackStateData data;
 
-    private FlipContoller flipContoller
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
+    private FlipContoller flipContoller => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
     private FlipContoller m_flipContoller;
 
-    public MeleeAttackState(float startTime, string animBoolName,
-        Entity entity, Transform attackPosition, MeleeAttackStateData data) 
-        : base(startTime, animBoolName, entity, attackPosition)
+    public MeleeAttackState(EntityFSM fsm, Core core, string animBoolName, 
+        Entity entity, Transform attackPosition, 
+        MeleeAttackStateData data) 
+        : base(fsm, core, animBoolName, entity, attackPosition)
     {
         this.data = data;
     }

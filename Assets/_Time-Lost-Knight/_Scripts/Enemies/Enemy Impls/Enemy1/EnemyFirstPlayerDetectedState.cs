@@ -1,19 +1,15 @@
 public class EnemyFirstPlayerDetectedState : PlayerDetectedState
 {
-    private EnemyFirst m_enemy;
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
     private FlipContoller m_flipContoller;
 
-
-    public EnemyFirstPlayerDetectedState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, PlayerDetectedData data, EnemyFirst enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyFirstPlayerDetectedState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        PlayerDetectedData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        m_enemy = enemy;
     }
 
     public override void Update()
@@ -22,20 +18,20 @@ public class EnemyFirstPlayerDetectedState : PlayerDetectedState
 
         if (performeCloseRangeAction)
         {
-            fsm.SetState(m_enemy.meleeAttackState);
+            fsm.ChangeState<EnemyFirstMeleeAttackState>();
         }
         else if (performeLongRangeAction)
-        { 
-            fsm.SetState(m_enemy.chargeState);
+        {
+            fsm.ChangeState<EnemyFirstChargeState>();
         }
         else if(!isPlayerInMaxAgroRange)
         {
-            fsm.SetState(m_enemy.lookForPlayerState);
+            fsm.ChangeState<EnemyFirstLookForPlayerState>();
         }
         else if(!isDetectingLedge)
         {
             flipController.Flip();
-            fsm.SetState(m_enemy.moveState);
+            fsm.ChangeState<EnemyFirstMoveState>();
         }
-    }
+    } 
 }

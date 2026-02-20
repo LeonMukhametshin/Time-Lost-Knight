@@ -1,12 +1,10 @@
 public class EnemyFirstLookForPlayerState : LookForPlayerState
 {
-    private EnemyFirst m_enemy;
-
-    public EnemyFirstLookForPlayerState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, LookForPlayerStateData data, EnemyFirst enemyFirst) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyFirstLookForPlayerState(EntityFSM fsm, Core core,
+        string animBoolName, Entity entity,
+        LookForPlayerStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        this.m_enemy = enemyFirst;
     }
 
     public override void Update()
@@ -15,11 +13,11 @@ public class EnemyFirstLookForPlayerState : LookForPlayerState
 
         if(isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
         }
         else if(isAllTurnsTimeDone)
         {
-            fsm.SetState(m_enemy.moveState);
+            fsm.ChangeState<EnemyFirstMoveState>();
         }
     }
 }

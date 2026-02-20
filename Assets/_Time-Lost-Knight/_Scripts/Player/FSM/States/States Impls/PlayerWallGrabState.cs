@@ -2,18 +2,12 @@ using UnityEngine;
 
 public class PlayerWallGrabState : PlayerWallTouchingState
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-
-    private Movement m_movement;
-
     private Vector2 m_holdPosition;
 
-    public PlayerWallGrabState(Player player, EntityFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallGrabState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -38,11 +32,11 @@ public class PlayerWallGrabState : PlayerWallTouchingState
 
         if (yInput > 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallClimbState>());
+            fsm.ChangeState<PlayerWallClimbState>();;
         }
         else if (yInput < 0 || !grabInput)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallSlideState>());
+            fsm.ChangeState<PlayerWallSlideState>();;
         }
     }
 

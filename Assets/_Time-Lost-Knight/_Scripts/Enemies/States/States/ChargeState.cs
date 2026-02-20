@@ -3,36 +3,30 @@ using UnityEngine;
 public class ChargeState : EnemyState
 {
     protected ChargeStateData data;
+
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
 
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-
-    protected FlipContoller flipContoller
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-
-    private EnemyCollisionDetector enemyCollisionDetector
-    {
-        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-    }
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+    protected FlipContoller flipContoller => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    
+    private EnemyCollisionDetector enemyCollisionDetector =>
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;
     private FlipContoller m_flipContoller;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public ChargeState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, ChargeStateData data) 
-        : base(fsm, entity, animBoolName)
+    public ChargeState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, ChargeStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
-        this.data = data;
+        this.data = data;   
     }
 
     public override void Enter()

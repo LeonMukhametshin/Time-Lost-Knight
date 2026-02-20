@@ -1,14 +1,9 @@
 public class PlayerWallClimbState : PlayerWallTouchingState
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
-    private Movement m_movement;
-
-    public PlayerWallClimbState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallClimbState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -25,7 +20,7 @@ public class PlayerWallClimbState : PlayerWallTouchingState
 
         if (yInput != 1)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
+            fsm.ChangeState<PlayerWallGrabState>();
         }
     }
 }

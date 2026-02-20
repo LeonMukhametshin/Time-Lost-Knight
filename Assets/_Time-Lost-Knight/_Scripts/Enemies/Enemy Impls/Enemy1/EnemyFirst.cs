@@ -2,15 +2,6 @@ using UnityEngine;
 
 public class EnemyFirst : Entity
 {
-    public EnemyFirstIdleState idleState { get; private set; }
-    public EnemyFirstMoveState moveState { get; private set; }
-    public EnemyFirstPlayerDetectedState playerDetectedState { get; private set; }
-    public EnemyFirstChargeState chargeState { get; private set; }
-    public EnemyFirstLookForPlayerState lookForPlayerState { get; private set; }
-    public EnemyFirstMeleeAttackState meleeAttackState { get; private set; }
-    public EnemyFirstStanState stanState { get; private set; }
-    public EnemyFirstDeadState deadState { get; private set; }
-
     [SerializeField] private IdleStateData m_idleData;
     [SerializeField] private MoveStateData m_moveData;
     [SerializeField] private PlayerDetectedData m_playerDetectedData;
@@ -26,17 +17,17 @@ public class EnemyFirst : Entity
     {
         base.Awake();
 
-        moveState = new EnemyFirstMoveState(fsm, this, EnemyAnimationConst.MOVE, m_moveData, this);
-        idleState = new EnemyFirstIdleState(fsm, this, EnemyAnimationConst.IDLE, m_idleData, this);
-        playerDetectedState = new EnemyFirstPlayerDetectedState(fsm, this, EnemyAnimationConst.PLAYER_DETECTED, m_playerDetectedData, this);
-        chargeState = new EnemyFirstChargeState(fsm, this, EnemyAnimationConst.CHARGE, m_chargeStateData, this);
-        lookForPlayerState = new EnemyFirstLookForPlayerState(fsm, this, EnemyAnimationConst.LOOK_FOR_PLAYER, m_lookForPlayerData, this);
-        meleeAttackState = new EnemyFirstMeleeAttackState(fsm, this, EnemyAnimationConst.MELEE_ATTACK, m_meleeAttackPoint, m_meleeAttackStateData, this);
-        stanState = new EnemyFirstStanState(fsm, this, EnemyAnimationConst.STUN, m_stanStateData, this);
-        deadState = new EnemyFirstDeadState(fsm, this, EnemyAnimationConst.DEAD, m_deadStateData, this);
+        fsm.Initialize(
+            new EnemyFirstIdleState(fsm, core, EnemyAnimationConst.IDLE, this, m_idleData),
+            new EnemyFirstMoveState(fsm, core, EnemyAnimationConst.MOVE, this, m_moveData),
+            new EnemyFirstPlayerDetectedState(fsm, core, EnemyAnimationConst.PLAYER_DETECTED, this, m_playerDetectedData),
+            new EnemyFirstChargeState(fsm, core, EnemyAnimationConst.CHARGE, this, m_chargeStateData),
+            new EnemyFirstLookForPlayerState(fsm, core, EnemyAnimationConst.LOOK_FOR_PLAYER, this, m_lookForPlayerData),
+            new EnemyFirstMeleeAttackState(fsm, core, EnemyAnimationConst.MELEE_ATTACK, this, m_meleeAttackPoint, m_meleeAttackStateData),
+            new EnemyFirstStanState(fsm, core, EnemyAnimationConst.STUN, this, m_stanStateData),
+            new EnemyFirstDeadState(fsm, core, EnemyAnimationConst.DEAD, this, m_deadStateData));
 
-        animationToFSM.Initialize(meleeAttackState);
-
-        fsm.SetState(moveState);
+        animationToFSM.Initialize(fsm.GetState<EnemyFirstMeleeAttackState>());
+        fsm.ChangeState<EnemyFirstIdleState>();
     }
 }

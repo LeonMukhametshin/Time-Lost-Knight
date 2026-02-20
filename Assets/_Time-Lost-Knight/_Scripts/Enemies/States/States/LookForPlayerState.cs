@@ -13,28 +13,23 @@ public class LookForPlayerState : EnemyState
 
     protected int amountOfTurnsDone;
 
-    private Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
+    private Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    private FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
+    private FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-    private EnemyCollisionDetector enemyCollisionDetector
-    {
-        get => m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-    }
+    private EnemyCollisionDetector enemyCollisionDetector =>
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;
     private FlipContoller m_flipContoller;
     private EnemyCollisionDetector m_enemyCollisionDetector;
 
-    public LookForPlayerState(EnemyFSM fsm, Entity entity,
-        string animBoolName, LookForPlayerStateData data)
-        : base(fsm, entity, animBoolName)
+    public LookForPlayerState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        LookForPlayerStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.data = data;
     }

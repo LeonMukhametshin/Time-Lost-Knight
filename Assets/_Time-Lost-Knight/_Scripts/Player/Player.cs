@@ -1,18 +1,9 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    [field: SerializeField] public Core core { get; private set; }
-
     [SerializeField] private PlayerData m_data;
 
-
-
-    [Header("       ----  PLAYER DATA  ----")]
-    [Space(10)]
-
-    [field: Header("       ----  OTHER COMPONENTS  ----")]
-    [field: Space(10)]
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
     [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
@@ -20,23 +11,31 @@ public class Player : MonoBehaviour
 
     public StatesContainer statesContainer { get; set; }
 
-    private void Awake()
+    public override void Awake()
     {
-        statesContainer = new StatesContainer(this, m_data);
-        animationController.Initialize(statesContainer);
+        base.Awake();
 
-        statesContainer.SetBaseState();
+        animationController.Initialize(fsm);
 
-        statesContainer.GetState<PlayerPrimaryAttackState>()
-            .SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
-        statesContainer.GetState<PlayerSecondaryAttackState>()
-            .SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
-    }
+        fsm.Initialize(
+            new PlayerIdleState(fsm, core, PlayerAnimationConstants.IDLE, this, m_data),
+            new PlayerMoveState(fsm, core, PlayerAnimationConstants.MOVEMENT, this, m_data),
+            new PlayerJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerAirState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerLandState(fsm, core, PlayerAnimationConstants.LAND, this, m_data),
+            new PlayerWallSlideState(fsm, core, PlayerAnimationConstants.WALL_SLIDE, this, m_data),
+            new PlayerWallGrabState(fsm, core, PlayerAnimationConstants.WALL_GRAB, this, m_data),
+            new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, m_data),
+            new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerLedgeClibmState(fsm, core, PlayerAnimationConstants.LEDGE_CLIMB_STATE, this, m_data),
+            new PlayerDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerCrouchIdleState(fsm, core, PlayerAnimationConstants.CROUCH_IDLE, this, m_data),
+            new PlayerCrouchMoveState(fsm, core, PlayerAnimationConstants.CROUCH_MOVE, this, m_data),
+            new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerPrimaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data),
+            new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data));
 
-    private void Update()
-    {
-        core.Update();
-        statesContainer.fsm.Update();
-        statesContainer.fsm.FixedUpdate();
+        fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
+        fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
     }
 }

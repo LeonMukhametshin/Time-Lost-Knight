@@ -1,15 +1,15 @@
 public class PlayerWallTouchingState : PlayerState
 {
-    protected FlipContoller flipContoller
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
+    protected Movement movement =>
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    protected PlayerCollisionDetector collisionDetector
-    {
-        get => m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
-    }
+    protected FlipContoller flipContoller => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
+    protected PlayerCollisionDetector collisionDetector => 
+        m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
+
+    private Movement m_movement;
     private FlipContoller m_flipContoller;
     private PlayerCollisionDetector m_collisionDetector;
 
@@ -22,9 +22,10 @@ public class PlayerWallTouchingState : PlayerState
     protected bool grabInput;
     protected bool jumpInput;
 
-    public PlayerWallTouchingState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallTouchingState(EntityFSM fsm, Core core,
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -38,7 +39,7 @@ public class PlayerWallTouchingState : PlayerState
 
         if(isTouchingWall && !isTouchingLedge)
         {
-            player.statesContainer.GetState<PlayerLedgeClibmState>()
+            fsm.GetState<PlayerLedgeClibmState>()
                 .SetDetectedPosition(player.transform.position);
         }
     }
@@ -51,21 +52,21 @@ public class PlayerWallTouchingState : PlayerState
 
         if (jumpInput)
         {
-            var wallJumpState = player.statesContainer.GetState<PlayerWallJumpState>();
+            var wallJumpState = fsm.GetState<PlayerWallJumpState>();;
             wallJumpState.DetermineWallJumpDirection(isTouchingWall);
-            fsm.SetState(wallJumpState);
+            fsm.ChangeState<PlayerWallJumpState>();;
         }
         else if (isGrounded && !grabInput)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+            fsm.ChangeState<PlayerIdleState>();
         }
         else if (!isTouchingWall || (xInput != flipContoller.facingDirection  && !grabInput))
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
+            fsm.ChangeState<PlayerAirState>();
         }
         else if(isTouchingWall && !isTouchingLedge)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerLedgeClibmState>());
+            fsm.ChangeState<PlayerLedgeClibmState>();;
         }
     }
 

@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class EnemyTwoMeleeAttackState : MeleeAttackState
 {
-    public EnemyTwoMeleeAttackState(float startTime, string animBoolName,
-        Entity entity, Transform attackPosition, MeleeAttackStateData data)
-        : base(startTime, animBoolName, entity, attackPosition, data)
+    public EnemyTwoMeleeAttackState(EntityFSM fsm, Core core,
+        string animBoolName, Entity entity, 
+        Transform attackPosition, MeleeAttackStateData data) 
+        : base(fsm, core, animBoolName, entity, attackPosition, data)
     {
     }
 

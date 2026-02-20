@@ -1,14 +1,10 @@
 public class PlayerGroundState : PlayerState
 {
-    protected Movement movement
-    {
-        get => m_movement ??= core.GetCoreComponent<Movement>();
-    }
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    protected PlayerCollisionDetector collisionDetector
-    {
-        get => m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
-    }
+    protected PlayerCollisionDetector collisionDetector => 
+        m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
 
     private Movement m_movement;
     private PlayerCollisionDetector m_collisionDetector;
@@ -28,9 +24,10 @@ public class PlayerGroundState : PlayerState
 
     private bool m_dropDownInput;
 
-    public PlayerGroundState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerGroundState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -49,8 +46,8 @@ public class PlayerGroundState : PlayerState
     {
         base.Enter();
 
-        player.statesContainer.GetState<PlayerJumpState>().ResetAmountOfJumpsLeft();
-        player.statesContainer.GetState<PlayerDashState>().ResetCanDash();
+        fsm.GetState<PlayerJumpState>().ResetAmountOfJumpsLeft();
+        fsm.GetState<PlayerDashState>().ResetCanDash();
     }
 
     public override void Update()
@@ -61,34 +58,34 @@ public class PlayerGroundState : PlayerState
 
         if (player.inputHandler.attackInputs[(int)CombatInputs.primary] && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerPrimaryAttackState>());
+            fsm.ChangeState<PlayerPrimaryAttackState>();
         }
         else if (player.inputHandler.attackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerSecondaryAttackState>());
+            fsm.ChangeState<PlayerSecondaryAttackState>();
         }
-        else if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
+        else if (m_jumpInput && fsm.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
+            fsm.ChangeState<PlayerJumpState>();
         }
         else if (m_dropDownInput && m_isTouchingPlatform)
         {
             player.inputHandler.UseDropDownInput();
-            fsm.SetState(player.statesContainer.GetState<PlayerDropDownState>());
+            fsm.ChangeState<PlayerDropDownState>();
         }
         else if(!m_isGrounded)
         {
-            var airState = player.statesContainer.GetState<PlayerInAirState>();
+            var airState = fsm.GetState<PlayerAirState>();
             airState.StartCoyoteTime();
-            fsm.SetState(airState);
+            fsm.ChangeState<PlayerAirState>();
         }
         else if(m_isTouchingWall && m_grabInput && m_isTouchingLedge)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
+            fsm.ChangeState<PlayerWallGrabState>();
         }
-        else if (m_dashInput && player.statesContainer.GetState<PlayerDashState>().CheckIfCanDash() && !isTouchingCeiling)
+        else if (m_dashInput && fsm.GetState<PlayerDashState>().CheckIfCanDash() && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerDashState>());
+            fsm.ChangeState<PlayerDashState>();
         }
     }
 

@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class EnemyTwoRangeAttackState : RangeAttackState
 {
-    private EnemyTwo m_enemy;
-
-    public EnemyTwoRangeAttackState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, Transform attackPosition, RangeAttackData data, EnemyTwo enemy) 
-        : base(fsm, entity, animBoolName, attackPosition, data)
+    public EnemyTwoRangeAttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        Transform attackPosition, RangeAttackData data) 
+        : base(fsm, core, animBoolName, entity, attackPosition, data)
     {
-        m_enemy = enemy;
     }
 
-   
     public override void Update()
     {
         base.Update();
@@ -23,11 +20,11 @@ public class EnemyTwoRangeAttackState : RangeAttackState
 
         if (isPlayerInMinAgroRange)
         {
-            fsm.SetState(m_enemy.playerDetectedState);
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
         else
         {
-            fsm.SetState(m_enemy.lookForPlayerState);
+            fsm.ChangeState<EnemyTwoLookForPlayerState>();
         }
     }
 }

@@ -4,9 +4,10 @@ public class DeadState : EnemyState
 {
     protected DeadStateData data;
 
-    public DeadState(float startTime, string animBoolName, 
-        Entity entity, DeadStateData data) 
-        : base(startTime, animBoolName, entity)
+    public DeadState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        DeadStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.data = data;
     }

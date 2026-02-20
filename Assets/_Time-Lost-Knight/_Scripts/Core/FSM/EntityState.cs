@@ -5,7 +5,7 @@ public abstract class EntityState : IState, IUpdateState, IFixedUpdateState
     protected Core core;
     protected EntityFSM  fsm;
 
-    public float startTime { get; private set;  }
+    public float startTime { get; protected set; }
     protected string animBoolName;
 
     protected EntityState(EntityFSM fsm, Core core, string animBoolName)

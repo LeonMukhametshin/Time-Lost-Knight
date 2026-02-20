@@ -1,12 +1,10 @@
 public class EnemyFirstChargeState : ChargeState
 {
-    private EnemyFirst enemy;
-
-    public EnemyFirstChargeState(EnemyFSM fsm, Entity entity, 
-        string animBoolName, ChargeStateData data, EnemyFirst enemy) 
-        : base(fsm, entity, animBoolName, data)
+    public EnemyFirstChargeState(EntityFSM fsm, Core core,
+        string animBoolName, Entity entity, 
+        ChargeStateData data) 
+        : base(fsm, core, animBoolName, entity, data)
     {
-        this.enemy = enemy;
     }
 
     public override void Update()
@@ -15,21 +13,21 @@ public class EnemyFirstChargeState : ChargeState
 
         if (performCloseRangeAction)
         {
-            fsm.SetState(enemy.meleeAttackState);
+            fsm.ChangeState<EnemyFirstMeleeAttackState>();
         }
         else if (!isDetectingLedge || isDetectingWall)
         {
-            fsm.SetState(enemy.lookForPlayerState);
+            fsm.ChangeState<EnemyFirstLookForPlayerState>();
         }
         else if (isChargeTimeOver)
         {
             if(isPlayerInMinAgroRange)
             {
-                fsm.SetState(enemy.playerDetectedState);
+                fsm.ChangeState<EnemyFirstPlayerDetectedState>();
             }
             else
             {
-                fsm.SetState(enemy.lookForPlayerState);
+                fsm.ChangeState<EnemyFirstLookForPlayerState>();
             }
         } 
     }

@@ -2,11 +2,12 @@ public class PlayerJumpState : PlayerAbilytiState
 {
     private int amountOfJumpsLeft;
 
-    public PlayerJumpState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerJumpState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
-        amountOfJumpsLeft = playerData.amountOfJumps;
+        amountOfJumpsLeft = data.amountOfJumps;
     }
 
     public override void Enter()
@@ -18,7 +19,7 @@ public class PlayerJumpState : PlayerAbilytiState
         isAbilityDone = true;
 
         DecreaseAmountOfJumpLeft();
-        player.statesContainer.GetState<PlayerInAirState>().SetIsJumping();
+        fsm.GetState<PlayerAirState>().SetIsJumping();
     }
 
     public bool CanJump() =>

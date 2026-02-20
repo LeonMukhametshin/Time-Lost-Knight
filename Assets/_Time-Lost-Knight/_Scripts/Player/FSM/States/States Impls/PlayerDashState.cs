@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerAbilytiState
 {
-    protected FlipContoller flipController
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-
-    private FlipContoller m_flipContoller;
-
     public bool canDash { get; private set; }
     
     private bool m_isHolding;
@@ -20,9 +13,10 @@ public class PlayerDashState : PlayerAbilytiState
     private Vector2 m_dashDirectionInput;
     private Vector2 m_lastAfterImagePosition;
 
-    public PlayerDashState(Player player, EntityFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerDashState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -106,7 +100,6 @@ public class PlayerDashState : PlayerAbilytiState
                 m_lastDashTime = Time.time;
             }
         }
-
     }
 
     private void PlaceAfterImage()
