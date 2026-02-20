@@ -18,6 +18,13 @@ public class Projectile : MonoBehaviour
     private bool m_isGravityOn;
     private bool m_hasHitGround;
 
+    private CircleCollider2D m_hitTrigger;
+
+    private void Awake()
+    {
+        EnsureTriggerCollider();
+    }
+
     private void Start()
     {
         m_projectileRigidboby.gravityScale = 0f;
@@ -28,7 +35,7 @@ public class Projectile : MonoBehaviour
 
     public void Initialize(RangeAttackData data)
     {
-        if(m_data is not null)
+        if (m_data is not null)
         {
             return;
         }
@@ -38,13 +45,10 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        if (!m_hasHitGround)
+        if (!m_hasHitGround && m_isGravityOn)
         {
-            if (m_isGravityOn)
-            {
-                float angle = Mathf.Atan2(m_projectileRigidboby.linearVelocityY, m_projectileRigidboby.linearVelocityX) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            }
+            float angle = Mathf.Atan2(m_projectileRigidboby.linearVelocityY, m_projectileRigidboby.linearVelocityX) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 
@@ -54,27 +58,82 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
-        var damageHit = Physics2D.OverlapCircle(m_damagePosition.position, m_damageRadius, m_playerLayer);
-        var groundHit = Physics2D.OverlapCircle(m_damagePosition.position, m_damageRadius, m_grondLayer);
-
-        if (damageHit is not null && damageHit.TryGetComponent<IDamageable>(out var damageable))
-        {
-            Debug.Log("Damage " + damageHit.gameObject.name);
-            damageable.TakeDamage(m_data.damage);
-            Destroy(gameObject);
-        }
-
-        if (groundHit is not null)
-        {
-            m_hasHitGround = true;
-            m_projectileRigidboby.gravityScale = 0f;
-            m_projectileRigidboby.linearVelocity = Vector2.zero;
-        }
 
         if (Mathf.Abs(m_xStartPosition - transform.position.x) >= m_data.trevelDistance && !m_isGravityOn)
         {
             m_isGravityOn = true;
             m_projectileRigidboby.gravityScale = m_gravity;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        TryHandleTrigger(other);
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        TryHandleTrigger(other);
+    }
+    private void TryHandleTrigger(Collider2D other)
+    {
+        if (m_hasHitGround)
+        {
+            return;
+        }
+
+        int otherLayer = other.gameObject.layer;
+        if (IsLayerInMask(otherLayer, m_playerLayer) && TryGetDamageable(other, out var damageable))
+        {
+            damageable.TakeDamage(m_data.damage);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (IsLayerInMask(otherLayer, m_grondLayer))
+        {
+            m_hasHitGround = true;
+            m_projectileRigidboby.gravityScale = 0f;
+            m_projectileRigidboby.linearVelocity = Vector2.zero;
+            StopProjectile();
+        }
+    }
+
+    private void EnsureTriggerCollider()
+    {
+        if (!TryGetComponent(out m_hitTrigger))
+        {
+            m_hitTrigger = gameObject.AddComponent<CircleCollider2D>();
+        }
+
+        m_hitTrigger.isTrigger = true;
+        m_hitTrigger.radius = m_damageRadius;
+
+        Vector3 damagePosition = m_damagePosition is null ? transform.position : m_damagePosition.position;
+        Vector2 localDamagePosition = transform.InverseTransformPoint(damagePosition);
+        m_hitTrigger.offset = localDamagePosition;
+    }
+
+    private static bool IsLayerInMask(int layer, LayerMask mask)
+    {
+        return (mask.value & (1 << layer)) != 0;
+    }
+
+    private void StopProjectile()
+    {
+        m_hasHitGround = true;
+        m_projectileRigidboby.gravityScale = 0f;
+        m_projectileRigidboby.linearVelocity = Vector2.zero;
+    }
+
+    private static bool TryGetDamageable(Component target, out IDamageable damageable)
+    {
+        if (target.TryGetComponent(out damageable))
+        {
+            return true;
+        }
+
+        damageable = target.GetComponentInParent<IDamageable>();
+        return damageable is not null;
     }
 }

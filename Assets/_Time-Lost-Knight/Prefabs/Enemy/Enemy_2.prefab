@@ -502,8 +502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c774a1ee8abe249ac6b74799556b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTwo
-  data: {fileID: 11400000, guid: fe299c897d5a98b488aac065a68c3b08, type: 2}
   <core>k__BackingField: {fileID: 1109460989381745446}
+  data: {fileID: 11400000, guid: fe299c897d5a98b488aac065a68c3b08, type: 2}
   <animator>k__BackingField: {fileID: 1785798015715970460}
   <animationToFSM>k__BackingField: {fileID: 9052000885624478077}
   m_idleStateData: {fileID: 11400000, guid: 4e508d4aa1c70684b81af7001386751b, type: 2}
@@ -513,8 +513,8 @@ MonoBehaviour:
   m_lookForPlayerData: {fileID: 11400000, guid: a6dc89cf72da21448add21f5a582e00e, type: 2}
   m_stunStateData: {fileID: 11400000, guid: f966d468a39475a45825da9d3d5a7070, type: 2}
   m_deadStateData: {fileID: 11400000, guid: 2de64d55ab8266b4f9d1a3424603e996, type: 2}
-  <m_dodgeStateData>k__BackingField: {fileID: 11400000, guid: ee3a7b8147295fc4b80e223d0203401b, type: 2}
   m_rangeAttackData: {fileID: 11400000, guid: cf94b3199ee84854aa8636b26522329f, type: 2}
+  m_dodgeStateData: {fileID: 11400000, guid: ee3a7b8147295fc4b80e223d0203401b, type: 2}
   m_meleeAttackPosition: {fileID: 584356442499682983}
   m_rangeAttackPosition: {fileID: 4324879628505862294}
 --- !u!114 &9052000885624478077
@@ -656,7 +656,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_minAgroDistance: 2.14
-  m_maxAgroDistance: 11.27
+  m_maxAgroDistance: 57.9
   m_closeRangeActionDistance: 0.84
 --- !u!1 &7292577337436621185
 GameObject:
