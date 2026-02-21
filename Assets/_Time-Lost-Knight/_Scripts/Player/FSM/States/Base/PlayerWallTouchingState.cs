@@ -52,9 +52,9 @@ public class PlayerWallTouchingState : PlayerState
 
         if (jumpInput)
         {
-            var wallJumpState = fsm.GetState<PlayerWallJumpState>();;
+            var wallJumpState = fsm.GetState<PlayerWallJumpState>();
             wallJumpState.DetermineWallJumpDirection(isTouchingWall);
-            fsm.ChangeState<PlayerWallJumpState>();;
+            fsm.ChangeState<PlayerWallJumpState>();
         }
         else if (isGrounded && !grabInput)
         {
@@ -66,7 +66,7 @@ public class PlayerWallTouchingState : PlayerState
         }
         else if(isTouchingWall && !isTouchingLedge)
         {
-            fsm.ChangeState<PlayerLedgeClibmState>();;
+            fsm.ChangeState<PlayerLedgeClibmState>();
         }
     }
 

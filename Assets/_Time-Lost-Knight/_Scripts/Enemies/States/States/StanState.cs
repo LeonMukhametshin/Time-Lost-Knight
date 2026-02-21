@@ -43,13 +43,12 @@ public class StanState : EnemyState
 
         isStunTimeOver = false;
         isMovementSropped = false;
-        movement.SetVelocity(data.stunKnockbackSpeed, data.stunKnockbackAngle, entity.lastDamageDirection);
+        //movement.SetVelocity(data.stunKnockbackSpeed, data.stunKnockbackAngle, entity.lastDamageDirection);
     }
 
     public override void Exit()
     {
         base.Exit();
-        entity.ResetStunResistance();
     }
 
     public override void Update()

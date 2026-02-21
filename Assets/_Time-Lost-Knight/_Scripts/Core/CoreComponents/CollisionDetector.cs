@@ -2,8 +2,6 @@ using UnityEngine;
 
 public abstract class CollisionDetector : CoreComponent
 {
-    protected const float TOLERANCE = 0.015f;
-
     private FlipContoller m_flipContoller;
     protected FlipContoller flipController
     {

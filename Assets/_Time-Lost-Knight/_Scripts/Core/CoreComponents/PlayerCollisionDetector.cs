@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class PlayerCollisionDetector : CollisionDetector
 {
+    private const float TOLERANCE = 0.008f;
+
     [SerializeField] private Transform m_ceilingCheck;
 
+    [SerializeField][Min(0)] protected float m_standColliderWidth = 1f;
     [SerializeField][Min(0)] protected float m_standColliderHeight = 1.6f;
     [SerializeField][Min(0)] protected float m_ceilingCheckRadius = 0.3f;
+    [SerializeField] private Vector2 m_standColliderOffset;
 
     public bool CheckCeilingCheck() =>
         Physics2D.OverlapCircle(m_ceilingCheck.position, m_ceilingCheckRadius, m_groundLayer);
@@ -21,11 +25,13 @@ public class PlayerCollisionDetector : CollisionDetector
     public bool CheckTouckingPlatform() =>
         Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_platform);
 
-    public bool CheckForSpace(Vector2 cornerPosition) =>
-        Physics2D.Raycast(cornerPosition + (Vector2.up * TOLERANCE) +
-            (Vector2.right * flipController.facingDirection * TOLERANCE),
-            Vector2.up, m_standColliderHeight, m_groundLayer);
+    public bool CheckForSpace(Vector2 standPosition)
+    {
+        m_workspace.Set(m_standColliderWidth - (TOLERANCE * 2f), m_standColliderHeight - (TOLERANCE * 2f));
+        Vector2 standColliderCenter = standPosition + m_standColliderOffset;
 
+        return Physics2D.OverlapBox(standColliderCenter, m_workspace, 0f, m_groundLayer);
+    }
 
     public Vector2 DetermineCornerPosition()
     {
