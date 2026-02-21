@@ -1,4 +1,4 @@
-public class PlayerState : EntityState
+public class PlayerState : EntityState, IAnimationTrigger
 {
     protected Player player;
 

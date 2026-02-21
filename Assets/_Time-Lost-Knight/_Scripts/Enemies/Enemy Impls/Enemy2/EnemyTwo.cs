@@ -32,7 +32,7 @@ public class EnemyTwo : Entity
             new EnemyTwoDeadState(fsm, core, EnemyAnimationConst.DEAD, this, m_deadStateData));
 
 
-        animationToFSM.Initialize(fsm.GetState<EnemyTwoMeleeAttackState>());
+        animationToFSM.Initialize(fsm);
 
         fsm.ChangeState<EnemyTwoIdleState>();
     }

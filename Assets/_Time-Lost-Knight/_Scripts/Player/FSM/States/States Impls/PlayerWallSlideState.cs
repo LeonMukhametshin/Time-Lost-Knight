@@ -1,10 +1,5 @@
 public class PlayerWallSlideState : PlayerWallTouchingState
 {
-    protected Movement movement =>
-        m_movement ??= core.GetCoreComponent<Movement>();
-
-    private Movement m_movement;
-
     public PlayerWallSlideState(EntityFSM fsm, Core core, 
         string animBoolName, Player player, 
         PlayerData data) 

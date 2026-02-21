@@ -27,7 +27,7 @@ public class EnemyFirst : Entity
             new EnemyFirstStanState(fsm, core, EnemyAnimationConst.STUN, this, m_stanStateData),
             new EnemyFirstDeadState(fsm, core, EnemyAnimationConst.DEAD, this, m_deadStateData));
 
-        animationToFSM.Initialize(fsm.GetState<EnemyFirstMeleeAttackState>());
+        animationToFSM.Initialize(fsm);
         fsm.ChangeState<EnemyFirstIdleState>();
     }
 }

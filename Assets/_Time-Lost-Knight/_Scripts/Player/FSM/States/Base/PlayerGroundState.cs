@@ -73,7 +73,7 @@ public class PlayerGroundState : PlayerState
             player.inputHandler.UseDropDownInput();
             fsm.ChangeState<PlayerDropDownState>();
         }
-        else if(!m_isGrounded)
+        else if(!m_isGrounded && movement.currentVelocity.y < -0.01f)
         {
             var airState = fsm.GetState<PlayerAirState>();
             airState.StartCoyoteTime();

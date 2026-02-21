@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerLedgeClibmState : PlayerState, IAnimationTrigger
+public class PlayerLedgeClibmState : PlayerState
 {
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
@@ -46,8 +46,8 @@ public class PlayerLedgeClibmState : PlayerState, IAnimationTrigger
 
         m_startPosition.Set(m_cornerPosition.x - (flipController.facingDirection * data.startOffset.x),
             m_cornerPosition.y - data.startOffset.y);
-        m_stopPosition.Set(m_cornerPosition.x + (flipController.facingDirection * data.startOffset.y),
-            m_cornerPosition.y + data.startOffset.y);
+        m_stopPosition.Set(m_cornerPosition.x + (flipController.facingDirection * data.stopOffset.y),
+            m_cornerPosition.y + data.stopOffset.y);
 
         player.transform.position = m_startPosition;
     }
