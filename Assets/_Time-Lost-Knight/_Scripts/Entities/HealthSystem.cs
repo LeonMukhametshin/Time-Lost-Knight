@@ -45,7 +45,7 @@ public class HealthSystem : MonoBehaviour
         this.value += value;
     }
 
-    public void Decrease(float damage)
+    public void TakeDamage(float damage)
     {
         if (damage < 0)
         {

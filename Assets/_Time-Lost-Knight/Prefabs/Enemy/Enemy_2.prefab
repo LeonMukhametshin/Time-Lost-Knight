@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1181986502582076687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6179718746547704645}
-  - component: {fileID: 8945444412839609568}
-  m_Layer: 8
-  m_Name: Health
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6179718746547704645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181986502582076687}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4388146095284869749}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8945444412839609568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181986502582076687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &2183314772166659448
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +190,6 @@ Transform:
   - {fileID: 5436216968532207228}
   - {fileID: 8792270936809209142}
   - {fileID: 6235087388169110510}
-  - {fileID: 6179718746547704645}
   m_Father: {fileID: 7247793183312380932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1109460989381745446
@@ -310,6 +265,7 @@ GameObject:
   - component: {fileID: 7508319842560639997}
   - component: {fileID: 6349532507017986455}
   - component: {fileID: 9052000885624478077}
+  - component: {fileID: 2056143444822418111}
   m_Layer: 8
   m_Name: Enemy_2
   m_TagString: Enemy
@@ -502,9 +458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c774a1ee8abe249ac6b74799556b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTwo
+  <healthSystem>k__BackingField: {fileID: 2056143444822418111}
   <core>k__BackingField: {fileID: 1109460989381745446}
   <animator>k__BackingField: {fileID: 1785798015715970460}
   <animationToFSM>k__BackingField: {fileID: 9052000885624478077}
+  m_data: {fileID: 11400000, guid: 9047c08c631590344a25724b52527e7a, type: 2}
   m_idleStateData: {fileID: 11400000, guid: 4e508d4aa1c70684b81af7001386751b, type: 2}
   m_moveStateData: {fileID: 11400000, guid: f196890cb2260b84a8f01c15fe9c22dc, type: 2}
   m_playerDetectedData: {fileID: 11400000, guid: 52330a9bdbd0c374f99ca6edd02db785, type: 2}
@@ -528,6 +486,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2453719fbec0e94e99576d0a8de31bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationToFSM
+--- !u!114 &2056143444822418111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244181824168799701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &6492478604657062007
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 1109460989381745446}
-  m_healthSystem: {fileID: 8945444412839609568}
+  m_entity: {fileID: 6349532507017986455}
   maxKnockbackTime: 0.2
   damageParticles: {fileID: 2183314772166659448}
   m_movement: {fileID: 3781488735069552893}
@@ -928,7 +898,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
-  m_healthSystem: {fileID: 8945444412839609568}
+  m_entity: {fileID: 6349532507017986455}
 --- !u!1001 &7836932205588722456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1026,9 +996,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
-      propertyPath: m_healthComponent
+      propertyPath: m_healthSystem
       value: 
-      objectReference: {fileID: 8945444412839609568}
+      objectReference: {fileID: 2056143444822418111}
+    - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_playerHealth
+      value: 
+      objectReference: {fileID: 2056143444822418111}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 374508118656762013, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}

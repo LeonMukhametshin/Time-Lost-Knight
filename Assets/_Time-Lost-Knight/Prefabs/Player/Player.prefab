@@ -288,7 +288,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
-  m_healthSystem: {fileID: 5831911865482849867}
+  m_entity: {fileID: 7302137115000031554}
 --- !u!1 &1823176771412737555
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,50 +335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
   core: {fileID: 252118916741010994}
---- !u!1 &2877797970512844066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1508083000996857810}
-  - component: {fileID: 5831911865482849867}
-  m_Layer: 6
-  m_Name: Health
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1508083000996857810
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2877797970512844066}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4168734567582219985}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5831911865482849867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2877797970512844066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &3225791965333901956
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 252118916741010994}
-  m_healthSystem: {fileID: 5831911865482849867}
+  m_entity: {fileID: 7302137115000031554}
   maxKnockbackTime: 0.2
   damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
   m_movement: {fileID: 4712963472513488763}
@@ -1156,6 +1112,7 @@ GameObject:
   - component: {fileID: 7302137115000031554}
   - component: {fileID: 3170822670122882001}
   - component: {fileID: 4589479619646289466}
+  - component: {fileID: 7875278016313309198}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1181,6 +1138,7 @@ Transform:
   - {fileID: 4168734567582219985}
   - {fileID: 3950281730172469468}
   - {fileID: 1761294192210816146}
+  - {fileID: 8110265211855186095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2130221028629390221
@@ -1348,9 +1306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76667626bac94ef49829804fb4fe586c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  <healthSystem>k__BackingField: {fileID: 7875278016313309198}
   <core>k__BackingField: {fileID: 252118916741010994}
   <animator>k__BackingField: {fileID: 8830459990270249974}
   <animationToFSM>k__BackingField: {fileID: 4589479619646289466}
+  m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
   _textMeshPro: {fileID: 3654717301916167977}
   m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
   <inventory>k__BackingField: {fileID: 3170822670122882001}
@@ -1384,6 +1344,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2453719fbec0e94e99576d0a8de31bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationToFSM
+--- !u!114 &7875278016313309198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435266003297406978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &7558514727442098133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1598,6 @@ Transform:
   - {fileID: 1961100918976719310}
   - {fileID: 1623328590119028583}
   - {fileID: 3036405697922723483}
-  - {fileID: 1508083000996857810}
   - {fileID: 7451740504122313701}
   m_Father: {fileID: 5129810502820567774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1642,6 +1613,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0ef5b7419b6e247add456171720b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core
+--- !u!1 &8863069983853913271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8110265211855186095}
+  - component: {fileID: 7756764436505854978}
+  m_Layer: 6
+  m_Name: 'GamePadVibration '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8110265211855186095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863069983853913271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5129810502820567774}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7756764436505854978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863069983853913271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92df22b301b084a43a86a2321d5da7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VibrationTest
+  m_healSystem: {fileID: 7875278016313309198}
+  m_duration: 0.3
+  m_leftMotor: 0.3
+  m_rightMotor: 0.3
 --- !u!1 &9191475423071762337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,9 +1909,13 @@ PrefabInstance:
       value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
-      propertyPath: m_healthComponent
+      propertyPath: m_healthSystem
       value: 
-      objectReference: {fileID: 5831911865482849867}
+      objectReference: {fileID: 7875278016313309198}
+    - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_playerHealth
+      value: 
+      objectReference: {fileID: 7875278016313309198}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

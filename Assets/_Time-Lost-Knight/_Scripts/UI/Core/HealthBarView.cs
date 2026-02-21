@@ -4,18 +4,17 @@ using UnityEngine.UI;
 public class HealthBarView : MonoBehaviour
 {
     [SerializeField] private Image m_bar;
-    [SerializeField] private HealthSystem m_healthComponent;
+    [SerializeField] private HealthSystem m_healthSystem;
 
     private void OnEnable()
     {
-        m_healthComponent.valueChanged += SetValue;
+        m_healthSystem.valueChanged += SetValue;
+        SetValue();
     }
 
-    private void OnDisable()
-    {
-        m_healthComponent.valueChanged -= SetValue;
-    }
+    private void OnDisable() => 
+        m_healthSystem.valueChanged -= SetValue;
 
     private void SetValue() =>
-        m_bar.fillAmount = (float)m_healthComponent.value / (float)m_healthComponent.maxValue;
+        m_bar.fillAmount = m_healthSystem.value / m_healthSystem.maxValue;
 }

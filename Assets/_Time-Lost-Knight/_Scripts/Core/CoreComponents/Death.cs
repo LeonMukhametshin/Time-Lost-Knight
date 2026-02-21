@@ -5,7 +5,7 @@ public class Death : CoreComponent
     [SerializeField] private GameObject entityGameObject;
     [SerializeField] private GameObject[] deathParticles;
 
-    [SerializeField] private HealthSystem m_healthSystem;
+    [SerializeField] private Entity m_entity;
 
     private ParticleManager m_particleManager;
 
@@ -14,15 +14,11 @@ public class Death : CoreComponent
         get => m_particleManager ??= core.GetCoreComponent<ParticleManager>();  
     }
 
-    private void OnEnable()
-    {
-        m_healthSystem.died += Die;
-    }
+    private void OnEnable() => 
+        m_entity.healthSystem.died += Die;
 
-    private void OnDisable()
-    {
-        m_healthSystem.died -= Die;
-    }
+    private void OnDisable() => 
+        m_entity.healthSystem.died -= Die;
 
     private void Die()
     {
@@ -31,6 +27,7 @@ public class Death : CoreComponent
             particleManager.StartParticles(particle);
         }
 
+        //TODO: remove 
         entityGameObject.SetActive(false);  
     }
 }
