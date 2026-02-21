@@ -47,7 +47,7 @@ public class PlayerGroundState : PlayerState
         base.Enter();
 
         fsm.GetState<PlayerJumpState>().ResetAmountOfJumpsLeft();
-        fsm.GetState<PlayerDashState>().ResetCanDash();
+        fsm.GetState<PlayerForwardDashState>().ResetCanDash();
     }
 
     public override void Update()
@@ -83,9 +83,13 @@ public class PlayerGroundState : PlayerState
         {
             fsm.ChangeState<PlayerWallGrabState>();
         }
-        else if (m_dashInput && fsm.GetState<PlayerDashState>().CheckIfCanDash() && !isTouchingCeiling)
+        else if(m_dashInput && collisionDetector.CheckForOmnidirectionalZone() && !isTouchingCeiling)
         {
-            fsm.ChangeState<PlayerDashState>();
+            fsm.ChangeState<PlayerOmnidirectionalDashState>();
+        }
+        else if (m_dashInput && fsm.GetState<PlayerForwardDashState>().CheckIfCanDash() && !isTouchingCeiling)
+        {
+            fsm.ChangeState<PlayerForwardDashState>();
         }
     }
 

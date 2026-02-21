@@ -10,6 +10,7 @@ public class PlayerCollisionDetector : CollisionDetector
     [SerializeField][Min(0)] protected float m_standColliderHeight = 1.6f;
     [SerializeField][Min(0)] protected float m_ceilingCheckRadius = 0.3f;
     [SerializeField] private Vector2 m_standColliderOffset;
+    [SerializeField] private LayerMask m_omnidirectionalZone;
 
     public bool CheckCeilingCheck() =>
         Physics2D.OverlapCircle(m_ceilingCheck.position, m_ceilingCheckRadius, m_groundLayer);
@@ -32,6 +33,9 @@ public class PlayerCollisionDetector : CollisionDetector
 
         return Physics2D.OverlapBox(standColliderCenter, m_workspace, 0f, m_groundLayer);
     }
+
+    public bool CheckForOmnidirectionalZone() =>
+        Physics2D.OverlapCircle(m_wallCheck.position, m_wallCheckDistance, m_omnidirectionalZone);
 
     public Vector2 DetermineCornerPosition()
     {

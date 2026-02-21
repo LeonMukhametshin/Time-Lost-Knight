@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PlayerDashState : PlayerAbilytiState
+public class PlayerForwardDashState : PlayerAbilytiState
 {
     public bool canDash { get; private set; }
-    
+
     private bool m_isHolding;
     private bool m_dashInputStop;
 
@@ -13,9 +13,9 @@ public class PlayerDashState : PlayerAbilytiState
     private Vector2 m_dashDirectionInput;
     private Vector2 m_lastAfterImagePosition;
 
-    public PlayerDashState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data) 
+    public PlayerForwardDashState(EntityFSM fsm, Core core,
+        string animBoolName, Player player,
+        PlayerData data)
         : base(fsm, core, animBoolName, player, data)
     {
     }
@@ -40,7 +40,7 @@ public class PlayerDashState : PlayerAbilytiState
     {
         base.Exit();
 
-        if(movement.currentVelocity.y > 0)
+        if (movement.currentVelocity.y > 0)
         {
             movement.SetVelocityY(movement.currentVelocity.y * data.dashEndYMultiplier);
         }
@@ -62,7 +62,6 @@ public class PlayerDashState : PlayerAbilytiState
 
         if (m_isHolding)
         {
-            m_dashDirectionInput = player.inputHandler.dashDirectionInput;
             m_dashInputStop = player.inputHandler.dashInputStop;
 
             if (m_dashDirectionInput != Vector2.zero)
@@ -72,7 +71,7 @@ public class PlayerDashState : PlayerAbilytiState
             }
 
             float angle = Vector2.SignedAngle(Vector2.right, m_dashDirection);
-            player.dashVizualizer.SetRotation(angle); 
+            player.dashVizualizer.SetRotation(angle);
 
             if (m_dashInputStop || Time.unscaledTime >= startTime + data.maxHoldTime)
             {
@@ -110,7 +109,7 @@ public class PlayerDashState : PlayerAbilytiState
 
     private void CheckIfShoudPlaceAfterImage()
     {
-        if(Vector2.Distance(player.transform.position, m_lastAfterImagePosition) 
+        if (Vector2.Distance(player.transform.position, m_lastAfterImagePosition)
             >= data.distanceBetweenAfterImages)
         {
             PlaceAfterImage();

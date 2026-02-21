@@ -25,7 +25,10 @@ public class Player : Entity
             new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, m_data),
             new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
             new PlayerLedgeClibmState(fsm, core, PlayerAnimationConstants.LEDGE_CLIMB_STATE, this, m_data),
-            new PlayerDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+
+            new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerOmnidirectionalDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+
             new PlayerCrouchIdleState(fsm, core, PlayerAnimationConstants.CROUCH_IDLE, this, m_data),
             new PlayerCrouchMoveState(fsm, core, PlayerAnimationConstants.CROUCH_MOVE, this, m_data),
             new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
@@ -37,6 +40,7 @@ public class Player : Entity
 
         fsm.ChangeState<PlayerIdleState>();
 
+        //TODO: remove 
         animationToFSM.Initialize(fsm);
     }
 

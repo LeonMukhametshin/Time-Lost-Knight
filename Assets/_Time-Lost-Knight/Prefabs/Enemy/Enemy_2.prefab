@@ -503,7 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTwo
   <core>k__BackingField: {fileID: 1109460989381745446}
-  data: {fileID: 11400000, guid: fe299c897d5a98b488aac065a68c3b08, type: 2}
   <animator>k__BackingField: {fileID: 1785798015715970460}
   <animationToFSM>k__BackingField: {fileID: 9052000885624478077}
   m_idleStateData: {fileID: 11400000, guid: 4e508d4aa1c70684b81af7001386751b, type: 2}
@@ -1031,7 +1030,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8945444412839609568}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 374508118656762013, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}

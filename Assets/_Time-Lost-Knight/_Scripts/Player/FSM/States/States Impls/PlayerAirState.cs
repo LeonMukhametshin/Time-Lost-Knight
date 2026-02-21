@@ -124,9 +124,13 @@ public class PlayerAirState : PlayerState
         {
             fsm.ChangeState<PlayerWallSlideState>();
         }
-        else if(m_dashInput && fsm.GetState<PlayerDashState>().CheckIfCanDash())
+        else if(m_dashInput && collisionDetector.CheckForOmnidirectionalZone())
         {
-            fsm.ChangeState<PlayerDashState>();
+            fsm.ChangeState<PlayerOmnidirectionalDashState>();
+        }
+        else if(m_dashInput && fsm.GetState<PlayerForwardDashState>().CheckIfCanDash())
+        {
+            fsm.ChangeState<PlayerForwardDashState>();
         }
         else
         {
