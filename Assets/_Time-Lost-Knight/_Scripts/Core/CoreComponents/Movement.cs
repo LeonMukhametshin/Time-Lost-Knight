@@ -40,6 +40,15 @@ public class Movement : CoreComponent, IUpdate
         SetFinalVelocity();
     }
 
+    public void SetVelocityXSmooth(float targetVelocityX, float acceleration, float deceleration)
+    {
+        var rate = Mathf.Abs(targetVelocityX) > 0.01f ? acceleration : deceleration;
+        var velocityX = Mathf.Lerp(rigidbody2D.linearVelocityX, targetVelocityX, rate * Time.deltaTime);
+
+        m_workspace.Set(velocityX, rigidbody2D.linearVelocityY);
+        SetFinalVelocity();
+    }
+
     public void SetVelocityY(float velocity)
     {
         m_workspace.Set(rigidbody2D.linearVelocityX, velocity);
