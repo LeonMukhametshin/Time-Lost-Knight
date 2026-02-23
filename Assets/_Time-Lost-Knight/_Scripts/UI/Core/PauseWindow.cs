@@ -37,7 +37,7 @@ public class PauseWindow : MonoBehaviour
         Pause.instants.SetPause(true);
     }
 
-    private void ClosePause()
+    public void ClosePause()
     {
         m_popup.Hide(() => m_popup.gameObject.SetActive(false));
         Pause.instants.SetPause(false);

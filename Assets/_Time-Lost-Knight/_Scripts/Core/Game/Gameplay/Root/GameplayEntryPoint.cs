@@ -10,7 +10,7 @@ public partial class GameplayEntryPoint : MonoBehaviour
     [SerializeField] private BootstrapState m_bootstrapState;
     [SerializeField] private PauseWindow m_pauseWindow;
 
-    public void Run()
+    public void Awake()
     {
         m_sceneUIRoot.GoToGameplayButtonClicked += () =>
         {
