@@ -15,8 +15,8 @@ public class PlayerSpawner : MonoBehaviour
         }
 
         var player = GameObject.Instantiate(m_player, m_spawnPoint.position, Quaternion.identity, null);
-        isPlayerSpawned = true;
+        ServiceLocator.Register(player);
 
-        ServiceLocator.Register(m_player);
+        isPlayerSpawned = true;
     }
 }

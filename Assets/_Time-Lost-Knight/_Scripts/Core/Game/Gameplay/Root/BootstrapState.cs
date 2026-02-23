@@ -37,7 +37,7 @@ public class BootstrapState : MonoBehaviour, IState
             LoadSceneMode.Additive)
             .completed += _ =>
             {
-                m_healthBarView?.Initialized();
+                m_healthBarView?.Initialize();
             };
     }
 }

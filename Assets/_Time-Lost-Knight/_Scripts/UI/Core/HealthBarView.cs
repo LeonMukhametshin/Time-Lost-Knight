@@ -4,21 +4,15 @@ using UnityEngine.UI;
 public class HealthBarView : MonoBehaviour
 {
     [SerializeField] private Image m_bar;
-    [SerializeField] protected HealthSystem m_healthSystem;
+    [SerializeField] private HealthSystem m_healthSystem;
 
-    public virtual void OnEnable() => 
-        Subscribe();
-
-    public virtual void OnDisable() =>
-        UnSubscribe();
-
-    protected void Subscribe()
+    public void OnEnable()
     {
         m_healthSystem.valueChanged += SetValue;
         SetValue();
-    }
+    }   
 
-    protected void UnSubscribe()
+    public void OnDisable()
     {
         m_healthSystem.valueChanged -= SetValue;
     }
