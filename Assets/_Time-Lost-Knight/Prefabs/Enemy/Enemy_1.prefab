@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   core: {fileID: 5575267192742571841}
-  <rigidbody2D>k__BackingField: {fileID: 1443340695227760855}
+  <rb>k__BackingField: {fileID: 1443340695227760855}
 --- !u!1 &2330024446078767412
 GameObject:
   m_ObjectHideFlags: 0

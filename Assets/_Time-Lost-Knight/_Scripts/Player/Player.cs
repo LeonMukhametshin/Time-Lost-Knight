@@ -1,10 +1,8 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] private TextMeshProUGUI _textMeshPro;
     [SerializeField] private PlayerData m_data;
 
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
@@ -45,12 +43,5 @@ public class Player : Entity
 
         //TODO: remove 
         animationToFSM.Initialize(fsm);
-    }
-
-    public override void Update()
-    { 
-        base.Update();
-
-        _textMeshPro.text = fsm.currentState.ToString();
     }
 }

@@ -10,11 +10,6 @@ public class ServiceLocator
     public static void Register<T>(T newService) where T : class
     {
         m_serviceLocator ??= new ServiceLocator();
-        if (m_serviceLocator.m_services.ContainsKey(typeof(T)))
-        {
-            throw new Exception($"Service locator already contains {typeof(T)}");
-        }
-
         m_serviceLocator.m_services.Add(typeof(T), newService);
     }
 

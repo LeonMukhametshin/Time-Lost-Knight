@@ -38,7 +38,7 @@ public class Entity : MonoBehaviour, IPauseHandler
         fsm.Update();
         core.Update();
 
-        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rigidbody2D.linearVelocityY);
+        animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rb.linearVelocityY);
     }
 
     public virtual void FixedUpdate()
@@ -51,13 +51,10 @@ public class Entity : MonoBehaviour, IPauseHandler
         fsm.FixedUpdate();
     }
 
+
     public void IsPuased(bool isPaused)
     {
-        if (isPaused)
-        {
-            movement.SetVelocityZero();
-        }
-
+        movement.SetPaused(isPaused);
         animator.enabled = !isPaused;
-    }   
+    }
 }
