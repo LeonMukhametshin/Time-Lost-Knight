@@ -7,7 +7,7 @@ public class HealthBarView : MonoBehaviour
     [SerializeField] private HealthSystem m_healthSystem;
 
     private void OnEnable()
-    {
+    { 
         m_healthSystem.valueChanged += SetValue;
         SetValue();
     }

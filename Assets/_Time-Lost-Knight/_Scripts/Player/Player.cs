@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,11 +9,13 @@ public class Player : Entity
 
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
-    [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
+    [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
     public override void Awake()
     {
         base.Awake();
+
+        inputHandler = ServiceLocator.Get<PlayerInputHandler>();
 
         fsm.Initialize(
             new PlayerIdleState(fsm, core, PlayerAnimationConstants.IDLE, this, m_data),

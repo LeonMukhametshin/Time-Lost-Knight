@@ -1,29 +1,31 @@
 using System;
 using UnityEngine;
-using Zenject;
 
-public class GameplayEntryPoint : MonoBehaviour
+public partial class GameplayEntryPoint : MonoBehaviour
 {
     public event Action goToMainMenuSceneRequested;
 
-    [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
+    [SerializeField] private UIGameplayRootBinder m_sceneUIRoot;
+    [SerializeField] private BootstrapState m_bootstrapState;
+    [SerializeField] private PauseWindow m_pauseWindow;
 
-    public void Run(UIRootView uiRoot)
+    public void Run()
     {
-        var uiScene = Instantiate(m_sceneUIRootPrefab);
-        uiRoot.AttachSceneUI(uiScene.gameObject);
-
-        uiScene.GoToGameplayButtonClicked += () =>
+        m_sceneUIRoot.GoToGameplayButtonClicked += () =>
         {
             goToMainMenuSceneRequested?.Invoke();
         };
 
         var fsm = new StateMachine();
+        m_bootstrapState.Initialize(fsm);
 
         fsm.Initialize(
+            m_bootstrapState,
             new GameplayState(fsm),
             new PauseState(fsm));
 
-        fsm.ChangeState<GameplayState>();
+        fsm.ChangeState<BootstrapState>();
+
+        m_pauseWindow.Initialize();
     }
 }

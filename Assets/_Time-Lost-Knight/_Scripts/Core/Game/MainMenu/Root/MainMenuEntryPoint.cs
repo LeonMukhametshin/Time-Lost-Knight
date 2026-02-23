@@ -5,14 +5,11 @@ public class MainMenuEntryPoint : MonoBehaviour
 {
     public event Action GoToGameplaySceneRequested;
 
-    [SerializeField] private UIMainMenuRootBinder m_sceneUIRootPrefab;
+    [SerializeField] private UIMainMenuRootBinder m_sceneUIRoot;
 
-    public void Run(UIRootView uiRoot)
+    public void Run()
     {
-        var uiScene = Instantiate(m_sceneUIRootPrefab);
-        uiRoot.AttachSceneUI(uiScene.gameObject);
-
-        uiScene.GoToMainMenuButtonClicked += () =>
+        m_sceneUIRoot.GoToMainMenuButtonClicked += () =>
         {
             GoToGameplaySceneRequested?.Invoke();
         };

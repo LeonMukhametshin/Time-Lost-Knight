@@ -1,12 +1,9 @@
 using UnityEngine;
-using Zenject;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Entity[] m_enemies;
     [SerializeField] private Transform[] m_spawnPoints;
-
-    [Inject] private DiContainer m_container;
 
     private void Awake()
     {
@@ -18,11 +15,7 @@ public class EnemySpawner : MonoBehaviour
         foreach(var spawnPoint in m_spawnPoints)
         {
             var enemy = GetEntity;
-            m_container.InstantiatePrefabForComponent<Entity>(
-                enemy,
-                spawnPoint.position,
-                Quaternion.identity,
-                spawnPoint);
+            GameObject.Instantiate(enemy, spawnPoint.transform);
         }
     }
 

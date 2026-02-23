@@ -1,13 +1,12 @@
 using UnityEngine;
-using Zenject;
 
 public class Follower : MonoBehaviour
 {
-    [Inject] private Player m_player;
+    [SerializeField] private Transform m_target;
     [SerializeField] private Vector3 m_offcet;
 
     private void LateUpdate()
     {
-        transform.position = m_player.gameObject.transform.position + m_offcet;
+        transform.position = m_target.position + m_offcet;
     }        
 }

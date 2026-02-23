@@ -15,11 +15,6 @@ public class GameplayState : IState
 
     public void Enter()
     {
-        if (SceneManager.GetActiveScene().name == SceneNames.LEVEL_EXAMPLE)
-        {
-            return;
-        }
-
         LoadLevel();
         levelLoaded += SpawnEnemies;
     }
