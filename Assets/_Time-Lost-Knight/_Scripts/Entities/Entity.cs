@@ -16,6 +16,12 @@ public class Entity : MonoBehaviour, IPauseHandler
    
     private Movement m_movement;
 
+    private void OnEnable() => 
+        Pause.instants.Add(this);
+
+    private void OnDisable() => 
+        Pause.instants.Remove(this);
+
     public virtual void Awake()
     {
         fsm = new EntityFSM();
@@ -47,9 +53,11 @@ public class Entity : MonoBehaviour, IPauseHandler
 
     public void IsPuased(bool isPaused)
     {
-        if(isPaused)
+        if (isPaused)
         {
             movement.SetVelocityZero();
         }
-    }
+
+        animator.enabled = !isPaused;
+    }   
 }
