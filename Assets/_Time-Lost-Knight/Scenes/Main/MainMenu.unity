@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1709220388}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!1 &890140190
@@ -491,9 +491,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1122508026}
     m_Modifications:
+    - target: {fileID: 128255249860023735, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128255249860023735, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128255249860023735, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128255249860023735, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128255249860023735, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3481481441562087427, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
       propertyPath: m_Name
       value: MainMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031036700783259921, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031036700783259921, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031036700783259921, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031036700783259921, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031036700783259921, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4375297552161086930, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
       propertyPath: m_Pivot.x
@@ -575,6 +615,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -596,6 +656,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53436dfbb1a7416488e7adfd57100903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1709220388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 85202898594196725, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+  m_PrefabInstance: {fileID: 1379081241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class ServiceLocator 
 {
@@ -10,6 +11,12 @@ public class ServiceLocator
     public static void Register<T>(T newService) where T : class
     {
         m_serviceLocator ??= new ServiceLocator();
+
+        if (m_serviceLocator.m_services.ContainsKey(typeof(T)))
+        {
+            m_serviceLocator.m_services.Remove(typeof(T));
+        }
+
         m_serviceLocator.m_services.Add(typeof(T), newService);
     }
 
