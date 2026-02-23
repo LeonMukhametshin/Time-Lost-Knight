@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7423412245353073129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a13fe3869775649ac2557f8ce6b475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarView
-  m_bar: {fileID: 0}
+  m_bar: {fileID: 8536493282662071794}
   m_healthSystem: {fileID: 0}
 --- !u!1 &1190835062551751826
 GameObject:
@@ -488,7 +488,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 500
@@ -862,7 +862,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5255555519353835033}
   - component: {fileID: 4475821869504238551}
-  - component: {fileID: 1084825266001573931}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -903,30 +902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseWindow
   m_popup: {fileID: 2100919684448540402}
-  m_inputHandler: {fileID: 0}
---- !u!223 &1084825266001573931
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6691422766090741615}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 1000
-  m_TargetDisplay: 0
 --- !u!1 &9132392944431180849
 GameObject:
   m_ObjectHideFlags: 0

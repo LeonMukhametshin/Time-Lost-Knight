@@ -10,14 +10,24 @@ public class PauseWindow : MonoBehaviour
     {
         m_inputHandler = ServiceLocator.Get<UIInputHandler>();
 
-        m_inputHandler.pausePressed += OpenPause;
-        m_inputHandler.pausePressed += ClosePause;
+        m_inputHandler.pausePressed += OpenOrClose;
     }
 
     public void UnSubscribe()
     {
-        m_inputHandler.pausePressed -= OpenPause;
-        m_inputHandler.pausePressed -= ClosePause;
+        m_inputHandler.pausePressed -= OpenOrClose;
+    }
+
+    private void OpenOrClose()
+    {
+        if(m_popup.open)
+        {
+            ClosePause();
+        }
+        else
+        {
+            OpenPause();
+        }
     }
 
     private void OpenPause()

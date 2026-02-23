@@ -174,6 +174,15 @@ namespace Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb5fbe23-5dfd-40b9-b6c5-27b230d2d5a5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -418,27 +427,10 @@ namespace Inputs
                     ""action"": ""Secondary Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""7dff7166-913c-4408-819c-5e4d7532e75d"",
-            ""actions"": [
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""7f3d7000-74c4-4a53-965a-567b3974163b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""cd9f673b-989b-42c8-92ca-7f2758886b5d"",
+                    ""id"": ""5c241c4b-a83f-48a1-a537-3f82b69ca649"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -449,7 +441,7 @@ namespace Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""63e8de95-3a81-4644-ab2f-22b4fff47b07"",
+                    ""id"": ""681a7add-8792-4b01-bbd7-6afcec82c72a"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -459,6 +451,12 @@ namespace Inputs
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""7dff7166-913c-4408-819c-5e4d7532e75d"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": [
@@ -535,9 +533,9 @@ namespace Inputs
             m_Player_Platform = m_Player.FindAction("Platform", throwIfNotFound: true);
             m_Player_PrimaryAttack = m_Player.FindAction("Primary Attack", throwIfNotFound: true);
             m_Player_SecondaryAttack = m_Player.FindAction("Secondary Attack", throwIfNotFound: true);
+            m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-            m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         }
 
         ~@GameInput()
@@ -628,6 +626,7 @@ namespace Inputs
         private readonly InputAction m_Player_Platform;
         private readonly InputAction m_Player_PrimaryAttack;
         private readonly InputAction m_Player_SecondaryAttack;
+        private readonly InputAction m_Player_Pause;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -675,6 +674,10 @@ namespace Inputs
             /// Provides access to the underlying input action "Player/SecondaryAttack".
             /// </summary>
             public InputAction @SecondaryAttack => m_Wrapper.m_Player_SecondaryAttack;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Pause".
+            /// </summary>
+            public InputAction @Pause => m_Wrapper.m_Player_Pause;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -728,6 +731,9 @@ namespace Inputs
                 @SecondaryAttack.started += instance.OnSecondaryAttack;
                 @SecondaryAttack.performed += instance.OnSecondaryAttack;
                 @SecondaryAttack.canceled += instance.OnSecondaryAttack;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             /// <summary>
@@ -766,6 +772,9 @@ namespace Inputs
                 @SecondaryAttack.started -= instance.OnSecondaryAttack;
                 @SecondaryAttack.performed -= instance.OnSecondaryAttack;
                 @SecondaryAttack.canceled -= instance.OnSecondaryAttack;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             /// <summary>
@@ -803,7 +812,6 @@ namespace Inputs
         // UI
         private readonly InputActionMap m_UI;
         private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-        private readonly InputAction m_UI_Pause;
         /// <summary>
         /// Provides access to input actions defined in input action map "UI".
         /// </summary>
@@ -815,10 +823,6 @@ namespace Inputs
             /// Construct a new instance of the input action map wrapper class.
             /// </summary>
             public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
-            /// <summary>
-            /// Provides access to the underlying input action "UI/Pause".
-            /// </summary>
-            public InputAction @Pause => m_Wrapper.m_UI_Pause;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -845,9 +849,6 @@ namespace Inputs
             {
                 if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-                @Pause.started += instance.OnPause;
-                @Pause.performed += instance.OnPause;
-                @Pause.canceled += instance.OnPause;
             }
 
             /// <summary>
@@ -859,9 +860,6 @@ namespace Inputs
             /// <seealso cref="UIActions" />
             private void UnregisterCallbacks(IUIActions instance)
             {
-                @Pause.started -= instance.OnPause;
-                @Pause.performed -= instance.OnPause;
-                @Pause.canceled -= instance.OnPause;
             }
 
             /// <summary>
@@ -1030,6 +1028,13 @@ namespace Inputs
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnSecondaryAttack(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnPause(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1038,13 +1043,6 @@ namespace Inputs
         /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
         public interface IUIActions
         {
-            /// <summary>
-            /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnPause(InputAction.CallbackContext context);
         }
     }
 }

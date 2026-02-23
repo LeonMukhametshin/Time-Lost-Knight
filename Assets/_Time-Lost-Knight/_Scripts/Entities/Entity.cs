@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Entity : MonoBehaviour, IPauseHandler
 {
     public EntityFSM fsm { get; private set; }
 
@@ -24,14 +24,32 @@ public class Entity : MonoBehaviour
 
     public virtual void Update()
     {
+        if (Pause.instants.isPaused)
+        {
+            return;
+        }
+
         fsm.Update();
         core.Update();
 
         animator.SetFloat(EnemyAnimationConst.Y_VELOCITY, movement.rigidbody2D.linearVelocityY);
     }
 
-    public virtual void FixedUpdate() 
+    public virtual void FixedUpdate()
     {
+        if (Pause.instants.isPaused)
+        {
+            return;
+        }
+
         fsm.FixedUpdate();
+    }
+
+    public void IsPuased(bool isPaused)
+    {
+        if(isPaused)
+        {
+            movement.SetVelocityZero();
+        }
     }
 }

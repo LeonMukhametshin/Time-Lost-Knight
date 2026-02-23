@@ -48,7 +48,7 @@ public class Player : Entity
     }
 
     public override void Update()
-    {
+    { 
         base.Update();
 
         _textMeshPro.text = fsm.currentState.ToString();

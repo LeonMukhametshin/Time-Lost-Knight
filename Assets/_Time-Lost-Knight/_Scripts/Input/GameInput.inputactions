@@ -86,6 +86,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "eb5fbe23-5dfd-40b9-b6c5-27b230d2d5a5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -330,27 +339,10 @@
                     "action": "Secondary Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "7dff7166-913c-4408-819c-5e4d7532e75d",
-            "actions": [
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "7f3d7000-74c4-4a53-965a-567b3974163b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "cd9f673b-989b-42c8-92ca-7f2758886b5d",
+                    "id": "5c241c4b-a83f-48a1-a537-3f82b69ca649",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
@@ -361,7 +353,7 @@
                 },
                 {
                     "name": "",
-                    "id": "63e8de95-3a81-4644-ab2f-22b4fff47b07",
+                    "id": "681a7add-8792-4b01-bbd7-6afcec82c72a",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -371,6 +363,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "7dff7166-913c-4408-819c-5e4d7532e75d",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
