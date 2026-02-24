@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerForwardDashState : PlayerBaseDashState
 {
-    protected override bool CanHoldDirection => false;
-    protected override bool ShowDashVisualizer => false;
+    protected override bool canHoldDirection => false;
+    protected override bool showDashVisualizer => false;
+
+    private Vector2 m_workspace;
 
     public PlayerForwardDashState(EntityFSM fsm, Core core,
         string animBoolName, Player player,
@@ -14,13 +16,7 @@ public class PlayerForwardDashState : PlayerBaseDashState
 
     protected override Vector2 ResolveDashDirection(Vector2 fallbackDirection)
     {
-        Vector2 inputDirection = player.inputHandler.rawMovementInput;
-
-        if (inputDirection.sqrMagnitude > 0f)
-        {
-            return inputDirection.normalized;
-        }
-
-        return fallbackDirection;
+        m_workspace.Set(fallbackDirection.x, 0f);
+        return m_workspace.normalized;
     }
 }
