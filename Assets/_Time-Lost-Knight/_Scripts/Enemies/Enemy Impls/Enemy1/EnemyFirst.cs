@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -38,6 +39,6 @@ public class EnemyFirst : Entity
     {
         base.Update();
 
-        text.text = fsm.currentState.ToString();
+        text.text = Math.Round(movement.rb.linearVelocityY, 2).ToString();
     }
 }

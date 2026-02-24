@@ -96,6 +96,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   core: {fileID: 5575267192742571841}
   <rb>k__BackingField: {fileID: 1443340695227760855}
+--- !u!1 &1258453389112279633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806731660084096003}
+  - component: {fileID: 1645453893065412953}
+  m_Layer: 8
+  m_Name: FallDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1806731660084096003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258453389112279633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3284459747886018487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1645453893065412953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258453389112279633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5017db389e4ef347b0ca4488cd1542d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallDamage
+  m_entitnyRigidbody: {fileID: 1443340695227760855}
+  m_healthSystem: {fileID: 4725127776796757470}
+  m_timeToDamage: 10000
+  m_fallVelocity: 1
 --- !u!1 &2330024446078767412
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +211,7 @@ Transform:
   - {fileID: 2915707534267293753}
   - {fileID: 3134218189377721648}
   - {fileID: 1934731693525962937}
+  - {fileID: 1806731660084096003}
   m_Father: {fileID: 8692355869706984015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5575267192742571841
@@ -738,7 +787,7 @@ MonoBehaviour:
   <animator>k__BackingField: {fileID: 1297166882728797537}
   <animationToFSM>k__BackingField: {fileID: 1255148350463277060}
   m_data: {fileID: 11400000, guid: 9047c08c631590344a25724b52527e7a, type: 2}
-  text: {fileID: 8076846020823367546}
+  text: {fileID: 6533153759234450216}
   m_idleData: {fileID: 11400000, guid: 08ad3944ac781de44bac9ef96feb5c6b, type: 2}
   m_moveData: {fileID: 11400000, guid: e4e2467a12aeabd4fa2ccc5a74292939, type: 2}
   m_playerDetectedData: {fileID: 11400000, guid: ae84519425e013644a7cbcbba7350709, type: 2}
@@ -935,9 +984,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
---- !u!114 &8076846020823367546 stripped
+--- !u!114 &6533153759234450216 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 668676382343648782, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2592747044129999452, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
   m_PrefabInstance: {fileID: 8741809075643050356}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
