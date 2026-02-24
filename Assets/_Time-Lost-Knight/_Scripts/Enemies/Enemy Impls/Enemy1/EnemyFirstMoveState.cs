@@ -15,6 +15,10 @@ public class EnemyFirstMoveState : MoveState
         {
             fsm.ChangeState<EnemyFirstIdleState>();
         }
+        else if (isPlayerInMaxAgroRange)
+        {
+            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+        }
         else if(isDetactingWall || !isDetactingLedge)
         {
             fsm.GetState<EnemyFirstIdleState>().SetFlipAfterIdle(true);

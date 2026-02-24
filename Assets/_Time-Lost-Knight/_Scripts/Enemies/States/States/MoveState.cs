@@ -5,6 +5,7 @@ public class MoveState : EnemyState
     protected bool isDetactingWall;
     protected bool isDetactingLedge;
     protected bool isPlayerInMinAgroRange;
+    protected bool isPlayerInMaxAgroRange;
 
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
@@ -32,6 +33,7 @@ public class MoveState : EnemyState
         isDetactingLedge = enemyCollisionDetector.CheckLedge();
         isDetactingWall = enemyCollisionDetector.CheckWallTouch();
         isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
     }
 
     public override void Enter()

@@ -5,9 +5,10 @@ public class LookForPlayerState : EnemyState
     protected LookForPlayerStateData data;
 
     protected bool turnImmediately;
-    protected bool isPlayerInMinAgroRange;
     protected bool isAllTurnsDone;
     protected bool isAllTurnsTimeDone;
+    protected bool isPlayerInMinAgroRange;
+    protected bool isPlayerInMaxAgroRange;
 
     protected float lastTurnTime;
 
@@ -39,6 +40,7 @@ public class LookForPlayerState : EnemyState
         base.DoCheck();
 
         isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
     }
 
     public override void Enter()

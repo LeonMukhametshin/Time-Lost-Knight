@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d329c815676203c40818307828abf268, type: 3}
   m_Name: Enemy1_LookForPlayer_Data
   m_EditorClassIdentifier: Assembly-CSharp::LookForPlayerStateData
-  <amountOfTurns>k__BackingField: 1
-  <timeBetweenTurns>k__BackingField: 1
+  <amountOfTurns>k__BackingField: 3
+  <timeBetweenTurns>k__BackingField: 0.48

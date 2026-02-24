@@ -22,7 +22,7 @@ public class EnemyCollisionDetector : CollisionDetector
         Physics2D.Raycast(m_playerChecker.position, transform.right,
             m_maxAgroDistance, m_playerLayer);
 
-    public virtual bool CheckPlayerInCloseRangeAction() =>
+    public virtual bool CheckPlayerInCloseRangeAction() => 
         Physics2D.Raycast(m_playerChecker.position, transform.right, m_closeRangeActionDistance, m_playerLayer);
 
     public virtual void OnDrawGizmos()
@@ -32,11 +32,11 @@ public class EnemyCollisionDetector : CollisionDetector
         Gizmos.DrawLine(m_ledgeCheck.position,
             m_ledgeCheck.position + (Vector3)(Vector2.down * m_wallCheckDistance));
 
-        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right *  m_closeRangeActionDistance),
+        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right *  m_closeRangeActionDistance * flipController.facingDirection),
             0.2f);
-        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right * m_minAgroDistance),
+        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right * m_minAgroDistance * flipController.facingDirection),
             0.2f);
-        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right * m_maxAgroDistance),
+        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right * m_maxAgroDistance * flipController.facingDirection),
             0.2f);
     }
 }

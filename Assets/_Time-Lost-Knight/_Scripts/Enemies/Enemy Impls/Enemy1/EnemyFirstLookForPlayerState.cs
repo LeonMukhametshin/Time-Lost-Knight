@@ -15,6 +15,10 @@ public class EnemyFirstLookForPlayerState : LookForPlayerState
         {
             fsm.ChangeState<EnemyFirstPlayerDetectedState>();
         }
+        else if(isPlayerInMaxAgroRange)
+        {
+            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+        }
         else if(isAllTurnsTimeDone)
         {
             fsm.ChangeState<EnemyFirstMoveState>();

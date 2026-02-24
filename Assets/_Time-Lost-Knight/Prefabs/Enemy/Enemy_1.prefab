@@ -314,14 +314,14 @@ MonoBehaviour:
     m_Bits: 128
   m_platform:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   m_playerChecker: {fileID: 8840584218124634011}
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_minAgroDistance: 3
-  m_maxAgroDistance: 15
-  m_closeRangeActionDistance: 1
+  m_minAgroDistance: 1.13
+  m_maxAgroDistance: 15.6
+  m_closeRangeActionDistance: 1.06
 --- !u!1 &5098973452007585899
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,9 +541,9 @@ GameObject:
   - component: {fileID: 5487997587238046610}
   - component: {fileID: 1443340695227760855}
   - component: {fileID: 1297166882728797537}
-  - component: {fileID: 1255148350463277060}
   - component: {fileID: 4676275052497164914}
   - component: {fileID: 4725127776796757470}
+  - component: {fileID: 1255148350463277060}
   m_Layer: 8
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -721,18 +721,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1255148350463277060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558229737639305807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2453719fbec0e94e99576d0a8de31bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationToFSM
 --- !u!114 &4676275052497164914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +738,7 @@ MonoBehaviour:
   <animator>k__BackingField: {fileID: 1297166882728797537}
   <animationToFSM>k__BackingField: {fileID: 1255148350463277060}
   m_data: {fileID: 11400000, guid: 9047c08c631590344a25724b52527e7a, type: 2}
+  text: {fileID: 8076846020823367546}
   m_idleData: {fileID: 11400000, guid: 08ad3944ac781de44bac9ef96feb5c6b, type: 2}
   m_moveData: {fileID: 11400000, guid: e4e2467a12aeabd4fa2ccc5a74292939, type: 2}
   m_playerDetectedData: {fileID: 11400000, guid: ae84519425e013644a7cbcbba7350709, type: 2}
@@ -771,6 +760,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
+--- !u!114 &1255148350463277060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558229737639305807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2453719fbec0e94e99576d0a8de31bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationToFSM
 --- !u!1 &7639000968619851487
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,24 +926,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4196716988244389478, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_healthSystem
       value: 
       objectReference: {fileID: 4725127776796757470}
-    - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
-      propertyPath: m_playerHealth
-      value: 
-      objectReference: {fileID: 4725127776796757470}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 374508118656762013, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+--- !u!114 &8076846020823367546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 668676382343648782, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+  m_PrefabInstance: {fileID: 8741809075643050356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &8098344057541861523 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 662658111866194407, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}

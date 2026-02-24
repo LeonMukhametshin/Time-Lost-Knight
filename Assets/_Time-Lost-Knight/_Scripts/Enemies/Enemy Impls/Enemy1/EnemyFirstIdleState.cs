@@ -15,6 +15,10 @@ public class EnemyFirstIdleState : IdleState
         {
             fsm.ChangeState<EnemyFirstPlayerDetectedState>();
         }
+        else if(isPlayerInMaxAgroRange)
+        {
+            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+        }
         else if(isIdleTimeOver)
         {
             fsm.ChangeState<EnemyFirstMoveState>();

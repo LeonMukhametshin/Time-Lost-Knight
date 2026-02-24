@@ -1,7 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyFirst : Entity
 {
+    [SerializeField] private TextMeshProUGUI text;
+
     [SerializeField] private IdleStateData m_idleData;
     [SerializeField] private MoveStateData m_moveData;
     [SerializeField] private PlayerDetectedData m_playerDetectedData;
@@ -29,5 +32,12 @@ public class EnemyFirst : Entity
 
         animationToFSM.Initialize(fsm);
         fsm.ChangeState<EnemyFirstIdleState>();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        text.text = fsm.currentState.ToString();
     }
 }
