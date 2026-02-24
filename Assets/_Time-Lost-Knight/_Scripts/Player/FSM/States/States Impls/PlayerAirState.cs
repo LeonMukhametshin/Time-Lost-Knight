@@ -94,6 +94,10 @@ public class PlayerAirState : PlayerState
         {
             fsm.ChangeState<PlayerSecondaryAttackState>();
         }
+        else if (player.inputHandler.attackInputs[(int)CombatInputs.ranged])
+        {
+            fsm.ChangeState<PlayerRangedAttackState>();
+        }
         else if(m_isGrounded && movement.currentVelocity.y < 0.1f)
         {
             fsm.ChangeState<PlayerLandState>();
