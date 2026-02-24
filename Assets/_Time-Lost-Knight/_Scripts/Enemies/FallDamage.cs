@@ -13,27 +13,20 @@ public class FallDamage : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(m_hasFallen);
-
-        if (m_entitnyRigidbody.linearVelocityY < 0f)
+        if (m_entitnyRigidbody.linearVelocityY < -m_fallVelocity)
         {
             m_fallTime += Time.deltaTime;
             m_hasFallen = true;
         }
         else if(m_hasFallen)
         {
-            Debug.Log("m_hasFallen false");
             m_healthSystem.TakeDamage(CalculateFallDamage());
             Reset();
         }
     }
 
-    private float CalculateFallDamage()
-    {
-        Debug.Log("m_fallTime " + m_fallTime);
-        Debug.Log(" m_fallTime + damage " + m_fallTime * m_timeToDamage);
-        return m_fallTime * m_timeToDamage;
-    }
+    private float CalculateFallDamage() => 
+        m_fallTime * m_timeToDamage;
 
     private void Reset()
     {
