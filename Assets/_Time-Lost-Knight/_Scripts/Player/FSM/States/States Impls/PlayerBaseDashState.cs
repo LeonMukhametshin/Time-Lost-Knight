@@ -10,8 +10,8 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
     private Vector2 m_dashDirection;
     private Vector2 m_lastAfterImagePosition;
 
-    protected abstract bool CanHoldDirection { get; }
-    protected abstract bool ShowDashVisualizer { get; }
+    protected abstract bool canHoldDirection { get; }
+    protected abstract bool showDashVisualizer { get; }
 
     protected PlayerBaseDashState(EntityFSM fsm, Core core,
         string animBoolName, Player player,
@@ -29,7 +29,7 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
 
         m_dashDirection = ResolveDashDirection(Vector2.right * flipController.facingDirection);
 
-        m_isHolding = CanHoldDirection;
+        m_isHolding = canHoldDirection;
 
         if (m_isHolding)
         {
@@ -42,7 +42,7 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
             StartDashMove();
         }
 
-        player.dashVizualizer.SetActive(ShowDashVisualizer);
+        player.dashVizualizer.SetActive(showDashVisualizer);
     }
 
     public override void Exit()

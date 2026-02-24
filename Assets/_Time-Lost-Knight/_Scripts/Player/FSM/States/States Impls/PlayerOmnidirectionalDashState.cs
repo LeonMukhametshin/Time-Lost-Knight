@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerOmnidirectionalDashState : PlayerBaseDashState
 {
-    protected override bool CanHoldDirection => true;
-    protected override bool ShowDashVisualizer => true;
+    protected override bool canHoldDirection => true;
+    protected override bool showDashVisualizer => true;
 
     public PlayerOmnidirectionalDashState(EntityFSM fsm, Core core,
         string animBoolName, Player player,

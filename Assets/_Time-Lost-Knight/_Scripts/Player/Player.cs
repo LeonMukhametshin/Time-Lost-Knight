@@ -7,6 +7,7 @@ public class Player : Entity
 
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
+
     [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
     public override void Awake()
