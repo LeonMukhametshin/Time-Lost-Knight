@@ -14,6 +14,10 @@ public class EnemyTwoMoveState : MoveState
         {
             fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
+        else if(isPlayerInMaxAgroRange)
+        {
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
+        }
         else if (isDetactingWall || !isDetactingLedge)
         {
             fsm.GetState<EnemyTwoIdleState>().SetFlipAfterIdle(true);

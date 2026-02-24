@@ -15,6 +15,10 @@ public class EnemyTwoLookForPlayerState : LookForPlayerState
         {
             fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
+        else if(isPlayerInMaxAgroRange)
+        {
+            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
+        }
         else if(isAllTurnsTimeDone)
         {
             fsm.ChangeState<EnemyTwoMoveState>();

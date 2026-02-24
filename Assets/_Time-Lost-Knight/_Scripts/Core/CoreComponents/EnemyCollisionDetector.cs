@@ -22,6 +22,7 @@ public class EnemyCollisionDetector : CollisionDetector
         Physics2D.Raycast(m_playerChecker.position, transform.right,
             m_maxAgroDistance, m_playerLayer);
 
+
     public virtual bool CheckPlayerInCloseRangeAction() => 
         Physics2D.Raycast(m_playerChecker.position, transform.right, m_closeRangeActionDistance, m_playerLayer);
 
