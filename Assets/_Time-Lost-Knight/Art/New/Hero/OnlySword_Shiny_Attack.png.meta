@@ -160,7 +160,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -195,10 +195,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -226,12 +226,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_0
       rect:
         serializedVersion: 2
-        x: 159
-        y: 59
-        width: 45
-        height: 48
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -248,12 +248,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_1
       rect:
         serializedVersion: 2
-        x: 280
-        y: 79
-        width: 39
-        height: 49
+        x: 128
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_2
       rect:
         serializedVersion: 2
-        x: 425
-        y: 84
-        width: 48
-        height: 30
+        x: 256
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -292,12 +292,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_3
       rect:
         serializedVersion: 2
-        x: 553
-        y: 95
-        width: 7
-        height: 6
+        x: 384
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_4
       rect:
         serializedVersion: 2
-        x: 561
-        y: 77
-        width: 23
-        height: 19
+        x: 512
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_5
       rect:
         serializedVersion: 2
-        x: 670
-        y: 78
-        width: 43
-        height: 24
+        x: 640
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -358,12 +358,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_6
       rect:
         serializedVersion: 2
-        x: 715
-        y: 89
-        width: 8
-        height: 8
+        x: 768
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -380,12 +380,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_7
       rect:
         serializedVersion: 2
-        x: 1047
-        y: 52
-        width: 39
-        height: 50
+        x: 896
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -402,12 +402,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_8
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 77
-        width: 35
-        height: 20
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -424,12 +424,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_9
       rect:
         serializedVersion: 2
-        x: 1820
-        y: 73
-        width: 25
-        height: 42
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -446,12 +446,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_10
       rect:
         serializedVersion: 2
-        x: 1962
-        y: 71
-        width: 153
-        height: 35
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -468,12 +468,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_11
       rect:
         serializedVersion: 2
-        x: 2264
-        y: 89
-        width: 32
-        height: 39
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -490,12 +490,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_12
       rect:
         serializedVersion: 2
-        x: 2908
-        y: 68
-        width: 37
-        height: 33
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_13
       rect:
         serializedVersion: 2
-        x: 3009
-        y: 73
-        width: 34
-        height: 50
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -534,12 +534,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_14
       rect:
         serializedVersion: 2
-        x: 3129
-        y: 59
-        width: 42
-        height: 53
+        x: 1792
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -556,12 +556,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_15
       rect:
         serializedVersion: 2
-        x: 3258
-        y: 52
-        width: 50
-        height: 46
+        x: 1920
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -578,12 +578,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_16
       rect:
         serializedVersion: 2
-        x: 55
-        y: 49
-        width: 59
-        height: 41
+        x: 2048
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -600,12 +600,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_17
       rect:
         serializedVersion: 2
-        x: 415
-        y: 88
-        width: 10
-        height: 6
+        x: 2176
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -622,12 +622,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_18
       rect:
         serializedVersion: 2
-        x: 1306
-        y: 65
-        width: 50
-        height: 27
+        x: 2304
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -644,12 +644,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_19
       rect:
         serializedVersion: 2
-        x: 2619
-        y: 68
-        width: 21
-        height: 22
+        x: 2432
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -666,12 +666,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_20
       rect:
         serializedVersion: 2
-        x: 3387
-        y: 55
-        width: 52
-        height: 39
+        x: 2560
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -688,12 +688,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_21
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 47
-        width: 42
-        height: 35
+        x: 2688
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -710,12 +710,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_22
       rect:
         serializedVersion: 2
-        x: 2285
-        y: 79
-        width: 9
-        height: 8
+        x: 2816
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -732,12 +732,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_23
       rect:
         serializedVersion: 2
-        x: 282
-        y: 70
-        width: 8
-        height: 7
+        x: 2944
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -754,12 +754,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_24
       rect:
         serializedVersion: 2
-        x: 1176
-        y: 56
-        width: 35
-        height: 14
+        x: 3072
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -776,12 +776,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_25
       rect:
         serializedVersion: 2
-        x: 1830
-        y: 62
-        width: 8
-        height: 9
+        x: 3200
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -798,12 +798,12 @@ TextureImporter:
       name: OnlySword_Shiny_Attack_26
       rect:
         serializedVersion: 2
-        x: 2499
-        y: 55
-        width: 14
-        height: 16
+        x: 3328
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -816,341 +816,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_27
-      rect:
-        serializedVersion: 2
-        x: 2900
-        y: 66
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de26ddb1d06911c60800000000000000
-      internalID: 7787170213746533101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_28
-      rect:
-        serializedVersion: 2
-        x: 3002
-        y: 63
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae2177a4d811bfe10800000000000000
-      internalID: 2232397338829591274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_29
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 50
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7bb4c61057cfe400800000000000000
-      internalID: 355722042378861436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_30
-      rect:
-        serializedVersion: 2
-        x: 845
-        y: 51
-        width: 52
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0befe3e08422552f0800000000000000
-      internalID: -984843250638586192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_31
-      rect:
-        serializedVersion: 2
-        x: 942
-        y: 43
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 20e83227ff8854390800000000000000
-      internalID: -7834705346028139006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_32
-      rect:
-        serializedVersion: 2
-        x: 1707
-        y: 50
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3484b00ab48be0e80800000000000000
-      internalID: -8210422435702683581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_33
-      rect:
-        serializedVersion: 2
-        x: 2650
-        y: 48
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1e3d111b0e5af5e50800000000000000
-      internalID: 6800336346814731233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_34
-      rect:
-        serializedVersion: 2
-        x: 2774
-        y: 48
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a0ed6f52032967ee0800000000000000
-      internalID: -1263661909937824246
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_35
-      rect:
-        serializedVersion: 2
-        x: 2793
-        y: 55
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5e3c255ee7bf41c60800000000000000
-      internalID: 7788126178062287845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_36
-      rect:
-        serializedVersion: 2
-        x: 3123
-        y: 49
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e74309f74ea687180800000000000000
-      internalID: -9117419915986324354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_37
-      rect:
-        serializedVersion: 2
-        x: 3378
-        y: 48
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 940533da7419166b0800000000000000
-      internalID: -5304799149031206839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_38
-      rect:
-        serializedVersion: 2
-        x: 1595
-        y: 47
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35bb80ec16fcc4940800000000000000
-      internalID: 5281824481974205267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_39
-      rect:
-        serializedVersion: 2
-        x: 1606
-        y: 6
-        width: 59
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6176a6be8d1f35ea0800000000000000
-      internalID: -5885094374078257386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_40
-      rect:
-        serializedVersion: 2
-        x: 2397
-        y: 27
-        width: 25
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1a0cc7435a6163cb0800000000000000
-      internalID: -4884691847030718303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OnlySword_Shiny_Attack_41
-      rect:
-        serializedVersion: 2
-        x: 3249
-        y: 47
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77e04c8ef2c950fc0800000000000000
-      internalID: -3529243003392356745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 662bf59477a24e743a10d8a021b0dafc
     internalID: 0
     vertices: []
     indices: 
@@ -1158,7 +828,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       OnlySword_Shiny_Attack_0: 5983587173414810561
       OnlySword_Shiny_Attack_1: -8971369417900287845
@@ -1180,23 +852,8 @@ TextureImporter:
       OnlySword_Shiny_Attack_24: 540270344057079084
       OnlySword_Shiny_Attack_25: -5736632642286559234
       OnlySword_Shiny_Attack_26: 3376917958830611813
-      OnlySword_Shiny_Attack_27: 7787170213746533101
-      OnlySword_Shiny_Attack_28: 2232397338829591274
-      OnlySword_Shiny_Attack_29: 355722042378861436
       OnlySword_Shiny_Attack_3: 5581696327217085301
-      OnlySword_Shiny_Attack_30: -984843250638586192
-      OnlySword_Shiny_Attack_31: -7834705346028139006
-      OnlySword_Shiny_Attack_32: -8210422435702683581
-      OnlySword_Shiny_Attack_33: 6800336346814731233
-      OnlySword_Shiny_Attack_34: -1263661909937824246
-      OnlySword_Shiny_Attack_35: 7788126178062287845
-      OnlySword_Shiny_Attack_36: -9117419915986324354
-      OnlySword_Shiny_Attack_37: -5304799149031206839
-      OnlySword_Shiny_Attack_38: 5281824481974205267
-      OnlySword_Shiny_Attack_39: -5885094374078257386
       OnlySword_Shiny_Attack_4: -7113428239158609194
-      OnlySword_Shiny_Attack_40: -4884691847030718303
-      OnlySword_Shiny_Attack_41: -3529243003392356745
       OnlySword_Shiny_Attack_5: -4539474136688493979
       OnlySword_Shiny_Attack_6: -6652950751693339272
       OnlySword_Shiny_Attack_7: 2119655001412145532
