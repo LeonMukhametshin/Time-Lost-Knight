@@ -1,19 +1,12 @@
 using UnityEngine;
 
-public class Chest : Subject, IInteractable
+public class Chest : Subject
 {
-    [SerializeField] private int m_priority = 2;
-    [SerializeField] private Transform m_intarectionPoint;
-
-    public int priority => m_priority;
-    public Transform interactionPoint => m_intarectionPoint;
-
+    //TODO some logic(((
     private bool m_isOpen = false;
+    public bool isOpen => m_isOpen;
 
-    public bool CanInteract() =>
-        !m_isOpen;
-
-    public void Interact()
+    public void Open()
     {
         if(m_isOpen)
         {
@@ -21,6 +14,6 @@ public class Chest : Subject, IInteractable
         }
 
         m_isOpen = true;
-        NotifyObservers();
+        Debug.Log("Chest opened");
     }
 }

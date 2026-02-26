@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   <maxHealth>k__BackingField: 100
-  <movementSpeed>k__BackingField: 20
-  <jumpVelocity>k__BackingField: 24
+  <movementSpeed>k__BackingField: 15
+  <jumpVelocity>k__BackingField: 18
   <amountOfJumps>k__BackingField: 1
   <wallJumpVelocity>k__BackingField: 20
   <wallJumpTime>k__BackingField: 0.4

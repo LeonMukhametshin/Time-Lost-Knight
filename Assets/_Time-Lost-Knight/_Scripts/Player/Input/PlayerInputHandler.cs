@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool dashInput { get; private set; }
     public bool dashInputStop { get; private set; }
     public bool dropDownInput { get; private set; }
+    public bool interactInput { get; private set; } 
 
     public bool[] attackInputs { get; private set; }
 
@@ -62,6 +64,18 @@ public class PlayerInputHandler : MonoBehaviour
         if(context.canceled)
         {
             jumpInputStop = true;
+        }
+    }
+
+    public void OnIntarectInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            interactInput = true;
+        }
+        if(context.canceled)
+        {
+            interactInput = false;
         }
     }
 

@@ -2,8 +2,7 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 
-[Serializable]
-public class PlanformMover
+public class PlanformMover : Subject
 {
     [SerializeField] private Transform m_transform;
     [SerializeField] private Transform[] m_points;
@@ -22,7 +21,7 @@ public class PlanformMover
     public bool isLooped => m_isLooped;
     public bool isMoving => m_isMoving;
 
-    public void Initialize()
+    public void Awake()
     {
         if (m_points is null || m_points.Length < 0)
         {
