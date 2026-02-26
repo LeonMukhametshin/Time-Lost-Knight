@@ -35,4 +35,6 @@ MonoBehaviour:
   <crouchMovementVelocity>k__BackingField: 4.73
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 1.66
+  <dropThroughDuration>k__BackingField: 0.25
+  <dropVelocity>k__BackingField: 3
   <checkersData>k__BackingField: {fileID: 11400000, guid: 9d098f2d11e69044c83c40bec00b0830, type: 2}

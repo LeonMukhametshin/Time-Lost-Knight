@@ -19,6 +19,8 @@ public class CollisionDetector
     private LayerMask m_groundLayer;
 
     private Vector2 m_workspace;
+    private readonly Collider2D[] m_overlapResults = new Collider2D[8];
+    private ContactFilter2D m_groundFilter;
 
     public CollisionDetector(CheckersData data, CheckTransfomRef transformRef, float playerheight)
     {
@@ -26,6 +28,9 @@ public class CollisionDetector
         m_ceilingCheckRadius = data.ceilingCheckRadius;
         m_wallCheckDistance = data.wallCheckDistance;
         m_groundLayer = data.groundLayer;
+        m_groundFilter = new ContactFilter2D();
+        m_groundFilter.SetLayerMask(m_groundLayer);
+        m_groundFilter.useTriggers = false;
 
         m_standColliderHeight = playerheight;
 
@@ -35,6 +40,29 @@ public class CollisionDetector
 
     public bool CheckGrounded() =>
         Physics2D.OverlapCircle(m_transformRef.groundCheck.position, m_groundCheckRadius, m_groundLayer);
+
+    public bool CheckTouchingOneWayPlatform(out Collider2D oneWayPlatformCollider)
+    {
+        int count = Physics2D.OverlapCircle(
+            m_transformRef.groundCheck.position,
+            m_groundCheckRadius,
+            m_groundFilter,
+            m_overlapResults);
+
+        for (int i = 0; i < count; i++)
+        {
+            var collider = m_overlapResults[i];
+
+            if (collider != null && collider.TryGetComponent<PlatformEffector2D>(out _))
+            {
+                oneWayPlatformCollider = collider;
+                return true;
+            }
+        }
+
+        oneWayPlatformCollider = null;
+        return false;
+    }
 
     public bool CheckCeilingCheck() =>
         Physics2D.OverlapCircle(m_transformRef.ceilingCheck.position, m_ceilingCheckRadius, m_groundLayer);

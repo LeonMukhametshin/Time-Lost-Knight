@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlayerGroundState : PlayerState
 {
     protected int xInput;
@@ -11,6 +13,9 @@ public class PlayerGroundState : PlayerState
     private bool m_grabInput;
     private bool m_isTouchingLedge;
     private bool m_dashInput;
+    private bool m_isTouchingOneWayPlatform;
+
+    private Collider2D m_oneWayPlatformCollider;
 
     public PlayerGroundState(Player player, PlayerFSM fsm, 
         PlayerData playerData, string animBoolName) 
@@ -26,6 +31,8 @@ public class PlayerGroundState : PlayerState
         m_isTouchingWall = player.collisionDetector.CheckWallTouch();
         m_isTouchingLedge = player.collisionDetector.CheckTouchingLedge();
         isTouchingCeiling = player.collisionDetector.CheckCeilingCheck();
+        m_isTouchingOneWayPlatform = player.collisionDetector
+            .CheckTouchingOneWayPlatform(out m_oneWayPlatformCollider);
     }
 
     public override void Enter()
@@ -42,7 +49,13 @@ public class PlayerGroundState : PlayerState
 
         CheckInputs();
 
-        if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
+        if (m_jumpInput && yInput < 0 && m_isTouchingOneWayPlatform)
+        {
+            var dropDownState = player.statesContainer.GetState<PlayerDropDownState>();
+            dropDownState.SetPlatformCollider(m_oneWayPlatformCollider);
+            fsm.SetState(dropDownState);
+        }
+        else if (m_jumpInput && player.statesContainer.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
             fsm.SetState(player.statesContainer.GetState<PlayerJumpState>());
         }

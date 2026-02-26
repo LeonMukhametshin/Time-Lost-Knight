@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public FlipContoller flipController { get; private set; }
     public CollisionDetector collisionDetector { get; private set; }
     public ColliderController colliderController { get; private set; }
+    public Collider2D bodyCollider => m_collider;
 
 
     private void Awake() =>
