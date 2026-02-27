@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c92530b5db2d41846aa50d14926955ec
+guid: 2d69132180d8da84ab8b6992834e40ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5085841052367744616
-    second: Right_2_01_0
+      213: -6280718857947882279
+    second: IndustrialTile_27_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Right_2_01_0
+      name: IndustrialTile_27_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 15
         width: 32
-        height: 32
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86e6a7ebd79849640800000000000000
-      internalID: 5085841052367744616
+      spriteID: 9dc5be1b97766d8a0800000000000000
+      internalID: -6280718857947882279
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fc07d18bd0196024e9fe12e7c08dfaa6
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Right_2_01_0: 5085841052367744616
+      IndustrialTile_27_0: -6280718857947882279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

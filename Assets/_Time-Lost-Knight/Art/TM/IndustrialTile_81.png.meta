@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8a1c7bd043cabb94f83a28de84ace6dc
+guid: a317f1df130e30d4f8960a29c0393383
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3810996902004125805
-    second: IndustrialTile_23_0
+      213: -8154659138459259551
+    second: IndustrialTile_81_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IndustrialTile_23_0
+      name: IndustrialTile_81_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 15
         width: 32
-        height: 32
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39f0ee7528e9c1bc0800000000000000
-      internalID: -3810996902004125805
+      spriteID: 16d2eb308b4d4de80800000000000000
+      internalID: -8154659138459259551
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IndustrialTile_23_0: -3810996902004125805
+      IndustrialTile_81_0: -8154659138459259551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
