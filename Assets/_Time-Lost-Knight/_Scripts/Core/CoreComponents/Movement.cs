@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class Movement : CoreComponent, IUpdate
+public class Movement : CoreComponent, IUpdate, IAcceleration
 {
     [field: SerializeField] public Rigidbody2D rb { get; private set; }
     public Vector2 currentVelocity { get; private set; }
@@ -10,6 +11,7 @@ public class Movement : CoreComponent, IUpdate
     private float _savedGravity;
 
     private Vector2 m_workspace;
+    private float m_acceleration;
 
     public void Update() =>
         currentVelocity = rb.linearVelocity;
@@ -58,6 +60,36 @@ public class Movement : CoreComponent, IUpdate
         }
     }
 
+    public void IncreaseAcceleration(float delta)
+    {
+        if (delta < 0)
+        {
+            throw new ArgumentException("Delta can`t be negative", nameof(delta));
+        }
+
+        m_acceleration += delta;
+        SetSpeed();
+    }
+
+    public void DecreaseAcceleration(float delta)
+    {
+        if (delta < 0)
+        {
+            throw new ArgumentException("Delta can`t be negative", nameof(delta));
+        }
+
+        m_acceleration -= delta;
+        SetSpeed();
+    }
+
+    private void SetSpeed()
+    {
+        var acceleration = m_acceleration > 0
+            ? m_acceleration
+            : 1;
+
+        m_workspace *= acceleration;
+    }
 
     public void SetPaused(bool paused)
     {

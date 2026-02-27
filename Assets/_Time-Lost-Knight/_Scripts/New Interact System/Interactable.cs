@@ -5,7 +5,6 @@ public class Interactable : MonoBehaviour, IInteract
 {
     [SerializeField] private string m_displayName = "Interact";
     [SerializeField] private bool m_isEnabled = true;
-    [SerializeField] private Outline m_outline;
     [SerializeField] private UnityEvent m_onIntarect;
 
     public Transform position => transform;
@@ -14,10 +13,7 @@ public class Interactable : MonoBehaviour, IInteract
 
     private void Awake()
     {
-        m_outline.OutlineMode = Outline.Mode.OutlineVisible;
-        m_outline.OutlineColor = Color.red;
-        m_outline.OutlineWidth = 1f;
-        m_outline.enabled = false;
+        //TODO outline
     }
 
     public bool CanInteract() =>
@@ -26,9 +22,13 @@ public class Interactable : MonoBehaviour, IInteract
     public void Interact() => 
         m_onIntarect?.Invoke();
 
-    public void OnFocusGained() => 
-        m_outline.enabled = true;
+    public void OnFocusGained()
+    {
+        //TODO outline
+    }
 
-    public void OnFocusLost() => 
-        m_outline.enabled = false;
+    public void OnFocusLost()
+    {
+        //TODO outline
+    }
 }

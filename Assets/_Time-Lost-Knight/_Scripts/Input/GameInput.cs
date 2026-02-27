@@ -299,10 +299,10 @@ namespace Inputs
                 {
                     ""name"": """",
                     ""id"": ""ea669dcc-1d55-4cfc-a5da-6d3395602a4c"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -310,7 +310,7 @@ namespace Inputs
                 {
                     ""name"": """",
                     ""id"": ""6fcbe2e7-b900-4005-a929-ec92eb062fae"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

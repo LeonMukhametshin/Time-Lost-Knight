@@ -712,6 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2471926452562407166}
   - component: {fileID: 4712963472513488763}
+  - component: {fileID: 9069319398973961330}
   m_Layer: 6
   m_Name: Movement
   m_TagString: Untagged
@@ -748,6 +749,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   core: {fileID: 252118916741010994}
   <rb>k__BackingField: {fileID: 6256467284129163076}
+--- !u!114 &9069319398973961330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764838439875637875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cee483b595c304cb68153a837a97c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuffContainer
 --- !u!1 &4921989749917416231
 GameObject:
   m_ObjectHideFlags: 0

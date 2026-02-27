@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour, IHealth
 {
     public event Action died;
     public event Action valueChanged;
@@ -35,7 +35,7 @@ public class HealthSystem : MonoBehaviour
         maxValue = maxHealth;
     }
 
-    public void Increase(float value)
+    public void Heal(float value)
     {
         if (value < 0)
         {
