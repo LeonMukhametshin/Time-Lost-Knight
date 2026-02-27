@@ -17,8 +17,8 @@ public abstract class TimeBuff : BaseBuff, ITimeBuff
 
     protected override void OnInitialize()
     {
-        timer = m_duration;
         base.OnInitialize();
+        timer = m_duration;
     }
 
     protected override void OnDeinitializing()
@@ -28,7 +28,7 @@ public abstract class TimeBuff : BaseBuff, ITimeBuff
 
     public sealed override void Update(float deltaTime)
     {
-        if(timer > m_duration)
+        if(timer > 0f)
         {
             OnUpdate(deltaTime);
             timer -= deltaTime;

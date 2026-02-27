@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public sealed class PoisonDeBuff : TimeBuff
+public class HealhtTimedBuff : TimeBuff
 {
+
     [SerializeField][Min(0)] private float m_interval = 1f;
-    [SerializeField][Min(0)] private float m_damagePerSeconds = 2f;
+    [SerializeField][Min(0)] private float m_healthPerIntercal = 1f;
 
     [NonSerialized] private float m_timer;
     private IHealth m_health;
 
-    public PoisonDeBuff(
-        string id,
-        Sprite sprite,
-        BuffType type,
+    public HealhtTimedBuff(
+        string id, 
+        Sprite icon, 
+        BuffType type, 
         float duration,
-        float interval,
-        float damagePerSeconds) 
-        : base(id, sprite, type, duration)
+        float intercal,
+        float healthPerIntercal) 
+        : base(id, icon, type, duration)
     {
-        m_interval = interval;
-        m_damagePerSeconds = damagePerSeconds;
+        m_interval = intercal;
+        m_healthPerIntercal = healthPerIntercal;
     }
 
     protected override void OnInitialize()
@@ -43,7 +43,6 @@ public sealed class PoisonDeBuff : TimeBuff
             Deinitialize();
             return;
         }
-
         if (m_timer < m_interval)
         {
             m_timer += deltaTime;
@@ -51,10 +50,11 @@ public sealed class PoisonDeBuff : TimeBuff
         else
         {
             m_timer = 0f;
-            m_health.TakeDamage(m_damagePerSeconds);
+            m_health.Heal(m_healthPerIntercal);
         }
     }
 
     public override IBuff Clone() =>
-        new PoisonDeBuff(id, icon, type, duration, m_interval, m_damagePerSeconds);
+        new HealhtTimedBuff(id, icon, type, 
+            duration, m_interval, m_healthPerIntercal);
 }
