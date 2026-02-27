@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class FirstAidKit : MonoBehaviour 
 {
-    [SerializeField] private float m_healthPoints;
-    [SerializeReferenceDropdown][SerializeReference] private IBuff buff;
+    [SerializeField] private BuffEffect[] buff;
+
+    private BuffContainer health;
+
+    private void Awake()
+    {
+        health = ServiceLocator.Get<Player>().gameObject.GetComponentInChildren<BuffContainer>();
+    }
 
     public void Heal()
     {
-        //buff.Initialize();
+        buff.ApplyEffect(health);
         Destroy(gameObject);    
     } 
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class HealthComponent : CoreComponent, IHealth
+public class HealthComponent : CoreComponent, IHealth, IEffectable
 {   
     public event Action died;
     public event Action valueChanged;

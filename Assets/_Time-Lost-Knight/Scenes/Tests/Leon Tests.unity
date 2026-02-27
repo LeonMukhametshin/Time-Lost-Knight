@@ -27891,16 +27891,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0559f99faf3bb643ab394e2b6a5bd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_healthPoints: 50
   buff:
-    rid: 5513479689199157377
+  - m_buff:
+    - rid: 4490299465221275738
   references:
     version: 2
     RefIds:
-    - rid: 5513479689199157377
+    - rid: 4490299465221275738
       type: {class: HealthBuff, ns: , asm: Assembly-CSharp}
       data:
-        <id>k__BackingField: 
+        <id>k__BackingField: FirstAidKit
         m_value: 50
 --- !u!114 &1939479937
 MonoBehaviour:

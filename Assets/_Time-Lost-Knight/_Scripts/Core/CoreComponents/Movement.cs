@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Movement : CoreComponent, IUpdate, IAcceleration
+public class Movement : CoreComponent, IUpdate, IAcceleration, IEffectable
 {
     [field: SerializeField] public Rigidbody2D rb { get; private set; }
     public Vector2 currentVelocity { get; private set; }
