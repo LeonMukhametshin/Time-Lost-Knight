@@ -1,7 +1,14 @@
-﻿public interface IHealth
-{
-    public float value { get; }
+﻿using System;
 
-    public void TakeDamage(float damage);
-    public void Heal(float heal);
+public interface IHealth
+{
+    event Action died;
+    event Action valueChanged;
+
+    float maxValue { get; }
+
+    float value { get; }
+
+    void TakeDamage(float damage);
+    void Heal(float heal);
 }

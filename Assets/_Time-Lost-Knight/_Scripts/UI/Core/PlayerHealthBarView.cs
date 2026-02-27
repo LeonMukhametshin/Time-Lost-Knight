@@ -5,11 +5,13 @@ public class PlayerHealthBarView : MonoBehaviour
 {
     [SerializeField] private Image m_bar;
     
-    private HealthSystem m_healthSystem;
+    private IHealth m_healthSystem;
 
     public void Initialize()
     {
-        m_healthSystem = ServiceLocator.Get<Player>().healthSystem;
+        m_healthSystem = ServiceLocator.Get<Player>()
+            .core.GetCoreComponent<HealthComponent>();
+
         m_healthSystem.valueChanged += SetValue;
         SetValue();
     }

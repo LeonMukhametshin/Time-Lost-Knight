@@ -25,7 +25,7 @@ public sealed class PoisonDeBuff : TimeBuff
     protected override void OnInitialize()
     {
         base.OnInitialize();
-        m_health = container.GetComponent<IHealth>();
+        m_health = (IHealth)container.core.GetCoreComponent<Combat>();
     }
 
     protected override void OnDeinitializing()

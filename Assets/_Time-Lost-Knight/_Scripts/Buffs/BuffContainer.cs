@@ -6,6 +6,7 @@ public class BuffContainer : MonoBehaviour, IEffectable
 {
     public event Action<IBuff> buffAdded;
     public event Action<IBuff> buffRemoved;
+    [field: SerializeField] public Core core { get; private set; }
 
     private HashSet<string> m_ids = new();
     private Dictionary<string, IBuff> m_buffs = new();

@@ -3,7 +3,7 @@ using UnityEngine;
 public class FallDamage : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_entitnyRigidbody;
-    [SerializeField] private HealthSystem m_healthSystem;
+    [SerializeField] private HealthComponent m_healthSystem;
 
     [SerializeField][Min(0)] private float m_timeToDamage;
     [SerializeField][Min(0)] private float m_fallVelocity = 2f;

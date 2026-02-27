@@ -4,7 +4,6 @@ public class Entity : MonoBehaviour, IPauseHandler
 {
     public EntityFSM fsm { get; private set; }
 
-    [field: SerializeField] public HealthSystem healthSystem { get; private set; }
     [field: SerializeField] public Core core { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
     [field: SerializeField] public AnimationToFSM animationToFSM { get; private set; }
@@ -22,11 +21,8 @@ public class Entity : MonoBehaviour, IPauseHandler
     private void OnDisable() => 
         Pause.instants.Remove(this);
 
-    public virtual void Awake()
-    {
+    public virtual void Awake() => 
         fsm = new EntityFSM();
-        healthSystem.Initialize(m_data.maxHealth);
-    }
 
     public virtual void Update()
     {
@@ -50,7 +46,6 @@ public class Entity : MonoBehaviour, IPauseHandler
 
         fsm.FixedUpdate();
     }
-
 
     public void IsPuased(bool isPaused)
     {

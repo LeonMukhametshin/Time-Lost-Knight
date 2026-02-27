@@ -4,7 +4,8 @@ using XInputDotNetPure;
 
 public class VibrationTest : MonoBehaviour
 {
-    [SerializeField] private HealthSystem m_healSystem;
+    [SerializeField] private HealthComponent m_healSystem;
+    
     [SerializeField][Min(0)] private float m_duration;
     [SerializeField][Min(0)] private float m_leftMotor;
     [SerializeField][Min(0)] private float m_rightMotor;

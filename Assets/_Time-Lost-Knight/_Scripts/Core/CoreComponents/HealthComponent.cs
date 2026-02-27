@@ -1,11 +1,13 @@
-using System;
+﻿using System;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour, IHealth
-{
+public class HealthComponent : CoreComponent, IHealth
+{   
     public event Action died;
     public event Action valueChanged;
 
+    [field: SerializeField] public float maxValue { get; private set; }
+    
     public float value
     {
         get => m_value;
@@ -27,12 +29,12 @@ public class HealthSystem : MonoBehaviour, IHealth
     }
 
     private float m_value;
-    public float maxValue { get; private set;  }
 
-    public void Initialize(float maxHealth)
+    public override void Awake()
     {
-        m_value = maxHealth;
-        maxValue = maxHealth;
+        base.Awake();
+
+        m_value = maxValue;
     }
 
     public void Heal(float value)
@@ -41,7 +43,7 @@ public class HealthSystem : MonoBehaviour, IHealth
         {
             throw new ArgumentOutOfRangeException(nameof(value), "Heal cannot be hegative");
         }
-          
+
         this.value += value;
     }
 

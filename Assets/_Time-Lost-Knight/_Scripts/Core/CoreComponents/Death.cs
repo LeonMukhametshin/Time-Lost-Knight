@@ -2,23 +2,22 @@ using UnityEngine;
 
 public class Death : CoreComponent
 {
+    private HealthComponent m_healthComponent;
+    protected HealthComponent healthComponent =>
+        m_healthComponent ??= core.GetCoreComponent<HealthComponent>();
+
     [SerializeField] private GameObject entityGameObject;
     [SerializeField] private GameObject[] deathParticles;
 
-    [SerializeField] private Entity m_entity;
-
     private ParticleManager m_particleManager;
 
-    private ParticleManager particleManager
-    {
-        get => m_particleManager ??= core.GetCoreComponent<ParticleManager>();  
-    }
+    private ParticleManager particleManager => 
+        m_particleManager ??= core.GetCoreComponent<ParticleManager>();  
+    private void OnEnable() =>
+        healthComponent.died += Die;
 
-    private void OnEnable() => 
-        m_entity.healthSystem.died += Die;
-
-    private void OnDisable() => 
-        m_entity.healthSystem.died -= Die;
+    private void OnDisable() =>
+        healthComponent.died -= Die;
 
     private void Die()
     {

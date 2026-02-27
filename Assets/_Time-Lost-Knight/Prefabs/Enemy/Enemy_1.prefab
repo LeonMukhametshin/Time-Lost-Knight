@@ -49,7 +49,6 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
-  m_entity: {fileID: 4676275052497164914}
 --- !u!1 &1091657007375180551
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,9 +140,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallDamage
   m_entitnyRigidbody: {fileID: 1443340695227760855}
-  m_healthSystem: {fileID: 4725127776796757470}
+  m_healthSystem: {fileID: 7175562507771445894}
   m_timeToDamage: 10000
   m_fallVelocity: 2
+--- !u!1 &1838560601250594343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3573129210309955447}
+  - component: {fileID: 7175562507771445894}
+  m_Layer: 6
+  m_Name: HealthComponent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3573129210309955447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838560601250594343}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3284459747886018487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7175562507771445894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838560601250594343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24657614a626d645ba82cd2b3396571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  core: {fileID: 5575267192742571841}
+  <maxValue>k__BackingField: 100
 --- !u!1 &2330024446078767412
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +257,7 @@ Transform:
   - {fileID: 3134218189377721648}
   - {fileID: 1934731693525962937}
   - {fileID: 1806731660084096003}
+  - {fileID: 3573129210309955447}
   m_Father: {fileID: 8692355869706984015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5575267192742571841
@@ -479,6 +525,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipContoller
   core: {fileID: 5575267192742571841}
   m_entityTransform: {fileID: 8692355869706984015}
+--- !u!1 &6966091862906070070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6883975458983600386}
+  - component: {fileID: 2887951278229317212}
+  m_Layer: 8
+  m_Name: Buff Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6883975458983600386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966091862906070070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8692355869706984015}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2887951278229317212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966091862906070070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cee483b595c304cb68153a837a97c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuffContainer
+  <core>k__BackingField: {fileID: 5575267192742571841}
 --- !u!1 &7379465964733839750
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 5575267192742571841}
-  m_entity: {fileID: 4676275052497164914}
   maxKnockbackTime: 0.2
   damageParticles: {fileID: 2508979075604653123, guid: 0606fb16001a8ef449b6b59974783a5c, type: 3}
   m_movement: {fileID: 6615317728592770505}
@@ -591,7 +681,6 @@ GameObject:
   - component: {fileID: 1443340695227760855}
   - component: {fileID: 1297166882728797537}
   - component: {fileID: 4676275052497164914}
-  - component: {fileID: 4725127776796757470}
   - component: {fileID: 1255148350463277060}
   m_Layer: 8
   m_Name: Enemy_1
@@ -615,6 +704,7 @@ Transform:
   m_Children:
   - {fileID: 3284459747886018487}
   - {fileID: 8098344057541861523}
+  - {fileID: 6883975458983600386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5388760111469027657
@@ -782,7 +872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cebcb9c5d25fe46a49d9a9abfb5fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFirst
-  <healthSystem>k__BackingField: {fileID: 4725127776796757470}
   <core>k__BackingField: {fileID: 5575267192742571841}
   <animator>k__BackingField: {fileID: 1297166882728797537}
   <animationToFSM>k__BackingField: {fileID: 1255148350463277060}
@@ -797,18 +886,6 @@ MonoBehaviour:
   m_stanStateData: {fileID: 11400000, guid: 53cf054478b751149b5c2b0dbe265ead, type: 2}
   m_deadStateData: {fileID: 11400000, guid: d3a8f57dc6efd5246a9df710790a5204, type: 2}
   m_meleeAttackPoint: {fileID: 4459822305754538618}
---- !u!114 &4725127776796757470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558229737639305807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bab48fcc67f554ba1f3b58cf6491cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!114 &1255148350463277060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,9 +1053,9 @@ PrefabInstance:
       value: Entity Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
-      propertyPath: m_healthSystem
+      propertyPath: m_health
       value: 
-      objectReference: {fileID: 4725127776796757470}
+      objectReference: {fileID: 7175562507771445894}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

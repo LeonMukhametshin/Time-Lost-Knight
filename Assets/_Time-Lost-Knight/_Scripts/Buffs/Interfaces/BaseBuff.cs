@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseBuff : IBuff
 {
     [field: SerializeField] public string id { get; private set; }
-    
+
     public Sprite icon { get; private set; }
     public BuffType type { get; private set; }
 
@@ -28,7 +28,6 @@ public abstract class BaseBuff : IBuff
     }
 
     protected virtual void OnInitialize() { }
-
 
     public void Deinitialize()
     {

@@ -1,16 +1,11 @@
-using UnityEngine;
-
 public abstract class Combat : CoreComponent, IDamageable
 {
-    [SerializeField] private Entity m_entity;
-
-    public override void Awake()
-    {
-        base.Awake();
-    }
+    private HealthComponent m_healthComponent;
+    protected HealthComponent healthComponent =>
+        m_healthComponent ??= core.GetCoreComponent<HealthComponent>();
 
     public virtual void TakeDamage(float amount)
     {
-        m_entity.healthSystem.TakeDamage(amount);
+        healthComponent?.TakeDamage(amount);
     }
 }

@@ -2602,7 +2602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87ef74f1e20f8042b03acc5af4741ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Follower
-  m_target: {fileID: 986134202}
   m_offcet: {x: 0, y: 0, z: -10}
 --- !u!1001 &822823941
 PrefabInstance:
@@ -3618,11 +3617,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 157783053886472026, guid: cf4dceb7d3e7c5b4a8890e7281d80870, type: 3}
   m_PrefabInstance: {fileID: 978908091}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &986134202 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5129810502820567774, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
-  m_PrefabInstance: {fileID: 2011022082}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1081034730
 PrefabInstance:
@@ -14202,6 +14196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc94e657d97acf946ae4c3e0faf187f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalletView
+  m_text: {fileID: 0}
 --- !u!1001 &1585463606
 PrefabInstance:
   m_ObjectHideFlags: 0
