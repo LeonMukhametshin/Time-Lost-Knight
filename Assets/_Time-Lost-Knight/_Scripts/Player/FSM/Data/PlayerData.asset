@@ -15,7 +15,7 @@ MonoBehaviour:
   <movementSpeed>k__BackingField: 20
   <jumpVelocity>k__BackingField: 24
   <amountOfJumps>k__BackingField: 1
-  <wallJumpVelocity>k__BackingField: 20
+  <wallJumpVelocity>k__BackingField: 40
   <wallJumpTime>k__BackingField: 0.4
   <wallJumpAnge>k__BackingField: {x: 1, y: 2}
   <coyoteTime>k__BackingField: 0.2
