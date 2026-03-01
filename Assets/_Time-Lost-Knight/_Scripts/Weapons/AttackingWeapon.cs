@@ -1,18 +1,11 @@
 using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
 
 public class AttackingWeapon : Weapon
 {
-    protected FlipContoller flipContoller
-    {
-        get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-    }
-    private FlipContoller m_flipContoller;
-
     protected AttackingWeaponData attackingWeaponData;
-    private List<IDamageable> m_detectedDamageble = new();
-    private List<IKnockbackable> m_detectedKnockbackables = new();
+
+    private List<IEffectable> m_effectables = new();
 
     protected override void Awake()
     {
@@ -33,42 +26,27 @@ public class AttackingWeapon : Weapon
 
     private void CheckMeleeAttack()
     {
-        var details = attackingWeaponData.attackDetails[attackCounter];
-
-        foreach (var item in m_detectedDamageble.ToList())
+        if(m_effectables is null)
         {
-            item.TakeDamage(details.damageAmount);
+            return;
         }
 
-        foreach(var item in m_detectedKnockbackables.ToList())
+        var details = attackingWeaponData.attackDetails[attackCounter];
+
+        foreach (var effectable in m_effectables)
         {
-            item.Knockback(details.angle, details.knokbackStringht, flipContoller.facingDirection);
+            details.effects.ApplyEffect(effectable);
         }
     }
 
     public void AddToDetected(Collider2D collision)
     {
-        if(collision.TryGetComponent<IDamageable>(out var damageable))
-        {
-            m_detectedDamageble.Add(damageable);
-        }
-
-        if(collision.TryGetComponent<IKnockbackable>(out var knockbackable))
-        {
-            m_detectedKnockbackables.Add(knockbackable);
+        if(collision.gameObject.TryGetComponent(out Core core))
+        {       
+            m_effectables.AddRange(core.effectables);           
         }
     }
 
-    public void RemoveToDetected(Collider2D collision)
-    {
-        if (collision.TryGetComponent<IDamageable>(out var damageable))
-        {
-            m_detectedDamageble.Remove(damageable);
-        }
-
-        if (collision.TryGetComponent<IKnockbackable>(out var knockbackable))
-        {
-            m_detectedKnockbackables.Remove(knockbackable);
-        }
-    }
+    public void ClearDetectedList(Collider2D collision) => 
+        m_effectables.Clear();
 }

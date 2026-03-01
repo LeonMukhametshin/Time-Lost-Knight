@@ -8,5 +8,5 @@ public class WeaponHitboxToWeapon : MonoBehaviour
           m_weapon.AddToDetected(collision);
 
     private void OnTriggerExit2D(Collider2D collision) =>
-         m_weapon.RemoveToDetected(collision);
+         m_weapon.ClearDetectedList(collision);
 }

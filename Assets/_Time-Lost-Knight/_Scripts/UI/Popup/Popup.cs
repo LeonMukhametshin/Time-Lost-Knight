@@ -10,6 +10,9 @@ public class Popup : MonoBehaviour
     [SerializeField] private CanvasGroup m_bodyAlphaGroup;
     [SerializeField] private RectTransform m_body;
 
+    [SerializeField] private float m_showTime = 0.2f;
+    [SerializeField] private float m_closeTime = 0.2f;
+
     [SerializeField] private Button[] m_buttons;
     [SerializeField][Min(0f)] private float m_buttonAppearDuration = 0.35f;
     [SerializeField][Min(0f)] private float m_buttonStagger = 0.12f;
@@ -37,7 +40,7 @@ public class Popup : MonoBehaviour
 
         m_animation
             .Append(m_bodyAlphaGroup.DOFade(1f, 0.5f))
-            .Join(m_body.DOAnchorPos(m_targetBodyPosition, 1f).From(m_startShift));
+            .Join(m_body.DOAnchorPos(m_targetBodyPosition, m_showTime).From(m_startShift));
 
         foreach (var button in m_buttons)
         {
@@ -56,7 +59,7 @@ public class Popup : MonoBehaviour
 
         m_animation
            .Append(m_bodyAlphaGroup.DOFade(0f, 1f).From(1f))
-           .Join(m_body.DOAnchorPos(m_startShift, 1f).From(m_targetBodyPosition))
+           .Join(m_body.DOAnchorPos(m_startShift, m_closeTime).From(m_targetBodyPosition))
            .OnComplete(() => callback?.Invoke());
 
         open = false;

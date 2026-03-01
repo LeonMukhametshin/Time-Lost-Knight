@@ -1,13 +1,7 @@
-using System;
-using TMPro;
 using UnityEngine;
 
 public class EnemyTwo : Entity
 {  
-    [Header("DATAS")]
-    [SerializeField] private TextMeshProUGUI text;
-
-
     [SerializeField] private IdleStateData m_idleStateData;
     [SerializeField] private MoveStateData m_moveStateData;
     [SerializeField] private PlayerDetectedData m_playerDetectedData;
@@ -40,12 +34,5 @@ public class EnemyTwo : Entity
         animationToFSM.Initialize(fsm);
 
         fsm.ChangeState<EnemyTwoIdleState>();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        text.text = Math.Round(movement.rb.linearVelocityY, 2).ToString();
     }
 }

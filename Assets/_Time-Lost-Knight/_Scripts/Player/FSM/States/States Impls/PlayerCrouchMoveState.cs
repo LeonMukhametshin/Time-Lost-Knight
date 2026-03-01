@@ -19,7 +19,6 @@ public class PlayerCrouchMoveState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
-
         colliderController.SetColliderHeight(data.crouchColliderHeight);
     }
 

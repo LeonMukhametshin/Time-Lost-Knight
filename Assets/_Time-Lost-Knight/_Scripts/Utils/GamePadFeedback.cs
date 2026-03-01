@@ -2,17 +2,16 @@ using System.Collections;
 using UnityEngine;
 using XInputDotNetPure;
 
-public class VibrationTest : MonoBehaviour
+public class GamePadFeedback : MonoBehaviour
 {
     [SerializeField] private HealthComponent m_healSystem;
     
     [SerializeField][Min(0)] private float m_duration;
+
     [SerializeField][Min(0)] private float m_leftMotor;
     [SerializeField][Min(0)] private float m_rightMotor;
-
+    
     PlayerIndex playerIndex;
-    GamePadState state;
-    GamePadState prevState;
 
     private void OnEnable() => 
         m_healSystem.valueChanged += StartVibration;

@@ -18,7 +18,7 @@ public class StaticTrap : Trap
 
         if(collision.TryGetComponent<IKnockbackable>(out var knockbackable))
         {
-            knockbackable.Knockback(m_trapAttackDetails.angle, m_trapAttackDetails.knokbackStringht);
+            //knockbackable.Knockback(m_trapAttackDetails.angle, m_trapAttackDetails.knokbackStringht);
         }
     }
 }

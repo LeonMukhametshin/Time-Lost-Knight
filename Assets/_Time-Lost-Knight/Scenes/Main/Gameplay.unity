@@ -1013,6 +1013,14 @@ PrefabInstance:
       propertyPath: m_baseSelectedObject
       value: 
       objectReference: {fileID: 941953021}
+    - target: {fileID: 4781330554654695251, guid: a9e8d1fe860eb8643b85252f6778fca3, type: 3}
+      propertyPath: m_buttonStagger
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781330554654695251, guid: a9e8d1fe860eb8643b85252f6778fca3, type: 3}
+      propertyPath: m_buttonAppearDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4948485310008054399, guid: a9e8d1fe860eb8643b85252f6778fca3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

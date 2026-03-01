@@ -15,16 +15,40 @@ MonoBehaviour:
   m_attackDetails:
   - attackName: Left slash
     movementSpeed: 10
-    damageAmount: 25
-    knokbackStringht: 3
-    angle: {x: 2, y: 2}
+    effects:
+    - rid: 47934341375590484
+    - rid: 47934347748048980
   - attackName: Right slash
-    movementSpeed: 10
-    damageAmount: 35
-    knokbackStringht: 3
-    angle: {x: 2, y: 2}
+    movementSpeed: 9.91
+    effects:
+    - rid: 47934341375590485
+    - rid: 47934347748048981
   - attackName: Up slash
     movementSpeed: 12
-    damageAmount: 40
-    knokbackStringht: 3
-    angle: {x: 2, y: 2}
+    effects:
+    - rid: 47934341375590486
+  references:
+    version: 2
+    RefIds:
+    - rid: 47934341375590484
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 20
+    - rid: 47934341375590485
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 30
+    - rid: 47934341375590486
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 40
+    - rid: 47934347748048980
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_knokbackStringht: 20
+        m_angle: {x: 5, y: 5}
+    - rid: 47934347748048981
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_knokbackStringht: 10
+        m_angle: {x: 1, y: 1}

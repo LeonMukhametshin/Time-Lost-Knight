@@ -1,30 +1,40 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-    private readonly Dictionary<Type, CoreComponent> coreComponents = new();
-    private List<IUpdate> updateComponents = new();
+    private readonly Dictionary<Type, CoreComponent> m_coreComponents = new();
+    
+    public readonly List<IEffectable> effectables = new();
+
+    private List<IUpdate> m_updateComponents = new();
 
     public void Update()
     {
-        foreach (var componetn in updateComponents)
+        foreach (var componetn in m_updateComponents)
         {
             componetn.Update();
         }
     }
 
-    public void AddCoreComponent(CoreComponent component)
+    public void AddComponent(CoreComponent component)
     {
         var type = component.GetType();
 
-        if (coreComponents.ContainsKey(type))
+        if (m_coreComponents.ContainsKey(type))
         {
             return;
         }
 
-        coreComponents.Add(type, component);
+        m_coreComponents.Add(type, component);
+
+        if (component is IEffectable effectable)
+        {
+            AddEffectableComponent(effectable);
+        }
 
         if (component is IUpdate updateComponent)
         {
@@ -32,25 +42,35 @@ public class Core : MonoBehaviour
         }
     }
 
-    private void AddUpdateComponent(IUpdate component)
+    private void AddEffectableComponent(IEffectable effectable)
     {
-        if (updateComponents.Contains(component))
+        if (effectables.Contains(effectable))
         {
             return;
         }
 
-        updateComponents.Add(component);
+        effectables.Add(effectable);
+    }
+
+    private void AddUpdateComponent(IUpdate component)
+    {
+        if (m_updateComponents.Contains(component))
+        {
+            return;
+        }
+
+        m_updateComponents.Add(component);
     }
 
 
     public T GetCoreComponent<T>() where T : CoreComponent
     { 
-        if(!coreComponents.ContainsKey(typeof(T)))
+        if(!m_coreComponents.ContainsKey(typeof(T)))
         {
             CacheCoreComponents();
         }
 
-        if (coreComponents.TryGetValue(typeof(T), out var component))
+        if (m_coreComponents.TryGetValue(typeof(T), out var component))
         {
             return component as T;
         }
@@ -64,7 +84,7 @@ public class Core : MonoBehaviour
 
         foreach (var component in components)
         {
-            AddCoreComponent(component);
+            AddComponent(component);
         }
     }
 }
