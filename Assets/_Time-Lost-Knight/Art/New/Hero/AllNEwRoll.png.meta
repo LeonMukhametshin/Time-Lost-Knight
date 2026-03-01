@@ -636,7 +636,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -5044,6 +5044,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_197
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 895
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa29f3c9eb8535a498fa113b271e2fac
+      internalID: 376071938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -5169,6 +5191,7 @@ TextureImporter:
       AllNEwRoll_194: -2877810858684787504
       AllNEwRoll_195: -8999779535033824247
       AllNEwRoll_196: -962513367
+      AllNEwRoll_197: 376071938
       AllNEwRoll_2: 3780738352374004649
       AllNEwRoll_20: 5845259293236568242
       AllNEwRoll_21: 3847337083832759857

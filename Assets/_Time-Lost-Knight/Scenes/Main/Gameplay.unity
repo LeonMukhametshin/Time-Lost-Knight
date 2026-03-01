@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015835470f30a3b4686031448fd33de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawner
-  m_player: {fileID: 7302137115000031554, guid: 738ab3ec21c7e364ca0d573c4db0b6fe, type: 3}
+  m_player: {fileID: 9191443764310592023, guid: 7f84b5a3b916cc5498aba888be726e46, type: 3}
   m_spawnPoint: {fileID: 1487802603}
 --- !u!4 &799800996
 Transform:
