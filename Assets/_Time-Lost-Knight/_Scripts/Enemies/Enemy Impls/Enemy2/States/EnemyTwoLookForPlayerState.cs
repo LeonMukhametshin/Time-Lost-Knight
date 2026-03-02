@@ -11,11 +11,7 @@ public class EnemyTwoLookForPlayerState : LookForPlayerState
     {
         base.Update();
 
-        if (isPlayerInMinAgroRange)
-        {
-            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
-        }
-        else if(isPlayerInMaxAgroRange)
+        if (isPlayerInMinAgroRange || isPlayerInMaxAgroRange)
         {
             fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
