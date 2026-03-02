@@ -35,7 +35,7 @@ public class BootstrapState : MonoBehaviour, IState
         m_playerSpawner?.Spawn();
 
         SceneManager.LoadSceneAsync(
-            SceneNames.LEVEL_EXAMPLE,
+            SceneNames.LEVEL_1,
             LoadSceneMode.Additive)
             .completed += _ =>
             {
