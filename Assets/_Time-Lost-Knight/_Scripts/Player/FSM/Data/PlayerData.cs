@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/Player/Player_Data")]
-public class PlayerData : ScriptableObject
+public class PlayerData : EntityData
 {
     [field: SerializeField][Min(0)] public float movementSpeed { get; private set; }   
 
@@ -44,7 +44,4 @@ public class PlayerData : ScriptableObject
     [Header("One Way Platform")]
     [field: SerializeField][field: Min(0)] public float dropThroughDuration { get; private set; } = 0.25f;
     [field: SerializeField][field: Min(0)] public float dropVelocity { get; private set; } = 3f;
-
-    [Header("Check")]
-    [field: SerializeField] public CheckersData checkersData { get; private set; }
 }

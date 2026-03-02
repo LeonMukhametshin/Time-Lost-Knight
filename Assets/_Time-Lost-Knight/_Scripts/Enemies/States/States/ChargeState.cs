@@ -1,17 +1,32 @@
 using UnityEngine;
 
-public class ChargeState : State
+public class ChargeState : EnemyState
 {
     protected ChargeStateData data;
+
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
 
-    public ChargeState(FSM fsm, Entity entity, string animBoolName, ChargeStateData data) : base(fsm, entity, animBoolName)
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+    protected FlipContoller flipContoller => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+    
+    private EnemyCollisionDetector enemyCollisionDetector =>
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+
+    private Movement m_movement;
+    private FlipContoller m_flipContoller;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
+
+    public ChargeState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, ChargeStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
-        this.data = data;
+        this.data = data;   
     }
 
     public override void Enter()
@@ -19,12 +34,7 @@ public class ChargeState : State
         base.Enter();
 
         isChargeTimeOver = false;
-        entity.SetVelocity(data.chargeSpeed);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
+        movement.SetVelocity(data.chargeSpeed, Vector2.right, flipContoller.facingDirection);
     }
 
     public override void Update()
@@ -37,18 +47,13 @@ public class ChargeState : State
         }
     }
 
-    public override void FixedUpdate()
+    public override void DoCheck()
     {
-        base.FixedUpdate();
-    }
+        base.DoCheck();
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-        isDetectingLedge = entity.CheckLedge();
-        isDetectingWall = entity.CheckWall();
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isDetectingLedge = enemyCollisionDetector.CheckLedge();
+        isDetectingWall = enemyCollisionDetector.CheckWallTouch();
+        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
     }
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DodgeState : State
+public class DodgeState : EnemyState
 {
-    protected DodgeStateData data;
+    public DodgeStateData data { get; private set; }
 
     protected bool performCloseRangeAction;
     protected bool isPlayerInMaxAgroRange;
@@ -10,18 +10,33 @@ public class DodgeState : State
     protected bool isGrounded;
     protected bool isDodgeOver;
 
-    public DodgeState(FSM fsm, Entity entity, string animBoolName, DodgeStateData data) : base(fsm, entity, animBoolName)
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+
+    private FlipContoller flipContoller => 
+        m_flipController ??= core.GetCoreComponent<FlipContoller>();
+
+    private EnemyCollisionDetector enemyCollisionDetector => 
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+
+    private Movement m_movement;
+    private FlipContoller m_flipController;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
+
+    public DodgeState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, DodgeStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-        isPlayerInMaxAgroRange = entity.CheckPlayerInMinAgroRange();
-        isGrounded = entity.CheckGround();
+        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
+        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isGrounded = enemyCollisionDetector.CheckWallTouch();
     }
 
     public override void Enter()
@@ -29,12 +44,7 @@ public class DodgeState : State
         base.Enter();
 
         isDodgeOver = false;
-        entity.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -entity.facingDirection);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
+        movement.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -flipContoller.facingDirection);
     }
 
     public override void Update()
@@ -45,10 +55,5 @@ public class DodgeState : State
         {
             isDodgeOver = true;
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

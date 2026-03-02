@@ -2,6 +2,19 @@ using UnityEngine;
 
 public class PlayerLedgeClibmState : PlayerState
 {
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+  
+    protected PlayerCollisionDetector collisionDetector => 
+        m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
+    
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
+    private Movement m_movement;
+    private PlayerCollisionDetector m_collisionDetector;
+    private FlipContoller m_flipContoller;
+
     private bool m_isHanding;
     private bool m_isClimbing;
 
@@ -15,9 +28,10 @@ public class PlayerLedgeClibmState : PlayerState
     private bool m_jumpInput;
     private bool m_isTouchingCeiling;
 
-    public PlayerLedgeClibmState(Player player, PlayerFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerLedgeClibmState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -25,15 +39,15 @@ public class PlayerLedgeClibmState : PlayerState
     {
         base.Enter();
 
-        player.movement.SetVelocityZero();
+        movement.SetVelocityZero();
 
         player.transform.position = m_detectedPosition;
-        m_cornerPosition = player.collisionDetector.DetermineCornerPosition();
+        m_cornerPosition = collisionDetector.DetermineCornerPosition();
 
-        m_startPosition.Set(m_cornerPosition.x - (player.collisionDetector.facingDirection * data.startOffset.x),
+        m_startPosition.Set(m_cornerPosition.x - (flipController.facingDirection * data.startOffset.x),
             m_cornerPosition.y - data.startOffset.y);
-        m_stopPosition.Set(m_cornerPosition.x + (player.collisionDetector.facingDirection * data.startOffset.y),
-            m_cornerPosition.y + data.startOffset.y);
+        m_stopPosition.Set(m_cornerPosition.x + (flipController.facingDirection * data.stopOffset.y),
+            m_cornerPosition.y + data.stopOffset.y);
 
         player.transform.position = m_startPosition;
     }
@@ -59,11 +73,11 @@ public class PlayerLedgeClibmState : PlayerState
         {
             if (m_isTouchingCeiling)
             {
-                fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+                fsm.ChangeState<PlayerCrouchIdleState>();
             }
             else
             {
-                fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+                fsm.ChangeState<PlayerIdleState>();
             }
         }
         else
@@ -72,37 +86,37 @@ public class PlayerLedgeClibmState : PlayerState
             m_yInput = player.inputHandler.normalizedInputY;
             m_jumpInput = player.inputHandler.jumpInput;
 
-            player.movement.SetVelocityZero();
+            movement.SetVelocityZero();
             player.transform.position = m_startPosition;
 
-            if (m_xInput == player.collisionDetector.facingDirection && m_isHanding && !m_isClimbing)
+            if (m_xInput == flipController.facingDirection && m_isHanding && !m_isClimbing)
             {
-                m_isTouchingCeiling = player.collisionDetector.CheckForSpace(m_cornerPosition);
-                player.animationController.animator.SetBool(PlayerAnimationConst.IS_TOUCHING_CEILING, m_isTouchingCeiling);
-                player.animationController.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, true);
+                m_isTouchingCeiling = collisionDetector.CheckForSpace(m_cornerPosition);
+                player.animator.SetBool(PlayerAnimationConstants.IS_TOUCHING_CEILING, m_isTouchingCeiling);
+                player.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, true);
                 m_isClimbing = true;
             }
             else if (m_yInput == -1 && m_isHanding && !m_isClimbing)
             {
-                fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
+                fsm.ChangeState<PlayerAirState>();
             }
             else if (m_jumpInput && !m_isClimbing)
             {
-                player.statesContainer.GetState<PlayerWallJumpState>().DetermineWallJumpDirection(true);
-                fsm.SetState(player.statesContainer.GetState<PlayerWallJumpState>());
+                fsm.GetState<PlayerWallJumpState>().DetermineWallJumpDirection(true);
+                fsm.ChangeState<PlayerWallJumpState>();;
             }
         }
     }
 
-    public override void AnimationFinishTriger()
+    public override void FinishAnimation()
     {
-        base.AnimationFinishTriger();
-        player.animationController.animator.SetBool(PlayerAnimationConst.LEDGE_CLIMB, false);
+        base.FinishAnimation();
+        player.animator.SetBool(PlayerAnimationConstants.LEDGE_CLIMB, false);
     }
 
-    public override void AnimationTrigger()
+    public override void TriggerAnimation()
     {
-        base.AnimationTrigger();
+        base.TriggerAnimation();
 
         m_isHanding = true;
     }

@@ -208,7 +208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StaticSpike
   <damage>k__BackingField: 20
   <animator>k__BackingField: {fileID: 722511176665269380}
-  duration: 5.48
+  m_trapAttackDetails:
+    damageAmount: 10
+    knokbackStringht: 20
+    angle: {x: 0, y: 1}
 --- !u!1 &6554225138287124887
 GameObject:
   m_ObjectHideFlags: 0

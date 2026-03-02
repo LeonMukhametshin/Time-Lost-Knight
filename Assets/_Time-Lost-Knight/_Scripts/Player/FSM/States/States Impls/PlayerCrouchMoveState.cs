@@ -1,24 +1,31 @@
-using UnityEngine;
-
 public class PlayerCrouchMoveState : PlayerGroundState
 {
-    public PlayerCrouchMoveState(Player player, PlayerFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
+    protected ColliderController colliderController => 
+        m_colliderController ??= core.GetCoreComponent<ColliderController>();
+
+    private FlipContoller m_flipContoller;
+    private ColliderController m_colliderController;
+
+    public PlayerCrouchMoveState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-
-        player.colliderController.SetColliderHeight(data.crouchColliderHeight);
+        colliderController.SetColliderHeight(data.crouchColliderHeight);
     }
 
     public override void Exit()
     {
         base.Exit();
-        player.colliderController.SetColliderHeight(data.standColliderHeight);
+        colliderController.SetColliderHeight(data.standColliderHeight);
     }
 
     public override void Update()
@@ -30,16 +37,16 @@ public class PlayerCrouchMoveState : PlayerGroundState
             return;
         }
 
-        player.movement.SetVelocityX(data.crouchMovementVelocity * player.collisionDetector.facingDirection);
-        player.flipController.CheckIfShoudFlip(xInput);
+        movement.SetVelocityX(data.crouchMovementVelocity * xInput);
+        flipController.CheckIfShoudFlip(xInput);
 
         if (xInput == 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+            fsm.ChangeState<PlayerCrouchIdleState>();
         }
         else if (yInput != -1 && !isTouchingCeiling)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerMoveState>());
+            fsm.ChangeState<PlayerMoveState>();
         }
     }
 }

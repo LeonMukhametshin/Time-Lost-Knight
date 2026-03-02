@@ -1,90 +1,48 @@
+using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    [Header("       ----  PLAYER DATA  ----")][Space(10)]
     [SerializeField] private PlayerData m_data;
 
-    [Header("       ----  UNITY COMPONENTS  ----")][Space(10)]
-    [SerializeField] private Animator m_animator;
-    [SerializeField] private Rigidbody2D m_rigidbody;
-    [SerializeField] private BoxCollider2D m_collider;
-
-    [field: Header("       ----  OTHER COMPONENTS  ----")][field: Space(10)]
-    [field: SerializeField] public PlayerInputHandler inputHandler { get; private set; }
+    [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
-    [field: SerializeField] public PlayerAnimationController animationController { get; private set; }
 
-    [Header("       ----  CHECKERS  ----")][Space(10)]
-    [SerializeField] private CheckTransfomRef m_checkTransfom;
+    [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
-    public Movement movement { get; private set; }
-    public StatesContainer statesContainer { get; set; }
-    public FlipContoller flipController { get; private set; }
-    public CollisionDetector collisionDetector { get; private set; }
-    public ColliderController colliderController { get; private set; }
-    public Collider2D bodyCollider => m_collider;
-
-
-    private void Awake() =>
-        ResolveReferences();
-
-    private void ResolveReferences()
+    public override void Awake()
     {
-        if(m_animator == null)
-        {
-            m_animator = GetComponent<Animator>();
-        }
+        base.Awake();
 
-        if(m_rigidbody == null)
-        {
-            m_rigidbody = GetComponent<Rigidbody2D>();
-        }
+        inputHandler = ServiceLocator.Get<PlayerInputHandler>();
 
-        if(m_collider == null)
-        {
-            m_collider = GetComponent<BoxCollider2D>();
-        }
+        fsm.Initialize(
+            new PlayerIdleState(fsm, core, PlayerAnimationConstants.IDLE, this, m_data),
+            new PlayerMoveState(fsm, core, PlayerAnimationConstants.MOVEMENT, this, m_data),
+            new PlayerJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerAirState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerLandState(fsm, core, PlayerAnimationConstants.LAND, this, m_data),
+            new PlayerWallSlideState(fsm, core, PlayerAnimationConstants.WALL_SLIDE, this, m_data),
+            new PlayerWallGrabState(fsm, core, PlayerAnimationConstants.WALL_GRAB, this, m_data),
+            new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, m_data),
+            new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerLedgeClibmState(fsm, core, PlayerAnimationConstants.LEDGE_CLIMB_STATE, this, m_data),
 
-        if(inputHandler == null)
-        {
-            inputHandler = GetComponent<PlayerInputHandler>();
-        }
+            new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerOmnidirectionalDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
 
-        if(animationController == null)
-        {
-            animationController = GetComponent<PlayerAnimationController>();
-        }
+            new PlayerCrouchIdleState(fsm, core, PlayerAnimationConstants.CROUCH_IDLE, this, m_data),
+            new PlayerCrouchMoveState(fsm, core, PlayerAnimationConstants.CROUCH_MOVE, this, m_data),
+            new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerPrimaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data),
+            new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data));
 
-        if(animationController == null)
-        {
-            animationController = gameObject.AddComponent<PlayerAnimationController>();
-        }
+        fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
+        fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
 
-        InitializeComponents();
-    }
+        fsm.ChangeState<PlayerIdleState>();
 
-    private void InitializeComponents()
-    {
-        movement = new Movement(m_rigidbody);
-        colliderController = new ColliderController(m_collider);
-        collisionDetector = new CollisionDetector(m_data.checkersData, m_checkTransfom, m_data.standColliderHeight);
-        flipController = new FlipContoller(transform, collisionDetector);
- 
-        statesContainer = new StatesContainer(this, m_data);
-        animationController.Initialize(m_animator, statesContainer);
-
-        statesContainer.SetBaseState();
-    }
-
-    private void Update()
-    {
-        movement.Update();
-        statesContainer.fsm.Update();
-    }
-
-    private void FixedUpdate()
-    {
-        statesContainer.fsm.FixedUpdate();
+        //TODO: remove 
+        animationToFSM.Initialize(fsm);
     }
 }

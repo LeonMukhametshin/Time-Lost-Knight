@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,14 +17,26 @@ public class PlayerInputHandler : MonoBehaviour
     public bool grabInput { get; private set; }
     public bool dashInput { get; private set; }
     public bool dashInputStop { get; private set; }
+    public bool dropDownInput { get; private set; }
+    public bool interactInput { get; private set; } 
 
-    [SerializeField] private PlayerInput m_playerInput;
-    [SerializeField] private Camera m_camera;
+    public bool[] attackInputs { get; private set; }
+
+    // [SerializeField] private PlayerInput m_playerInput;
 
     [SerializeField] private float m_inputHoldTime;
+    private Camera m_camera;
 
     private float m_jumpInputStartTime;
     private float m_dashInputStartTime;
+
+    private void Start()
+    {
+        int count = Enum.GetValues(typeof(CombatInputs)).Length;
+        attackInputs = new bool[count];
+
+        m_camera = Camera.main;
+    }
 
     private void Update()
     {
@@ -50,6 +64,18 @@ public class PlayerInputHandler : MonoBehaviour
         if(context.canceled)
         {
             jumpInputStop = true;
+        }
+    }
+
+    public void OnIntarectInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            interactInput = true;
+        }
+        if(context.canceled)
+        {
+            interactInput = false;
         }
     }
 
@@ -83,12 +109,25 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawDashDirectionInput = context.ReadValue<Vector2>();
 
-        if (m_playerInput.currentControlScheme == "Keyboard")
+        //TODO: select keyboard/gamepad
+        /*if (m_playerInput.currentControlScheme == "Keyboard")
         {
             rawDashDirectionInput = m_camera.ScreenToWorldPoint((Vector3)rawDashDirectionInput - transform.position);
-        }
+        }*/
 
         dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
+    }
+
+    public void OnDropDownInput(InputAction.CallbackContext contex)
+    {
+        if (contex.started)
+        {
+            dropDownInput = true;
+        }
+        if (contex.canceled)
+        {
+            dropDownInput = false;
+        }
     }
 
     public void UseJumpInput() => 
@@ -96,6 +135,9 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UseDashInput() =>
         dashInput = false;
+
+    public void UseDropDownInput() =>
+        dropDownInput = false;
 
     private void CheckJumpInputHoldTime()
     {
@@ -110,6 +152,32 @@ public class PlayerInputHandler : MonoBehaviour
         if(Time.time >= m_dashInputStartTime + m_inputHoldTime)
         {
             dashInput = false;
+        }
+    }
+
+    public void OnPrimaryAttackInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            attackInputs[(int)CombatInputs.primary] = true;
+        }
+
+        if(context.canceled)
+        {
+            attackInputs[(int)CombatInputs.primary] = false;
+        }
+    }
+
+    public void OnSecondaryAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            attackInputs[(int)CombatInputs.secondary] = true;
+        }
+
+        if (context.canceled)
+        {
+            attackInputs[(int)CombatInputs.secondary] = false;
         }
     }
 }

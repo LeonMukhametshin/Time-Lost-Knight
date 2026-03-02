@@ -103,3 +103,7 @@ InitTestScene*.unity*
 .vscode/settings.json
 Assets/Resources/DOTweenSettings.asset
 ProjectSettings/EditorBuildSettings.asset
+Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta
+Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta
+Assets/Plugins/Zenject/OptionalExtras/Signals/Zenject-Signals.csproj.meta
+Assets/Plugins/Zenject/Source/Zenject.csproj.meta

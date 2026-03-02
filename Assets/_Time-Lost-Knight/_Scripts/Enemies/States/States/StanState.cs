@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StanState : State
+public class StanState : EnemyState
 {
     protected StunStateData data;
 
@@ -11,18 +11,30 @@ public class StanState : State
     protected bool performCloseRangeAction;
     protected bool isPlayerInMinAgroRange;
 
-    public StanState(FSM fsm, Entity entity, string animBoolName, StunStateData data) : base(fsm, entity, animBoolName)
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+
+    protected EnemyCollisionDetector enemyCollisionDetector =>
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+
+    private Movement m_movement;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
+
+    public StanState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        StunStateData data) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
-        isGrounded = entity.CheckGround();
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isGrounded = enemyCollisionDetector.CheckGrounded();
+        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()
@@ -31,13 +43,12 @@ public class StanState : State
 
         isStunTimeOver = false;
         isMovementSropped = false;
-        entity.SetVelocity(data.stunKnockbackSpeed, data.stunKnockbackAngle, entity.lastDamageDirection);
+        //movement.SetVelocity(data.stunKnockbackSpeed, data.stunKnockbackAngle, entity.lastDamageDirection);
     }
 
     public override void Exit()
     {
         base.Exit();
-        entity.ResetStunResistance();
     }
 
     public override void Update()
@@ -52,12 +63,7 @@ public class StanState : State
         if(isGrounded && Time.time >= startTime + data.stunKnockbactTime && !isMovementSropped)
         {
             isMovementSropped = true;
-            entity.SetVelocity(0f);
+            movement.SetVelocityX(0f);
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

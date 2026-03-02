@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerDetectedState : State
+public class PlayerDetectedState : EnemyState
 {
     protected PlayerDetectedData data;
 
@@ -9,33 +9,41 @@ public class PlayerDetectedState : State
     protected bool performeLongRangeAction;
     protected bool performeCloseRangeAction;
     protected bool isDetectingLedge;
-    public PlayerDetectedState(FSM fsm, Entity entity, string animBoolName, PlayerDetectedData data) : base(fsm, entity, animBoolName)
+
+    private Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+
+    private EnemyCollisionDetector enemyCollisionDetector => 
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+
+    private Movement m_movement;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
+
+    public PlayerDetectedState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, 
+        PlayerDetectedData data) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
-        isDetectingLedge = entity.CheckLedge();
-        performeCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        isDetectingLedge = enemyCollisionDetector.CheckLedge();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
+        performeCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
     }
 
     public override void Enter()
     {
         base.Enter();
-
         performeLongRangeAction = false;
-        entity.SetVelocity(0f);
+        movement.SetVelocityX(0f);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
     public override void Update()
     {
         base.Update();
@@ -44,10 +52,5 @@ public class PlayerDetectedState : State
         {
             performeLongRangeAction = true;
         }
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }

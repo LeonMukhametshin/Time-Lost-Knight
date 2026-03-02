@@ -4,9 +4,10 @@ public class PlayerWallJumpState : PlayerAbilytiState
 {
     private int m_wallJumpDirection;
 
-    public PlayerWallJumpState(Player player, PlayerFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallJumpState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player,
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -14,11 +15,11 @@ public class PlayerWallJumpState : PlayerAbilytiState
     {
         base.Enter();
 
-        var jumpState = player.statesContainer.GetState<PlayerJumpState>();
+        var jumpState = fsm.GetState<PlayerJumpState>();
         player.inputHandler.UseJumpInput();
         jumpState.ResetAmountOfJumpsLeft();
-        player.movement.SetVelocity(data.wallJumpVelocity, data.wallJumpAnge, m_wallJumpDirection);
-        player.flipController.CheckIfShoudFlip(m_wallJumpDirection);
+        movement.SetVelocity(data.wallJumpVelocity, data.wallJumpAnge, m_wallJumpDirection);
+        flipController.CheckIfShoudFlip(m_wallJumpDirection);
         jumpState.DecreaseAmountOfJumpLeft();
     }
 
@@ -26,10 +27,10 @@ public class PlayerWallJumpState : PlayerAbilytiState
     {
         base.Update();
 
-        player.animationController.animator
-            .SetFloat(PlayerAnimationConst.Y_VELOCITY, player.movement.currentVelocity.y);
-        player.animationController.animator
-            .SetFloat(PlayerAnimationConst.X_VELOCITY, Mathf.Abs(player.movement.currentVelocity.x));
+        player.animator
+            .SetFloat(PlayerAnimationConstants.Y_VELOCITY, movement.currentVelocity.y);
+        player.animator
+            .SetFloat(PlayerAnimationConstants.X_VELOCITY, Mathf.Abs(movement.currentVelocity.x));
 
         if(Time.time >= startTime + data.wallJumpTime)
         {
@@ -40,7 +41,7 @@ public class PlayerWallJumpState : PlayerAbilytiState
     public void DetermineWallJumpDirection(bool isTouchingWall)
     {
         m_wallJumpDirection = isTouchingWall
-            ? -player.collisionDetector.facingDirection
-            : player.collisionDetector.facingDirection;
+            ? -flipController.facingDirection
+            : flipController.facingDirection;
     }
 }

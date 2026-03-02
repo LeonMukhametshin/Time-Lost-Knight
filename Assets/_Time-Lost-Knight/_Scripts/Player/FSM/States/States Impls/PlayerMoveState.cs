@@ -1,8 +1,14 @@
 public class PlayerMoveState : PlayerGroundState
 {
-    public PlayerMoveState(Player player, PlayerFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    protected FlipContoller flipController => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
+    private FlipContoller m_flipContoller;
+
+    public PlayerMoveState(EntityFSM fsm, Core core,
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -10,8 +16,8 @@ public class PlayerMoveState : PlayerGroundState
     {
         base.Update();
 
-        player.movement.SetVelocityX(data.movementSpeed * xInput);
-        player.flipController.CheckIfShoudFlip(xInput);
+        movement.SetVelocityX(data.movementSpeed * xInput);
+        flipController.CheckIfShoudFlip(xInput);
 
         if(isExitingState)
         {
@@ -20,11 +26,11 @@ public class PlayerMoveState : PlayerGroundState
 
         if (xInput == 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerIdleState>());
+            fsm.ChangeState<PlayerIdleState>();
         }
         else if (yInput == -1)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerCrouchIdleState>());
+            fsm.ChangeState<PlayerCrouchIdleState>();
         }
     }
 }

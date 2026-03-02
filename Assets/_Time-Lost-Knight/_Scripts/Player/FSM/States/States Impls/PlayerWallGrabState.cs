@@ -4,9 +4,10 @@ public class PlayerWallGrabState : PlayerWallTouchingState
 {
     private Vector2 m_holdPosition;
 
-    public PlayerWallGrabState(Player player, PlayerFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallGrabState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -24,18 +25,18 @@ public class PlayerWallGrabState : PlayerWallTouchingState
 
         HoldPosition();
 
-        if (!isExitingState)
+        if (isExitingState)
         {
             return;   
         }
 
         if (yInput > 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallClimbState>());
+            fsm.ChangeState<PlayerWallClimbState>();;
         }
         else if (yInput < 0 || !grabInput)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallSlideState>());
+            fsm.ChangeState<PlayerWallSlideState>();;
         }
     }
 
@@ -43,6 +44,6 @@ public class PlayerWallGrabState : PlayerWallTouchingState
     {
         player.transform.position = m_holdPosition;
 
-        player.movement.SetVelocityZero();
+        movement.SetVelocityZero();
     }
 }

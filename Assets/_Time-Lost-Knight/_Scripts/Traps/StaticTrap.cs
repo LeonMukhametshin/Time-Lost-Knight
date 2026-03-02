@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class StaticTrap : Trap
 {
+    [SerializeField] private TrapAttackDetails m_trapAttackDetails;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Damage(collision);
@@ -9,8 +11,14 @@ public class StaticTrap : Trap
 
     public override void Damage(Collider2D collision)
     {
-        base.Damage(collision);
+        if (collision.TryGetComponent<IDamageable>(out var damageable))
+        {
+            damageable.TakeDamage(m_trapAttackDetails.damageAmount);
+        }
 
-        Debug.Log($"{collision.name} damage from {this.name} in amount of {damage}");
+        if(collision.TryGetComponent<IKnockbackable>(out var knockbackable))
+        {
+            //knockbackable.Knockback(m_trapAttackDetails.angle, m_trapAttackDetails.knokbackStringht);
+        }
     }
 }

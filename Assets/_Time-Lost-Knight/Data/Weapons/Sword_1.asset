@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171d917ea67e226448945b41634d9c81, type: 3}
+  m_Name: Sword_1
+  m_EditorClassIdentifier: Assembly-CSharp::AttackingWeaponData
+  m_attackDetails:
+  - attackName: Left slash
+    movementSpeed: 10
+    effects:
+    - rid: 47934341375590484
+    - rid: 47934347748048980
+  - attackName: Right slash
+    movementSpeed: 9.91
+    effects:
+    - rid: 47934341375590485
+    - rid: 47934347748048981
+  - attackName: Up slash
+    movementSpeed: 12
+    effects:
+    - rid: 47934341375590486
+  references:
+    version: 2
+    RefIds:
+    - rid: 47934341375590484
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 20
+    - rid: 47934341375590485
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 30
+    - rid: 47934341375590486
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 40
+    - rid: 47934347748048980
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_knokbackStringht: 20
+        m_angle: {x: 5, y: 5}
+    - rid: 47934347748048981
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_knokbackStringht: 10
+        m_angle: {x: 1, y: 1}

@@ -4,57 +4,36 @@ public class MeleeAttackState : AttackState
 {
     protected MeleeAttackStateData data;
 
-    protected AttackDetails attackDetails;
+    private FlipContoller flipContoller => 
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-    public MeleeAttackState(FSM fsm, Entity entity, string animBoolName, Transform attackPosition, MeleeAttackStateData data) : base(fsm, entity, animBoolName, attackPosition)
+    private FlipContoller m_flipContoller;
+
+    public MeleeAttackState(EntityFSM fsm, Core core, string animBoolName, 
+        Entity entity, Transform attackPosition, 
+        MeleeAttackStateData data) 
+        : base(fsm, core, animBoolName, entity, attackPosition)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void TriggerAnimation()
     {
-        base.DoChecks();
-    }
+        base.TriggerAnimation();
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        attackDetails.damageAmout = data.attackDamage;
-        attackDetails.position = entity.aliveGameObject.transform.position;
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-    public override void Update()
-    {
-        base.Update();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    public override void TriggerAttack()
-    {
-        base.TriggerAttack();
-
-        var detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, data.attackRadius, data.playerMask);
+        var detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, 
+            data.attackRadius, data.playerMask);
         
         foreach(var obj in detectedObjects)
         {
             if(obj.TryGetComponent<IDamageable>(out var damageable))
             {
-                damageable.TakeDamage(attackDetails);
+                damageable.TakeDamage(data.attackDamage);
+            }
+            if(obj.TryGetComponent<IKnockbackable>(out var knockbackable))
+            {
+                knockbackable.Knockback(data.angle, data.knokbackStringth, flipContoller.facingDirection);
             }
         }
-    }
-
-    public override void FinishAttack()
-    {
-        base.FinishAttack();
     }
 }

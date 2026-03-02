@@ -16,9 +16,9 @@ TagManager:
   - Ground
   - Damageable
   - Dead
-  - Walls
-  - 
-  - 
+  - Platform
+  - OmnidirectionalZone
+  - Hints
   - 
   - 
   - 

@@ -2,53 +2,45 @@ using UnityEngine;
 
 public class PlayerDropDownState : PlayerState
 {
-    private Collider2D m_platformCollider;
-    private bool m_isIgnoringCollision;
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
 
-    public PlayerDropDownState(Player player, PlayerFSM fsm,
-        PlayerData playerData, string animBoolName)
-        : base(player, fsm, playerData, animBoolName)
+    protected OneWayPlatformCollisionController oneWayPlatformCollisionController => 
+        m_oneWayPlatformCollision ??= core.GetCoreComponent<OneWayPlatformCollisionController>();
+    
+    private Movement m_movement;
+    private OneWayPlatformCollisionController m_oneWayPlatformCollision;
+
+    private float m_duration;
+
+    public PlayerDropDownState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
+        m_duration = data.dropThroughDuration;
     }
-
-    public void SetPlatformCollider(Collider2D platformCollider) =>
-        m_platformCollider = platformCollider;
 
     public override void Enter()
     {
         base.Enter();
 
-        player.inputHandler.UseJumpInput();
+        oneWayPlatformCollisionController.SetIgnorePlatform();
+        movement.SetVelocityY(-data.dropVelocity);
 
-        if (m_platformCollider != null && player.bodyCollider != null)
-        {
-            Physics2D.IgnoreCollision(player.bodyCollider, m_platformCollider, true);
-            m_isIgnoringCollision = true;
-        }
-
-        player.movement.SetVelocityY(-data.dropVelocity);
+        startTime = Time.time;
+        m_duration = data.dropThroughDuration;
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (Time.time >= startTime + data.dropThroughDuration)
+        if (Time.time >= startTime + m_duration)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerInAirState>());
+            var inAirState = fsm.GetState<PlayerAirState>();
+            inAirState.StartCoyoteTime();
+            fsm.ChangeState<PlayerAirState>();
         }
-    }
-
-    public override void Exit()
-    {
-        if (m_isIgnoringCollision && m_platformCollider != null && player.bodyCollider != null)
-        {
-            Physics2D.IgnoreCollision(player.bodyCollider, m_platformCollider, false);
-        }
-
-        m_platformCollider = null;
-        m_isIgnoringCollision = false;
-
-        base.Exit();
     }
 }

@@ -1,8 +1,9 @@
 public class PlayerWallClimbState : PlayerWallTouchingState
 {
-    public PlayerWallClimbState(Player player, PlayerFSM fsm, 
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallClimbState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
@@ -10,7 +11,7 @@ public class PlayerWallClimbState : PlayerWallTouchingState
     {
         base.Update();
 
-        player.movement.SetVelocityY(data.wallClimbVelocity);
+        movement.SetVelocityY(data.wallClimbVelocity);
 
         if (isExitingState)
         {
@@ -19,7 +20,7 @@ public class PlayerWallClimbState : PlayerWallTouchingState
 
         if (yInput != 1)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
+            fsm.ChangeState<PlayerWallGrabState>();
         }
     }
 }

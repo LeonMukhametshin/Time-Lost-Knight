@@ -1,73 +1,32 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameplayEntryPoint : MonoBehaviour
+public partial class GameplayEntryPoint : MonoBehaviour
 {
     public event Action goToMainMenuSceneRequested;
-    public event Action levelLoaded;
 
-    [SerializeField] private UIGameplayRootBinder m_sceneUIRootPrefab;
+    [SerializeField] private UIGameplayRootBinder m_sceneUIRoot;
 
-    private bool m_isInitialized;
+    [SerializeField] private BootstrapState m_bootstrapState;
+    [SerializeField] private PauseWindow m_pauseWindow;
 
-    private CoroutineRunner m_coroutines;
-
-    public void Initialize(CoroutineRunner coroutine)
+    public void Run()
     {
-        if(m_isInitialized)
-        {
-            return;
-        }
-
-        m_coroutines = coroutine;
-    }
-
-    private void OnEnable()
-    {
-        levelLoaded += SpawnPlayer;
-    }
-
-    private void OnDisable()
-    {
-        levelLoaded -= SpawnPlayer;
-    }
-
-    public void Run(UIRootView uiRoot)
-    {
-        var uiScene = Instantiate(m_sceneUIRootPrefab);
-        uiRoot.AttachSceneUI(uiScene.gameObject);
-
-        uiScene.GoToGameplayButtonClicked += () =>
+        m_sceneUIRoot.GoToGameplayButtonClicked += () =>
         {
             goToMainMenuSceneRequested?.Invoke();
         };
 
-        LoadLevel();
-    }
+        var fsm = new StateMachine();
+        m_bootstrapState.Initialize(fsm);
 
-    private void LoadLevel()
-    {
-        //TODO random level selection
-        SceneManager.LoadSceneAsync(
-            SceneNames.LEVEL_EXAMPLE,
-            LoadSceneMode.Additive)
-            .completed += _ =>
-            {
-                levelLoaded?.Invoke();
-            };
-    }
+        fsm.Initialize(
+            m_bootstrapState,
+            new GameplayState(fsm),
+            new PauseState(fsm));
 
-    private void SpawnPlayer()
-    {
-        //remove
-        //var spawner = FindFirstObjectByType<SpawnerPlayer>();
+        fsm.ChangeState<BootstrapState>();
 
-        //if(spawner is null)
-        //{
-        //    throw new Exception("PlayerSpawnPoint not found");
-        //}
-
-        //spawner.Spawn(m_coroutines);
+        m_pauseWindow.Initialize();
     }
 }

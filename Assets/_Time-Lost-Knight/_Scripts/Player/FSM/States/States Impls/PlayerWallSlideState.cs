@@ -1,15 +1,16 @@
 public class PlayerWallSlideState : PlayerWallTouchingState
 {
-    public PlayerWallSlideState(Player player, PlayerFSM fsm,
-        PlayerData playerData, string animBoolName) 
-        : base(player, fsm, playerData, animBoolName)
+    public PlayerWallSlideState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data) 
+        : base(fsm, core, animBoolName, player, data)
     {
     }
 
     public override void Update()
     {
         base.Update();
-        player.movement.SetVelocityY(data.wallSlideVelocity);
+        movement.SetVelocityY(-UnityEngine.Mathf.Abs(data.wallSlideVelocity));
 
         if (isExitingState)
         {
@@ -18,7 +19,7 @@ public class PlayerWallSlideState : PlayerWallTouchingState
 
         if (grabInput && yInput == 0)
         {
-            fsm.SetState(player.statesContainer.GetState<PlayerWallGrabState>());
+            fsm.ChangeState<PlayerWallGrabState>();
         }
     }
 }

@@ -1,55 +1,52 @@
-using System;
 using UnityEngine;
 
-public class AttackState : State
+public class AttackState : EnemyState, IAnimationTrigger
 {
     protected Transform attackPosition;
+
     protected bool isAnimationFinished;
     protected bool isPlayerInMinAgroRange;
 
-    public AttackState(FSM fsm, Entity entity, string animBoolName, Transform attackPosition) : base(fsm, entity, animBoolName)
+    protected Movement movement => 
+        m_movement ??= core.GetCoreComponent<Movement>();
+
+    private EnemyCollisionDetector enemyCollisionDetector => 
+        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
+
+    private Movement m_movement;
+    private EnemyCollisionDetector m_enemyCollisionDetector;
+
+    public AttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, Transform attackPosition) 
+        : base(fsm, core, animBoolName, entity)
     {
         this.attackPosition = attackPosition;
     }
 
-    public override void DoChecks()
+    public override void DoCheck()
     {
-        base.DoChecks();
+        base.DoCheck();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()
     {
         base.Enter();
 
-        entity.animationToFSM.attackState = this;
+        //entity.animationToFSM.m_animationState = this;
         isAnimationFinished = false;
-        entity.SetVelocity(0f);
+        movement.SetVelocityX(0f);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-    
-    public override void Update()
-    {
-        base.Update();
-    }
+    public virtual void TriggerAnimation() { }
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    public virtual void TriggerAttack()
-    {
-
-    }
-
-    public virtual void FinishAttack()
-    {
+    public virtual void FinishAnimation() =>
         isAnimationFinished = true;
-    }
+}
+
+public interface IAnimationTrigger
+{
+    void TriggerAnimation();
+    void FinishAnimation();
 }

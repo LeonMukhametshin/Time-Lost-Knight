@@ -1,51 +1,37 @@
-using UnityEngine;
-
-public class PlayerState
+public class PlayerState : EntityState, IAnimationTrigger
 {
     protected Player player;
-    protected PlayerFSM fsm;
-    protected PlayerData data;
-
-    protected float startTime;
 
     protected bool isAnimationFinished;
     protected bool isExitingState;
+    protected PlayerData data;
 
-    private string m_animName;
-
-    public PlayerState(Player player, PlayerFSM fsm, 
-        PlayerData data, string animName)
+    public PlayerState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, PlayerData data) 
+        : base(fsm, core, animBoolName)
     {
         this.player = player;
-        this.fsm = fsm;
         this.data = data;
-        this.m_animName = animName;
     }
 
-    public virtual void Enter()
+    public override void Enter()
     {
-        DoCheck();
-        player.animationController.animator.SetBool(m_animName, true);
-        startTime = Time.time;
+        base.Enter();
+
+        player.animator.SetBool(animBoolName, true);
+        
         isAnimationFinished = false;
         isExitingState = false;
     } 
       
-    public virtual void Exit()
+    public override void Exit()
     {
-        player.animationController.animator.SetBool(m_animName, false);
+        player.animator.SetBool(animBoolName, false);
         isExitingState = true;
     }
-        
-    public virtual void Update() { }
 
-    public virtual void FixedUpdate() => 
-        DoCheck();
+    public virtual void TriggerAnimation() { }
 
-    public virtual void DoCheck() { }
-
-    public virtual void AnimationTrigger() { }
-
-    public virtual void AnimationFinishTriger() =>
+    public virtual void FinishAnimation() =>
         isAnimationFinished = true;
 }

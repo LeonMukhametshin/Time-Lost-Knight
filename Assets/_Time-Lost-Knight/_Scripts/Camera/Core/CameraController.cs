@@ -13,6 +13,7 @@ public sealed class CameraController : MonoBehaviour
     private CameraStateResolver m_resolver;
     private CameraMode m_currentMode;
     private Vector3 m_lastPlayerPosition;
+    private FlipContoller m_flipController;
 
     private bool m_hasPendingMode;
     private CameraMode m_pendingMode;
@@ -27,23 +28,20 @@ public sealed class CameraController : MonoBehaviour
 
     private void OnEnable()
     {
-        ResolvePlayer();
-        if (m_player == null) return;
+        if (!TryResolvePlayer()) return;
 
         m_lastPlayerPosition = m_player.transform.position;
-        m_context.facing = m_player.collisionDetector != null ? m_player.collisionDetector.facingDirection : 1;
+        m_context.facing = ResolveFacingDirection();
     }
 
     private void Update()
     {
-        ResolvePlayer();
-        if (m_player == null) return;
-        if (m_player.collisionDetector == null) return;
+        if (!TryResolvePlayer()) return;
 
         Vector3 currentPosition = m_player.transform.position;
         bool isMoving = (currentPosition - m_lastPlayerPosition).sqrMagnitude > 0.0001f;
         m_context.isMoving = isMoving;
-        m_context.facing = m_player.collisionDetector.facingDirection;
+        m_context.facing = ResolveFacingDirection();
 
         if (isMoving)
             m_context.timeSinceLastMove = 0f;
@@ -96,4 +94,33 @@ public sealed class CameraController : MonoBehaviour
 
     private void ResolvePlayer() =>
         m_player ??= FindAnyObjectByType<Player>();
+
+    private bool TryResolvePlayer()
+    {
+        ResolvePlayer();
+        if (m_player == null)
+            return false;
+
+        if (m_flipController == null && m_player.core != null)
+        {
+            try
+            {
+                m_flipController = m_player.core.GetCoreComponent<FlipContoller>();
+            }
+            catch
+            {
+                m_flipController = null;
+            }
+        }
+
+        return true;
+    }
+
+    private int ResolveFacingDirection()
+    {
+        if (m_flipController != null)
+            return m_flipController.facingDirection;
+
+        return m_player.transform.right.x >= 0f ? 1 : -1;
+    }
 }

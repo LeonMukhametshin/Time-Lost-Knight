@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7161083687657117695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039788246, y: 0.6644306, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.7989092}
+  m_Offset: {x: 0.013168335, y: -0.32260036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.40218163}
+  m_Size: {x: 1.6708145, y: 0.5790043}
   m_EdgeRadius: 0
 --- !u!114 &8393103655001908408
 MonoBehaviour:
@@ -173,9 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05808f47029ec9f44b636b1357117dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedSpikes
-  <damage>k__BackingField: 10
-  <animator>k__BackingField: {fileID: 0}
-  duration: 5.84
+  <damage>k__BackingField: 20
+  <animator>k__BackingField: {fileID: 1310909530803630464}
+  duration: 2.83
+  m_attackDetails:
+    damageAmount: 10
+    knokbackStringht: 10
+    angle: {x: 0, y: 1}
 --- !u!1 &7208458224648979093
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 7295281124846305989}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039788246, y: 0.6644306, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

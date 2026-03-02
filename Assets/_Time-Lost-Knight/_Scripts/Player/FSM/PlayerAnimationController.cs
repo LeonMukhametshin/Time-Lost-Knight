@@ -2,18 +2,24 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    public Animator animator { get; private set; }
-    private StatesContainer m_container;
+    [field: SerializeField] public Animator animator { get; private set; }
 
-    public void Initialize(Animator animator, StatesContainer container)
+    private EntityFSM fsm;
+
+    public void Initialize(EntityFSM fsm)
     {
-        m_container = container;
-        this.animator = animator;
+        this.fsm = fsm;
     }
 
-    private void AnimationTrigger() =>
-       m_container.fsm.currentState.AnimationTrigger();
+    private void AnimationTrigger()
+    {
+        var state = fsm.currentState as PlayerState;
+        state.TriggerAnimation();
+    }
 
-    private void AnimationFinishTrigger() =>
-        m_container.fsm.currentState.AnimationFinishTriger();
+    private void AnimationFinishTrigger()
+    {
+        var state = fsm.currentState as PlayerState;
+        state.FinishAnimation();
+    }
 }

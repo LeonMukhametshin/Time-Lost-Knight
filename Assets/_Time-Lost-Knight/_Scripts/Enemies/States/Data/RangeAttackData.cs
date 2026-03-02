@@ -5,7 +5,7 @@ using UnityEngine;
 public class RangeAttackData : ScriptableObject
 {
     [field: SerializeField] public GameObject projectile { get; private set; }
-    [field: SerializeField][Min(0)] public float projectileDamage { get; private set; } 
-    [field: SerializeField][Min(0)] public float projectileSpeed { get; private set; }  
-    [field: SerializeField][Min(0)] public float projectileTrevelDistance { get; private set; }
+    [field: SerializeField][Min(0)] public float damage { get; private set; } 
+    [field: SerializeField][Min(0)] public float speed { get; private set; }  
+    [field: SerializeField][Min(0)] public float trevelDistance { get; private set; }
 }

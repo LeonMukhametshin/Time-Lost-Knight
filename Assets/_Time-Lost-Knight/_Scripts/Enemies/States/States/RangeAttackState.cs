@@ -7,48 +7,20 @@ public class RangeAttackState : AttackState
     protected GameObject projectile;
     protected Projectile projectileScript;
 
-    public RangeAttackState(FSM fsm, Entity entity, string animBoolName, Transform attackPosition, RangeAttackData data) 
-        : base(fsm, entity, animBoolName, attackPosition)
+    public RangeAttackState(EntityFSM fsm, Core core, 
+        string animBoolName, Entity entity, Transform attackPosition,
+        RangeAttackData data) 
+        : base(fsm, core, animBoolName, entity, attackPosition)
     {
         this.data = data;
     }
 
-    public override void DoChecks()
+    public override void TriggerAnimation()
     {
-        base.DoChecks();
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    public override void TriggerAttack()
-    {
-        base.TriggerAttack();
+        base.TriggerAnimation();
 
         projectile = GameObject.Instantiate(data.projectile, attackPosition.position, attackPosition.rotation);
         projectileScript = projectile.GetComponent<Projectile>();
-        projectileScript.Initialize(data.projectileSpeed, data.projectileTrevelDistance, data.projectileDamage);
-    }
-
-    public override void FinishAttack()
-    {
-        base.FinishAttack();
+        projectileScript.Initialize(data);
     }
 }
