@@ -2,7 +2,8 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 
-public class PlanformMover : Subject
+[Serializable]
+public class PlanformMover
 {
     [SerializeField] private Transform m_transform;
     [SerializeField] private Transform[] m_points;
@@ -21,9 +22,9 @@ public class PlanformMover : Subject
     public bool isLooped => m_isLooped;
     public bool isMoving => m_isMoving;
 
-    public void Awake()
+    public void Initialize()
     {
-        if (m_points is null || m_points.Length < 0)
+        if (m_transform == null || m_points == null || m_points.Length < 2)
         {
             throw new Exception("MovingPlatform requires at least 2 points");
         }
