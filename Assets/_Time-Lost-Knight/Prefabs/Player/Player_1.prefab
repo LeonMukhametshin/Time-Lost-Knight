@@ -962,6 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   weapons:
   - {fileID: 4940170725263228073}
+  - {fileID: 4940170725263228073}
 --- !u!114 &4589479619646289466
 MonoBehaviour:
   m_ObjectHideFlags: 0

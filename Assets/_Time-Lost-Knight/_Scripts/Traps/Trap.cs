@@ -13,9 +13,6 @@ public class Trap : MonoBehaviour, IPauseHandler
     private void OnEnable() => 
         Pause.instants.Add(this);
 
-    private void OnDisable() => 
-        Pause.instants.Remove(this);
-
     public virtual void IsPuased(bool isPaused) => 
         animator.enabled = !isPaused;
 }

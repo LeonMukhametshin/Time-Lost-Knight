@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour, IProjectile
@@ -90,10 +91,15 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
             return;
         }
 
+        SelectDetectedEntities(other);
+    }
+
+    public virtual void SelectDetectedEntities(Collider2D other)
+    {
         int layer = other.gameObject.layer;
-        if (IsInLayerMask(layer, playerLayer) && other.gameObject.TryGetComponent(out Core core))
+        if (other.gameObject.TryGetComponent(out Core core))
         {
-            OnHit(core);
+            OnHit(core.effectables);
         }
         else if (IsInLayerMask(layer, groundLayer))
         {
@@ -101,9 +107,9 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
         }
     }
 
-    protected virtual void OnHit(Core core)
+    protected virtual void OnHit(IReadOnlyList<IEffectable> effectables)
     {
-        effects.ApplyEffect(core.effectables);
+        effects.ApplyEffect(effectables);
         DestroyProjectile();
     }
 

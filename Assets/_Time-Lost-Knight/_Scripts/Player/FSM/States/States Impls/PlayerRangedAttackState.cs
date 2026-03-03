@@ -5,10 +5,6 @@ public class PlayerRangedAttackState : PlayerAbilytiState, IAnimationTrigger
     private readonly Transform m_attackPosition;
     private readonly RangeAttackData m_data;
 
-    /// <summary>
-    /// Если анимация не вызывает FinishAnimation (нет клипа/событий),
-    /// стейт всё равно выйдет через это время. Задаётся в RangeAttackData или здесь по умолчанию.
-    /// </summary>
     private const float FallbackExitTime = 0.5f;
 
     private float m_enterTime;
@@ -29,7 +25,6 @@ public class PlayerRangedAttackState : PlayerAbilytiState, IAnimationTrigger
 
         m_enterTime = Time.time;
         player.inputHandler.UseRangedAttackInput();
-        //movement.SetVelocityX(0f);
         TriggerAnimation();
     }
 
@@ -43,26 +38,18 @@ public class PlayerRangedAttackState : PlayerAbilytiState, IAnimationTrigger
         }
     }
 
-    public void TriggerAnimation()
+    public override void TriggerAnimation()
     {
         if (m_data == null || m_attackPosition == null)
             return;
-        GameObject go = Object.Instantiate(m_data.projectile, m_attackPosition.position, m_attackPosition.rotation);
-        if (go.TryGetComponent(out PlayerProjectile playerProj))
+        var projectileInstance = Object.Instantiate(m_data.projectile, m_attackPosition.position, m_attackPosition.rotation);
+        if (projectileInstance.TryGetComponent(out BaseProjectile projectile))
         {
-            playerProj.Initialize(m_data);
-        }
-        else if (go.TryGetComponent(out ExplosiveProjectile explosive))
-        {
-            explosive.Initialize(m_data);
-        }
-        else if (go.TryGetComponent(out Projectile projectileScript))
-        {
-            projectileScript.Initialize(m_data);
+            projectile.Initialize(m_data);
         }
     }
 
-    public void FinishAnimation()
+    public override void FinishAnimation()
     {
         isAbilityDone = true;
     }

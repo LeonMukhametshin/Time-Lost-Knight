@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 872958161060248268}
   - component: {fileID: 8310510094815747521}
   - component: {fileID: 8071986742544308920}
-  - component: {fileID: 3321954630784106219}
   m_Layer: 8
   m_Name: Bomb
   m_TagString: Untagged
@@ -158,29 +157,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.08}
   m_Radius: 0.29
---- !u!114 &3321954630784106219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523886797750236986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810b097336690124d93629109cc0cffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExplosiveProjectile
-  m_rigidbody: {fileID: 8310510094815747521}
-  m_gravity: 3
-  m_groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  m_enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  m_damageRadius: 0.2
-  m_explosionRadius: 1.58
-  m_explosionVfx: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
 --- !u!1 &9212289416044955365
 GameObject:
   m_ObjectHideFlags: 0
