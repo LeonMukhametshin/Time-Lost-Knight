@@ -6,6 +6,7 @@ public class Player : Entity
     [SerializeField] private PlayerData m_data;
 
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
+    [field: SerializeField] public PlayerAbilities abilities { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
 
     [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }

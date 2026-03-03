@@ -79,15 +79,25 @@ public class PlayerGroundState : PlayerState
             airState.StartCoyoteTime();
             fsm.ChangeState<PlayerAirState>();
         }
-        else if(m_isTouchingWall && m_grabInput && m_isTouchingLedge)
+        else if(m_isTouchingWall && m_grabInput && m_isTouchingLedge &&
+                player.abilities != null &&
+                player.abilities.IsEnabled(PlayerAbilityType.WallGrab))
         {
             fsm.ChangeState<PlayerWallGrabState>();
         }
-        else if(m_dashInput && collisionDetector.CheckForOmnidirectionalZone() && !isTouchingCeiling)
+        else if(m_dashInput &&
+                collisionDetector.CheckForOmnidirectionalZone() &&
+                !isTouchingCeiling &&
+                player.abilities != null &&
+                player.abilities.IsEnabled(PlayerAbilityType.OmnidirectionalDash))
         {
             fsm.ChangeState<PlayerOmnidirectionalDashState>();
         }
-        else if (m_dashInput && fsm.GetState<PlayerForwardDashState>().CheckIfCanDash() && !isTouchingCeiling)
+        else if (m_dashInput &&
+                 fsm.GetState<PlayerForwardDashState>().CheckIfCanDash() &&
+                 !isTouchingCeiling &&
+                 player.abilities != null &&
+                 player.abilities.IsEnabled(PlayerAbilityType.ForwardDash))
         {
             fsm.ChangeState<PlayerForwardDashState>();
         }
