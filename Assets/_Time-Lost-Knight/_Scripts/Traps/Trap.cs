@@ -8,20 +8,14 @@ public class Trap : MonoBehaviour, IPauseHandler
     public virtual void Activate() =>
          animator.SetTrigger(TrapAnimationConsts.ACTIVATE);
 
-    public virtual void Damage(Collider2D collision) { }
+    public virtual void ApplyEffects(Collider2D collision) { }
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         Pause.instants.Add(this);
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() => 
         Pause.instants.Remove(this);
-    }
 
-    public virtual void IsPuased(bool isPaused)
-    {
+    public virtual void IsPuased(bool isPaused) => 
         animator.enabled = !isPaused;
-    }
 }

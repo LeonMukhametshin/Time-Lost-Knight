@@ -1,7 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 [Serializable]
@@ -11,9 +8,7 @@ public class HealthBuff : BaseBuff
 
     private IHealth m_health;
 
-    public HealthBuff()
-    {
-    }
+    public HealthBuff() { }
 
     public HealthBuff(
         string id, 

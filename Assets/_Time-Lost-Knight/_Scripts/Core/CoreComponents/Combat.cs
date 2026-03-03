@@ -1,4 +1,4 @@
-public abstract class Combat : CoreComponent, IDamageable, IEffectable
+public abstract class Combat : CoreComponent, IEffectable, IDamageable
 {
     private HealthComponent m_healthComponent;
     protected HealthComponent healthComponent =>

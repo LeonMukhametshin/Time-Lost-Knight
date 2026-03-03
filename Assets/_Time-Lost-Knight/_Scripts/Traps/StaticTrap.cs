@@ -2,23 +2,17 @@ using UnityEngine;
 
 public class StaticTrap : Trap
 {
-    [SerializeField] private TrapAttackDetails m_trapAttackDetails;
+    [SerializeReferenceDropdown]
+    [SerializeReference] public IEffect[] effects;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision) => 
+        ApplyEffects(collision);
+
+    public override void ApplyEffects(Collider2D collision)
     {
-        Damage(collision);
-    }
-
-    public override void Damage(Collider2D collision)
-    {
-        if (collision.TryGetComponent<IDamageable>(out var damageable))
+        if (collision.TryGetComponent<IEffectable>(out var effectable))
         {
-            damageable.TakeDamage(m_trapAttackDetails.damageAmount);
-        }
-
-        if(collision.TryGetComponent<IKnockbackable>(out var knockbackable))
-        {
-            //knockbackable.Knockback(m_trapAttackDetails.angle, m_trapAttackDetails.knokbackStringht);
+            effects.ApplyEffect(effectable);
         }
     }
 }

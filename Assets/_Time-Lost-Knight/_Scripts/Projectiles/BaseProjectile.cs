@@ -1,137 +1,133 @@
 using UnityEngine;
 
-public abstract class BaseProjectile : MonoBehaviour
+public abstract class BaseProjectile : MonoBehaviour, IProjectile
 {
-    [SerializeField] protected Rigidbody2D m_rigidbody;
-    [SerializeField] protected float m_gravity = 3f;
+    [SerializeReferenceDropdown][SerializeReference] public IEffect[] effects;
 
-    [SerializeField] protected LayerMask m_groundLayer;
-    [SerializeField] protected LayerMask m_enemyLayer;
+    [SerializeField] protected Rigidbody2D projectileRigidbody;
+    [SerializeField] protected Transform damagePosition;
 
-    [SerializeField] protected float m_damageRadius = 0.2f;
+    [SerializeField][Min(0)] protected float speed;
+    [SerializeField][Min(0)] protected float damageRadius;
+    [SerializeField][Min(0)] protected float gravity;
 
-    protected RangeAttackData m_data;
-    protected float m_xStartPosition;
-    protected bool m_isGravityOn;
-    protected bool m_isFinished;
-    protected CircleCollider2D m_hitTrigger;
+    [SerializeField] protected LayerMask groundLayer;
+    [SerializeField] protected LayerMask playerLayer;
 
-    protected virtual void Awake()
+    protected RangeAttackData data;
+    protected CircleCollider2D hitTrigger;
+    protected bool isGravityOn;
+    protected bool hasHitGround;
+    protected float xStartPosition;
+
+    public Vector3 position => transform.position;
+
+    public virtual void Initialize(RangeAttackData attackData)
     {
-        EnsureTriggerCollider();
+        if (data is not null)
+        {
+            return;
+        }
+        data = attackData;
     }
+
+    protected virtual void Awake() => 
+        EnsureTriggerCollider();
 
     protected virtual void Start()
     {
-        if (m_data == null)
-            return;
-
-        m_rigidbody.gravityScale = 0f;
-        m_rigidbody.linearVelocity = transform.right * m_data.speed;
-        m_isGravityOn = false;
-        m_xStartPosition = transform.position.x;
-    }
-
-    public void Initialize(RangeAttackData data)
-    {
-        if (m_data != null)
-            return;
-        m_data = data;
+        projectileRigidbody.gravityScale = 0f;
+        projectileRigidbody.linearVelocity = transform.right * speed;
+        xStartPosition = transform.position.x;
     }
 
     protected virtual void Update()
     {
-        if (m_isFinished || !m_isGravityOn)
-            return;
-
-        float angle = Mathf.Atan2(m_rigidbody.linearVelocity.y, m_rigidbody.linearVelocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if (!hasHitGround && isGravityOn)
+        {
+            UpdateRotation();
+        }  
     }
 
     protected virtual void FixedUpdate()
     {
-        if (m_isFinished || m_data == null)
-            return;
-
-        if (!m_isGravityOn && Mathf.Abs(m_xStartPosition - transform.position.x) >= m_data.trevelDistance)
+        if (hasHitGround)
         {
-            m_isGravityOn = true;
-            m_rigidbody.gravityScale = m_gravity;
+            return;
+        }
+        if (ShouldEnableGravity())
+        {
+            EnableGravity();
         }
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    protected virtual bool ShouldEnableGravity() =>
+        Mathf.Abs(xStartPosition - transform.position.x) >= data.travelDistance 
+        && !isGravityOn;
+
+    protected virtual void EnableGravity()
     {
-        HandleTrigger(other);
+        isGravityOn = true;
+        projectileRigidbody.gravityScale = gravity;
     }
 
-    protected virtual void OnTriggerStay2D(Collider2D other)
+    protected virtual void UpdateRotation()
     {
-        HandleTrigger(other);
+        float angle = Mathf.Atan2(projectileRigidbody.linearVelocityY, projectileRigidbody.linearVelocityX) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other) => 
+        HandleTrigger(other);
+
+    protected virtual void OnTriggerStay2D(Collider2D other) => 
+        HandleTrigger(other);
 
     private void HandleTrigger(Collider2D other)
     {
-        if (m_isFinished)
+        if (hasHitGround)
+        {
             return;
+        }
 
         int layer = other.gameObject.layer;
-
-        if (IsLayerInMask(layer, m_enemyLayer))
+        if (IsInLayerMask(layer, playerLayer) && other.gameObject.TryGetComponent(out Core core))
         {
-            OnHitEnemy(other);
+            OnHit(core);
         }
-        else if (IsLayerInMask(layer, m_groundLayer))
+        else if (IsInLayerMask(layer, groundLayer))
         {
-            OnHitGround(other);
-        }
-    }
-
-    protected virtual void OnHitEnemy(Collider2D other)
-    {
-        if (TryGetDamageable(other, out var damageable))
-        {
-            damageable.TakeDamage(m_data.damage);
-            Finish();
+            OnHitGround();
         }
     }
 
-    protected virtual void OnHitGround(Collider2D other)
+    protected virtual void OnHit(Core core)
     {
-        StopProjectile();
+        effects.ApplyEffect(core.effectables);
+        DestroyProjectile();
     }
 
-    protected virtual void EnsureTriggerCollider()
-    {
-        if (!TryGetComponent(out m_hitTrigger))
-            m_hitTrigger = gameObject.AddComponent<CircleCollider2D>();
+    protected virtual void OnHitGround() =>
+         DestroyProjectile();
 
-        m_hitTrigger.isTrigger = true;
-        m_hitTrigger.radius = m_damageRadius;
-        m_hitTrigger.offset = GetTriggerOffset();
+    private void EnsureTriggerCollider()
+    {
+        if (!TryGetComponent(out hitTrigger))
+            hitTrigger = gameObject.AddComponent<CircleCollider2D>();
+
+        hitTrigger.isTrigger = true;
+        hitTrigger.radius = damageRadius;
+
+        Vector3 worldDamagePos = damagePosition != null 
+            ? damagePosition.position 
+            : transform.position;
+
+        hitTrigger.offset = transform.InverseTransformPoint(worldDamagePos);
     }
 
-    protected virtual Vector2 GetTriggerOffset() => Vector2.zero;
-
-    protected static bool IsLayerInMask(int layer, LayerMask mask) =>
+    protected static bool IsInLayerMask(int layer, LayerMask mask) =>
         (mask.value & (1 << layer)) != 0;
 
-    protected static bool TryGetDamageable(Component target, out IDamageable damageable)
-    {
-        if (target.TryGetComponent(out damageable))
-            return true;
-        damageable = target.GetComponentInParent<IDamageable>();
-        return damageable != null;
-    }
-    protected virtual void StopProjectile()
-    {
-        m_isFinished = true;
-        m_rigidbody.gravityScale = 0f;
-        m_rigidbody.linearVelocity = Vector2.zero;
-    }
-
-    protected virtual void Finish()
-    {
-        Destroy(gameObject);
-    }
+    public void DestroyProjectile() => 
+        Destroy(this.gameObject);
 }

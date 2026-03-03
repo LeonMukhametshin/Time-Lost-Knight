@@ -16,7 +16,7 @@ public class EntityCombat : Combat, IKnockbackable, IUpdate
         m_particleManager ??= core.GetCoreComponent<ParticleManager>();
 
     private CollisionDetector collisionDetector =>
-        m_collisionDetector ??= core.GetCoreComponent<CollisionDetector>();
+        m_collisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private bool isKnockbackActive;
     private float knockbackStartTime;

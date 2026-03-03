@@ -4,11 +4,6 @@ public class MeleeAttackState : AttackState
 {
     protected MeleeAttackStateData data;
 
-    private FlipContoller flipContoller => 
-        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-
-    private FlipContoller m_flipContoller;
-
     public MeleeAttackState(EntityFSM fsm, Core core, string animBoolName, 
         Entity entity, Transform attackPosition, 
         MeleeAttackStateData data) 
@@ -26,13 +21,9 @@ public class MeleeAttackState : AttackState
         
         foreach(var obj in detectedObjects)
         {
-            if(obj.TryGetComponent<IDamageable>(out var damageable))
+            if(obj.TryGetComponent<IEffectable>(out var effectable))
             {
-                damageable.TakeDamage(data.attackDamage);
-            }
-            if(obj.TryGetComponent<IKnockbackable>(out var knockbackable))
-            {
-                knockbackable.Knockback(data.angle, data.knokbackStringth, flipContoller.facingDirection);
+                data.effects.ApplyEffect(effectable);
             }
         }
     }

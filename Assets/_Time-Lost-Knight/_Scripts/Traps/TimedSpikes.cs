@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class TimedSpikes : Trap
 {
+    [SerializeReferenceDropdown]
+    [SerializeReference] public IEffect[] effects;
+
     [SerializeField][Range(0, 10)] private float duration;
-    [SerializeField] private TrapAttackDetails m_attackDetails;
+
     private float m_timer;
 
     private void Update()
@@ -23,27 +26,14 @@ public class TimedSpikes : Trap
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Damage(collision);
+        ApplyEffects(collision);
     }
 
-    public override void Damage(Collider2D collision)
+    public override void ApplyEffects(Collider2D collision)
     {
-        base.Damage(collision);
-
-        if (collision.TryGetComponent<IDamageable>(out var damageable))
+        if (collision.TryGetComponent<IEffectable>(out var effectable))
         {
-            damageable.TakeDamage(m_attackDetails.damageAmount);
+            effects.ApplyEffect(effectable);
         }
-
-        if (collision.TryGetComponent<IKnockbackable>(out var knockbackable))
-        {
-            knockbackable.Knockback(m_attackDetails.angle, m_attackDetails.knokbackStringht);
-        }
-        Debug.Log($"{collision.name} damage from {this.name} in amount of {damage}");
-    }
-
-    public override void Activate()
-    {
-        base.Activate();
     }
 }

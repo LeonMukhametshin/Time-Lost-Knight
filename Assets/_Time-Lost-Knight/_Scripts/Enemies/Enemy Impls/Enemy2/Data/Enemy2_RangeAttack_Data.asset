@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a5c7ec52e5ea4eaee6a286fd358b4, type: 3}
   m_Name: Enemy2_RangeAttack_Data
   m_EditorClassIdentifier: Assembly-CSharp::RangeAttackData
-  <projectile>k__BackingField: {fileID: 7728817050811321127, guid: fa2c6cba6ebd25a47a886449c9795735, type: 3}
+  <projectile>k__BackingField: {fileID: 7728817050811321127, guid: 4e700413488f0004b9a5f3b3bee3ef35, type: 3}
   <damage>k__BackingField: 20
-  <speed>k__BackingField: 50
   <trevelDistance>k__BackingField: 15
