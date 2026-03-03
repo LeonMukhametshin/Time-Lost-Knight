@@ -5,7 +5,7 @@ public class RangeAttackState : AttackState
     protected RangeAttackData data;
 
     protected GameObject projectile;
-    protected Projectile projectileScript;
+    protected IProjectile projectileScript;
 
     public RangeAttackState(EntityFSM fsm, Core core, 
         string animBoolName, Entity entity, Transform attackPosition,
@@ -20,7 +20,7 @@ public class RangeAttackState : AttackState
         base.TriggerAnimation();
 
         projectile = GameObject.Instantiate(data.projectile, attackPosition.position, attackPosition.rotation);
-        projectileScript = projectile.GetComponent<Projectile>();
+        projectileScript = projectile.GetComponent<IProjectile>();
         projectileScript.Initialize(data);
     }
 }

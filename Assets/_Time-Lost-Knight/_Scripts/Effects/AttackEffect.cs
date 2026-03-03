@@ -11,7 +11,6 @@ public class AttackEffect : IEffect
         if(effectable is IDamageable damageable)
         {
             damageable.TakeDamage(m_damage);
-            Debug.Log(m_damage);
         }
     }
 }

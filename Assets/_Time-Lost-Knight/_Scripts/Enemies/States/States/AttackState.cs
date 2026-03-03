@@ -34,7 +34,6 @@ public class AttackState : EnemyState, IAnimationTrigger
     {
         base.Enter();
 
-        //entity.animationToFSM.m_animationState = this;
         isAnimationFinished = false;
         movement.SetVelocityX(0f);
     }

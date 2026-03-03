@@ -14,5 +14,9 @@ public class EnemyThreeIdleState : IdleState
         {
             fsm.ChangeState<EnemyThreePlayerDetectedState>();
         }
+        else if (isIdleTimeOver)
+        {
+            fsm.ChangeState<EnemyThreeLookForPlayerState>();
+        }
     }
 }

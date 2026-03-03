@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37dde17c8f4eb6e418c12b1fc1633c92, type: 3}
-  m_Name: Enemy1_PlayerDetected_Data
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDetactedData
-  <longRangeActionTime>k__BackingField: 1.39
+  m_Name: Enemy3_PlayerDetectad_Data
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDetectedData
+  <longRangeActionTime>k__BackingField: 1

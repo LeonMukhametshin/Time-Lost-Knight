@@ -1,3 +1,5 @@
+using Unity.VisualScripting.FullSerializer;
+
 public class EnemyThreePlayerDetectedState : PlayerDetectedState
 {
     public EnemyThreePlayerDetectedState(EntityFSM fsm, Core core, string animBoolName, 
@@ -13,6 +15,14 @@ public class EnemyThreePlayerDetectedState : PlayerDetectedState
         if(performeCloseRangeAction)
         {
             fsm.ChangeState<EnemyThreeRangeAttackState>();
+        }
+        else if(performeLongRangeAction)
+        {
+            fsm.ChangeState<EnemyThreeRangeAttackState>();
+        }
+        else if (!isPlayerInMaxAgroRange)
+        {
+            fsm.ChangeState<EnemyThreeLookForPlayerState>();
         }
     }
 }

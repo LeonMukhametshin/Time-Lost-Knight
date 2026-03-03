@@ -5,9 +5,7 @@ using UnityEngine;
 public class MeleeAttackStateData : ScriptableObject
 {
     [field: SerializeField] public float attackRadius { get; private set; }
-    [field: SerializeField] public float attackDamage { get; private set; }
     [field: SerializeField] public LayerMask playerMask { get; private set; }
 
-    [field: SerializeField] public Vector2 angle { get; private set; }
-    [field: SerializeField] public float knokbackStringth { get; private set; }
+    [SerializeReferenceDropdown] [SerializeReference] public IEffect[] effects;
 }

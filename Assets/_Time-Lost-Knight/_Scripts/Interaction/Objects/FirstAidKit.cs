@@ -8,7 +8,9 @@ public class FirstAidKit : MonoBehaviour
 
     private void Awake()
     {
-        health = ServiceLocator.Get<Player>().gameObject.GetComponentInChildren<BuffContainer>();
+        health = ServiceLocator
+            .Get<Player>().gameObject
+            .GetComponentInChildren<BuffContainer>();
     }
 
     public void Heal()

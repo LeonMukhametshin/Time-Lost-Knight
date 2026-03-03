@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CombatTestDummy : MonoBehaviour, IDamageable
+public class CombatTestDummy : MonoBehaviour, IEffectable
 {
     [SerializeField] private GameObject m_hitParticles;
     [SerializeField] private Animator m_animator;
