@@ -4,6 +4,7 @@ public class PlayerState : EntityState, IAnimationTrigger
 
     protected bool isAnimationFinished;
     protected bool isExitingState;
+    protected bool canUse;
     protected PlayerData data;
 
     public PlayerState(EntityFSM fsm, Core core, 

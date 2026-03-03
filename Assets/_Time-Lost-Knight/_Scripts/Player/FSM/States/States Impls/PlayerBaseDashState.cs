@@ -15,9 +15,10 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
 
     protected PlayerBaseDashState(EntityFSM fsm, Core core,
         string animBoolName, Player player,
-        PlayerData data)
+        PlayerData data, bool canUse)
         : base(fsm, core, animBoolName, player, data)
     {
+        this.canUse = canUse;
     }
 
     public override void Enter()

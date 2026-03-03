@@ -28,9 +28,7 @@ public class PlayerMoveState : PlayerGroundState
         {
             fsm.ChangeState<PlayerIdleState>();
         }
-        else if (yInput == -1 &&
-                 player.abilities != null &&
-                 player.abilities.IsEnabled(PlayerAbilityType.Crouch))
+        else if (yInput == -1)
         {
             fsm.ChangeState<PlayerCrouchIdleState>();
         }

@@ -21,8 +21,8 @@ public class Entity : MonoBehaviour, IPauseHandler
     private void OnDisable() => 
         Pause.instants.Remove(this);
 
-    public virtual void Awake() => 
-        fsm = new EntityFSM();
+    public virtual void Awake() =>
+        CreateFSM();
 
     public virtual void Update()
     {
@@ -45,6 +45,19 @@ public class Entity : MonoBehaviour, IPauseHandler
         }
 
         fsm.FixedUpdate();
+    }
+
+    public void CreateFSM()
+    {
+        if (this is Player)
+        {
+            fsm = new PlayerFSM();
+        }
+
+        else
+        {
+            fsm = new EntityFSM();
+        }
     }
 
     public void IsPuased(bool isPaused)

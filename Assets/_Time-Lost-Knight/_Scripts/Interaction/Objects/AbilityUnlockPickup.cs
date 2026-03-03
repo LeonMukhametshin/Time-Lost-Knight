@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class AbilityUnlockPickup : MonoBehaviour
+public class GrabUnlockPickup : MonoBehaviour
 {
-    [SerializeField] private PlayerAbilityType m_abilityToUnlock = PlayerAbilityType.WallGrab;
-    [SerializeField] private bool m_destroyOnPickup = true;
+    [SerializeField] private PlayerWallGrabState m_abilityToUnlock;
 
     private Player m_player;
 
@@ -12,24 +11,15 @@ public class AbilityUnlockPickup : MonoBehaviour
         m_player = ServiceLocator.Get<Player>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void PickUp()
     {
-        if (!other.CompareTag("Player"))
-        {
-            return;
-        }
-
         if (m_player == null || m_player.abilities == null)
         {
             return;
         }
 
         m_player.abilities.Enable(m_abilityToUnlock);
-
-        if (m_destroyOnPickup)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
 

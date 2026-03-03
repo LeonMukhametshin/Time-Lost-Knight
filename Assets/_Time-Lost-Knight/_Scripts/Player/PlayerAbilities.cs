@@ -1,21 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerAbilityType
-{
-    WallGrab,
-    WallClimb,
-    ForwardDash,
-    OmnidirectionalDash,
-    Crouch,
-    DropDown,
-}
-
-[Serializable]
 public class PlayerAbilityEntry
 {
-    public PlayerAbilityType abilityType;
+    public PlayerState abilityType;
     public bool enabled = true;
 }
 
@@ -23,8 +11,14 @@ public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private List<PlayerAbilityEntry> m_abilities = new();
 
-    private readonly Dictionary<PlayerAbilityType, bool> m_lookup =
-        new Dictionary<PlayerAbilityType, bool>();
+    private PlayerFSM m_playerFSM;
+    private readonly Dictionary<PlayerState, bool> m_lookup =
+        new Dictionary<PlayerState, bool>();
+
+    public PlayerAbilities(PlayerFSM fsm) 
+    {
+        m_playerFSM = fsm;
+    }
 
     private void Awake()
     {
@@ -43,46 +37,30 @@ public class PlayerAbilities : MonoBehaviour
         }
     }
 
-    public bool IsEnabled(PlayerAbilityType abilityType)
+    public bool IsEnabled<T>(T abilityType) where T : PlayerState
     {
         if (m_lookup.TryGetValue(abilityType, out var enabled))
         {
+
             return enabled;
         }
 
         return false;
     }
 
-    public void SetEnabled(PlayerAbilityType abilityType, bool enabled)
+    public void SetEnabled<T>(T abilityType) where T : PlayerState
     {
-        if (m_lookup.ContainsKey(abilityType))
+        if (m_playerFSM.CheckContainesState(abilityType))
         {
-            m_lookup[abilityType] = enabled;
+            m_playerFSM.AddState(abilityType);
         }
+
         else
         {
-            m_lookup.Add(abilityType, enabled);
+            Debug.Log("You have this ability");
         }
-
-        for (int i = 0; i < m_abilities.Count; i++)
-        {
-            if (m_abilities[i].abilityType == abilityType)
-            {
-                m_abilities[i].enabled = enabled;
-                return;
-            }
-        }
-
-        m_abilities.Add(new PlayerAbilityEntry
-        {
-            abilityType = abilityType,
-            enabled = enabled
-        });
     }
 
-    public void Enable(PlayerAbilityType abilityType) =>
-        SetEnabled(abilityType, true);
-
-    public void Disable(PlayerAbilityType abilityType) =>
-        SetEnabled(abilityType, false);
+    public void Enable(PlayerState abilityType) =>
+        SetEnabled(abilityType);
 }
