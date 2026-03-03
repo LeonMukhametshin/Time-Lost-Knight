@@ -3,34 +3,41 @@ using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour, IProjectile
 {
-    [SerializeReferenceDropdown][SerializeReference] public IEffect[] effects;
+    protected IReadOnlyList<IEffect> effects;
 
     [SerializeField] protected Rigidbody2D projectileRigidbody;
     [SerializeField] protected Transform damagePosition;
 
-    [SerializeField][Min(0)] protected float speed;
+    protected float speed => m_speed;
+
+    private float m_speed;
+    private float m_targetDistance;
+    private float m_traveledDistance;
+
     [SerializeField][Min(0)] protected float damageRadius;
     [SerializeField][Min(0)] protected float gravity;
 
     [SerializeField] protected LayerMask groundLayer;
-    [SerializeField] protected LayerMask playerLayer;
 
     protected RangeAttackData data;
     protected CircleCollider2D hitTrigger;
     protected bool isGravityOn;
     protected bool hasHitGround;
-    protected float xStartPosition;
 
-    public Vector3 position => transform.position;
+    private Vector3 m_direction;
+    private Vector3 m_targetPosition;
 
-    public virtual void Initialize(RangeAttackData attackData)
+    public void Initialize(Vector3 targetPosition, float speed, IReadOnlyList<IEffect> effects)
     {
-        if (data is not null)
-        {
-            return;
-        }
-        data = attackData;
+        this.effects = effects;
+        m_speed = speed;
+
+        m_targetPosition = targetPosition;
+        m_direction = (m_targetPosition - transform.position).normalized;
+        m_traveledDistance = 0f;
+
     }
+
 
     protected virtual void Awake() => 
         EnsureTriggerCollider();
@@ -38,9 +45,11 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
     protected virtual void Start()
     {
         projectileRigidbody.gravityScale = 0f;
-        projectileRigidbody.linearVelocity = transform.right * speed;
-        xStartPosition = transform.position.x;
+        SetLinearVelocity();
     }
+
+    private void SetLinearVelocity() =>
+        projectileRigidbody.linearVelocity = m_direction * speed;
 
     protected virtual void Update()
     {
@@ -62,11 +71,12 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
         }
     }
 
-    protected virtual bool ShouldEnableGravity() =>
-        Mathf.Abs(xStartPosition - transform.position.x) >= data.travelDistance 
-        && !isGravityOn;
+    protected virtual bool ShouldEnableGravity()
+    {
+        return false;
+    }
 
-    protected virtual void EnableGravity()
+    private void EnableGravity()
     {
         isGravityOn = true;
         projectileRigidbody.gravityScale = gravity;
@@ -101,10 +111,6 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
         {
             OnHit(core.effectables);
         }
-        else if (IsInLayerMask(layer, groundLayer))
-        {
-            OnHitGround();
-        }
     }
 
     protected virtual void OnHit(IReadOnlyList<IEffectable> effectables)
@@ -130,9 +136,6 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
 
         hitTrigger.offset = transform.InverseTransformPoint(worldDamagePos);
     }
-
-    protected static bool IsInLayerMask(int layer, LayerMask mask) =>
-        (mask.value & (1 << layer)) != 0;
 
     public void DestroyProjectile() => 
         Destroy(this.gameObject);

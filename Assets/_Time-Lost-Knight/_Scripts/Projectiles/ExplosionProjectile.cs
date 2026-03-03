@@ -22,12 +22,6 @@ public class ExplosionProjectile : BaseProjectile
             }
         }
 
-        int layer = other.gameObject.layer;
-        if (IsInLayerMask(layer, groundLayer))
-        {
-            OnHitGround();
-        }
-
         OnHit(effectablesObject);
     }
 

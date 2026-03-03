@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface IProjectile 
 {
-    void Initialize(RangeAttackData data);
-    Vector3 position { get; }
+    void Initialize(Vector3 targetPosition, float speed, IReadOnlyList<IEffect> effects);
 }
