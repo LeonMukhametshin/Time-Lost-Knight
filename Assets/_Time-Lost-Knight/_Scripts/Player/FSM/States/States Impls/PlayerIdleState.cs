@@ -10,7 +10,7 @@ public class PlayerIdleState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
-        movement.SetVelocityX(0f);
+        movement.SetVelocityXSmooth(0f, data.movementAcceleration, data.movementDeceleration);
     }
 
     public override void Update()
@@ -21,6 +21,8 @@ public class PlayerIdleState : PlayerGroundState
         {
             return; 
         }
+
+        movement.SetVelocityXSmooth(0f, data.movementAcceleration, data.movementDeceleration);
 
         if (xInput != 0)
         {

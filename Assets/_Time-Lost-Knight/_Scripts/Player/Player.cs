@@ -4,6 +4,9 @@ using UnityEngine;
 public class Player : Entity
 {
     [SerializeField] private PlayerData m_data;
+    [Header("Ranged Attack")]
+    [SerializeField] private RangeAttackData m_rangedAttackData;
+    [SerializeField] private Transform m_rangedAttackPosition;
 
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
@@ -35,7 +38,8 @@ public class Player : Entity
             new PlayerCrouchMoveState(fsm, core, PlayerAnimationConstants.CROUCH_MOVE, this, m_data),
             new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
             new PlayerPrimaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data),
-            new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data));
+            new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data),
+            new PlayerRangedAttackState(fsm, core, PlayerAnimationConstants.RANGED_ATTACK, this, m_data, m_rangedAttackPosition, m_rangedAttackData));
 
         fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
         fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);

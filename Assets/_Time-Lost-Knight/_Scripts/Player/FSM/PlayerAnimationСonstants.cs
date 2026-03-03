@@ -18,4 +18,5 @@ public class PlayerAnimationConstants
     public const string CROUCH_MOVE = "crouchMove";
     public const string IS_TOUCHING_CEILING = "isTouchingCeiling";
     public const string ATTACK = "attack";
+    public const string RANGED_ATTACK = "rangedAttack";
 }

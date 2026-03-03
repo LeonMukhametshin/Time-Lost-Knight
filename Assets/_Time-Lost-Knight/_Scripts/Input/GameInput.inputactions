@@ -88,9 +88,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Ranged Attack",
                     "type": "Button",
-                    "id": "eb5fbe23-5dfd-40b9-b6c5-27b230d2d5a5",
+                    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -211,10 +211,10 @@
                 {
                     "name": "",
                     "id": "ea669dcc-1d55-4cfc-a5da-6d3395602a4c",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -222,7 +222,7 @@
                 {
                     "name": "",
                     "id": "6fcbe2e7-b900-4005-a929-ec92eb062fae",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -342,33 +342,27 @@
                 },
                 {
                     "name": "",
-                    "id": "5c241c4b-a83f-48a1-a537-3f82b69ca649",
-                    "path": "<Gamepad>/start",
+                    "id": "e2f3a4b5-c6d7-8901-2345-67890abcdef1",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Pause",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Ranged Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "681a7add-8792-4b01-bbd7-6afcec82c72a",
-                    "path": "<Keyboard>/escape",
+                    "id": "f3a4b5c6-d7e8-9012-3456-7890abcdef12",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Pause",
+                    "groups": ";Gamepad",
+                    "action": "Ranged Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "UI",
-            "id": "7dff7166-913c-4408-819c-5e4d7532e75d",
-            "actions": [],
-            "bindings": []
         }
     ],
     "controlSchemes": [

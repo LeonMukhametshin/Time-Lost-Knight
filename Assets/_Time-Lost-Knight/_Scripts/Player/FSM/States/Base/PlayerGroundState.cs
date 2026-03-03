@@ -64,6 +64,10 @@ public class PlayerGroundState : PlayerState
         {
             fsm.ChangeState<PlayerSecondaryAttackState>();
         }
+        else if (player.inputHandler.attackInputs[(int)CombatInputs.ranged] && !isTouchingCeiling)
+        {
+            fsm.ChangeState<PlayerRangedAttackState>();
+        }
         else if (m_jumpInput && fsm.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)
         {
             fsm.ChangeState<PlayerJumpState>();

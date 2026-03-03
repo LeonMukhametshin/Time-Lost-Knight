@@ -1,5 +1,6 @@
 public enum CombatInputs
 {
     primary,
-    secondary
+    secondary,
+    ranged
 }

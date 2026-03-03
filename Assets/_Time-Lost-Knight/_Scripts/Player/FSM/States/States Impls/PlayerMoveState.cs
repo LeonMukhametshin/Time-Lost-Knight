@@ -16,7 +16,7 @@ public class PlayerMoveState : PlayerGroundState
     {
         base.Update();
 
-        movement.SetVelocityX(data.movementSpeed * xInput);
+        movement.SetVelocityXSmooth(data.movementSpeed * xInput, data.movementAcceleration, data.movementDeceleration);
         flipController.CheckIfShoudFlip(xInput);
 
         if(isExitingState)
@@ -32,5 +32,10 @@ public class PlayerMoveState : PlayerGroundState
         {
             fsm.ChangeState<PlayerCrouchIdleState>();
         }
+    }
+
+    private void CalculateMoveSpeed()
+    {
+
     }
 }

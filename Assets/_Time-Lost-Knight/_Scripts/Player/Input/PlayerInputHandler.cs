@@ -139,6 +139,9 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseDropDownInput() =>
         dropDownInput = false;
 
+    public void UseRangedAttackInput() =>
+        attackInputs[(int)CombatInputs.ranged] = false;
+
     private void CheckJumpInputHoldTime()
     {
         if(Time.time >= m_jumpInputStartTime + m_inputHoldTime)
@@ -178,6 +181,19 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.canceled)
         {
             attackInputs[(int)CombatInputs.secondary] = false;
+        }
+    }
+
+    public void OnRangedAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            attackInputs[(int)CombatInputs.ranged] = true;
+        }
+
+        if (context.canceled)
+        {
+            attackInputs[(int)CombatInputs.ranged] = false;
         }
     }
 }
