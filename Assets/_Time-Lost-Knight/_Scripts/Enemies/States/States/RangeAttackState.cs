@@ -21,6 +21,6 @@ public class RangeAttackState : AttackState
 
         projectile = GameObject.Instantiate(data.projectile, attackPosition.position, attackPosition.rotation);
         projectileScript = projectile.GetComponent<IProjectile>();
-        projectileScript.Initialize(data);
+        //projectileScript.Initialize(data);
     }
 }

@@ -43,9 +43,9 @@ public class PlayerRangedAttackState : PlayerAbilytiState, IAnimationTrigger
         if (m_data == null || m_attackPosition == null)
             return;
         var projectileInstance = Object.Instantiate(m_data.projectile, m_attackPosition.position, m_attackPosition.rotation);
-        if (projectileInstance.TryGetComponent(out BaseProjectile projectile))
+        if (projectileInstance.TryGetComponent(out IProjectile projectile))
         {
-            projectile.Initialize(m_data);
+            //projectile.Initialize(m_data);
         }
     }
 
