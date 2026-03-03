@@ -40,7 +40,6 @@ public class AttackState : EnemyState, IAnimationTrigger
         movement.SetVelocityX(0f);
 
         playerPosition = enemyCollisionDetector.GetPlayerPositionInMaxAgroRange();
-        Debug.Log("playerPosition " + playerPosition.ToString());
     }
 
     public virtual void TriggerAnimation() { }

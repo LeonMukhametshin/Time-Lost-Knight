@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ParticleManager : CoreComponent
+public class ParticleManager : MonoBehaviour
 {
     public GameObject StartParticles(GameObject particlePrefab, Vector2 position, Quaternion rotation)
     {

@@ -2,9 +2,26 @@ using UnityEngine;
 
 public class ExplosionProjectile : BaseProjectile
 {
-    [Header("Explosion")]
     [SerializeField] private float m_explosionRadius = 2f;
-    [SerializeField] private GameObject[] m_explosionVfx;
 
-  
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        DestroyProjectile();
+    }
+
+    private void HitInRadius()
+    {
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, m_explosionRadius);
+
+        foreach (var obj in hitObjects)
+        {
+            HitObject(obj);
+        }
+    }
+
+    protected override void DestroyProjectile()
+    {
+        HitInRadius();
+        base.DestroyProjectile();
+    }
 }

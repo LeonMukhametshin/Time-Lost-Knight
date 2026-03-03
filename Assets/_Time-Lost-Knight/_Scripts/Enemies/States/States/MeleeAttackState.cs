@@ -16,15 +16,9 @@ public class MeleeAttackState : AttackState
     {
         base.TriggerAnimation();
 
-        var detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, 
+        var detectedObject = Physics2D.OverlapCircle(attackPosition.position, 
             data.attackRadius, data.playerMask);
-        
-        foreach(var obj in detectedObjects)
-        {
-            if(obj.TryGetComponent<IEffectable>(out var effectable))
-            {
-                data.effects.ApplyEffect(effectable);
-            }
-        }
+
+        data.effects.ApplyEffect(ServiceLocator.Get<Player>().core.effectables);
     }
 }

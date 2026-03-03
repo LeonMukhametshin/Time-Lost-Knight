@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RangeAttackData
   m_effects:
   - rid: 47934395480539217
-  <projectile>k__BackingField: {fileID: 7728817050811321127, guid: fa2c6cba6ebd25a47a886449c9795735, type: 3}
+  - rid: 47934395480539242
+  <projectile>k__BackingField: {fileID: 523886797750236986, guid: a84c3ab82516c74439311d43fecc8a74, type: 3}
   <travelDistance>k__BackingField: 10
   <speed>k__BackingField: 10
   references:
@@ -24,3 +25,8 @@ MonoBehaviour:
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
         m_damage: 10
+    - rid: 47934395480539242
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_knokbackStringht: 10
+        m_angle: {x: 1, y: 1}

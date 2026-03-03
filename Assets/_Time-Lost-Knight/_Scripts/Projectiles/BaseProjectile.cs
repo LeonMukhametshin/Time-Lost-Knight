@@ -48,7 +48,11 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
     protected virtual void FixedUpdate()
     {
         if (!m_initialized)
+        {
             return;
+        }
+
+        SetLinearVelocity();
 
         float traveledDistance = Vector3.Distance(m_startPosition, transform.position);
 
@@ -56,15 +60,16 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
         {
             DestroyProjectile();
         }
-
-        SetLinearVelocity();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!m_initialized)
-            return;
+        HitObject(collision);
+        DestroyProjectile();
+    }
 
+    protected void HitObject(Collider2D collision)
+    {
         if (collision.TryGetComponent<Core>(out var core))
         {
             if (core != null && m_effects != null)
@@ -72,8 +77,6 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
                 m_effects.ApplyEffect(core.effectables);
             }
         }
-
-        DestroyProjectile();
     }
 
     private void SetLinearVelocity() =>
