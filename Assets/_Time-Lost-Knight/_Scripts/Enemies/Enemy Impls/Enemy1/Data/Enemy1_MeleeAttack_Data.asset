@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bdad974f8f9094787290c5cbd62ea1, type: 3}
   m_Name: Enemy1_MeleeAttack_Data
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackStateData
-  <attackRadius>k__BackingField: 2.95
-  <attackDamage>k__BackingField: 10
+  <attackRadius>k__BackingField: 1.35
+  <attackDamage>k__BackingField: 8
   <playerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <angle>k__BackingField: {x: 2, y: 2}
-  <knokbackStringth>k__BackingField: 10
+  <angle>k__BackingField: {x: 2, y: 1}
+  <knokbackStringth>k__BackingField: 4.5

@@ -33,22 +33,22 @@ MonoBehaviour:
     - rid: 47934341375590484
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_damage: 20
+        m_damage: 16
     - rid: 47934341375590485
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_damage: 30
+        m_damage: 22
     - rid: 47934341375590486
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_damage: 40
+        m_damage: 30
     - rid: 47934347748048980
       type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_knokbackStringht: 20
-        m_angle: {x: 5, y: 5}
+        m_knokbackStringht: 7
+        m_angle: {x: 3, y: 1}
     - rid: 47934347748048981
       type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_knokbackStringht: 10
-        m_angle: {x: 1, y: 1}
+        m_knokbackStringht: 5
+        m_angle: {x: 2.4, y: 1}

@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 8000914018518424330}
-  maxKnockbackTime: 0.2
+  maxKnockbackTime: 0.12
   damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
 --- !u!114 &6610744085296027244
 MonoBehaviour:
