@@ -258,6 +258,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -761,21 +762,9 @@ MonoBehaviour:
     m_ActionId: 1dcb817f-6fb4-43a9-b2de-d23f5e9e2afe
     m_ActionName: 'Player/Secondary Attack[/Mouse/rightButton,/XInputControllerWindows/buttonNorth]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1204895401}
-        m_TargetAssemblyTypeName: UIInputHandler, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: eb5fbe23-5dfd-40b9-b6c5-27b230d2d5a5
-    m_ActionName: 'Player/Pause[/Keyboard/escape]'
+      m_Calls: []
+    m_ActionId: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+    m_ActionName: 'Player/Ranged Attack[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -927,10 +916,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootstrapState
   m_playerInputHandler: {fileID: 1204895402}
-  m_uIInputHandler: {fileID: 1204895401}
   m_playerSpawner: {fileID: 799800995}
   m_healthBarView: {fileID: 386048400459673255}
+  m_uIInputHandler: {fileID: 1204895401}
   m_interactPrompt: {fileID: 1540876770}
+  m_particleManager: {fileID: 2141650665}
 --- !u!1 &2087519207
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2087519208}
   m_Layer: 0
-  m_Name: '---------- UI ---------- '
+  m_Name: ---------- UI ----------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,7 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110469842}
   m_Layer: 0
-  m_Name: '[SERVICES]'
+  m_Name: '------ SERVICES ------ '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,8 +985,53 @@ Transform:
   m_Children:
   - {fileID: 1204895400}
   - {fileID: 167305657}
+  - {fileID: 2141650664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2141650663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2141650664}
+  - component: {fileID: 2141650665}
+  m_Layer: 0
+  m_Name: Particle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2141650664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141650663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2110469842}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2141650665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141650663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af7a3529cad6714e97364826ab1956f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
 --- !u!1001 &386048400459673252
 PrefabInstance:
   m_ObjectHideFlags: 0
