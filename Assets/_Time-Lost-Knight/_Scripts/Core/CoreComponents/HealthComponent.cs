@@ -1,12 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class HealthComponent : CoreComponent, IHealth, IEffectable
 {   
     public event Action died;
     public event Action valueChanged;
 
-    [field: SerializeField] public float maxValue { get; private set; }
+    public float maxValue { get; private set; }
     
     public float value
     {
@@ -30,11 +31,18 @@ public class HealthComponent : CoreComponent, IHealth, IEffectable
 
     private float m_value;
 
-    public override void Awake()
-    {
-        base.Awake();
+    private bool m_isInitialized;
 
-        m_value = maxValue;
+    public void Initialize(float maxHealth)
+    {
+        if(m_isInitialized)
+        {
+            return;
+        }
+
+        maxValue = maxHealth;
+        value = maxHealth;
+        m_isInitialized = true;
     }
 
     public void Heal(float value)

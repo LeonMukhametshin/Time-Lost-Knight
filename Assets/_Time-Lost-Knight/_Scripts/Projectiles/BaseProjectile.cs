@@ -3,140 +3,82 @@ using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour, IProjectile
 {
-    protected IReadOnlyList<IEffect> effects;
+    protected IReadOnlyList<IEffect> m_effects;
 
     [SerializeField] protected Rigidbody2D projectileRigidbody;
-    [SerializeField] protected Transform damagePosition;
-
-    protected float speed => m_speed;
 
     private float m_speed;
     private float m_targetDistance;
-    private float m_traveledDistance;
-
-    [SerializeField][Min(0)] protected float damageRadius;
-    [SerializeField][Min(0)] protected float gravity;
-
-    [SerializeField] protected LayerMask groundLayer;
-
-    protected RangeAttackData data;
-    protected CircleCollider2D hitTrigger;
-    protected bool isGravityOn;
-    protected bool hasHitGround;
 
     private Vector3 m_direction;
-    private Vector3 m_targetPosition;
+    private Vector3 m_startPosition;
 
-    public void Initialize(Vector3 targetPosition, float speed, IReadOnlyList<IEffect> effects)
+    private bool m_initialized;
+
+    private void OnValidate()
     {
-        this.effects = effects;
-        m_speed = speed;
-
-        m_targetPosition = targetPosition;
-        m_direction = (m_targetPosition - transform.position).normalized;
-        m_traveledDistance = 0f;
-
+        if (!projectileRigidbody)
+        {
+            projectileRigidbody = GetComponent<Rigidbody2D>();
+        }
     }
 
-
-    protected virtual void Awake() => 
-        EnsureTriggerCollider();
-
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         projectileRigidbody.gravityScale = 0f;
-        SetLinearVelocity();
+        projectileRigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
-    private void SetLinearVelocity() =>
-        projectileRigidbody.linearVelocity = m_direction * speed;
-
-    protected virtual void Update()
+    public virtual void Initialize(Vector3 targetPosition, float speed, IReadOnlyList<IEffect> effects)
     {
-        if (!hasHitGround && isGravityOn)
-        {
-            UpdateRotation();
-        }  
+        m_startPosition = transform.position;
+
+        Vector3 toTarget = targetPosition - m_startPosition;
+        m_targetDistance = toTarget.magnitude;
+
+        m_direction = (targetPosition - transform.position).normalized;
+        m_speed = speed;
+        m_effects = effects;
+
+        SetLinearVelocity();
+
+        m_initialized = true;
     }
 
     protected virtual void FixedUpdate()
     {
-        if (hasHitGround)
-        {
+        if (!m_initialized)
             return;
-        }
-        if (ShouldEnableGravity())
+
+        float traveledDistance = Vector3.Distance(m_startPosition, transform.position);
+
+        if (traveledDistance >= m_targetDistance)
         {
-            EnableGravity();
+            DestroyProjectile();
         }
+
+        SetLinearVelocity();
     }
 
-    protected virtual bool ShouldEnableGravity()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        return false;
-    }
-
-    private void EnableGravity()
-    {
-        isGravityOn = true;
-        projectileRigidbody.gravityScale = gravity;
-    }
-
-    protected virtual void UpdateRotation()
-    {
-        float angle = Mathf.Atan2(projectileRigidbody.linearVelocityY, projectileRigidbody.linearVelocityX) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
-
-    protected virtual void OnTriggerEnter2D(Collider2D other) => 
-        HandleTrigger(other);
-
-    protected virtual void OnTriggerStay2D(Collider2D other) => 
-        HandleTrigger(other);
-
-    private void HandleTrigger(Collider2D other)
-    {
-        if (hasHitGround)
-        {
+        if (!m_initialized)
             return;
-        }
 
-        SelectDetectedEntities(other);
-    }
-
-    public virtual void SelectDetectedEntities(Collider2D other)
-    {
-        int layer = other.gameObject.layer;
-        if (other.gameObject.TryGetComponent(out Core core))
+        if (collision.TryGetComponent<Core>(out var core))
         {
-            OnHit(core.effectables);
+            if (core != null && m_effects != null)
+            {
+                m_effects.ApplyEffect(core.effectables);
+            }
         }
-    }
 
-    protected virtual void OnHit(IReadOnlyList<IEffectable> effectables)
-    {
-        effects.ApplyEffect(effectables);
         DestroyProjectile();
     }
 
-    protected virtual void OnHitGround() =>
-         DestroyProjectile();
+    private void SetLinearVelocity() =>
+        projectileRigidbody.linearVelocity = m_direction * m_speed;
 
-    private void EnsureTriggerCollider()
-    {
-        if (!TryGetComponent(out hitTrigger))
-            hitTrigger = gameObject.AddComponent<CircleCollider2D>();
-
-        hitTrigger.isTrigger = true;
-        hitTrigger.radius = damageRadius;
-
-        Vector3 worldDamagePos = damagePosition != null 
-            ? damagePosition.position 
-            : transform.position;
-
-        hitTrigger.offset = transform.InverseTransformPoint(worldDamagePos);
-    }
-
-    public void DestroyProjectile() => 
-        Destroy(this.gameObject);
+    protected virtual void DestroyProjectile() => 
+        Destroy(gameObject);
 }

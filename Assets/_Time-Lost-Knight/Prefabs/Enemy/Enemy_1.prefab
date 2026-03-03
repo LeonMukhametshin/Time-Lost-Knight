@@ -180,6 +180,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5388760111469027657
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -225,6 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: -1289087535
   m_SortingLayer: 4
   m_SortingOrder: 2
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7942249098920568159, guid: 84c748cd2eb1e074b8a13ae775dce196, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -234,7 +236,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &5487997587238046610
 BoxCollider2D:
@@ -346,15 +347,7 @@ MonoBehaviour:
   <core>k__BackingField: {fileID: 3542286832004251390}
   <animator>k__BackingField: {fileID: 1297166882728797537}
   <animationToFSM>k__BackingField: {fileID: 1255148350463277060}
-  m_data: {fileID: 11400000, guid: 9047c08c631590344a25724b52527e7a, type: 2}
-  m_idleData: {fileID: 11400000, guid: 08ad3944ac781de44bac9ef96feb5c6b, type: 2}
-  m_moveData: {fileID: 11400000, guid: e4e2467a12aeabd4fa2ccc5a74292939, type: 2}
-  m_playerDetectedData: {fileID: 11400000, guid: ae84519425e013644a7cbcbba7350709, type: 2}
-  m_chargeStateData: {fileID: 11400000, guid: e1843e454edfa8247a2088dc2a87c9c9, type: 2}
-  m_lookForPlayerData: {fileID: 11400000, guid: 2fa37a310b078ed4eb70737328c10133, type: 2}
-  m_meleeAttackStateData: {fileID: 11400000, guid: 450fdc3cd6c2e3c4aaf62229befa7933, type: 2}
-  m_stanStateData: {fileID: 11400000, guid: 53cf054478b751149b5c2b0dbe265ead, type: 2}
-  m_deadStateData: {fileID: 11400000, guid: d3a8f57dc6efd5246a9df710790a5204, type: 2}
+  <data>k__BackingField: {fileID: 11400000, guid: a1ec9af8a95862e46ac448eec2dc2e79, type: 2}
   m_meleeAttackPoint: {fileID: 4459822305754538618}
 --- !u!114 &3542286832004251390
 MonoBehaviour:
@@ -454,9 +447,6 @@ MonoBehaviour:
   core: {fileID: 3542286832004251390}
   maxKnockbackTime: 0.2
   damageParticles: {fileID: 2508979075604653123, guid: 0606fb16001a8ef449b6b59974783a5c, type: 3}
-  m_movement: {fileID: 2012299460565177010}
-  m_particleManager: {fileID: 0}
-  m_collisionDetector: {fileID: 0}
 --- !u!114 &7432792194005497713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   core: {fileID: 3542286832004251390}
-  <maxValue>k__BackingField: 100
 --- !u!114 &3259969756505754206
 MonoBehaviour:
   m_ObjectHideFlags: 0

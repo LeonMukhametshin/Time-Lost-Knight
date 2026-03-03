@@ -7,6 +7,8 @@ public class AttackState : EnemyState, IAnimationTrigger
     protected bool isAnimationFinished;
     protected bool isPlayerInMinAgroRange;
 
+    protected Vector3 playerPosition { get; private set; }
+
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
 
@@ -36,16 +38,16 @@ public class AttackState : EnemyState, IAnimationTrigger
 
         isAnimationFinished = false;
         movement.SetVelocityX(0f);
+
+        playerPosition = enemyCollisionDetector.GetPlayerPositionInMaxAgroRange();
+        Debug.Log("playerPosition " + playerPosition.ToString());
     }
 
     public virtual void TriggerAnimation() { }
 
     public virtual void FinishAnimation() =>
         isAnimationFinished = true;
-}
 
-public interface IAnimationTrigger
-{
-    void TriggerAnimation();
-    void FinishAnimation();
+    protected void SetLayer(GameObject visualEffect) =>
+        visualEffect.layer = entity.gameObject.layer;
 }

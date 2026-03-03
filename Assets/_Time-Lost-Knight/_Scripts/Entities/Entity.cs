@@ -7,9 +7,7 @@ public class Entity : MonoBehaviour, IPauseHandler
     [field: SerializeField] public Core core { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
     [field: SerializeField] public AnimationToFSM animationToFSM { get; private set; }
-
-    [SerializeField] private EntityData m_data;
-
+    [field: SerializeField] public EntityData data { get; private set; }
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
    
@@ -18,11 +16,14 @@ public class Entity : MonoBehaviour, IPauseHandler
     private void OnEnable() => 
         Pause.instants.Add(this);
 
-    private void OnDisable() => 
-        Pause.instants.Remove(this);
+    //private void OnDisable() => 
+     //   Pause.instants.Remove(this);
 
-    public virtual void Awake() => 
+    public virtual void Awake()
+    {
         fsm = new EntityFSM();
+        core.GetCoreComponent<HealthComponent>().Initialize(data.maxHealth);
+    }
 
     public virtual void Update()
     {

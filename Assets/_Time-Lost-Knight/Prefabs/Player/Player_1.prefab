@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7364782895802704028}
   - component: {fileID: 2253346811676645493}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 91968264193152762}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Collisigon Checkers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8881360740836153499}
   - component: {fileID: 6748883572454414995}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DashDirectionIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7106985524915511270}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8500792976824639704}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ledge Check
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6900243597244823116}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041705445643510817}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: 'Range Attack Position '
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 2820888376671819213}
   - component: {fileID: 1754555729161816253}
   - component: {fileID: 3928772544104420848}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2848776604293388674}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: 'Wall Check '
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -519,7 +519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6049095628844886728}
   - component: {fileID: 4940170725263228073}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 6699796549476151646}
   - component: {fileID: 6474252477861169847}
   - component: {fileID: 1640732103339371936}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4580932176864417985}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: 'Celing Check '
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -941,7 +941,7 @@ MonoBehaviour:
   <core>k__BackingField: {fileID: 8000914018518424330}
   <animator>k__BackingField: {fileID: 8830459990270249974}
   <animationToFSM>k__BackingField: {fileID: 4589479619646289466}
-  m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
+  <data>k__BackingField: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
   m_data: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
   m_rangedAttackData: {fileID: 11400000, guid: fb5323fc82c301a4da7df6a8d22bb64c, type: 2}
   m_rangedAttackPosition: {fileID: 1041705445643510817}
@@ -1135,7 +1135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   core: {fileID: 8000914018518424330}
-  <maxValue>k__BackingField: 100
 --- !u!114 &3228321450727624691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,7 +1177,7 @@ GameObject:
   - component: {fileID: 5815512709525987548}
   - component: {fileID: 8530404959907800060}
   - component: {fileID: 506011826836910383}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8110265211855186095}
   - component: {fileID: 7756764436505854978}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GamePad Feedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1400,7 +1399,7 @@ GameObject:
   - component: {fileID: 2863990908438272551}
   - component: {fileID: 4716663556293683946}
   - component: {fileID: 7278035085772918972}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

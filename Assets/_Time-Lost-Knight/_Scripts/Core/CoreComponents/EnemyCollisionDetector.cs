@@ -10,6 +10,19 @@ public class EnemyCollisionDetector : CollisionDetector
     [SerializeField][Min(0)] private float m_maxAgroDistance = 15f;
     [SerializeField][Min(0)] private float m_closeRangeActionDistance = 1f;
 
+    public virtual Vector3 GetPlayerPositionInMaxAgroRange()
+    {
+        Vector2 direction = Vector2.right * flipController.facingDirection;
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            m_playerChecker.position,
+            direction,
+            m_maxAgroDistance,
+            m_playerLayer);
+
+        return hit.transform.position;
+    }
+
     public virtual bool CheckLedge() =>
         Physics2D.Raycast(m_ledgeCheck.position, Vector2.down,
             m_wallCheckDistance, m_groundLayer);
@@ -21,7 +34,6 @@ public class EnemyCollisionDetector : CollisionDetector
     public virtual bool CheckPlayerInMaxAgroRange() =>
         Physics2D.Raycast(m_playerChecker.position, transform.right,
             m_maxAgroDistance, m_playerLayer);
-
 
     public virtual bool CheckPlayerInCloseRangeAction() => 
         Physics2D.Raycast(m_playerChecker.position, transform.right, m_closeRangeActionDistance, m_playerLayer);
