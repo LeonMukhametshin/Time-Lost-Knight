@@ -27,17 +27,17 @@ public abstract class Weapon : MonoBehaviour
             attackCounter = 0;
         }
 
-        baseAnimator.SetBool(WeaponAnimation—onstants.ATTACK, true);
-        weaponAnimator.SetBool(WeaponAnimation—onstants.ATTACK, true);
+        baseAnimator.SetBool(WeaponAnimationConstants.ATTACK, true);
+        weaponAnimator.SetBool(WeaponAnimationConstants.ATTACK, true);
 
-        baseAnimator.SetInteger(WeaponAnimation—onstants.ATTACK_COUNTER, attackCounter);
-        weaponAnimator.SetInteger(WeaponAnimation—onstants.ATTACK_COUNTER, attackCounter);
+        baseAnimator.SetInteger(WeaponAnimationConstants.ATTACK_COUNTER, attackCounter);
+        weaponAnimator.SetInteger(WeaponAnimationConstants.ATTACK_COUNTER, attackCounter);
     }
 
     public virtual void ExitWeapon()
     {
-        baseAnimator.SetBool(WeaponAnimation—onstants.ATTACK, false);
-        weaponAnimator.SetBool(WeaponAnimation—onstants.ATTACK, false);
+        baseAnimator.SetBool(WeaponAnimationConstants.ATTACK, false);
+        weaponAnimator.SetBool(WeaponAnimationConstants.ATTACK, false);
 
         attackCounter++;
 

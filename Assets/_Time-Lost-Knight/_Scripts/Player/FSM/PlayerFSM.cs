@@ -14,11 +14,14 @@ public class PlayerFSM : EntityFSM
 
     public bool CheckContainesState(PlayerState ability) =>
         m_states.ContainsKey(ability.GetType());
-            
+
+    public bool CheckCanUseState(PlayerState ability) =>
+        ability.CheckAbilityUseState();
+
 
     public override void ChangeState<T>()
     {
-        if (m_states.ContainsKey(typeof(T)) && )
+        if (m_states.ContainsKey(typeof(T)) && CheckContainesState(m_states[typeof(T)]))
         {
             base.ChangeState<T>();
         }
