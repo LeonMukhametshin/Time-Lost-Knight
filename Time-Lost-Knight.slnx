@@ -26,8 +26,11 @@
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
   <Project Path="R3.Unity.csproj" />
+  <Project Path="CFXRRuntime.csproj" />
   <Project Path="Unity.2D.Sprite.Editor.csproj" />
   <Project Path="NuGetForUnity.csproj" />
+  <Project Path="CFXRDemo.csproj" />
+  <Project Path="CFXREditor.csproj" />
   <Project Path="Unity.Multiplayer.Center.Common.csproj" />
   <Project Path="Assembly-CSharp-firstpass.csproj" />
   <Project Path="R3.Unity.Editor.csproj" />
@@ -37,8 +40,11 @@
   <Project Path="Unity.ShaderGraph.Utilities.csproj" />
   <Project Path="SerializeReferenceDropdownRuntime.csproj" />
   <Project Path="R3.Unity.TextMeshPro.csproj" />
+  <Project Path="KinoBloom.Runtime.csproj" />
   <Project Path="Zenject-PoolMonitor-Editor.csproj" />
+  <Project Path="CFXR.WelcomeScreen.csproj" />
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.csproj" />
+  <Project Path="ToonyColorsPro.Demo.Editor.csproj" />
   <Project Path="R3.Unity.XRInteractionToolkit.csproj" />
   <Project Path="RefTo.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Shaders.csproj" />
