@@ -6,6 +6,7 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
     protected IReadOnlyList<IEffect> m_effects;
 
     [SerializeField] protected Rigidbody2D projectileRigidbody;
+    [SerializeField] private GameObject m_vfx;
 
     private float m_speed;
     private float m_targetDistance;
@@ -82,6 +83,9 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
     private void SetLinearVelocity() =>
         projectileRigidbody.linearVelocity = m_direction * m_speed;
 
-    protected virtual void DestroyProjectile() => 
+    protected virtual void DestroyProjectile()
+    {
+        ServiceLocator.Get<ParticleManager>().StartParticlesWithRandomRotation(m_vfx, transform.position);
         Destroy(gameObject);
+    }
 }

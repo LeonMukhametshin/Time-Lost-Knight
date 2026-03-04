@@ -8,10 +8,10 @@ public class ParticleManager : MonoBehaviour
     public GameObject StartParticles(GameObject particlePrefab) => 
         StartParticles(particlePrefab, transform.position, Quaternion.identity);
 
-    public GameObject StartParticlesWithRandomRotation(GameObject particlePrefab)
+    public GameObject StartParticlesWithRandomRotation(GameObject particlePrefab, Vector2 position)
     {
         var random = Quaternion.Euler(0f, 0f, Random.Range(0, 360));
-        return Instantiate(particlePrefab, transform.position, random);
+        return Instantiate(particlePrefab, position, random);
     }
 
     public void StartParticles(GameObject[] particlePrefabs, Vector2 position, Quaternion rotation)

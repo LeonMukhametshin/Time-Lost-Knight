@@ -170,4 +170,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionProjectile
   projectileRigidbody: {fileID: 8310510094815747521}
+  m_vfx: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
   m_explosionRadius: 4
