@@ -27,8 +27,8 @@ MonoBehaviour:
   <stopOffset>k__BackingField: {x: 0.4, y: 0.75}
   <dashCooldown>k__BackingField: 0.5
   <maxHoldTime>k__BackingField: 0.73
-  <holdTimeScale>k__BackingField: 0.02
-  <dashTime>k__BackingField: 0.2
+  <holdTimeScale>k__BackingField: 0.1
+  <dashTime>k__BackingField: 0.16
   <dashVelocity>k__BackingField: 40
   <drag>k__BackingField: 0.79
   <dashEndYMultiplier>k__BackingField: 0.54
@@ -36,6 +36,5 @@ MonoBehaviour:
   <crouchMovementVelocity>k__BackingField: 4.73
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 1.66
-  <oneWayPlatformLayer>k__BackingField: 10
   <dropThroughDuration>k__BackingField: 0.25
   <dropVelocity>k__BackingField: 3
