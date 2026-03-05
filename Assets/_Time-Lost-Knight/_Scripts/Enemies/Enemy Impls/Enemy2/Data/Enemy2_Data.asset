@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fb696e15a14ac4fb17ea941d3401c5, type: 3}
   m_Name: Enemy2_Data
   m_EditorClassIdentifier: Assembly-CSharp::EntityData
-  <maxHealth>k__BackingField: 1
+  <maxHealth>k__BackingField: 60
   <damageHopSpeed>k__BackingField: 3
   <wallCheckDistance>k__BackingField: 0.47
   <ledgeCheckDistance>k__BackingField: 0.33

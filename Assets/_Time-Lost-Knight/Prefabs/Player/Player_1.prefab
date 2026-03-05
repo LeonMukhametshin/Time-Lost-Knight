@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7364782895802704028}
   - component: {fileID: 2253346811676645493}
   m_Layer: 6
-  m_Name: Sword (1)
+  m_Name: Sword_Heavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13ebe69630189448b820f6bfa3eb595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackingWeapon
-  weaponData: {fileID: 11400000, guid: c23c34ce1ed8fe348ba5912692e37860, type: 2}
+  weaponData: {fileID: 11400000, guid: df698aa31c7b4e57bccc6735b930bee1, type: 2}
   core: {fileID: 8000914018518424330}
   baseAnimator: {fileID: 6474252477861169847}
   weaponAnimator: {fileID: 2820888376671819213}
@@ -373,7 +373,7 @@ Animator:
   m_GameObject: {fileID: 4540826490384628423}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e44b17e8e51e6b84b89f0b5bc0ff941c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 296312a3c10a4fc290230926f1feb014, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 6049095628844886728}
   - component: {fileID: 4940170725263228073}
   m_Layer: 6
-  m_Name: Sword
+  m_Name: Sword_Fast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13ebe69630189448b820f6bfa3eb595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackingWeapon
-  weaponData: {fileID: 11400000, guid: c23c34ce1ed8fe348ba5912692e37860, type: 2}
+  weaponData: {fileID: 11400000, guid: 4af1faf5a521436ba559c9b3dee77d28, type: 2}
   core: {fileID: 8000914018518424330}
   baseAnimator: {fileID: 4716663556293683946}
   weaponAnimator: {fileID: 5815512709525987548}
@@ -627,7 +627,7 @@ Animator:
   m_GameObject: {fileID: 5256688692500446849}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a267bbd632aeef84b9c518b4cb1b237f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3aa7dbfd90fd4677b3ef4537ecb352cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1232,7 +1232,7 @@ Animator:
   m_GameObject: {fileID: 7558514727442098133}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e44b17e8e51e6b84b89f0b5bc0ff941c, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8ac6c2ead2e48d39ee26647fe591b40, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1453,7 +1453,7 @@ Animator:
   m_GameObject: {fileID: 9191475423071762337}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a267bbd632aeef84b9c518b4cb1b237f, type: 2}
+  m_Controller: {fileID: 9100000, guid: e52a1484d06042f09563b3a0b5f3343a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
