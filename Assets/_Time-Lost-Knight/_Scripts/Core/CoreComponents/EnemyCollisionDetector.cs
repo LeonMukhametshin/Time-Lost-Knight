@@ -3,12 +3,28 @@ using UnityEngine;
 public class EnemyCollisionDetector : CollisionDetector
 {
     [SerializeField] private Transform m_playerChecker;
-
     [SerializeField] private LayerMask m_playerLayer;
+    [SerializeField] private Vector2 m_zone;
 
     [SerializeField][Min(0)] private float m_minAgroDistance = 3f;
     [SerializeField][Min(0)] private float m_maxAgroDistance = 15f;
     [SerializeField][Min(0)] private float m_closeRangeActionDistance = 1f;
+
+    public virtual Vector2? GetPlayerPositionInZone()
+    {
+        var hit = Physics2D.OverlapBox(
+            m_playerChecker.position,
+            m_zone,
+            0f,
+            m_playerLayer);
+
+        if (hit == null)
+        {
+            return null;
+        }
+
+        return hit.gameObject.transform.position;
+    }
 
     public virtual Vector3 GetPlayerPositionInMaxAgroRange()
     {
@@ -40,6 +56,10 @@ public class EnemyCollisionDetector : CollisionDetector
 
     public virtual void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(m_playerChecker.position, m_zone);
+
+        Gizmos.color = Color.white;
         Gizmos.DrawLine(m_wallCheck.position,
             m_wallCheck.position + (Vector3)(Vector2.right * flipController.facingDirection * m_wallCheckDistance));
         Gizmos.DrawLine(m_ledgeCheck.position,

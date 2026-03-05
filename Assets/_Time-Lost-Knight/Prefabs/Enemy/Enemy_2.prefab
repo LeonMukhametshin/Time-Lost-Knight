@@ -300,6 +300,7 @@ MonoBehaviour:
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  m_zone: {x: 0, y: 0}
   m_minAgroDistance: 2.14
   m_maxAgroDistance: 57.9
   m_closeRangeActionDistance: 0.84
@@ -316,8 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 5940556064133731273}
-  maxKnockbackTime: 0.2
-  damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
+  m_damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
 --- !u!114 &5763079242119432785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Death
   core: {fileID: 5940556064133731273}
-  entityGameObject: {fileID: 6244181824168799701}
   deathParticles:
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}

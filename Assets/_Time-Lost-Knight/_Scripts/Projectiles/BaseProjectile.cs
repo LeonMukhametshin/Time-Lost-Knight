@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour, IProjectile
 {
-    protected IReadOnlyList<IEffect> m_effects;
+    [SerializeReference][SerializeReferenceDropdown] protected IEffect[] m_effects;
 
     [SerializeField] protected Rigidbody2D projectileRigidbody;
 
@@ -31,16 +31,15 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
         projectileRigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
-    public virtual void Initialize(Vector3 targetPosition, float speed, IReadOnlyList<IEffect> effects)
+    public virtual void Initialize(Vector2 targetPosition, float speed)
     {
         m_startPosition = transform.position;
 
-        Vector3 toTarget = targetPosition - m_startPosition;
+        var toTarget = (Vector3)targetPosition - m_startPosition;
         m_targetDistance = toTarget.magnitude;
 
-        m_direction = (targetPosition - transform.position).normalized;
+        m_direction = ((Vector3)targetPosition - transform.position).normalized;
         m_speed = speed;
-        m_effects = effects;
 
         SetLinearVelocity();
 

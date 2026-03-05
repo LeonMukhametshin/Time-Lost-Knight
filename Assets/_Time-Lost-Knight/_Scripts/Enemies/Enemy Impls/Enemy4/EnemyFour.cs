@@ -1,60 +1,34 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyFour : Entity
 {
+    [SerializeField] private Transform m_rangeAttackPosition;
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Transform[] m_waypoints;
+
     public override void Awake()
     {
         base.Awake();
 
+        var enemyFourData = data as EnemyFourData;
+
         fsm.Initialize(
-            //new EnemyFourIdleState(fsm, core, EnemyAnimationConst.IDLE, ),
-            //new EnemyFourLookForPlayerState()
-            //new EnemyFourPlayerDetectedState()
-            //new EnemyFourAttackState()
-            );
+            new EnemyFourIdleState(fsm, core, EnemyAnimationConst.IDLE, this, enemyFourData.idle),
+            new EnemyFourMoveState(fsm, core, EnemyAnimationConst.MOVE, this, enemyFourData.move, m_waypoints),
+            new EnemyFourLookForPlayerState(fsm, core, EnemyAnimationConst.LOOK_FOR_PLAYER, this, enemyFourData.lookForPlayer),
+            new EnemyFourPlayerDetectedState(fsm, core, EnemyAnimationConst.PLAYER_DETECTED, this, enemyFourData.playerDetected),
+            new EnemyFourAttackState(fsm, core, EnemyAnimationConst.RANGED_ATTACK, this, m_rangeAttackPosition, enemyFourData.rangeAttack));
 
         animationToFSM.Initialize(fsm);
 
         fsm.ChangeState<EnemyFourIdleState>();
     }
-}
 
-public class EnemyFourIdleState : IdleState
-{
-    public EnemyFourIdleState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        IdleStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    public override void Update()
     {
-    }
-}
+        base.Update();
 
-public class EnemyFourLookForPlayerState : LookForPlayerState
-{
-    public EnemyFourLookForPlayerState(EntityFSM fsm, Core core,
-        string animBoolName, Entity entity,
-        LookForPlayerStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
-    {
-    }
-}
-
-public class EnemyFourPlayerDetectedState : PlayerDetectedState
-{
-    public EnemyFourPlayerDetectedState(EntityFSM fsm, Core core, string animBoolName, 
-        Entity entity, PlayerDetectedData data) 
-        : base(fsm, core, animBoolName, entity, data)
-    {
-    }
-}
-
-public class EnemyFourAttackState : RangeAttackState
-{
-    public EnemyFourAttackState(EntityFSM fsm, Core core,
-        string animBoolName, Entity entity, 
-        Transform attackPosition, RangeAttackData data) 
-        : base(fsm, core, animBoolName, entity,
-            attackPosition, data)
-    {
+        text.text = fsm.currentState.ToString();
     }
 }

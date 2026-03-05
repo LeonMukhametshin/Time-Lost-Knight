@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fb696e15a14ac4fb17ea941d3401c5, type: 3}
-  m_Name: Enemy3
-  m_EditorClassIdentifier: Assembly-CSharp::EntityData
-  <maxHealth>k__BackingField: 50
+  m_Script: {fileID: 11500000, guid: b4c6fefc84f33884592d29bed2259147, type: 3}
+  m_Name: Move
+  m_EditorClassIdentifier: Assembly-CSharp::MoveStateData
+  <movementSpeed>k__BackingField: 10

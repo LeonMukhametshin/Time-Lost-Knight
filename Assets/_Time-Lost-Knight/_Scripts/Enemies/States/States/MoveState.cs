@@ -13,7 +13,7 @@ public class MoveState : EnemyState
     protected FlipContoller flipController => 
         m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
     
-    private EnemyCollisionDetector enemyCollisionDetector => 
+    protected EnemyCollisionDetector enemyCollisionDetector => 
         m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;
@@ -39,12 +39,15 @@ public class MoveState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        movement.SetVelocityX(data.movementSpeed);
+        Move();
     }
 
     public override void Update()
     {
         base.Update();
-        movement.SetVelocityX(data.movementSpeed * flipController.facingDirection);
+        Move();
     }
+
+    protected virtual void Move() => 
+        movement.SetVelocityX(data.movementSpeed * flipController.facingDirection);
 }

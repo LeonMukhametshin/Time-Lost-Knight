@@ -1,60 +1,14 @@
 using UnityEngine;
 
-public class EntityCombat : Combat, IKnockbackable, IUpdate
+public class EntityCombat : Combat
 {
-    [SerializeField] private float maxKnockbackTime = 0.2f;
-    [SerializeField] private GameObject damageParticles;
-
-    private Movement m_movement;
-    private CollisionDetector m_collisionDetector;
-
-    private Movement movement =>
-        m_movement ??= core.GetCoreComponent<Movement>();
-
-    private CollisionDetector collisionDetector =>
-        m_collisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-
-    private bool isKnockbackActive;
-    private float knockbackStartTime;
-
-    public void Update()
-    {
-        CheckKnockback();
-    }
+    [SerializeField] private GameObject m_damageParticles;
 
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
-    }
-
-    public void Knockback(Vector2 angle, float strength, int direction)
-    {
-        movement.SetVelocity(strength, angle, direction);
-        KnockbackSetParameters();
-    }
-
-    public void Knockback(Vector2 angle, float strength)
-    {
-        movement.SetVelocity(strength, angle);
-        KnockbackSetParameters();
-    }
-
-    private void KnockbackSetParameters()
-    {
-        movement.canSetVelocity = false;
-        isKnockbackActive = true;
-        knockbackStartTime = Time.time;
-    }
-
-    private void CheckKnockback()
-    {
-        if (isKnockbackActive
-            && ((movement.currentVelocity.y <= 0.01f
-            && collisionDetector.CheckGrounded())
-            || Time.time >= knockbackStartTime + maxKnockbackTime))
-        {
-            isKnockbackActive = false;
-            movement.canSetVelocity = true;
-        }
+        ServiceLocator
+            .Get<ParticleManager>()
+            .StartParticlesWithRandomRotation(m_damageParticles, transform.position);
     }
 }

@@ -7,12 +7,12 @@ public class AttackState : EnemyState, IAnimationTrigger
     protected bool isAnimationFinished;
     protected bool isPlayerInMinAgroRange;
 
-    protected Vector3 playerPosition { get; private set; }
+    protected Vector2? playerPosition;
 
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
 
-    private EnemyCollisionDetector enemyCollisionDetector => 
+    protected EnemyCollisionDetector enemyCollisionDetector => 
         m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;
@@ -39,6 +39,11 @@ public class AttackState : EnemyState, IAnimationTrigger
         isAnimationFinished = false;
         movement.SetVelocityX(0f);
 
+        CheckPlayerPosition();
+    }
+
+    public virtual void CheckPlayerPosition()
+    {
         playerPosition = enemyCollisionDetector.GetPlayerPositionInMaxAgroRange();
     }
 

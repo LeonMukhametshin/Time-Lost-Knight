@@ -20,7 +20,7 @@ public class LookForPlayerState : EnemyState
     private FlipContoller flipController => 
         m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-    private EnemyCollisionDetector enemyCollisionDetector =>
+    protected EnemyCollisionDetector enemyCollisionDetector =>
         m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
     private Movement m_movement;

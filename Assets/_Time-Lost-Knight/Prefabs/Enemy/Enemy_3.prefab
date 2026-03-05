@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 2359421956920276760}
   - component: {fileID: 8299681218846613648}
   - component: {fileID: 2087243500083478998}
-  - component: {fileID: 1600670872195176987}
   - component: {fileID: 6076970890962481465}
   - component: {fileID: 2444639873552650215}
   - component: {fileID: 4293663773702585030}
@@ -51,6 +50,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7230174288167088674
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,6 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: -1289087535
   m_SortingLayer: 4
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 8511024201898819329, guid: 102001019d124d743aa52567c7ccd5a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -105,7 +106,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8512825980169757393
 Animator:
@@ -183,7 +183,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925644348879156062}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -217,12 +217,7 @@ MonoBehaviour:
   <core>k__BackingField: {fileID: 2663534899966985377}
   <animator>k__BackingField: {fileID: 8512825980169757393}
   <animationToFSM>k__BackingField: {fileID: 4293663773702585030}
-  m_data: {fileID: 11400000, guid: cc35fce599531464ab7f617c58d1df42, type: 2}
-  textMeshProUGUI: {fileID: 5451383427292732273}
-  m_idleStateData: {fileID: 11400000, guid: 43559c0b11399c14b8cb83f3f493458c, type: 2}
-  m_lookForPlayerStateData: {fileID: 11400000, guid: 762d9fabcc4f73b42b8775cdc76f2c75, type: 2}
-  m_playerDetectedData: {fileID: 11400000, guid: 0425a0491dd4cfd4eb58521495bf4300, type: 2}
-  m_rangeAttackData: {fileID: 11400000, guid: f52437dd63b3620499de48bcd5ea4e34, type: 2}
+  <data>k__BackingField: {fileID: 11400000, guid: 4762920a2f7a85e4e87b2d4b1afedb64, type: 2}
   m_rangeAttackPosition: {fileID: 8441737720114122898}
 --- !u!114 &2663534899966985377
 MonoBehaviour:
@@ -263,8 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 2663534899966985377}
-  maxKnockbackTime: 0.2
-  damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
+  m_damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
 --- !u!114 &2087243500083478998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,23 +272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Death
   core: {fileID: 2663534899966985377}
-  entityGameObject: {fileID: 925644348879156062}
   deathParticles:
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
---- !u!114 &1600670872195176987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925644348879156062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af7a3529cad6714e97364826ab1956f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
-  core: {fileID: 2663534899966985377}
 --- !u!114 &6076970890962481465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   core: {fileID: 2663534899966985377}
-  <maxValue>k__BackingField: 50
 --- !u!114 &2444639873552650215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +341,7 @@ MonoBehaviour:
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  m_zone: {x: 0, y: 0}
   m_minAgroDistance: 0.27
   m_maxAgroDistance: 13.19
   m_closeRangeActionDistance: 0.13
@@ -544,6 +524,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

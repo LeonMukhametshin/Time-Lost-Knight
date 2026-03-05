@@ -6,7 +6,6 @@ public class Death : CoreComponent
     protected HealthComponent healthComponent =>
         m_healthComponent ??= core.GetCoreComponent<HealthComponent>();
 
-    [SerializeField] private GameObject entityGameObject;
     [SerializeField] private GameObject[] deathParticles;
 
    private void OnEnable() =>
@@ -17,8 +16,10 @@ public class Death : CoreComponent
 
     private void Die()
     {
-        ServiceLocator.Get<ParticleManager>().StartParticles(deathParticles, transform.position, Quaternion.identity);
+        ServiceLocator
+            .Get<ParticleManager>()
+            .StartParticles(deathParticles, transform.position, Quaternion.identity);
         //TODO: remove 
-        entityGameObject.SetActive(false);  
+        this.gameObject.SetActive(false);  
     }
 }

@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] private PlayerData m_data;
-    [Header("Ranged Attack")]
-    [SerializeField] private RangeAttackData m_rangedAttackData;
-    [SerializeField] private Transform m_rangedAttackPosition;
-
     [field: SerializeField] public AudioSource source { get; private set; }
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
@@ -20,27 +15,28 @@ public class Player : Entity
 
         inputHandler = ServiceLocator.Get<PlayerInputHandler>();
 
+        var playerData = data as PlayerData;
+
         fsm.Initialize(
-            new PlayerIdleState(fsm, core, PlayerAnimationConstants.IDLE, this, m_data),
-            new PlayerMoveState(fsm, core, PlayerAnimationConstants.MOVEMENT, this, m_data),
-            new PlayerJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
-            new PlayerAirState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
-            new PlayerLandState(fsm, core, PlayerAnimationConstants.LAND, this, m_data),
-            new PlayerWallSlideState(fsm, core, PlayerAnimationConstants.WALL_SLIDE, this, m_data),
-            new PlayerWallGrabState(fsm, core, PlayerAnimationConstants.WALL_GRAB, this, m_data),
-            new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, m_data),
-            new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
-            new PlayerLedgeClibmState(fsm, core, PlayerAnimationConstants.LEDGE_CLIMB_STATE, this, m_data),
+            new PlayerIdleState(fsm, core, PlayerAnimationConstants.IDLE, this, playerData),
+            new PlayerMoveState(fsm, core, PlayerAnimationConstants.MOVEMENT, this, playerData),
+            new PlayerJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData),
+            new PlayerAirState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData),
+            new PlayerLandState(fsm, core, PlayerAnimationConstants.LAND, this, playerData),
+            new PlayerWallSlideState(fsm, core, PlayerAnimationConstants.WALL_SLIDE, this, playerData),
+            new PlayerWallGrabState(fsm, core, PlayerAnimationConstants.WALL_GRAB, this, playerData),
+            new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, playerData),
+            new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData),
+            new PlayerLedgeClibmState(fsm, core, PlayerAnimationConstants.LEDGE_CLIMB_STATE, this, playerData),
 
-            new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
-            new PlayerOmnidirectionalDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData),
+            new PlayerOmnidirectionalDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData),
 
-            new PlayerCrouchIdleState(fsm, core, PlayerAnimationConstants.CROUCH_IDLE, this, m_data),
-            new PlayerCrouchMoveState(fsm, core, PlayerAnimationConstants.CROUCH_MOVE, this, m_data),
-            new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
-            new PlayerPrimaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data),
-            new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, m_data),
-            new PlayerRangedAttackState(fsm, core, PlayerAnimationConstants.RANGED_ATTACK, this, m_data, m_rangedAttackPosition, m_rangedAttackData));
+            new PlayerCrouchIdleState(fsm, core, PlayerAnimationConstants.CROUCH_IDLE, this, playerData),
+            new PlayerCrouchMoveState(fsm, core, PlayerAnimationConstants.CROUCH_MOVE, this, playerData),
+            new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData),
+            new PlayerPrimaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, playerData),
+            new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, playerData));
 
         fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
         fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);

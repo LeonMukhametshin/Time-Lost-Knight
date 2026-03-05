@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e049b06aa902ed4694dfbcbbc0aa331, type: 3}
+  m_Name: EnemyFour
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFourData
+  <maxHealth>k__BackingField: 70
+  <idle>k__BackingField: {fileID: 11400000, guid: 204f3f9b1cffe4849a841a46864e8b5b, type: 2}
+  <move>k__BackingField: {fileID: 11400000, guid: 6a3e75cb4c2d2764d97e42471ba1c644, type: 2}
+  <lookForPlayer>k__BackingField: {fileID: 11400000, guid: 5f53a81d41e7f8145afd45c714b5cd09, type: 2}
+  <playerDetected>k__BackingField: {fileID: 11400000, guid: 15e69ea6e26f9c64991666097af5dd72, type: 2}
+  <rangeAttack>k__BackingField: {fileID: 11400000, guid: e19ecbf7029109b429ddecd66d3522e1, type: 2}

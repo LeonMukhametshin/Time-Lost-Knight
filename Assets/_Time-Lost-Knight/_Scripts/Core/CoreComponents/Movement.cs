@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Movement : CoreComponent, IUpdate, IAcceleration, IEffectable
 {
@@ -11,10 +12,13 @@ public class Movement : CoreComponent, IUpdate, IAcceleration, IEffectable
     private float _savedGravity;
 
     private Vector2 m_workspace;
+    private Vector2 m_target;
     private float m_acceleration;
 
-    public void Update() =>
+    public void Update()
+    {
         currentVelocity = rb.linearVelocity;
+    }
 
     public void SetDrag(float linearDamping) =>
         rb.linearDamping = linearDamping;
@@ -89,6 +93,14 @@ public class Movement : CoreComponent, IUpdate, IAcceleration, IEffectable
 
         m_acceleration -= delta;
         SetSpeed();
+    }
+
+    public void SetTarget(Transform target) => 
+        m_target = target.position;
+
+    public void MoveTarget(float speed)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, m_target, speed * Time.deltaTime);
     }
 
     private void SetSpeed()
