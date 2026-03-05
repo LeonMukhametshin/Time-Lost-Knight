@@ -8,6 +8,7 @@ public class Player : Entity
     [SerializeField] private RangeAttackData m_rangedAttackData;
     [SerializeField] private Transform m_rangedAttackPosition;
 
+    [field: SerializeField] public AudioSource source { get; private set; }
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
 

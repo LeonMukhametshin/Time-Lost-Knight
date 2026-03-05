@@ -149,7 +149,6 @@ GameObject:
   - component: {fileID: 2262161361464219594}
   - component: {fileID: 998172849652206864}
   - component: {fileID: 2418673839026117968}
-  - component: {fileID: 7432792194005497713}
   - component: {fileID: 3640193039958545492}
   - component: {fileID: 7131587219891041132}
   - component: {fileID: 2623214605480921905}
@@ -447,19 +446,6 @@ MonoBehaviour:
   core: {fileID: 3542286832004251390}
   maxKnockbackTime: 0.2
   damageParticles: {fileID: 2508979075604653123, guid: 0606fb16001a8ef449b6b59974783a5c, type: 3}
---- !u!114 &7432792194005497713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558229737639305807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af7a3529cad6714e97364826ab1956f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
-  core: {fileID: 3542286832004251390}
 --- !u!114 &3640193039958545492
 MonoBehaviour:
   m_ObjectHideFlags: 0

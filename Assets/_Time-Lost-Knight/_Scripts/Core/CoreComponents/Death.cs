@@ -9,11 +9,7 @@ public class Death : CoreComponent
     [SerializeField] private GameObject entityGameObject;
     [SerializeField] private GameObject[] deathParticles;
 
-    private ParticleManager m_particleManager;
-
-    private ParticleManager particleManager => 
-        m_particleManager ??= core.GetCoreComponent<ParticleManager>();  
-    private void OnEnable() =>
+   private void OnEnable() =>
         healthComponent.died += Die;
 
     private void OnDisable() =>
@@ -21,11 +17,7 @@ public class Death : CoreComponent
 
     private void Die()
     {
-        foreach (var particle in deathParticles)
-        {
-            particleManager.StartParticles(particle);
-        }
-
+        ServiceLocator.Get<ParticleManager>().StartParticles(deathParticles, transform.position, Quaternion.identity);
         //TODO: remove 
         entityGameObject.SetActive(false);  
     }

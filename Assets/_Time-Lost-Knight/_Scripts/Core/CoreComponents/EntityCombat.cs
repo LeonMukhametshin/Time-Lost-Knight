@@ -6,14 +6,10 @@ public class EntityCombat : Combat, IKnockbackable, IUpdate
     [SerializeField] private GameObject damageParticles;
 
     private Movement m_movement;
-    private ParticleManager m_particleManager;
     private CollisionDetector m_collisionDetector;
 
     private Movement movement =>
-    m_movement ??= core.GetCoreComponent<Movement>();
-
-    private ParticleManager particleManager =>
-        m_particleManager ??= core.GetCoreComponent<ParticleManager>();
+        m_movement ??= core.GetCoreComponent<Movement>();
 
     private CollisionDetector collisionDetector =>
         m_collisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
@@ -29,7 +25,6 @@ public class EntityCombat : Combat, IKnockbackable, IUpdate
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
-        particleManager.StartParticlesWithRandomRotation(damageParticles);
     }
 
     public void Knockback(Vector2 angle, float strength, int direction)

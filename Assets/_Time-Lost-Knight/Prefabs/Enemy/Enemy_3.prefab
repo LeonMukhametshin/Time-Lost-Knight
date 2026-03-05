@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 2359421956920276760}
   - component: {fileID: 8299681218846613648}
   - component: {fileID: 2087243500083478998}
-  - component: {fileID: 1600670872195176987}
   - component: {fileID: 6076970890962481465}
   - component: {fileID: 2444639873552650215}
   - component: {fileID: 4293663773702585030}
@@ -277,19 +276,6 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
---- !u!114 &1600670872195176987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925644348879156062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af7a3529cad6714e97364826ab1956f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
-  core: {fileID: 2663534899966985377}
 --- !u!114 &6076970890962481465
 MonoBehaviour:
   m_ObjectHideFlags: 0

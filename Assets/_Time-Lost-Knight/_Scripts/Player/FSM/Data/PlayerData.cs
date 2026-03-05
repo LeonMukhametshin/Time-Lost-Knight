@@ -55,4 +55,6 @@ public class PlayerData : EntityData
     [field: Header("One Way Platform")]
     [field: SerializeField, Min(0)] public float dropThroughDuration { get; private set; } = 0.25f;
     [field: SerializeField, Min(0)] public float dropVelocity { get; private set; } = 3f;
+
+    [field: SerializeField] public AudioClip audioClip { get; private set; }
 }
