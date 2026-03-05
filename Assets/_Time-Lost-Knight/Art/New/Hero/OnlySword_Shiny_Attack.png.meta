@@ -1,0 +1,879 @@
+fileFormatVersion: 2
+guid: a6dc9c19699c69849b2475b6af7b463f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5983587173414810561
+    second: OnlySword_Shiny_Attack_0
+  - first:
+      213: -8971369417900287845
+    second: OnlySword_Shiny_Attack_1
+  - first:
+      213: -1202835127002903459
+    second: OnlySword_Shiny_Attack_2
+  - first:
+      213: 5581696327217085301
+    second: OnlySword_Shiny_Attack_3
+  - first:
+      213: -7113428239158609194
+    second: OnlySword_Shiny_Attack_4
+  - first:
+      213: -4539474136688493979
+    second: OnlySword_Shiny_Attack_5
+  - first:
+      213: -6652950751693339272
+    second: OnlySword_Shiny_Attack_6
+  - first:
+      213: 2119655001412145532
+    second: OnlySword_Shiny_Attack_7
+  - first:
+      213: 8171422996339293093
+    second: OnlySword_Shiny_Attack_8
+  - first:
+      213: 5276376937628166471
+    second: OnlySword_Shiny_Attack_9
+  - first:
+      213: -601304221739447016
+    second: OnlySword_Shiny_Attack_10
+  - first:
+      213: -3085095279632133639
+    second: OnlySword_Shiny_Attack_11
+  - first:
+      213: -7668105170553565234
+    second: OnlySword_Shiny_Attack_12
+  - first:
+      213: 5715176190571097754
+    second: OnlySword_Shiny_Attack_13
+  - first:
+      213: -2426705407608993586
+    second: OnlySword_Shiny_Attack_14
+  - first:
+      213: -1362704411804159005
+    second: OnlySword_Shiny_Attack_15
+  - first:
+      213: -3096061461411278566
+    second: OnlySword_Shiny_Attack_16
+  - first:
+      213: 7195481294669555528
+    second: OnlySword_Shiny_Attack_17
+  - first:
+      213: -5729873631680707101
+    second: OnlySword_Shiny_Attack_18
+  - first:
+      213: -5285019330925555375
+    second: OnlySword_Shiny_Attack_19
+  - first:
+      213: -2227670123313078148
+    second: OnlySword_Shiny_Attack_20
+  - first:
+      213: -8222306007399364835
+    second: OnlySword_Shiny_Attack_21
+  - first:
+      213: 5646458267170039910
+    second: OnlySword_Shiny_Attack_22
+  - first:
+      213: 1127495327763964429
+    second: OnlySword_Shiny_Attack_23
+  - first:
+      213: 540270344057079084
+    second: OnlySword_Shiny_Attack_24
+  - first:
+      213: -5736632642286559234
+    second: OnlySword_Shiny_Attack_25
+  - first:
+      213: 3376917958830611813
+    second: OnlySword_Shiny_Attack_26
+  - first:
+      213: 7787170213746533101
+    second: OnlySword_Shiny_Attack_27
+  - first:
+      213: 2232397338829591274
+    second: OnlySword_Shiny_Attack_28
+  - first:
+      213: 355722042378861436
+    second: OnlySword_Shiny_Attack_29
+  - first:
+      213: -984843250638586192
+    second: OnlySword_Shiny_Attack_30
+  - first:
+      213: -7834705346028139006
+    second: OnlySword_Shiny_Attack_31
+  - first:
+      213: -8210422435702683581
+    second: OnlySword_Shiny_Attack_32
+  - first:
+      213: 6800336346814731233
+    second: OnlySword_Shiny_Attack_33
+  - first:
+      213: -1263661909937824246
+    second: OnlySword_Shiny_Attack_34
+  - first:
+      213: 7788126178062287845
+    second: OnlySword_Shiny_Attack_35
+  - first:
+      213: -9117419915986324354
+    second: OnlySword_Shiny_Attack_36
+  - first:
+      213: -5304799149031206839
+    second: OnlySword_Shiny_Attack_37
+  - first:
+      213: 5281824481974205267
+    second: OnlySword_Shiny_Attack_38
+  - first:
+      213: -5885094374078257386
+    second: OnlySword_Shiny_Attack_39
+  - first:
+      213: -4884691847030718303
+    second: OnlySword_Shiny_Attack_40
+  - first:
+      213: -3529243003392356745
+    second: OnlySword_Shiny_Attack_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c339f1f4d8f90350800000000000000
+      internalID: 5983587173414810561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b981049fb0b4f7380800000000000000
+      internalID: -8971369417900287845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c41ab23dbae4fe0800000000000000
+      internalID: -1202835127002903459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b70eb8c3b267d40800000000000000
+      internalID: 5581696327217085301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6daf7bd74b6084d90800000000000000
+      internalID: -7113428239158609194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56afb97e25c8001c0800000000000000
+      internalID: -4539474136688493979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87586294a88fba3a0800000000000000
+      internalID: -6652950751693339272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c711d8d4ef68a6d10800000000000000
+      internalID: 2119655001412145532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abf24ecbe9b66170800000000000000
+      internalID: 8171422996339293093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749e36c8ed4793940800000000000000
+      internalID: 5276376937628166471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d07450ffcb7a7f0800000000000000
+      internalID: -601304221739447016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f1da4f403a8f25d0800000000000000
+      internalID: -3085095279632133639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf81d889fa659590800000000000000
+      internalID: -7668105170553565234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9ea2cb0772605f40800000000000000
+      internalID: 5715176190571097754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec842fcf94c925ed0800000000000000
+      internalID: -2426705407608993586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e33e80be83b61de0800000000000000
+      internalID: -1362704411804159005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11ddc521849805d0800000000000000
+      internalID: -3096061461411278566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8472fbc3d1c7bd360800000000000000
+      internalID: 7195481294669555528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e54bc74a466b70b0800000000000000
+      internalID: -5729873631680707101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1511c157be6d7a6b0800000000000000
+      internalID: -5285019330925555375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c706c2753d9b511e0800000000000000
+      internalID: -2227670123313078148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17866aff3084ed80800000000000000
+      internalID: -8222306007399364835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668ecb5b0ef3c5e40800000000000000
+      internalID: 5646458267170039910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02a841e60ba5af00800000000000000
+      internalID: 1127495327763964429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c254334f30d6f7700800000000000000
+      internalID: 540270344057079084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_25
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff599d71036360b0800000000000000
+      internalID: -5736632642286559234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnlySword_Shiny_Attack_26
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d5cbbedf83dde20800000000000000
+      internalID: 3376917958830611813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 662bf59477a24e743a10d8a021b0dafc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      OnlySword_Shiny_Attack_0: 5983587173414810561
+      OnlySword_Shiny_Attack_1: -8971369417900287845
+      OnlySword_Shiny_Attack_10: -601304221739447016
+      OnlySword_Shiny_Attack_11: -3085095279632133639
+      OnlySword_Shiny_Attack_12: -7668105170553565234
+      OnlySword_Shiny_Attack_13: 5715176190571097754
+      OnlySword_Shiny_Attack_14: -2426705407608993586
+      OnlySword_Shiny_Attack_15: -1362704411804159005
+      OnlySword_Shiny_Attack_16: -3096061461411278566
+      OnlySword_Shiny_Attack_17: 7195481294669555528
+      OnlySword_Shiny_Attack_18: -5729873631680707101
+      OnlySword_Shiny_Attack_19: -5285019330925555375
+      OnlySword_Shiny_Attack_2: -1202835127002903459
+      OnlySword_Shiny_Attack_20: -2227670123313078148
+      OnlySword_Shiny_Attack_21: -8222306007399364835
+      OnlySword_Shiny_Attack_22: 5646458267170039910
+      OnlySword_Shiny_Attack_23: 1127495327763964429
+      OnlySword_Shiny_Attack_24: 540270344057079084
+      OnlySword_Shiny_Attack_25: -5736632642286559234
+      OnlySword_Shiny_Attack_26: 3376917958830611813
+      OnlySword_Shiny_Attack_3: 5581696327217085301
+      OnlySword_Shiny_Attack_4: -7113428239158609194
+      OnlySword_Shiny_Attack_5: -4539474136688493979
+      OnlySword_Shiny_Attack_6: -6652950751693339272
+      OnlySword_Shiny_Attack_7: 2119655001412145532
+      OnlySword_Shiny_Attack_8: 8171422996339293093
+      OnlySword_Shiny_Attack_9: 5276376937628166471
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
