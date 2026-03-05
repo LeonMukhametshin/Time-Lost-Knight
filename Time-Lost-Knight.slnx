@@ -19,11 +19,12 @@
   <Project Path="Zenject-UnitTests-Editor.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Runtime.csproj" />
   <Project Path="Zenject-Editor.csproj" />
+  <Project Path="Unity.UnifiedRayTracing.Runtime.csproj" />
   <Project Path="Zenject-IntegrationTests.csproj" />
   <Project Path="Unity.TextMeshPro.csproj" />
   <Project Path="Unity.TextMeshPro.Editor.csproj" />
-  <Project Path="Unity.Rendering.LightTransport.Runtime.csproj" />
   <Project Path="UnityEditor.UI.csproj" />
+  <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
   <Project Path="R3.Unity.csproj" />
   <Project Path="Unity.2D.Sprite.Editor.csproj" />
   <Project Path="NuGetForUnity.csproj" />
@@ -32,19 +33,21 @@
   <Project Path="R3.Unity.Editor.csproj" />
   <Project Path="Zenject-TestFramework.csproj" />
   <Project Path="RefToPropertyEditor.csproj" />
+  <Project Path="UnityEditor.UI.Analytics.csproj" />
   <Project Path="Unity.ShaderGraph.Utilities.csproj" />
   <Project Path="SerializeReferenceDropdownRuntime.csproj" />
   <Project Path="R3.Unity.TextMeshPro.csproj" />
   <Project Path="Zenject-PoolMonitor-Editor.csproj" />
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.csproj" />
   <Project Path="R3.Unity.XRInteractionToolkit.csproj" />
-  <Project Path="Unity.Rendering.LightTransport.Editor.csproj" />
   <Project Path="RefTo.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Shaders.csproj" />
   <Project Path="Unity.RenderPipelines.Core.Runtime.Shared.csproj" />
+  <Project Path="Unity.InternalAPIEngineBridge.004.csproj" />
   <Project Path="Unity.2D.Sprite.AIIntegration.Editor.csproj" />
+  <Project Path="Unity.RenderPipelines.Core.Editor.Shared.csproj" />
+  <Project Path="Unity.Rendering.LightTransport.Editor.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Config.Runtime.csproj" />
   <Project Path="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj" />
   <Project Path="Unity.RenderPipelines.Core.ShaderLibrary.csproj" />
-  <Project Path="Unity.RenderPipelines.Core.Editor.Shared.csproj" />
 </Solution>
