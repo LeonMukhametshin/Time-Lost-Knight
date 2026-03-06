@@ -9,7 +9,7 @@ public class BootstrapState : MonoBehaviour, IState
 
     [SerializeField] private UIInputHandler m_uIInputHandler;
     [SerializeField] private InteractPrompt m_interactPrompt;
-    
+    [SerializeField] private PauseWindow m_pauseWindow;
     [SerializeField] private ParticleManager m_particleManager;
 
     private StateMachine m_stateMachine;
@@ -26,6 +26,7 @@ public class BootstrapState : MonoBehaviour, IState
         ServiceLocator.Register(m_interactPrompt);
         ServiceLocator.Register(m_particleManager);
 
+        m_pauseWindow.Initialize(m_uIInputHandler);
         m_stateMachine.ChangeState<GameplayState>();
 
         LoadLevel();

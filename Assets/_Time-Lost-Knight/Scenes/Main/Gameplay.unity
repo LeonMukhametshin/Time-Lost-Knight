@@ -222,15 +222,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 09bc3a08a5d79834f8b5c33fe2120852, type: 2}
+  m_sharedMaterial: {fileID: 2199614034470611000, guid: 09bc3a08a5d79834f8b5c33fe2120852, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255606
-  m_fontColor: {r: 0.9632838, g: 1, b: 0, a: 1}
+    rgba: 4294967082
+  m_fontColor: {r: 0.16579843, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -247,15 +247,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 19.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 1204895402}
   - component: {fileID: 1204895403}
   m_Layer: 0
-  m_Name: UI Input Handler
+  m_Name: Input Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,6 +765,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a1b2c3d4-e5f6-7890-abcd-ef1234567890
     m_ActionName: 'Player/Ranged Attack[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5379232f-565f-4c73-aa9f-a800abdc5dd9
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1204895401}
+        m_TargetAssemblyTypeName: UIInputHandler, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f7cf5f7f-7eb1-4105-b30d-fa3595794135
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1048,7 +1068,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameplayEntryPoint
   m_sceneUIRoot: {fileID: 4076029864384189178}
   m_bootstrapState: {fileID: 1649492659}
-  m_pauseWindow: {fileID: 2468428444862798604}
 --- !u!4 &1649492658
 Transform:
   m_ObjectHideFlags: 0
@@ -1081,6 +1100,7 @@ MonoBehaviour:
   m_healthBarView: {fileID: 386048400459673255}
   m_uIInputHandler: {fileID: 1204895401}
   m_interactPrompt: {fileID: 1540876770}
+  m_pauseWindow: {fileID: 2468428444862798604}
   m_particleManager: {fileID: 2141650665}
 --- !u!1 &2087519207
 GameObject:

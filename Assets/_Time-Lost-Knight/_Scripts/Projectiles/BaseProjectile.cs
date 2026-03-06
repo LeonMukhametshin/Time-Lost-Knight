@@ -55,12 +55,12 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
 
         SetLinearVelocity();
 
-        float traveledDistance = Vector3.Distance(m_startPosition, transform.position);
+        //float traveledDistance = Vector3.Distance(m_startPosition, transform.position);
 
-        if (traveledDistance >= m_targetDistance)
+        /*if (traveledDistance >= m_targetDistance)
         {
             DestroyProjectile();
-        }
+        }*/
     }
 
     public virtual void OnTriggerEnter2D(Collider2D collision)

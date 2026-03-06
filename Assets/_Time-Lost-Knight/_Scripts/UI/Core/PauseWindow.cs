@@ -6,10 +6,9 @@ public class PauseWindow : MonoBehaviour
 
     private UIInputHandler m_inputHandler;
 
-    public void Initialize()
+    public void Initialize(UIInputHandler input)
     {
-        m_inputHandler = ServiceLocator.Get<UIInputHandler>();
-
+        m_inputHandler = input;
         m_inputHandler.pausePressed += OpenOrClose;
     }
 

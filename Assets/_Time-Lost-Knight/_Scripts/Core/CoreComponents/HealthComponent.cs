@@ -22,6 +22,11 @@ public class HealthComponent : CoreComponent, IHealth, IEffectable
 
             valueChanged?.Invoke();
 
+            if(value >= maxValue)
+            {
+                return;
+            }
+
             if (m_value == 0)
             {
                 died?.Invoke();
