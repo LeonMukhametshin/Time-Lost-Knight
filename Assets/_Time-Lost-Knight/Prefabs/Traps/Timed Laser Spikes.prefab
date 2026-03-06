@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1310909530803630464}
   - component: {fileID: 5815846981132688071}
   - component: {fileID: 8393103655001908408}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Laser Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3397354409124230484}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Timed Laser Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7317892971092597754}
   - component: {fileID: 3727325207859083167}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

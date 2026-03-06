@@ -29,11 +29,11 @@ public class TimedSpikes : Trap
         ApplyEffects(collision);
     }
 
-    public override void ApplyEffects(Collider2D collision)
+    protected override void ApplyEffects(Collider2D collision)
     {
-        if (collision.TryGetComponent<IEffectable>(out var effectable))
+        if (collision.gameObject.TryGetComponent<Core>(out var core))
         {
-            m_effects.ApplyEffect(effectable);
+            m_effects.ApplyEffect(core.effectables);
         }
     }
 }
