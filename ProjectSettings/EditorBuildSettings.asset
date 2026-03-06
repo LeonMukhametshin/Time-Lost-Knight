@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/_Time-Lost-Knight/Scenes/Main/Gameplay.unity
     guid: 43451bfbd1e714d4f81c224363ffb6df
   - enabled: 1
-    path: Assets/_Time-Lost-Knight/Scenes/Levels/Level_1.unity
-    guid: 7caa6c0c34064f74ab2c40b84193fd63
-  - enabled: 1
     path: Assets/_Time-Lost-Knight/Scenes/Main/Leon Tests.unity
     guid: cf18c87110fd04745968fcbf9beaef97
   m_configObjects:
