@@ -1898,7 +1898,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buildings_81
+      name: ventilation
       rect:
         serializedVersion: 2
         x: 144
@@ -1920,7 +1920,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buildings_82
+      name: 51551
       rect:
         serializedVersion: 2
         x: 160
@@ -6379,6 +6379,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      51551: 1280914771
       Buildings_0: -8078966772632430244
       Buildings_1: -3985759516408998331
       Buildings_10: 111032089
@@ -6643,8 +6644,6 @@ TextureImporter:
       Buildings_79: 1070862017
       Buildings_8: 589229033
       Buildings_80: -1558924381
-      Buildings_81: -1536079038
-      Buildings_82: 1280914771
       Buildings_83: -2071123787
       Buildings_84: 424203148
       Buildings_85: -1047547155
@@ -6663,6 +6662,8 @@ TextureImporter:
       Buildings_97: 1511627431
       Buildings_98: 849408656
       Buildings_99: -1700829813
+      ventilation: -1536079038
+      ventilation entilation: 1280914771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

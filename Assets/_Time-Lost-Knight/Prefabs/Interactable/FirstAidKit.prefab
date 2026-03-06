@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -118938113
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2445133492249524872, guid: 0f678612a6b1e8e4eafd8713b53f9b3e, type: 3}
@@ -242,4 +242,4 @@ MonoBehaviour:
       type: {class: HealthBuff, ns: , asm: Assembly-CSharp}
       data:
         <id>k__BackingField: FirstAidKit
-        m_value: 50
+        m_value: 20

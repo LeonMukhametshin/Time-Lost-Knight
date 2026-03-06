@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   <maxHealth>k__BackingField: 100
-  <movementSpeed>k__BackingField: 15
-  <jumpVelocity>k__BackingField: 18
+  <movementSpeed>k__BackingField: 20
+  <jumpVelocity>k__BackingField: 24
   <amountOfJumps>k__BackingField: 1
-  <wallJumpVelocity>k__BackingField: 20
+  <wallJumpVelocity>k__BackingField: 25
   <wallJumpTime>k__BackingField: 0.4
   <wallJumpAnge>k__BackingField: {x: 1, y: 2}
   <coyoteTime>k__BackingField: 0.2
@@ -27,15 +27,14 @@ MonoBehaviour:
   <stopOffset>k__BackingField: {x: 0.4, y: 0.75}
   <dashCooldown>k__BackingField: 0.5
   <maxHoldTime>k__BackingField: 0.73
-  <holdTimeScale>k__BackingField: 0.02
-  <dashTime>k__BackingField: 0.2
+  <holdTimeScale>k__BackingField: 0.1
+  <dashTime>k__BackingField: 0.16
   <dashVelocity>k__BackingField: 40
   <drag>k__BackingField: 0.79
   <dashEndYMultiplier>k__BackingField: 0.54
   <distanceBetweenAfterImages>k__BackingField: 0.39
-  <crouchMovementVelocity>k__BackingField: 4.73
+  <crouchMovementVelocity>k__BackingField: 10
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 1.66
-  <oneWayPlatformLayer>k__BackingField: 10
-  <dropThroughDuration>k__BackingField: 0.2
-  <dropVelocity>k__BackingField: 10
+  <dropThroughDuration>k__BackingField: 0.25
+  <dropVelocity>k__BackingField: 3

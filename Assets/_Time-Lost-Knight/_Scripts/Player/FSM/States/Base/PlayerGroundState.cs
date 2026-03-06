@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlayerGroundState : PlayerState
 {
     protected Movement movement => 
@@ -21,6 +23,9 @@ public class PlayerGroundState : PlayerState
     private bool m_grabInput;
     private bool m_isTouchingLedge;
     private bool m_dashInput;
+    private bool m_isTouchingOneWayPlatform;
+
+    private Collider2D m_oneWayPlatformCollider;
 
     private bool m_dropDownInput;
 
