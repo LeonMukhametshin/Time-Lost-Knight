@@ -22,21 +22,25 @@ public class PlayerSpawner : MonoBehaviour
         isPlayerSpawned = true;
     }
 
-    private static void BindCinemachine(Player player)
+    private void BindCinemachine(Transform player)
     {
         if (player == null)
+        {
             return;
+        }
 
         var cameras = Object.FindObjectsByType<CinemachineCamera>(
             FindObjectsInactive.Exclude,
             FindObjectsSortMode.None);
 
         if (cameras.Length == 0)
+        {
             return;
+        }
 
         var virtualCamera = cameras[0];
-        virtualCamera.Follow = player.transform;
+        virtualCamera.Follow = transform;
         if (virtualCamera.LookAt == null)
-            virtualCamera.LookAt = player.transform;
+            virtualCamera.LookAt = player;
     }
 }
