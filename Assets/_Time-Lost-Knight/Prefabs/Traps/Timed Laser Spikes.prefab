@@ -37,6 +37,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4978767223103381338
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -79,9 +80,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 310245899
-  m_SortingLayer: 2
+  m_SortingLayerID: -118938113
+  m_SortingLayer: 5
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -515100079, guid: 8543b81543549d44db20c6ef86967046, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -91,7 +93,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1310909530803630464
 Animator:
@@ -175,11 +176,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimedSpikes
   <damage>k__BackingField: 20
   <animator>k__BackingField: {fileID: 1310909530803630464}
-  duration: 2.83
-  m_attackDetails:
-    damageAmount: 10
-    knokbackStringht: 10
-    angle: {x: 0, y: 1}
+  m_effects:
+  - rid: 2014469274785546356
+  duration: 2.03
+  references:
+    version: 2
+    RefIds:
+    - rid: 2014469274785546356
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 20
 --- !u!1 &7208458224648979093
 GameObject:
   m_ObjectHideFlags: 0

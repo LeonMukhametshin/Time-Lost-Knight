@@ -3,7 +3,7 @@ using UnityEngine;
 public class TimedSpikes : Trap
 {
     [SerializeReferenceDropdown]
-    [SerializeReference] public IEffect[] effects;
+    [SerializeReference] private IEffect[] m_effects;
 
     [SerializeField][Range(0, 10)] private float duration;
 
@@ -33,7 +33,7 @@ public class TimedSpikes : Trap
     {
         if (collision.TryGetComponent<IEffectable>(out var effectable))
         {
-            effects.ApplyEffect(effectable);
+            m_effects.ApplyEffect(effectable);
         }
     }
 }
