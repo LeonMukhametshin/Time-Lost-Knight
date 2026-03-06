@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyFour : Entity
 {
     [SerializeField] private Transform m_rangeAttackPosition;
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Transform[] m_waypoints;
 
     public override void Awake()
@@ -23,12 +22,5 @@ public class EnemyFour : Entity
         animationToFSM.Initialize(fsm);
 
         fsm.ChangeState<EnemyFourIdleState>();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        text.text = fsm.currentState.ToString();
     }
 }

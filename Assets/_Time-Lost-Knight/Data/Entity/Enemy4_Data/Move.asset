@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c6fefc84f33884592d29bed2259147, type: 3}
   m_Name: Move
   m_EditorClassIdentifier: Assembly-CSharp::MoveStateData
-  <movementSpeed>k__BackingField: 10
+  <movementSpeed>k__BackingField: 50

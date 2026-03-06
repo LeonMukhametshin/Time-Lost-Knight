@@ -17,6 +17,16 @@ public class EnemyFourMoveState : MoveState
         m_waypoints = waypoints;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        if (m_waypoints != null && m_waypoints.Length > 0)
+        {
+            CheckFlip(m_waypoints[m_currentIndex].position);
+        }
+    }
+
     public override void DoCheck()
     {
         base.DoCheck();
@@ -48,6 +58,12 @@ public class EnemyFourMoveState : MoveState
             return;
         }
 
+        if (m_waypoints.Length == 1)
+        {
+            m_currentIndex = 0;
+            return;
+        }
+
         m_currentIndex += m_direction;
 
         if (m_currentIndex >= m_waypoints.Length)
@@ -58,7 +74,7 @@ public class EnemyFourMoveState : MoveState
         else if (m_currentIndex < 0)
         {
             m_direction = 1;
-            m_currentIndex = 0;
+            m_currentIndex = 1;
         }
 
         movement.SetTarget(m_waypoints[m_currentIndex]);

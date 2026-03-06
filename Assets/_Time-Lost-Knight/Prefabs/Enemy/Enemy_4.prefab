@@ -231,7 +231,7 @@ MonoBehaviour:
   <animationToFSM>k__BackingField: {fileID: 4293663773702585030}
   <data>k__BackingField: {fileID: 11400000, guid: c1c6bfbaa9051fb468c06f03366509f7, type: 2}
   m_rangeAttackPosition: {fileID: 8441737720114122898}
-  text: {fileID: 8965849133825429757}
+  text: {fileID: 0}
   m_waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -659,14 +659,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 662658111866194407, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
   m_PrefabInstance: {fileID: 8266859172166765598}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8965849133825429757 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1068708632193309923, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
-  m_PrefabInstance: {fileID: 8266859172166765598}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
