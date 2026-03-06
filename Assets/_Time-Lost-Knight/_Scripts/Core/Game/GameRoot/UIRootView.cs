@@ -4,20 +4,11 @@ using UnityEngine;
 public class UIRootView : MonoBehaviour 
 {
     [SerializeField] private GameObject m_loadingScreen;
-    [SerializeField] private Transform m_uiSceneContainer;
     [SerializeField] private TMP_Text m_loadingText;
     [SerializeField] private Canvas m_loadingScreenCanvas;
     [SerializeField] private int m_loadingScreenSortingOrder = 1000;
 
-    [SerializeField] private string[] m_phrases =
-    {
-        "Phrases1...",
-        "Phrases2...",
-        "Phrases3...",
-        "Phrases4...",
-        "Phrases5...",
-        "Phrases6...",
-    };
+    [SerializeField] private string[] m_phrases;
 
     public void Awake()
     {
@@ -34,22 +25,6 @@ public class UIRootView : MonoBehaviour
        
     public void HideLoadingScreen() =>
         m_loadingScreen.SetActive(false);
-
-    public void AttachSceneUI(GameObject sceneUI)
-    {
-        ClearSceneUI();
-
-        sceneUI.transform.SetParent(m_uiSceneContainer, false);
-    }
-
-    private void ClearSceneUI()
-    {
-        var childCount = m_uiSceneContainer.childCount;
-        for (int i = 0; i < childCount; i++)
-        {
-            Destroy(m_uiSceneContainer.GetChild(i).gameObject);
-        }
-    }
 
     private void EnsureLoadingScreenOnTop()
     {

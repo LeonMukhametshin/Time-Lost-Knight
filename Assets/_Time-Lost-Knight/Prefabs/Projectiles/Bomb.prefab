@@ -169,6 +169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810b097336690124d93629109cc0cffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionProjectile
+  m_effects:
+  - rid: 47934459672789207
   projectileRigidbody: {fileID: 8310510094815747521}
   m_vfx: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
   m_explosionRadius: 4
+  references:
+    version: 2
+    RefIds:
+    - rid: 47934459672789207
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 10

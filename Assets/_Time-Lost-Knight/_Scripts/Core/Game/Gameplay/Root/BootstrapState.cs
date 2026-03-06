@@ -36,32 +36,13 @@ public class BootstrapState : MonoBehaviour, IState
 
     private void LoadLevel()
     {
-        //TODO random level selection
         SceneManager.LoadSceneAsync(
-            SceneNames.LEVEL_1,
+            SceneNames.LEVEL_EXAMPLE,
             LoadSceneMode.Additive)
             .completed += _ =>
             {
-                var levelSpawner = ResolveLevelPlayerSpawner();
-                levelSpawner?.Spawn();
+                m_playerSpawner?.Spawn();
                 m_healthBarView?.Initialize();
             };
-    }
-
-    private PlayerSpawner ResolveLevelPlayerSpawner()
-    {
-        var spawners = FindObjectsByType<PlayerSpawner>(
-            FindObjectsInactive.Exclude,
-            FindObjectsSortMode.None);
-
-        foreach (var spawner in spawners)
-        {
-            if (spawner.gameObject.scene.name == SceneNames.LEVEL_1)
-            {
-                return spawner;
-            }
-        }
-
-        return m_playerSpawner;
     }
 }
