@@ -26,15 +26,21 @@ public class AttackingWeapon : Weapon
 
     private void CheckMeleeAttack()
     {
-        if(m_effectables is null)
+        if(m_effectables is null || m_effectables.Count == 0)
         {
             return;
         }
 
+        var effectablesArray = m_effectables.ToArray();
         var effects = attackingWeaponData.attackDetails[attackCounter].effects;
 
-        foreach (var effectable in m_effectables)
+        foreach (var effectable in effectablesArray)
         {
+            if (effectable is null)
+            {
+                continue;
+            }
+
             effects.ApplyEffect(effectable);
         }
     }
