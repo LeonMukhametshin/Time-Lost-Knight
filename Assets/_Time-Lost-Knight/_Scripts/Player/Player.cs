@@ -46,4 +46,14 @@ public class Player : Entity
         //TODO: remove 
         animationToFSM.Initialize(fsm);
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log(transform.position);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(transform.position);
+    }
 }

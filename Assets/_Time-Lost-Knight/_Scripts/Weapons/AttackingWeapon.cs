@@ -31,11 +31,11 @@ public class AttackingWeapon : Weapon
             return;
         }
 
-        var details = attackingWeaponData.attackDetails[attackCounter];
+        var effects = attackingWeaponData.attackDetails[attackCounter].effects;
 
         foreach (var effectable in m_effectables)
         {
-            details.effects.ApplyEffect(effectable);
+            effects.ApplyEffect(effectable);
         }
     }
 

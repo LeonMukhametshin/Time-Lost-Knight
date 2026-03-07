@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   <maxHealth>k__BackingField: 100
-  <movementSpeed>k__BackingField: 20
-  <jumpVelocity>k__BackingField: 24
+  <movementSpeed>k__BackingField: 18
+  <movementAcceleration>k__BackingField: 10000
+  <movementDeceleration>k__BackingField: 10000
+  <jumpVelocity>k__BackingField: 16
   <amountOfJumps>k__BackingField: 1
   <wallJumpVelocity>k__BackingField: 25
   <wallJumpTime>k__BackingField: 0.4
@@ -38,3 +40,4 @@ MonoBehaviour:
   <standColliderHeight>k__BackingField: 1.66
   <dropThroughDuration>k__BackingField: 0.25
   <dropVelocity>k__BackingField: 3
+  <audioClip>k__BackingField: {fileID: 0}
