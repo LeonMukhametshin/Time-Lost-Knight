@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4587557528597790306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5435880272711314653}
+  m_Layer: 0
+  m_Name: 'Player Back Check '
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5435880272711314653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587557528597790306}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.28999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7860734095293290048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6244181824168799701
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +327,8 @@ MonoBehaviour:
   m_platform:
     serializedVersion: 2
     m_Bits: 1024
-  m_playerChecker: {fileID: 2785549712272645677}
+  m_playerFrontChecker: {fileID: 2785549712272645677}
+  m_playerBackChecker: {fileID: 5435880272711314653}
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -386,9 +418,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2785549712272645677}
   m_Layer: 0
-  m_Name: Player Check
+  m_Name: Player Front Check
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -401,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 6492478604657062007}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.28999996, z: 0}
+  m_LocalPosition: {x: 0.5, y: -0.28999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -469,6 +501,7 @@ Transform:
   m_Children:
   - {fileID: 7166774816624975129}
   - {fileID: 2785549712272645677}
+  - {fileID: 5435880272711314653}
   - {fileID: 3240108296838532177}
   - {fileID: 4297569612424194246}
   - {fileID: 584356442499682983}
@@ -703,6 +736,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3933476414753465050, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_health
+      value: 
+      objectReference: {fileID: 3039004226391540403}
     - target: {fileID: 4196716988244389478, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1

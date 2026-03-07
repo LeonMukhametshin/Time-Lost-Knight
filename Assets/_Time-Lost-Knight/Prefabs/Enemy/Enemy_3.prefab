@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 4293663773702585030}
   - component: {fileID: 6153055250465705913}
   - component: {fileID: 2741610626574594857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,8 +44,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8441737720114122898}
-  - {fileID: 8902478008015570425}
   - {fileID: 3804927970390382039}
+  - {fileID: 8902478008015570425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7230174288167088674
@@ -337,14 +337,15 @@ MonoBehaviour:
   m_platform:
     serializedVersion: 2
     m_Bits: 1024
-  m_playerChecker: {fileID: 4128824496770535706}
+  m_playerFrontChecker: {fileID: 4128824496770535706}
+  m_playerBackChecker: {fileID: 6933909935788321707}
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
   m_zone: {x: 0, y: 0}
-  m_minAgroDistance: 0.27
-  m_maxAgroDistance: 13.19
-  m_closeRangeActionDistance: 0.13
+  m_minAgroDistance: 0.99
+  m_maxAgroDistance: 16.5
+  m_closeRangeActionDistance: 1.46
 --- !u!114 &2741610626574594857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +360,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   core: {fileID: 2663534899966985377}
   <rb>k__BackingField: {fileID: 2854547992790196430}
+--- !u!1 &5492691749715238461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6933909935788321707}
+  m_Layer: 0
+  m_Name: 'Player Back Check '
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6933909935788321707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5492691749715238461}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.627, y: -0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3804927970390382039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5894121699785038014
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2740681730172706104}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3804927970390382039}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Collision Checkers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,6 +517,7 @@ Transform:
   - {fileID: 4805283272618770397}
   - {fileID: 4396086762551371380}
   - {fileID: 4128824496770535706}
+  - {fileID: 6933909935788321707}
   m_Father: {fileID: 8067328373093011844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8594321860637699571
@@ -496,8 +529,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128824496770535706}
-  m_Layer: 8
-  m_Name: Player Check
+  m_Layer: 0
+  m_Name: Player Front Check
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -512,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 8594321860637699571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.873, y: -0.02, z: 0}
+  m_LocalPosition: {x: 0.381, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -557,6 +590,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8067328373093011844}
     m_Modifications:
+    - target: {fileID: 406040344107378613, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 662658111866194407, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -640,6 +677,26 @@ PrefabInstance:
     - target: {fileID: 1028791605611558595, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_Name
       value: Entity Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028791605611558595, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097302206225709101, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933476414753465050, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_health
+      value: 
+      objectReference: {fileID: 6076970890962481465}
+    - target: {fileID: 4196716988244389478, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756884308725843592, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_health

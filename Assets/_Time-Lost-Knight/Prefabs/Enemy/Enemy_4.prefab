@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 4293663773702585030}
   - component: {fileID: 6153055250465705913}
   - component: {fileID: 2741610626574594857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,8 +44,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8441737720114122898}
-  - {fileID: 8902478008015570425}
   - {fileID: 3804927970390382039}
+  - {fileID: 8902478008015570425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7230174288167088674
@@ -231,7 +231,6 @@ MonoBehaviour:
   <animationToFSM>k__BackingField: {fileID: 4293663773702585030}
   <data>k__BackingField: {fileID: 11400000, guid: c1c6bfbaa9051fb468c06f03366509f7, type: 2}
   m_rangeAttackPosition: {fileID: 8441737720114122898}
-  text: {fileID: 0}
   m_waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -341,7 +340,8 @@ MonoBehaviour:
   m_platform:
     serializedVersion: 2
     m_Bits: 1024
-  m_playerChecker: {fileID: 4128824496770535706}
+  m_playerFrontChecker: {fileID: 4128824496770535706}
+  m_playerBackChecker: {fileID: 7201460342181371550}
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -363,6 +363,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   core: {fileID: 2663534899966985377}
   <rb>k__BackingField: {fileID: 2854547992790196430}
+--- !u!1 &4010908616343151428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7201460342181371550}
+  m_Layer: 0
+  m_Name: 'Player Back Check '
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7201460342181371550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010908616343151428}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.69, y: -1.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3804927970390382039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5894121699785038014
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2740681730172706104}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8441737720114122898}
   m_Layer: 0
-  m_Name: RangeAttack
+  m_Name: Attack Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3804927970390382039}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Collision Checkers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,6 +519,7 @@ Transform:
   - {fileID: 2740681730172706104}
   - {fileID: 4805283272618770397}
   - {fileID: 4396086762551371380}
+  - {fileID: 7201460342181371550}
   - {fileID: 4128824496770535706}
   m_Father: {fileID: 8067328373093011844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -500,8 +532,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128824496770535706}
-  m_Layer: 8
-  m_Name: Player Check
+  m_Layer: 0
+  m_Name: Player Forn Check
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -644,6 +676,18 @@ PrefabInstance:
     - target: {fileID: 1028791605611558595, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_Name
       value: Entity Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028791605611558595, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933476414753465050, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_health
+      value: 
+      objectReference: {fileID: 6076970890962481465}
+    - target: {fileID: 4196716988244389478, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8983430070729423105, guid: 02d9001b0d51e0042a8cf9d1f34bb5b0, type: 3}
       propertyPath: m_health
