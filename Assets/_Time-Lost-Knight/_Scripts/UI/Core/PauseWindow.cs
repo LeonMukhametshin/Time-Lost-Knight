@@ -33,12 +33,12 @@ public class PauseWindow : MonoBehaviour
     {
         m_popup.gameObject.SetActive(true);
         m_popup.Show();
-        Pause.instants.SetPause(true);
+        ServiceLocator.Get<Pause>().SetPause(true);
     }
 
     public void ClosePause()
     {
         m_popup.Hide(() => m_popup.gameObject.SetActive(false));
-        Pause.instants.SetPause(false);
+        ServiceLocator.Get<Pause>().SetPause(false);
     }
 }

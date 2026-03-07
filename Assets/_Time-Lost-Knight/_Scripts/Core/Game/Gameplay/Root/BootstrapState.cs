@@ -7,6 +7,8 @@ public class BootstrapState : MonoBehaviour, IState
     [SerializeField] private PlayerSpawner m_playerSpawner;
     [SerializeField] private PlayerHealthBarView m_healthBarView;
 
+    [SerializeField] private Pause m_pause;
+
     [SerializeField] private UIInputHandler m_uIInputHandler;
     [SerializeField] private InteractPrompt m_interactPrompt;
     [SerializeField] private PauseWindow m_pauseWindow;
@@ -25,6 +27,7 @@ public class BootstrapState : MonoBehaviour, IState
         ServiceLocator.Register(m_uIInputHandler);
         ServiceLocator.Register(m_interactPrompt);
         ServiceLocator.Register(m_particleManager);
+        ServiceLocator.Register(m_pause);
 
         m_pauseWindow.Initialize(m_uIInputHandler);
         m_stateMachine.ChangeState<GameplayState>();

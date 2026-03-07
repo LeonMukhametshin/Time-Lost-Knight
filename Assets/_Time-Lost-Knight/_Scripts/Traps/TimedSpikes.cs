@@ -11,7 +11,7 @@ public class TimedSpikes : Trap
 
     private void Update()
     {
-        if (Pause.instants.isPaused)
+        if (ServiceLocator.Get<Pause>().isPaused)
         {
             return;
         }

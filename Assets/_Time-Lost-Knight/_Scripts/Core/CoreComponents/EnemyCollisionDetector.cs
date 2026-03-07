@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemyCollisionDetector : CollisionDetector
 {
-    [SerializeField] private Transform m_playerChecker;
+    [SerializeField] private Transform m_playerFrontChecker;
+    [SerializeField] private Transform m_playerBackChecker;
     [SerializeField] private LayerMask m_playerLayer;
     [SerializeField] private Vector2 m_zone;
 
@@ -13,7 +14,7 @@ public class EnemyCollisionDetector : CollisionDetector
     public virtual Vector2? GetPlayerPositionInZone()
     {
         var hit = Physics2D.OverlapBox(
-            m_playerChecker.position,
+            m_playerFrontChecker.position,
             m_zone,
             0f,
             m_playerLayer);
@@ -28,10 +29,11 @@ public class EnemyCollisionDetector : CollisionDetector
 
     public virtual Vector3 GetPlayerPositionInMaxAgroRange()
     {
+
         Vector2 direction = Vector2.right * flipController.facingDirection;
 
         RaycastHit2D hit = Physics2D.Raycast(
-            m_playerChecker.position,
+            m_playerFrontChecker.position,
             direction,
             m_maxAgroDistance,
             m_playerLayer);
@@ -43,21 +45,29 @@ public class EnemyCollisionDetector : CollisionDetector
         Physics2D.Raycast(m_ledgeCheck.position, Vector2.down,
             m_wallCheckDistance, m_groundLayer);
 
-    public virtual bool CheckPlayerInMinAgroRange() =>
-        Physics2D.Raycast(m_playerChecker.position, transform.right,
+    public virtual bool CheckPlayerInMinAgroRange()
+    {
+        var hitFront = Physics2D.Raycast(m_playerFrontChecker.position, transform.right,
             m_minAgroDistance, m_playerLayer);
 
+        var hitBack = Physics2D.Raycast(m_playerBackChecker.position, -transform.right,
+             m_minAgroDistance, m_playerLayer);
+
+        return hitFront || hitBack;
+    }
+      
+
     public virtual bool CheckPlayerInMaxAgroRange() =>
-        Physics2D.Raycast(m_playerChecker.position, transform.right,
+        Physics2D.Raycast(m_playerFrontChecker.position, transform.right,
             m_maxAgroDistance, m_playerLayer);
 
     public virtual bool CheckPlayerInCloseRangeAction() => 
-        Physics2D.Raycast(m_playerChecker.position, transform.right, m_closeRangeActionDistance, m_playerLayer);
+        Physics2D.Raycast(m_playerFrontChecker.position, transform.right, m_closeRangeActionDistance, m_playerLayer);
 
     public virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(m_playerChecker.position, m_zone);
+        Gizmos.DrawWireCube(m_playerFrontChecker.position, m_zone);
 
         Gizmos.color = Color.white;
         Gizmos.DrawLine(m_wallCheck.position,
@@ -65,11 +75,11 @@ public class EnemyCollisionDetector : CollisionDetector
         Gizmos.DrawLine(m_ledgeCheck.position,
             m_ledgeCheck.position + (Vector3)(Vector2.down * m_wallCheckDistance));
 
-        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right *  m_closeRangeActionDistance * flipController.facingDirection),
+        Gizmos.DrawWireSphere(m_playerFrontChecker.position + (Vector3)(Vector2.right *  m_closeRangeActionDistance * flipController.facingDirection),
             0.2f);
-        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right * m_minAgroDistance * flipController.facingDirection),
+        Gizmos.DrawWireSphere(m_playerFrontChecker.position + (Vector3)(Vector2.right * m_minAgroDistance * flipController.facingDirection),
             0.2f);
-        Gizmos.DrawWireSphere(m_playerChecker.position + (Vector3)(Vector2.right * m_maxAgroDistance * flipController.facingDirection),
+        Gizmos.DrawWireSphere(m_playerFrontChecker.position + (Vector3)(Vector2.right * m_maxAgroDistance * flipController.facingDirection),
             0.2f);
     }
 }

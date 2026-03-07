@@ -1098,6 +1098,7 @@ MonoBehaviour:
   m_playerInputHandler: {fileID: 1204895402}
   m_playerSpawner: {fileID: 799800995}
   m_healthBarView: {fileID: 386048400459673255}
+  m_pause: {fileID: 167305658}
   m_uIInputHandler: {fileID: 1204895401}
   m_interactPrompt: {fileID: 1540876770}
   m_pauseWindow: {fileID: 2468428444862798604}

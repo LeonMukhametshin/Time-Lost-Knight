@@ -13,11 +13,11 @@ public class Entity : MonoBehaviour, IPauseHandler
    
     private Movement m_movement;
 
-    private void OnEnable() => 
-        Pause.instants.Add(this);
+    private void OnEnable() =>
+        ServiceLocator.Get<Pause>().Add(this);
 
-    //private void OnDisable() => 
-     //   Pause.instants.Remove(this);
+    private void OnDisable() => 
+       ServiceLocator.Get<Pause>().Remove(this);
 
     public virtual void Awake()
     {
@@ -27,7 +27,7 @@ public class Entity : MonoBehaviour, IPauseHandler
 
     public virtual void Update()
     {
-        if (Pause.instants.isPaused)
+        if (ServiceLocator.Get<Pause>().isPaused)
         {
             return;
         }
@@ -40,7 +40,7 @@ public class Entity : MonoBehaviour, IPauseHandler
 
     public virtual void FixedUpdate()
     {
-        if (Pause.instants.isPaused)
+        if (ServiceLocator.Get<Pause>().isPaused)
         {
             return;
         }

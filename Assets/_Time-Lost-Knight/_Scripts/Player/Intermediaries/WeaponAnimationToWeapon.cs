@@ -12,7 +12,7 @@ public class WeaponAnimationToWeapon : MonoBehaviour
         }
     }
 
-    private void AnimationFiishTrigger() =>
+    private void AnimationFinishTrigger() =>
         m_weapon?.AnimationFinishTrigger();
 
     private void AnimationStartMovementTrigger() =>

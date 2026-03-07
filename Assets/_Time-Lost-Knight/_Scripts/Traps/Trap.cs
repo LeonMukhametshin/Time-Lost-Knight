@@ -11,7 +11,7 @@ public class Trap : MonoBehaviour, IPauseHandler
     protected virtual void ApplyEffects(Collider2D collision) { }
 
     private void OnEnable() => 
-        Pause.instants.Add(this);
+        ServiceLocator.Get<Pause>().Add(this);
 
     public virtual void IsPuased(bool isPaused) => 
         animator.enabled = !isPaused;
