@@ -22,10 +22,12 @@ public class PlayerWallTouchingState : PlayerState
     protected bool grabInput;
     protected bool jumpInput;
 
-    public PlayerWallTouchingState(EntityFSM fsm, Core core,
+    public PlayerWallTouchingState(EntityFSM fsm, Core core, 
         string animBoolName, Player player, 
-        PlayerData data) 
-        : base(fsm, core, animBoolName, player, data)
+        PlayerData data, bool active) 
+        : base(fsm, core, 
+            animBoolName, player, 
+            data, active)
     {
     }
 

@@ -5,22 +5,16 @@ public class PlayerWallJumpState : PlayerAbilytiState
     private int m_wallJumpDirection;
 
     public PlayerWallJumpState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player,
-        PlayerData data,bool canUse_) 
-        : base(fsm, core, animBoolName, player, data)
+        string animBoolName, Player player, 
+        PlayerData data, bool active) 
+        : base(fsm, core, 
+            animBoolName, player, 
+            data, active)
     {
-        this.canUse = canUse_;
     }
 
     public override void Enter()
     {
-        canUse = player.canWallJump;
-
-        if (!canUse)
-        {
-            return;
-        }
-
         base.Enter();
 
         var jumpState = fsm.GetState<PlayerJumpState>();

@@ -616,6 +616,11 @@ MonoBehaviour:
   <inventory>k__BackingField: {fileID: 133324211880808830}
   <dashVizualizer>k__BackingField:
     indecator: {fileID: 6509997452513881350}
+  canDash: 0
+  canGrab: 0
+  canWallJump: 1
+  canClimbing: 0
+  canOmniDash: 0
 --- !u!114 &133324211880808830
 MonoBehaviour:
   m_ObjectHideFlags: 0

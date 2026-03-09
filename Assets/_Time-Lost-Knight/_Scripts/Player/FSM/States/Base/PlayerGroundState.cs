@@ -23,16 +23,14 @@ public class PlayerGroundState : PlayerState
     private bool m_grabInput;
     private bool m_isTouchingLedge;
     private bool m_dashInput;
-    private bool m_isTouchingOneWayPlatform;
-
-    private Collider2D m_oneWayPlatformCollider;
 
     private bool m_dropDownInput;
 
     public PlayerGroundState(EntityFSM fsm, Core core, 
         string animBoolName, Player player, 
-        PlayerData data) 
-        : base(fsm, core, animBoolName, player, data)
+        PlayerData data, bool active) 
+        : base(fsm, core, animBoolName, 
+            player, data, active)
     {
     }
 

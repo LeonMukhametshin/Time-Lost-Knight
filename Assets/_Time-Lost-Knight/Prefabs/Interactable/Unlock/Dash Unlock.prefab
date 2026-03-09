@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8634763913259963681}
   - component: {fileID: 3762490142307575909}
   - component: {fileID: 4783683613383023190}
-  - component: {fileID: 3553578676758084469}
+  - component: {fileID: 6839580138716012758}
   m_Layer: 12
-  m_Name: DashUnlock
+  m_Name: Dash Unlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +38,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4262327825422689390
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,6 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: -118938113
   m_SortingLayer: 5
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.37241364, g: 0, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +94,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &8634763913259963681
 CapsuleCollider2D:
@@ -175,9 +176,9 @@ MonoBehaviour:
   m_onIntarect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3553578676758084469}
+      - m_Target: {fileID: 6839580138716012758}
         m_TargetAssemblyTypeName: GrabUnlockPickup, Assembly-CSharp
-        m_MethodName: PickUp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 8634763913259963681}
@@ -187,7 +188,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3553578676758084469
+--- !u!114 &6839580138716012758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,6 +197,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6826516999293444472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f45a62260ab330c4c84565e1af994c49, type: 3}
+  m_Script: {fileID: 11500000, guid: 6916f00dd5ef3a543884e51f3e05868c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AbilityUnlockPickup
+  m_EditorClassIdentifier: Assembly-CSharp::DashAbilityUnlock

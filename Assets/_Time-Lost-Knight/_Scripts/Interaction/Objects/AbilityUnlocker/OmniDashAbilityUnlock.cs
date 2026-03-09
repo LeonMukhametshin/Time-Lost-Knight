@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DashAbilityUnlock : MonoBehaviour
+public class OmniDashAbilityUnlock : MonoBehaviour
 {
     private PlayerFSM m_fsm;
 
@@ -11,13 +11,13 @@ public class DashAbilityUnlock : MonoBehaviour
 
     public void Unlock()
     {
-        if (m_fsm is null || 
-            m_fsm.GetState<PlayerForwardDashState>().active)
+        if (m_fsm is null ||
+            m_fsm.GetState<PlayerOmnidirectionalDashState>().active)
         {
             return;
         }
 
-        m_fsm.ActivateState<PlayerForwardDashState>();
+        m_fsm.ActivateState<PlayerOmnidirectionalDashState>();
 
         Destroy(gameObject);
     }

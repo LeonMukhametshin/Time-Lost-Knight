@@ -10,10 +10,12 @@ public class PlayerRangedAttackState : PlayerAbilytiState, IAnimationTrigger
     private float m_enterTime;
 
     public PlayerRangedAttackState(EntityFSM fsm, Core core,
-        string animBoolName, Player player,
-        PlayerData playerData,
-        Transform attackPosition, RangeAttackData rangedData)
-        : base(fsm, core, animBoolName, player, playerData)
+       string animBoolName, Player player,
+       PlayerData data, Transform attackPosition, 
+       RangeAttackData rangedData, bool active)
+       : base(fsm, core,
+           animBoolName, player,
+           data, active)
     {
         m_attackPosition = attackPosition;
         m_data = rangedData;

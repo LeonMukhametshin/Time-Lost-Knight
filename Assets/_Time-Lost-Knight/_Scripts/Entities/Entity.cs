@@ -2,13 +2,13 @@
 
 public class Entity : MonoBehaviour, IPauseHandler
 {
-    public EntityFSM fsm { get; private set; }
+    public EntityFSM fsm { get; protected set; }
 
     [field: SerializeField] public Core core { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
     [field: SerializeField] public AnimationToFSM animationToFSM { get; private set; }
 
-    [SerializeField] private EntityData m_data;
+    [field: SerializeField] protected EntityData data { get; private set; }
 
     protected Movement movement => 
         m_movement ??= core.GetCoreComponent<Movement>();
@@ -16,17 +16,17 @@ public class Entity : MonoBehaviour, IPauseHandler
     private Movement m_movement;
 
     private void OnEnable() => 
-        Pause.instants.Add(this);
+        ServiceLocator.Get<Pause>().Add(this);
 
     private void OnDisable() => 
-        Pause.instants.Remove(this);
+        ServiceLocator.Get<Pause>().Remove(this);
 
     public virtual void Awake() =>
-        CreateFSM();
+        fsm = new EntityFSM();
 
     public virtual void Update()
     {
-        if (Pause.instants.isPaused)
+        if (ServiceLocator.Get<Pause>().isPaused)
         {
             return;
         }
@@ -39,25 +39,12 @@ public class Entity : MonoBehaviour, IPauseHandler
 
     public virtual void FixedUpdate()
     {
-        if (Pause.instants.isPaused)
+        if (ServiceLocator.Get<Pause>().isPaused)
         {
             return;
         }
 
         fsm.FixedUpdate();
-    }
-
-    public void CreateFSM()
-    {
-        if (this is Player)
-        {
-            fsm = new PlayerFSM();
-        }
-
-        else
-        {
-            fsm = new EntityFSM();
-        }
     }
 
     public void IsPuased(bool isPaused)

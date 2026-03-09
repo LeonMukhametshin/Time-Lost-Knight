@@ -4,15 +4,19 @@ public class PlayerState : EntityState, IAnimationTrigger
 
     protected bool isAnimationFinished;
     protected bool isExitingState;
-    protected bool canUse;
+    public bool active;
+
     protected PlayerData data;
 
-    public PlayerState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, PlayerData data) 
+    public PlayerState(
+        EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data, bool active ) 
         : base(fsm, core, animBoolName)
     {
         this.player = player;
         this.data = data;
+        this.active = active;
     }
 
     public override void Enter()
@@ -36,5 +40,5 @@ public class PlayerState : EntityState, IAnimationTrigger
     public virtual void FinishAnimation() =>
         isAnimationFinished = true;
 
-    public virtual bool CheckAbilityUseState() => canUse;
+    public virtual bool CheckAbilityUseState() => active;
 }

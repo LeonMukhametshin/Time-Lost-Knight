@@ -10,26 +10,20 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
     private Vector2 m_dashDirection;
     private Vector2 m_lastAfterImagePosition;
 
+    protected PlayerBaseDashState(EntityFSM fsm, Core core, 
+        string animBoolName, Player player, 
+        PlayerData data, bool active) 
+        : base(fsm, core, 
+            animBoolName, player, 
+            data, active)
+    {
+    }
+
     protected abstract bool canHoldDirection { get; }
     protected abstract bool showDashVisualizer { get; }
 
-    protected PlayerBaseDashState(EntityFSM fsm, Core core,
-        string animBoolName, Player player,
-        PlayerData data, bool canUse_)
-        : base(fsm, core, animBoolName, player, data)
-    {
-        this.canUse = canUse_;
-    }
-
     public override void Enter()
     {
-        canUse = player.canDash;
-
-        if (!canUse)
-        {
-            return;
-        }
-
         base.Enter();
 
         canDash = false;

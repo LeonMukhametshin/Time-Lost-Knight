@@ -6,9 +6,11 @@ public class PlayerCrouchMoveState : PlayerGroundState
     private FlipContoller m_flipContoller;
 
     public PlayerCrouchMoveState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data) 
-        : base(fsm, core, animBoolName, player, data)
+        string animBoolName, Player player,
+        PlayerData data, bool active) 
+        : base(fsm, core, 
+            animBoolName, player, 
+            data, active)
     {
     }
 

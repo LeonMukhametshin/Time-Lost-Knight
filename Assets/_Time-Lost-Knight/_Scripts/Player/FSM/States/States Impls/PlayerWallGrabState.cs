@@ -6,21 +6,15 @@ public class PlayerWallGrabState : PlayerWallTouchingState
 
     public PlayerWallGrabState(EntityFSM fsm, Core core, 
         string animBoolName, Player player, 
-        PlayerData data, bool canUse_) 
-        : base(fsm, core, animBoolName, player, data)
+        PlayerData data, bool active) 
+        : base(fsm, core, 
+            animBoolName, player, 
+            data, active)
     {
-        this.canUse = canUse_;
     }
 
     public override void Enter()
     {
-        canUse = player.canGrab;
-
-        if (!canUse)
-        {
-            return;
-        } 
-
         base.Enter();
 
         m_holdPosition = player.transform.position;

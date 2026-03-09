@@ -5,10 +5,11 @@ public class PlayerMoveState : PlayerGroundState
 
     private FlipContoller m_flipContoller;
 
-    public PlayerMoveState(EntityFSM fsm, Core core,
+    public PlayerMoveState(EntityFSM fsm, Core core, 
         string animBoolName, Player player, 
-        PlayerData data) 
-        : base(fsm, core, animBoolName, player, data)
+        PlayerData data, bool active) 
+        : base(fsm, core, animBoolName, 
+            player, data, active)
     {
     }
 
@@ -32,10 +33,5 @@ public class PlayerMoveState : PlayerGroundState
         {
             fsm.ChangeState<PlayerCrouchIdleState>();
         }
-    }
-
-    private void CalculateMoveSpeed()
-    {
-
     }
 }

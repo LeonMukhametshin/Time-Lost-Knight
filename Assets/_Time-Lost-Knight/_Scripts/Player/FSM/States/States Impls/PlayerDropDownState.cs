@@ -15,8 +15,8 @@ public class PlayerDropDownState : PlayerState
 
     public PlayerDropDownState(EntityFSM fsm, Core core, 
         string animBoolName, Player player, 
-        PlayerData data) 
-        : base(fsm, core, animBoolName, player, data)
+        PlayerData data, bool active) 
+        : base(fsm, core, animBoolName, player, data, active)
     {
         m_duration = data.dropThroughDuration;
     }

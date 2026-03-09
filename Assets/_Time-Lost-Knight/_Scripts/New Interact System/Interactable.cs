@@ -5,6 +5,7 @@ public class Interactable : MonoBehaviour, IInteract
 {
     [SerializeField] private string m_displayName = "Interact";
     [SerializeField] private bool m_isEnabled = true;
+
     [SerializeField] private UnityEvent m_onIntarect;
 
     public Transform position => transform;
