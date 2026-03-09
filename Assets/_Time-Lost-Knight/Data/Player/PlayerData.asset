@@ -38,6 +38,6 @@ MonoBehaviour:
   <crouchMovementVelocity>k__BackingField: 10
   <crouchColliderHeight>k__BackingField: 0.8
   <standColliderHeight>k__BackingField: 2.63
-  <dropThroughDuration>k__BackingField: 0.25
-  <dropVelocity>k__BackingField: 3
+  <dropThroughDuration>k__BackingField: 0.46
+  <dropVelocity>k__BackingField: 8.52
   <audioClip>k__BackingField: {fileID: 0}
