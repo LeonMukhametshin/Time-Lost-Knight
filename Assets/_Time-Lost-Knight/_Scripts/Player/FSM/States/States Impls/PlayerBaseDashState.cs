@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class PlayerBaseDashState : PlayerAbilytiState
 {
-    public bool canDash { get; private set; }
+    public bool canDash;
 
     private bool m_isHolding;
 
@@ -15,13 +15,21 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
 
     protected PlayerBaseDashState(EntityFSM fsm, Core core,
         string animBoolName, Player player,
-        PlayerData data)
+        PlayerData data, bool canUse_)
         : base(fsm, core, animBoolName, player, data)
     {
+        this.canUse = canUse_;
     }
 
     public override void Enter()
     {
+        canUse = player.canDash;
+
+        if (!canUse)
+        {
+            return;
+        }
+
         base.Enter();
 
         canDash = false;

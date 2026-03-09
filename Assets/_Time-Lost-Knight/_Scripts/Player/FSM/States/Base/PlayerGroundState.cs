@@ -92,11 +92,15 @@ public class PlayerGroundState : PlayerState
         {
             fsm.ChangeState<PlayerWallGrabState>();
         }
-        else if(m_dashInput && collisionDetector.CheckForOmnidirectionalZone() && !isTouchingCeiling)
+        else if(m_dashInput &&
+                collisionDetector.CheckForOmnidirectionalZone() &&
+                !isTouchingCeiling)
         {
             fsm.ChangeState<PlayerOmnidirectionalDashState>();
         }
-        else if (m_dashInput && fsm.GetState<PlayerForwardDashState>().CheckIfCanDash() && !isTouchingCeiling)
+        else if (m_dashInput &&
+                 fsm.GetState<PlayerForwardDashState>().CheckIfCanDash() &&
+                 !isTouchingCeiling)
         {
             fsm.ChangeState<PlayerForwardDashState>();
         }

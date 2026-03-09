@@ -26,7 +26,7 @@ public class StateMachine
         }
     }
 
-    public void ChangeState<T>() where T : IState
+    public virtual void ChangeState<T>() where T : IState
     {
         m_currentState?.Exit();
         m_currentState = m_states[typeof(T)];

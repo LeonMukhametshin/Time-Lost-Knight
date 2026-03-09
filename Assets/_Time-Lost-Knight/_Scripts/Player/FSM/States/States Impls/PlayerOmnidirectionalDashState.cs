@@ -7,8 +7,8 @@ public class PlayerOmnidirectionalDashState : PlayerBaseDashState
 
     public PlayerOmnidirectionalDashState(EntityFSM fsm, Core core,
         string animBoolName, Player player,
-        PlayerData data)
-        : base(fsm, core, animBoolName, player, data)
+        PlayerData data, bool canUse)
+        : base(fsm, core, animBoolName, player, data, canUse)
     {
     }
 
