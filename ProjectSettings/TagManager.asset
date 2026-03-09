@@ -18,7 +18,7 @@ TagManager:
   - 
   - Enemy
   - Platform
-  - OmnidirectionalZone
+  - Dash Zone
   - Hints
   - Traps
   - 

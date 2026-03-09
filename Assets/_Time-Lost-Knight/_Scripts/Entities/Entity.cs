@@ -21,8 +21,11 @@ public class Entity : MonoBehaviour, IPauseHandler
     private void OnDisable() => 
         ServiceLocator.Get<Pause>().Remove(this);
 
-    public virtual void Awake() =>
+    public virtual void Awake()
+    {
         fsm = new EntityFSM();
+        core.GetCoreComponent<HealthComponent>().Initialize(data.maxHealth);
+    }
 
     public virtual void Update()
     {
