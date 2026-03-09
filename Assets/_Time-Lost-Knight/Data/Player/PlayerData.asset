@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724399f35c1a93b449e4f57b4d960e5f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  <maxHealth>k__BackingField: 10000
+  <maxHealth>k__BackingField: 1000
   <movementSpeed>k__BackingField: 16
   <movementAcceleration>k__BackingField: 10000
   <movementDeceleration>k__BackingField: 10000
@@ -36,7 +36,7 @@ MonoBehaviour:
   <dashEndYMultiplier>k__BackingField: 0.54
   <distanceBetweenAfterImages>k__BackingField: 0.39
   <crouchMovementVelocity>k__BackingField: 10
-  <crouchColliderHeight>k__BackingField: 0.8
+  <crouchColliderHeight>k__BackingField: 1.6166
   <standColliderHeight>k__BackingField: 2.63
   <dropThroughDuration>k__BackingField: 0.46
   <dropVelocity>k__BackingField: 8.52

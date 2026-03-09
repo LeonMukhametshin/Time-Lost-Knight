@@ -16,7 +16,7 @@ public class PlayerHealthBarView : MonoBehaviour
         SetValue();
     }
 
-    public void OnDisable()
+    public void Unsubscribe()
     {
         m_healthSystem.valueChanged -= SetValue;
     }

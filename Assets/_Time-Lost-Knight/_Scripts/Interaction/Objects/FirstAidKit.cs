@@ -6,7 +6,7 @@ public class FirstAidKit : MonoBehaviour
 
     private BuffContainer health;
 
-    private void Awake()
+    private void Start()
     {
         health = ServiceLocator
             .Get<Player>().gameObject

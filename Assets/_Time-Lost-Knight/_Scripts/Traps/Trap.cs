@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour, IPauseHandler
 {
-    [field: SerializeField] [Range(0,1000)] protected float damage { get; private set; }
     [field: SerializeField] protected Animator animator { get; private set; }
 
     public virtual void Activate() =>

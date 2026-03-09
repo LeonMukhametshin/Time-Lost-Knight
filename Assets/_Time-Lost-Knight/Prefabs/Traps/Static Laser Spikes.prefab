@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2845730671322765023}
   - component: {fileID: 722511176665269380}
   - component: {fileID: 1750875747548936079}
-  - component: {fileID: 9204066369860142286}
+  - component: {fileID: 7072311146332741384}
   m_Layer: 0
   m_Name: 'Static Laser Spikes '
   m_TagString: Untagged
@@ -70,6 +70,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2845730671322765023
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -115,6 +116,7 @@ SpriteRenderer:
   m_SortingLayerID: 310245899
   m_SortingLayer: 2
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -2793541952521604260, guid: 8543b81543549d44db20c6ef86967046, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +126,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &722511176665269380
 Animator:
@@ -194,7 +195,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.40218163}
   m_EdgeRadius: 0
---- !u!114 &9204066369860142286
+--- !u!114 &7072311146332741384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,15 +204,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3227018019709171042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2342512592e5c6742ac0315bf280347d, type: 3}
+  m_Script: {fileID: 11500000, guid: b40fb6e07abdb4f49a0ddc267e17c9df, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StaticSpike
-  <damage>k__BackingField: 20
+  m_EditorClassIdentifier: Assembly-CSharp::StaticTeleportSpike
   <animator>k__BackingField: {fileID: 722511176665269380}
-  m_trapAttackDetails:
-    damageAmount: 10
-    knokbackStringht: 20
-    angle: {x: 0, y: 1}
+  effects:
+  - rid: 47934533460557909
+  m_teleportPlayerAfterDamage: 1
+  m_teleportPoint: {fileID: 0}
+  m_runtimeTeleportPoint: {x: 0, y: 0}
+  m_useRuntimeTeleportPoint: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 47934533460557909
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        m_damage: 10
 --- !u!1 &6554225138287124887
 GameObject:
   m_ObjectHideFlags: 0

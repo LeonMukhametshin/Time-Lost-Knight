@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    [field: SerializeField] public AudioSource source { get; private set; }
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
 
@@ -39,12 +38,20 @@ public class Player : Entity
             new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData, false),
             new PlayerOmnidirectionalDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData, false));
 
-        fsm.GetState<PlayerPrimaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
-        fsm.GetState<PlayerSecondaryAttackState>().SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
+        fsm
+            .GetState<PlayerPrimaryAttackState>()
+            .SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
+        fsm
+            .GetState<PlayerSecondaryAttackState>()
+            .SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
 
         fsm.ChangeState<PlayerIdleState>();
 
         //TODO: remove 
         animationToFSM.Initialize(fsm);
+
+        core
+            .GetComponent<HealthComponent>()
+            .Initialize(data.maxHealth);
     }
 }
