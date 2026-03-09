@@ -231,10 +231,10 @@
                 {
                     "name": "",
                     "id": "6fcbe2e7-b900-4005-a929-ec92eb062fae",
-                    "path": "",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false

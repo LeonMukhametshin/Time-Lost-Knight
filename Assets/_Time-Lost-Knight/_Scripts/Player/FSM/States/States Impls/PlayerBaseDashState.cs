@@ -91,7 +91,6 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
         }
 
         movement.SetVelocity(data.dashVelocity, m_dashDirection);
-        CheckIfShoudPlaceAfterImage();
 
         if (Time.time >= startTime + data.dashTime)
         {
@@ -116,13 +115,5 @@ public abstract class PlayerBaseDashState : PlayerAbilytiState
         movement.SetVelocity(data.dashVelocity, m_dashDirection);
 
         m_lastAfterImagePosition = player.transform.position;
-    }
-
-    private void CheckIfShoudPlaceAfterImage()
-    {
-        if (Vector2.Distance(player.transform.position, m_lastAfterImagePosition) >= data.distanceBetweenAfterImages)
-        {
-            m_lastAfterImagePosition = player.transform.position;
-        }
     }
 }

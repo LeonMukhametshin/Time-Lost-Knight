@@ -10,7 +10,7 @@ public class FirstAidKit : MonoBehaviour
     {
         health = ServiceLocator
             .Get<Player>().gameObject
-            .GetComponentInChildren<BuffContainer>();
+            .GetComponent<BuffContainer>();
     }
 
     public void Heal()

@@ -43,18 +43,13 @@ public class PlayerData : EntityData
     [field: SerializeField, Min(0)] public float dashVelocity { get; private set; }
     [field: SerializeField, Min(0)] public float drag { get; private set; }
     [field: SerializeField, Min(0)] public float dashEndYMultiplier { get; private set; }
-    [field: SerializeField, Min(0)] public float distanceBetweenAfterImages { get; private set; }
 
     [field: Space(8)]
     [field: Header("Crouch")]
     [field: SerializeField, Min(0)] public float crouchMovementVelocity { get; private set; }
-    [field: SerializeField, Min(0)] public float crouchColliderHeight { get; private set; }
-    [field: SerializeField, Min(0)] public float standColliderHeight { get; private set; }
 
     [field: Space(8)]
     [field: Header("One Way Platform")]
     [field: SerializeField, Min(0)] public float dropThroughDuration { get; private set; } = 0.25f;
     [field: SerializeField, Min(0)] public float dropVelocity { get; private set; } = 3f;
-
-    [field: SerializeField] public AudioClip audioClip { get; private set; }
 }

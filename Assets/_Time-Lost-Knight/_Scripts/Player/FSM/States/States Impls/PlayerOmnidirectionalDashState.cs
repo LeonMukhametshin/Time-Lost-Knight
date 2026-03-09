@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerOmnidirectionalDashState : PlayerBaseDashState
 {
-
     protected override bool canHoldDirection => true;
     protected override bool showDashVisualizer => true;
 

@@ -108,13 +108,6 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnDashDirectionInput(InputAction.CallbackContext context)
     {
         rawDashDirectionInput = context.ReadValue<Vector2>();
-
-        //TODO: select keyboard/gamepad
-        /*if (m_playerInput.currentControlScheme == "Keyboard")
-        {
-            rawDashDirectionInput = m_camera.ScreenToWorldPoint((Vector3)rawDashDirectionInput - transform.position);
-        }*/
-
         dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
     }
 
