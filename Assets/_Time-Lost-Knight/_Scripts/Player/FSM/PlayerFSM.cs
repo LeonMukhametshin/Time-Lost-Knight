@@ -21,7 +21,7 @@ public class PlayerFSM : EntityFSM
 
     public override void ChangeState<T>()
     {
-        if (m_states.ContainsKey(typeof(T)) && CheckContainesState(m_states[typeof(T)]))
+        if (m_states.ContainsKey(typeof(T)))
         {
             base.ChangeState<T>();
         }

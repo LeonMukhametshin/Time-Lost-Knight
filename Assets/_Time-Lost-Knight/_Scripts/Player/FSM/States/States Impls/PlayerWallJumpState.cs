@@ -6,13 +6,21 @@ public class PlayerWallJumpState : PlayerAbilytiState
 
     public PlayerWallJumpState(EntityFSM fsm, Core core, 
         string animBoolName, Player player,
-        PlayerData data) 
+        PlayerData data,bool canUse_) 
         : base(fsm, core, animBoolName, player, data)
     {
+        this.canUse = canUse_;
     }
 
     public override void Enter()
     {
+        canUse = player.canWallJump;
+
+        if (!canUse)
+        {
+            return;
+        }
+
         base.Enter();
 
         var jumpState = fsm.GetState<PlayerJumpState>();

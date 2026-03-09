@@ -8,7 +8,6 @@ public class StateMachine
 
     protected Dictionary<Type, IState> m_states = new();
 
-    protected Dictionary<Type, IState> m_blacklistAbilities;
     public void Initialize(params IState[] stetes)
     {
         if(m_states.Count > 0)

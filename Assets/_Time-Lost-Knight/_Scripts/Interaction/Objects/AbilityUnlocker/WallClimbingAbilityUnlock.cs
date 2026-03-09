@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class GrabUnlockPickup : MonoBehaviour
+public class WallClimbingAbilityUnlock : MonoBehaviour
 {
-    [SerializeField] private PlayerWallGrabState m_abilityToUnlock;
-
     private Player m_player;
 
     private void Awake()
@@ -13,13 +11,12 @@ public class GrabUnlockPickup : MonoBehaviour
 
     public void PickUp()
     {
-        if (m_player == null || m_player.abilities == null)
+        if (m_player == null || m_player.canClimbing == true)
         {
             return;
         }
 
-        m_player.abilities.Enable(m_abilityToUnlock);
+        m_player.canClimbing = true;
         Destroy(gameObject);
     }
 }
-

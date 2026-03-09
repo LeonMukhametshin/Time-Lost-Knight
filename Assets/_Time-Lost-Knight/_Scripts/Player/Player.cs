@@ -11,6 +11,11 @@ public class Player : Entity
 
     [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
+    public bool canDash = false;
+    public bool canGrab = false;
+    public bool canWallJump = false;
+    public bool canClimbing = false;
+
     public override void Awake()
     {
         base.Awake();
@@ -24,9 +29,9 @@ public class Player : Entity
             new PlayerAirState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
             new PlayerLandState(fsm, core, PlayerAnimationConstants.LAND, this, m_data),
             new PlayerWallSlideState(fsm, core, PlayerAnimationConstants.WALL_SLIDE, this, m_data),
-            new PlayerWallGrabState(fsm, core, PlayerAnimationConstants.WALL_GRAB, this, m_data),
+            new PlayerWallGrabState(fsm, core, PlayerAnimationConstants.WALL_GRAB, this, m_data, false),
             new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, m_data),
-            new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data),
+            new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data, false),
             new PlayerLedgeClibmState(fsm, core, PlayerAnimationConstants.LEDGE_CLIMB_STATE, this, m_data),
 
             new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, m_data, false),
