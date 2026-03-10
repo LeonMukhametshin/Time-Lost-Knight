@@ -1034,6 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameplayEntryPoint
   m_sceneUIRoot: {fileID: 4076029864384189178}
   m_bootstrapState: {fileID: 1649492659}
+  m_healthBarView: {fileID: 386048400459673255}
   m_cameraManager: {fileID: 1836112021360123046}
 --- !u!4 &1649492658
 Transform:
@@ -1064,7 +1065,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BootstrapState
   m_playerInputHandler: {fileID: 1204895402}
   m_playerSpawner: {fileID: 1487802604}
-  m_healthBarView: {fileID: 386048400459673255}
   m_pause: {fileID: 167305658}
   m_uIInputHandler: {fileID: 1204895401}
   m_interactPrompt: {fileID: 1540876770}

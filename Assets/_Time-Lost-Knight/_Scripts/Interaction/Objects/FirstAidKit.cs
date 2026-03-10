@@ -9,7 +9,7 @@ public class FirstAidKit : MonoBehaviour
     private void Start()
     {
         health = ServiceLocator
-            .Get<Player>().gameObject
+            .Get<IPlayerFactory>().Create()
             .GetComponent<BuffContainer>();
     }
 

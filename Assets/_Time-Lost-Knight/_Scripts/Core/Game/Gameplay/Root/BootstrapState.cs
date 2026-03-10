@@ -5,7 +5,6 @@ public class BootstrapState : MonoBehaviour, IState
 {
     [SerializeField] private PlayerInputHandler m_playerInputHandler;
     [SerializeField] private PlayerSpawnpoint m_playerSpawner;
-    [SerializeField] private PlayerHealthBarView m_healthBarView;
 
     [SerializeField] private Pause m_pause;
 
@@ -23,7 +22,7 @@ public class BootstrapState : MonoBehaviour, IState
 
     public void Enter()
     {
-        var playerFactory = new PlayerFactory("Assets/Resources/Prefabs/Player");
+        var playerFactory = new PlayerFactory("Prefabs/Player");
 
         ServiceLocator.Register(m_playerSpawner);
         ServiceLocator.Register<IPlayerFactory>(playerFactory);
@@ -35,8 +34,8 @@ public class BootstrapState : MonoBehaviour, IState
         ServiceLocator.Register(m_particleManager);
         ServiceLocator.Register(m_pause);
 
+
         m_pauseWindow.Initialize(m_uIInputHandler);
-        m_stateMachine.ChangeState<GameplayState>();
 
         LoadLevel();
     }
@@ -50,8 +49,7 @@ public class BootstrapState : MonoBehaviour, IState
             LoadSceneMode.Additive)
             .completed += _ =>
             {
-
-                m_healthBarView?.Initialize();
+                m_stateMachine.ChangeState<GameplayState>();
             };
     }
 }

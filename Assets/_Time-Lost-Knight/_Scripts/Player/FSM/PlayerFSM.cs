@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerFSM : EntityFSM
 {
     public override void ChangeState<T>()
@@ -11,10 +9,6 @@ public class PlayerFSM : EntityFSM
             if(playerState.active)
             {
                 base.ChangeState<T>();
-            }
-            else
-            {
-                Debug.Log(state.ToString() + "не активирован"); 
             }
         }
     }

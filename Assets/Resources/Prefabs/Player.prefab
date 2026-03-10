@@ -303,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6509997452513881350
 Transform:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4674355283340401439, guid: 2adeb3e9c7d1281499f9d2c0c1e5251b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28920433, g: 0.5010905, b: 0.6320754, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -612,15 +612,9 @@ MonoBehaviour:
   <animator>k__BackingField: {fileID: 5650607898821848603}
   <animationToFSM>k__BackingField: {fileID: 1879126478122641460}
   <data>k__BackingField: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
-  <source>k__BackingField: {fileID: 0}
   <inventory>k__BackingField: {fileID: 133324211880808830}
   <dashVizualizer>k__BackingField:
     indecator: {fileID: 6509997452513881350}
-  canDash: 0
-  canGrab: 0
-  canWallJump: 1
-  canClimbing: 0
-  canOmniDash: 0
 --- !u!114 &133324211880808830
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,10 @@ public class WallAbilitiesUnlock : MonoBehaviour
 
     private void Start()
     {
-        m_fsm = ServiceLocator.Get<Player>().fsm as PlayerFSM;
+        m_fsm = ServiceLocator
+            .Get<IPlayerFactory>()
+            .Create().fsm
+            as PlayerFSM;
     }
 
     public void Unlock()

@@ -8,6 +8,8 @@ public partial class GameplayEntryPoint : MonoBehaviour
     [SerializeField] private UIGameplayRootBinder m_sceneUIRoot;
 
     [SerializeField] private BootstrapState m_bootstrapState;
+    
+    [SerializeField] private PlayerHealthBarView m_healthBarView;
     [SerializeField] private CameraManager m_cameraManager;
 
     public void Run()
@@ -22,7 +24,7 @@ public partial class GameplayEntryPoint : MonoBehaviour
 
         fsm.Initialize(
             m_bootstrapState,
-            new GameplayState(fsm, m_cameraManager),
+            new GameplayState(fsm, m_cameraManager, m_healthBarView),
             new PauseState(fsm));
 
         fsm.ChangeState<BootstrapState>();

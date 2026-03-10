@@ -7,11 +7,9 @@ public class PlayerHealthBarView : MonoBehaviour
     
     private IHealth m_healthSystem;
 
-    public void Initialize()
+    public void Initialize(IHealth healthSystem)
     {
-        m_healthSystem = ServiceLocator.Get<Player>()
-            .core.GetCoreComponent<HealthComponent>();
-
+        m_healthSystem = healthSystem;
         m_healthSystem.valueChanged += SetValue;
         SetValue();
     }
