@@ -51,7 +51,7 @@ public class GameEntryPoint
         }
 #endif
 
-        m_coroutines.StartCoroutine(LoadAndStartGameplay());
+        m_coroutines.StartCoroutine(LoadAndStartMainMenu());
     }
 
     private IEnumerator LoadAndStartGameplay()

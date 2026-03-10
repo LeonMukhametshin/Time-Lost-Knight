@@ -6,7 +6,7 @@ public class CameraZone : MonoBehaviour
 
     private CameraManager m_cameraManager;
 
-    private void Start()
+    public void Start()
     {
         m_cameraManager = ServiceLocator.Get<CameraManager>();
     }
@@ -18,7 +18,6 @@ public class CameraZone : MonoBehaviour
             return;
         }
 
-        Debug.Log("Enter the zone and switch to " + m_state + " " + (int)m_state);
         m_cameraManager.SetCameraState((int)m_state);
     }
 }

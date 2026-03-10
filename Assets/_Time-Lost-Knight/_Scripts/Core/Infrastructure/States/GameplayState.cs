@@ -46,6 +46,8 @@ public class GameplayState : IState
         ServiceLocator.Register<PlayerFSM>(m_player.fsm as PlayerFSM);
 
         m_cameraManager.SetTarget(m_player.transform);
+        ServiceLocator.Register<CameraManager>(m_cameraManager);
+
         m_healthBarView.Initialize(m_player.core.GetCoreComponent<HealthComponent>());
 
         ServiceLocator.Register(m_interactPrompt);

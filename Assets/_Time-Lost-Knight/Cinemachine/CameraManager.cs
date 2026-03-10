@@ -6,11 +6,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Animator m_animator;
     [SerializeField] private CinemachineCamera[] m_cameras;
 
-    private void Awake()
-    {
-        ServiceLocator.Register(this);
-    }
-
     public void SetTarget(Transform target)
     {
         foreach (var cinemachineCamera in m_cameras)

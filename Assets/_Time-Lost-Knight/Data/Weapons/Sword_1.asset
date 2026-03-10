@@ -19,12 +19,11 @@ MonoBehaviour:
     - rid: 47934341375590484
     - rid: 47934347748048980
   - attackName: Right slash
-    movementSpeed: 50
+    movementSpeed: 10
     effects:
     - rid: 47934341375590485
-    - rid: 47934347748048981
   - attackName: Up slash
-    movementSpeed: 12
+    movementSpeed: 10
     effects:
     - rid: 47934341375590486
   references:
@@ -47,8 +46,3 @@ MonoBehaviour:
       data:
         m_knokbackStringht: 5
         m_angle: {x: 0, y: 1}
-    - rid: 47934347748048981
-      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        m_knokbackStringht: 5
-        m_angle: {x: 1, y: 1}

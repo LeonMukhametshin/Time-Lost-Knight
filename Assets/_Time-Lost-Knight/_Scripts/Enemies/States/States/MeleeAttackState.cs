@@ -19,6 +19,10 @@ public class MeleeAttackState : AttackState
         var detectedObject = Physics2D.OverlapCircle(attackPosition.position, 
             data.attackRadius, data.playerMask);
 
-        data.effects.ApplyEffect(ServiceLocator.Get<Player>().core.effectables);
+        //TODO refactor
+        data.effects.ApplyEffect(ServiceLocator
+            .Get<IPlayerFactory>()
+            .Create()
+            .core.effectables);
     }
 }

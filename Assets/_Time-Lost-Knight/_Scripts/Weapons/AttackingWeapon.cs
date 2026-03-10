@@ -51,6 +51,10 @@ public class AttackingWeapon : Weapon
         {       
             m_effectables.AddRange(core.effectables);           
         }
+        else if(collision.gameObject.TryGetComponent(out IEffectable effectable))
+        {
+            m_effectables.Add(effectable);
+        }
     }
 
     public void ClearDetectedList(Collider2D collision) => 
