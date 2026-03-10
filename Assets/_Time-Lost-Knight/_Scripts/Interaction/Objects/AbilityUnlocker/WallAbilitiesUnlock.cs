@@ -1,29 +1,22 @@
-using UnityEngine;
-
-public class WallAbilitiesUnlock : MonoBehaviour
+public class WallAbilitiesUnlock : AbilityUnlock
 {
-    private PlayerFSM m_fsm;
-
-    private void Start()
+    public override void Unlock()
     {
-        m_fsm = ServiceLocator
-            .Get<IPlayerFactory>()
-            .Create().fsm
-            as PlayerFSM;
-    }
-
-    public void Unlock()
-    {
-        if (m_fsm is null ||
-            m_fsm.GetState<PlayerWallSlideState>().active)
+        if (m_playerFSM == null)
         {
             return;
         }
 
-        m_fsm.ActivateState<PlayerWallGrabState>();
-        m_fsm.ActivateState<PlayerWallClimbState>();
-        m_fsm.ActivateState<PlayerWallSlideState>();
-        m_fsm.ActivateState<PlayerWallJumpState>();
+        if (m_playerFSM.IsStateUnlocked<PlayerWallGrabState>())
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        m_playerFSM.UnlockState<PlayerWallGrabState>();
+        m_playerFSM.UnlockState<PlayerWallClimbState>(); 
+        m_playerFSM.UnlockState<PlayerWallSlideState>();
+        m_playerFSM.UnlockState<PlayerWallJumpState>();
 
         Destroy(gameObject);
     }

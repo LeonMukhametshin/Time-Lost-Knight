@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour, IPauseHandler
    
     private Movement m_movement;
 
-    private void OnEnable() => 
+    private void Start() => 
         ServiceLocator.Get<Pause>().Add(this);
 
     private void OnDisable() => 

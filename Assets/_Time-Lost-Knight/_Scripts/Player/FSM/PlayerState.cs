@@ -4,7 +4,7 @@ public class PlayerState : EntityState, IAnimationTrigger
 
     protected bool isAnimationFinished;
     protected bool isExitingState;
-    public bool active;
+    public bool isUnlocked { get; private set; }
 
     protected PlayerData data;
 
@@ -16,7 +16,7 @@ public class PlayerState : EntityState, IAnimationTrigger
     {
         this.player = player;
         this.data = data;
-        this.active = active;
+        this.isUnlocked = active;
     }
 
     public override void Enter()
@@ -40,5 +40,9 @@ public class PlayerState : EntityState, IAnimationTrigger
     public virtual void FinishAnimation() =>
         isAnimationFinished = true;
 
-    public virtual bool CheckAbilityUseState() => active;
+    public virtual void Unlock() => 
+        isUnlocked = true;
+
+    public virtual void Lock() => 
+        isUnlocked = false;
 }

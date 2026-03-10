@@ -1,27 +1,19 @@
-using UnityEngine;
-
-public class OmniDashAbilityUnlock : MonoBehaviour
+public class OmniDashAbilityUnlock : AbilityUnlock
 {
-    private PlayerFSM m_fsm;
-
-    private void Start()
+    public override void Unlock()
     {
-        m_fsm = ServiceLocator
-            .Get<IPlayerFactory>()
-            .Create().fsm 
-            as PlayerFSM;
-    }
-
-    public void Unlock()
-    {
-        if (m_fsm is null ||
-            m_fsm.GetState<PlayerOmnidirectionalDashState>().active)
+        if (m_playerFSM == null)
         {
             return;
         }
 
-        m_fsm.ActivateState<PlayerOmnidirectionalDashState>();
+        if (m_playerFSM.IsStateUnlocked<PlayerOmnidirectionalDashState>())
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        m_playerFSM.UnlockState<PlayerOmnidirectionalDashState>();
         Destroy(gameObject);
     }
 }

@@ -8,11 +8,18 @@ public class Player : Entity
 
     [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
-    public override void Awake()
+    private bool m_isInitialized;
+
+    public void Initialize(PlayerInputHandler input)
     {
+        if(m_isInitialized)
+        {
+            return;
+        }
+
         fsm = new PlayerFSM();
 
-        inputHandler = ServiceLocator.Get<PlayerInputHandler>();
+        inputHandler = input;
 
         var playerData = data as PlayerData;
 
@@ -53,5 +60,7 @@ public class Player : Entity
         core
             .GetComponent<HealthComponent>()
             .Initialize(data.maxHealth);
+
+        m_isInitialized = true; 
     }
 }

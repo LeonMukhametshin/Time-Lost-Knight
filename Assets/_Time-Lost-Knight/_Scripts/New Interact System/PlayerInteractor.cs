@@ -12,14 +12,28 @@ public class PlayerInteractor : MonoBehaviour
 
     private PlayerInputHandler m_inputHandler;
 
-    private void Awake()
+    private bool m_isInitialize;
+
+    public void Initialize(PlayerInputHandler inputHandler, InteractPrompt interactPrompt)
     {
-        m_inputHandler = ServiceLocator.Get<PlayerInputHandler>();
-        m_prompt = ServiceLocator.Get<InteractPrompt>();
+        if(m_isInitialize)
+        {
+            return;
+        }
+
+        m_inputHandler = inputHandler;
+        m_prompt = interactPrompt;
+
+        m_isInitialize = true;  
     }
 
     private void Update()
     {
+        if(!m_isInitialize)
+        {
+            return;
+        }
+
         IInteract nearest = FindNearestInteractable();
         UpdateFocus(nearest);
 

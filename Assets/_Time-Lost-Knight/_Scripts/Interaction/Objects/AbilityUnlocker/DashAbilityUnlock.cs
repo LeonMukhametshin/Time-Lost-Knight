@@ -1,24 +1,19 @@
-using UnityEngine;
-
-public class DashAbilityUnlock : MonoBehaviour
+public class DashAbilityUnlock : AbilityUnlock
 {
-    private PlayerFSM m_fsm;
-
-    private void Start()
+    public override void Unlock()
     {
-        m_fsm = ServiceLocator.Get<Player>().fsm as PlayerFSM;
-    }
-
-    public void Unlock()
-    {
-        if (m_fsm is null || 
-            m_fsm.GetState<PlayerForwardDashState>().active)
+        if (m_playerFSM is null)
         {
             return;
         }
 
-        m_fsm.ActivateState<PlayerForwardDashState>();
+        if (m_playerFSM.IsStateUnlocked<PlayerForwardDashState>())
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        m_playerFSM.UnlockState<PlayerForwardDashState>();
         Destroy(gameObject);
     }
 }

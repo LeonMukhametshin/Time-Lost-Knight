@@ -1,18 +1,39 @@
 public class GameplayState : IState
 {
     private StateMachine m_stateMachine;
-    private Player m_player;
+
     private CameraManager m_cameraManager;
     private PlayerHealthBarView m_healthBarView;
 
-    public GameplayState(
-        StateMachine stateMachine, 
-        CameraManager cameraManager,
-        PlayerHealthBarView healthBarView)
+    private Pause m_pause;
+    private PauseWindow m_pauseWindow;
+    
+    private PlayerInputHandler m_playerInputHandler;
+    private UIInputHandler m_uIInputHandler;
+    private ParticleManager m_particleManager; 
+    private InteractPrompt m_interactPrompt;
+    private PlayerInteractor m_interactor;
+
+    private Player m_player;
+
+    public GameplayState(StateMachine stateMachine, 
+        CameraManager cameraManager, 
+        PlayerHealthBarView healthBarView, 
+        Pause pause, PauseWindow pauseWindow, 
+        PlayerInputHandler playerInputHandler, 
+        UIInputHandler uIInputHandler, 
+        ParticleManager particleManager, 
+        InteractPrompt interactPrompt) 
     {
         m_stateMachine = stateMachine;
         m_cameraManager = cameraManager;
         m_healthBarView = healthBarView;
+        m_pause = pause;
+        m_pauseWindow = pauseWindow;
+        m_playerInputHandler = playerInputHandler;
+        m_uIInputHandler = uIInputHandler;
+        m_particleManager = particleManager;
+        m_interactPrompt = interactPrompt;
     }
 
     public void Enter()
@@ -20,9 +41,22 @@ public class GameplayState : IState
         var playerPosition = ServiceLocator.Get<PlayerSpawnpoint>();
         ServiceLocator.Get<IPlayerFactorySettings>().position = playerPosition.transform.position;
         m_player = ServiceLocator.Get<IPlayerFactory>().Create();
+        m_player.Initialize(m_playerInputHandler);
+
+        ServiceLocator.Register<PlayerFSM>(m_player.fsm as PlayerFSM);
 
         m_cameraManager.SetTarget(m_player.transform);
         m_healthBarView.Initialize(m_player.core.GetCoreComponent<HealthComponent>());
+
+        ServiceLocator.Register(m_interactPrompt);
+        ServiceLocator.Register(m_particleManager);
+        ServiceLocator.Register(m_pause);
+
+        //TODO: remove GetComponent
+        m_interactor = m_player.gameObject.GetComponentInChildren<PlayerInteractor>();
+        m_interactor.Initialize(m_playerInputHandler, m_interactPrompt);
+
+        m_pauseWindow.Initialize(m_uIInputHandler);
     }
 
     public void Exit() { }
