@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour, IProjectile
@@ -10,10 +9,8 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
     [SerializeField] private GameObject m_vfx;
 
     private float m_speed;
-    private float m_targetDistance;
 
     private Vector3 m_direction;
-    private Vector3 m_startPosition;
 
     private bool m_initialized;
 
@@ -33,34 +30,19 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
 
     public virtual void Initialize(Vector2 targetPosition, float speed)
     {
-        m_startPosition = transform.position;
-
-        var toTarget = (Vector3)targetPosition - m_startPosition;
-        m_targetDistance = toTarget.magnitude;
-
-        m_direction = ((Vector3)targetPosition - transform.position).normalized;
-        m_speed = speed;
-
-        SetLinearVelocity();
-
-        m_initialized = true;
-    }
-
-    protected virtual void FixedUpdate()
-    {
-        if (!m_initialized)
+        if(m_initialized)
         {
             return;
         }
 
+        m_direction = targetPosition.normalized;
+        m_speed = speed;
+
+        float angle = Mathf.Atan2(m_direction.y, m_direction.x) * Mathf.Rad2Deg; 
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
         SetLinearVelocity();
-
-        //float traveledDistance = Vector3.Distance(m_startPosition, transform.position);
-
-        /*if (traveledDistance >= m_targetDistance)
-        {
-            DestroyProjectile();
-        }*/
+        m_initialized = true;
     }
 
     public virtual void OnTriggerEnter2D(Collider2D collision)

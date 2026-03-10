@@ -12,15 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a5c7ec52e5ea4eaee6a286fd358b4, type: 3}
   m_Name: Range
   m_EditorClassIdentifier: Assembly-CSharp::RangeAttackData
-  m_effects:
-  - rid: 47934395480539232
   <projectile>k__BackingField: {fileID: 7728817050811321127, guid: 4e700413488f0004b9a5f3b3bee3ef35, type: 3}
-  <travelDistance>k__BackingField: 10
-  <speed>k__BackingField: 20
-  references:
-    version: 2
-    RefIds:
-    - rid: 47934395480539232
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        m_damage: 10
+  <speed>k__BackingField: 24.7

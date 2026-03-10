@@ -3,6 +3,11 @@ using UnityEngine;
 public class RangeAttackState : AttackState
 {
     protected RangeAttackData data;
+   
+    private FlipContoller flipController =>
+        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
+
+    private FlipContoller m_flipContoller;
 
     protected GameObject projectile;
     protected IProjectile projectileScript;
@@ -22,12 +27,11 @@ public class RangeAttackState : AttackState
         projectile = GameObject.Instantiate(data.projectile, attackPosition.position, attackPosition.rotation);
         projectileScript = projectile.GetComponent<IProjectile>();
 
-        if(playerPosition is not null)
-        {
-            var position = (Vector2)playerPosition;
-            projectileScript.Initialize(position, data.speed);
-        }
+        projectileScript.Initialize(CalculateShotDirection(), data.speed);
 
         SetLayer(projectile);
     }
+
+    protected virtual Vector2 CalculateShotDirection() =>
+        Vector2.right * flipController.facingDirection;
 }
