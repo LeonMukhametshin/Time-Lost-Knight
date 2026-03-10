@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class BootstrapState : MonoBehaviour, IState
 {
     [SerializeField] private PlayerInputHandler m_playerInputHandler;
-    [SerializeField] private PlayerSpawner m_playerSpawner;
+    [SerializeField] private PlayerSpawnpoint m_playerSpawner;
     [SerializeField] private PlayerHealthBarView m_healthBarView;
 
     [SerializeField] private Pause m_pause;
@@ -23,6 +23,12 @@ public class BootstrapState : MonoBehaviour, IState
 
     public void Enter()
     {
+        var playerFactory = new PlayerFactory("Assets/Resources/Prefabs/Player");
+
+        ServiceLocator.Register(m_playerSpawner);
+        ServiceLocator.Register<IPlayerFactory>(playerFactory);
+        ServiceLocator.Register<IPlayerFactorySettings>(playerFactory);
+
         ServiceLocator.Register(m_playerInputHandler);
         ServiceLocator.Register(m_uIInputHandler);
         ServiceLocator.Register(m_interactPrompt);
@@ -44,7 +50,7 @@ public class BootstrapState : MonoBehaviour, IState
             LoadSceneMode.Additive)
             .completed += _ =>
             {
-                m_playerSpawner?.Spawn();
+
                 m_healthBarView?.Initialize();
             };
     }
