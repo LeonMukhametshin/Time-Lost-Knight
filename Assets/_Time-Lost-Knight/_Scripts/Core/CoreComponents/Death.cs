@@ -19,7 +19,7 @@ public class Death : CoreComponent
         ServiceLocator
             .Get<ParticleManager>()
             .StartParticles(deathParticles, transform.position, Quaternion.identity);
-        //TODO: remove 
+
         this.gameObject.SetActive(false);  
     }
 }
