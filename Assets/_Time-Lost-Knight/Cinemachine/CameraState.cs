@@ -1,6 +1,6 @@
 public enum CameraState
 {
-    Normal,
+    Normal = 0,
     ZoomOut,
     ZoomIn
 }

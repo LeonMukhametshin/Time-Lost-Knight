@@ -21,7 +21,7 @@ public class GameplayState : IState
         ServiceLocator.Get<IPlayerFactorySettings>().position = playerPosition.transform.position;
         m_player = ServiceLocator.Get<IPlayerFactory>().Create();
 
-        m_cameraManager.SetTarget(playerPosition.transform);
+        m_cameraManager.SetTarget(m_player.transform);
         m_healthBarView.Initialize(m_player.core.GetCoreComponent<HealthComponent>());
     }
 
