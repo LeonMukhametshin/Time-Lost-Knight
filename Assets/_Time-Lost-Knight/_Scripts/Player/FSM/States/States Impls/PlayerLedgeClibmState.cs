@@ -48,8 +48,8 @@ public class PlayerLedgeClibmState : PlayerState
 
         m_startPosition.Set(m_cornerPosition.x - (flipController.facingDirection * data.startOffset.x),
             m_cornerPosition.y - data.startOffset.y);
-        m_stopPosition.Set(m_cornerPosition.x + (flipController.facingDirection * data.stopOffset.y),
-            m_cornerPosition.y + data.stopOffset.y);
+        m_stopPosition.Set(m_cornerPosition.x + (flipController.facingDirection * data.stopOffset.x),
+             m_cornerPosition.y + data.stopOffset.y);
 
         player.transform.position = m_startPosition;
     }

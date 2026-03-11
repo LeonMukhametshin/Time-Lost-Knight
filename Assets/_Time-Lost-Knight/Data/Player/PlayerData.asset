@@ -25,8 +25,8 @@ MonoBehaviour:
   <jumpHeightMultiplier>k__BackingField: 0.1
   <wallSlideVelocity>k__BackingField: 2
   <wallClimbVelocity>k__BackingField: 3
-  <startOffset>k__BackingField: {x: 0.45, y: 0.9}
-  <stopOffset>k__BackingField: {x: 0.4, y: 0.75}
+  <startOffset>k__BackingField: {x: 0.7, y: 1.33}
+  <stopOffset>k__BackingField: {x: 0, y: 1.33}
   <dashCooldown>k__BackingField: 0.78
   <maxHoldTime>k__BackingField: 0.73
   <holdTimeScale>k__BackingField: 0.1

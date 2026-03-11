@@ -54,7 +54,6 @@ public class Player : Entity
 
         fsm.ChangeState<PlayerIdleState>();
 
-        //TODO: remove 
         animationToFSM.Initialize(fsm);
 
         core
