@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bdef0a46d022f9345a1b7d492c7b55ad
+guid: 3b156276553512247b77a42e7a65cc5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3475562880946070686
-    second: 20251029darkDwellersButtonA1-Sheet_0
+      213: -7110157815239805737
+    second: Loading (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20251029darkDwellersButtonA1-Sheet_0
+      name: Loading (2)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 24
+        x: 12
+        y: 10
+        width: 106
+        height: 105
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26b1dae59f154cfc0800000000000000
-      internalID: -3475562880946070686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 20251029darkDwellersButtonA1-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78873e19084470d4c8713526567c054f
-      internalID: -902862062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 20251029darkDwellersButtonA1-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a4604e239d656441be6708daaa77872
-      internalID: -945140668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 20251029darkDwellersButtonA1-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 979e709f6a7d8f848a4d7b43d26cd333
-      internalID: -1004822418
+      spriteID: 7d4f9a56325a35d90800000000000000
+      internalID: -7110157815239805737
       vertices: []
       indices: 
       edges: []
@@ -191,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ea6eb67c39331d84083538873c463781
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -199,14 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      20251029darkDwellersButtonA1-Sheet_0: -3475562880946070686
-      20251029darkDwellersButtonA1-Sheet_1: -902862062
-      20251029darkDwellersButtonA1-Sheet_2: -945140668
-      20251029darkDwellersButtonA1-Sheet_3: -1004822418
+      Loading (2)_0: -7110157815239805737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
