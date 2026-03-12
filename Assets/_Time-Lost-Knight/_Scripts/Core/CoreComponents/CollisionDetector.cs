@@ -8,6 +8,12 @@ public abstract class CollisionDetector : CoreComponent
         get => m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
     }
 
+    private Movement m_movement;
+    protected Movement movement
+    {
+        get => m_movement ??= core.GetCoreComponent<Movement>();
+    }
+
     [SerializeField] protected Transform m_groundCheck;
     [SerializeField] protected Transform m_wallCheck;
     [SerializeField] protected Transform m_ledgeCheck;
@@ -20,11 +26,37 @@ public abstract class CollisionDetector : CoreComponent
 
     protected Vector2 m_workspace;
 
-    public bool CheckGrounded() =>
-        Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_groundLayer) ||
+    public bool CheckGrounded()
+    {
+        CheckTouchinMovingPlatform();
+        return Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_groundLayer) ||
         Physics2D.OverlapCircle(m_groundCheck.position, m_groundCheckRadius, m_platform);
+    }
+        
 
     public bool CheckWallTouch() =>
         Physics2D.Raycast(m_wallCheck.position, Vector2.right * flipController.facingDirection,
             m_wallCheckDistance, m_groundLayer);
+
+
+    private void CheckTouchinMovingPlatform()
+    {
+        var colliders = Physics2D.OverlapCircleAll(m_groundCheck.position, m_groundCheckRadius, m_groundLayer);
+
+        Debug.Log(colliders.Length > 0);
+        if(colliders.Length > 0)
+        {
+            foreach(var collider in colliders)
+            {
+                if(collider.tag == "MovingPlatform")
+                {
+                    transform.parent = collider.transform;
+                }
+            }
+        }
+        else
+        {
+            transform.parent = null;
+        }
+    }
 }

@@ -10,9 +10,11 @@ public class StaticTrap : Trap
 
     protected override void ApplyEffects(Collider2D collision)
     {
-        if (collision.TryGetComponent<IEffectable>(out var effectable))
+        if (!collision.gameObject.TryGetComponent<Core>(out var core))
         {
-            effects.ApplyEffect(effectable);
+            return;
         }
+
+        effects.ApplyEffect(core.effectables);
     }
 }

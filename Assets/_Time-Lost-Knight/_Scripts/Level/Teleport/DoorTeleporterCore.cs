@@ -8,15 +8,17 @@ public class DoorTeleporterCore : MonoBehaviour
     [SerializeField] private DoorTeleporterCore m_targetDoor;
     [SerializeField] private Transform m_spawnPoint;
     [SerializeField] private TeleportPositionCalculator m_positionCalculator;
-    [SerializeField] private TeleportMover m_mover;
     [SerializeField] private TeleportNotifier m_notifier;
 
     private bool m_canTeleport = true;
     [SerializeField][Min(0f)] private float m_teleportCooldown = 0.18f;
+    
+    private TeleportMover m_mover;
 
     private void Awake()
     {
         var col = GetComponent<Collider2D>();
+        m_mover ??= new TeleportMover();
         col.isTrigger = true;
     }
 

@@ -3,10 +3,12 @@ using UnityEngine;
 public class StaticTeleportSpike : StaticTrap
 {
     [SerializeField] private bool m_teleportPlayerAfterDamage;
+    [SerializeField] private bool m_useRuntimeTeleportPoint;
+
     [SerializeField] private Transform m_teleportPoint;
     [SerializeField] private Vector2 m_runtimeTeleportPoint;
-    [SerializeField] private bool m_useRuntimeTeleportPoint;
-    [SerializeField] private TeleportMover m_teleportMover;
+    
+    private TeleportMover m_teleportMover;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,23 +17,14 @@ public class StaticTeleportSpike : StaticTrap
 
     protected override void ApplyEffects(Collider2D collision)
     {
-       
         if (!collision.gameObject.TryGetComponent<Core>(out var core))
         {
             return;
         }
 
-        var health = core.GetCoreComponent<HealthComponent>();
-        var healthBeforeDamage = health.value;
-
         effects.ApplyEffect(core.effectables);
 
         if (!m_teleportPlayerAfterDamage || !collision.CompareTag(Tags.Player))
-        {
-            return;
-        }
-
-        if (health.value >= healthBeforeDamage)
         {
             return;
         }

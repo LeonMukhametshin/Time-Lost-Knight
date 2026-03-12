@@ -1,7 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-[Serializable]
 public class TeleportMover
 {
     public void Move(Collider2D subject, Vector2 position)
