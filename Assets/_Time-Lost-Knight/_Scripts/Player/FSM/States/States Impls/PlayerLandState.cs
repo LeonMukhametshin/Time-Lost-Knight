@@ -22,6 +22,10 @@ public class PlayerLandState : PlayerGroundState
         {
             fsm.ChangeState<PlayerMoveState>();
         }
+        else if(movement.rb.linearVelocityY < 0.05f)
+        {
+            fsm.ChangeState<PlayerIdleState>();
+        }
         else if (isAnimationFinished)
         {
             fsm.ChangeState<PlayerIdleState>();

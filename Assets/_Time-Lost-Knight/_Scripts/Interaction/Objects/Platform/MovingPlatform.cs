@@ -1,19 +1,18 @@
 using UnityEngine;
 
-public class MovingPlatform : Subject, IInteract
+public class MovingPlatform : Subject
 {
+    [SerializeField] private Rigidbody2D m_rigidbody;
     [SerializeField] private PlanformMover m_movePlatform;
-    [SerializeField] private int m_priority = 3;
-    [SerializeField] private Transform m_intarectionPoint;
-    [SerializeField] private string m_displayName = "Activate Platform";
-
-    public int priority => m_priority;
-    public Transform position => m_intarectionPoint != null ? m_intarectionPoint : transform;
-    public string displayName => m_displayName;
-
+   
     private void Awake()
     {
-        m_movePlatform?.Initialize();
+        m_movePlatform?.Initialize(m_rigidbody, transform);
+    }
+
+    public void FixedUpdate()
+    {
+        m_movePlatform?.FixedTick();
     }
 
     public void Interact()
@@ -29,12 +28,4 @@ public class MovingPlatform : Subject, IInteract
 
     public bool CanInteract() =>
         m_movePlatform != null && m_movePlatform.CanMove();
-
-    public void OnFocusGained()
-    {
-    }
-
-    public void OnFocusLost()
-    {
-    }
 }
