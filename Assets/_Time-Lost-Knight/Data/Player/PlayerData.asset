@@ -16,7 +16,7 @@ MonoBehaviour:
   <movementSpeed>k__BackingField: 16
   <movementAcceleration>k__BackingField: 10000
   <movementDeceleration>k__BackingField: 10000
-  <jumpVelocity>k__BackingField: 11
+  <jumpVelocity>k__BackingField: 13
   <amountOfJumps>k__BackingField: 2
   <wallJumpVelocity>k__BackingField: 19
   <wallJumpTime>k__BackingField: 0.4
