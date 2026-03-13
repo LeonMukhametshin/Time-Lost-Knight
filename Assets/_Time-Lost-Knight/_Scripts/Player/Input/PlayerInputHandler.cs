@@ -135,6 +135,34 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseRangedAttackInput() =>
         attackInputs[(int)CombatInputs.ranged] = false;
 
+    public void ResetRuntimeState()
+    {
+        rawMovementInput = Vector2.zero;
+        rawDashDirectionInput = Vector2.zero;
+        dashDirectionInput = Vector2Int.zero;
+
+        normalizedInputX = 0;
+        normalizedInputY = 0;
+
+        jumpInput = false;
+        jumpInputStop = false;
+        grabInput = false;
+        dashInput = false;
+        dashInputStop = false;
+        dropDownInput = false;
+        interactInput = false;
+
+        if (attackInputs == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < attackInputs.Length; i++)
+        {
+            attackInputs[i] = false;
+        }
+    }
+
     private void CheckJumpInputHoldTime()
     {
         if(Time.time >= m_jumpInputStartTime + m_inputHoldTime)

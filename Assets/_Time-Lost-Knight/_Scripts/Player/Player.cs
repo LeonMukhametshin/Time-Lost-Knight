@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : Entity
+public class Player : Entity, ITeleportable
 {
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
@@ -9,6 +9,10 @@ public class Player : Entity
     [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
     private bool m_isInitialized;
+    private PlayerCollisionDetector m_collisionDetector;
+
+    private PlayerCollisionDetector collisionDetector =>
+        m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
 
     public void Initialize(PlayerInputHandler input)
     {
@@ -61,5 +65,25 @@ public class Player : Entity
             .Initialize(data.maxHealth);
 
         m_isInitialized = true; 
+    }
+
+    public void OnTeleported(Vector2 newPosition)
+    {
+        if (!m_isInitialized)
+        {
+            return;
+        }
+
+        inputHandler.ResetRuntimeState();
+        movement.SetVelocityZero();
+        dashVizualizer.SetActive(false);
+
+        if (collisionDetector.CheckGrounded())
+        {
+            fsm.ChangeState<PlayerIdleState>();
+            return;
+        }
+
+        fsm.ChangeState<PlayerAirState>();
     }
 }
