@@ -15,6 +15,7 @@ public class PresentationTeleportCheat : MonoBehaviour
 
     private TeleportMover m_teleportMover;
     private TeleportNotifier m_teleportNotifier;
+    private TeleportPositionCalculator m_positionCalculator;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Bootstrap()
@@ -33,6 +34,7 @@ public class PresentationTeleportCheat : MonoBehaviour
     {
         m_teleportMover = new TeleportMover();
         m_teleportNotifier = new TeleportNotifier();
+        m_positionCalculator = new TeleportPositionCalculator();
     }
 
     private void OnEnable()
@@ -84,13 +86,7 @@ public class PresentationTeleportCheat : MonoBehaviour
                 continue;
             }
 
-            if (m_points.ContainsKey(point.shortcutNumber))
-            {
-                Debug.LogWarning($"Presentation teleport shortcut Ctrl + {point.shortcutNumber} is already assigned.");
-                continue;
-            }
-
-            m_points.Add(point.shortcutNumber, point);
+            RegisterPoint(point);
         }
     }
 
@@ -106,7 +102,7 @@ public class PresentationTeleportCheat : MonoBehaviour
             return;
         }
 
-        var targetPosition = point.position;
+        var targetPosition = m_positionCalculator.CalculateNewPosition(playerCollider, point.transform);
 
         m_teleportMover.Move(playerCollider, targetPosition);
         m_teleportNotifier.Notify(player.gameObject, targetPosition);
@@ -205,4 +201,48 @@ public class PresentationTeleportCheat : MonoBehaviour
 
     private bool WasShortcutPressedThisFrame(KeyControl digitKey, KeyControl numpadKey) =>
         digitKey.wasPressedThisFrame || numpadKey.wasPressedThisFrame;
+
+    private void RegisterPoint(PresentationTeleportPoint point)
+    {
+        if (!m_points.TryGetValue(point.shortcutNumber, out var currentPoint))
+        {
+            m_points.Add(point.shortcutNumber, point);
+            return;
+        }
+
+        var preferredPoint = ResolvePreferredPoint(currentPoint, point);
+        var ignoredPoint = preferredPoint == currentPoint
+            ? point
+            : currentPoint;
+
+        m_points[point.shortcutNumber] = preferredPoint;
+
+        Debug.LogWarning(
+            $"Presentation teleport shortcut Ctrl + {point.shortcutNumber} has duplicates. " +
+            $"Using '{preferredPoint.gameObject.name}', ignoring '{ignoredPoint.gameObject.name}'.");
+    }
+
+    private PresentationTeleportPoint ResolvePreferredPoint(
+        PresentationTeleportPoint currentPoint,
+        PresentationTeleportPoint candidatePoint)
+    {
+        bool currentIsDedicated = IsDedicatedMarker(currentPoint);
+        bool candidateIsDedicated = IsDedicatedMarker(candidatePoint);
+
+        if (currentIsDedicated != candidateIsDedicated)
+        {
+            return candidateIsDedicated
+                ? candidatePoint
+                : currentPoint;
+        }
+
+        return currentPoint;
+    }
+
+    private bool IsDedicatedMarker(PresentationTeleportPoint point)
+    {
+        var components = point.GetComponents<Component>();
+        return components.Length == 2 &&
+            point.GetComponent<Transform>() != null;
+    }
 }
