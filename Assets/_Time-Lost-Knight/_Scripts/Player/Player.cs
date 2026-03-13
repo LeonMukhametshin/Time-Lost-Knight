@@ -1,11 +1,8 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] private TextMeshProUGUI text;
-
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
 
@@ -66,12 +63,5 @@ public class Player : Entity
             .Initialize(data.maxHealth);
 
         m_isInitialized = true; 
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        text.text = fsm.currentState.ToString();
     }
 }
