@@ -732,8 +732,8 @@ MonoBehaviour:
   m_groundCheck: {fileID: 4658422308935250016}
   m_wallCheck: {fileID: 7118297704509025797}
   m_ledgeCheck: {fileID: 4149631798511450131}
-  m_groundCheckRadius: 0.27
-  m_wallCheckDistance: 0.49
+  m_groundCheckRadius: 0.48
+  m_wallCheckDistance: 0.56
   m_groundLayer:
     serializedVersion: 2
     m_Bits: 128

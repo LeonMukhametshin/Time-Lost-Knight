@@ -100,6 +100,10 @@ public class PlayerAirState : PlayerState
         {
             fsm.ChangeState<PlayerRangedAttackState>();
         }
+        else if (m_jumpInput && fsm.GetState<PlayerJumpState>().CanJump())
+        {
+            fsm.ChangeState<PlayerJumpState>();
+        }
         else if(m_isGrounded && movement.currentVelocity.y < 0.1f)
         {
             fsm.ChangeState<PlayerLandState>();
@@ -116,10 +120,6 @@ public class PlayerAirState : PlayerState
             var wallJumpState = fsm.GetState<PlayerWallJumpState>();;
             wallJumpState.DetermineWallJumpDirection(m_isTouchingWall);
             fsm.ChangeState<PlayerWallJumpState>();
-        }
-        else if (m_jumpInput && fsm.GetState<PlayerJumpState>().CanJump())
-        {                       
-            fsm.ChangeState<PlayerJumpState>();
         }
         else if (m_isTouchingWall && m_grabInput && m_isTouchingLedge)
         {
