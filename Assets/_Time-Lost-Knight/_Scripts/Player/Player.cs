@@ -75,6 +75,7 @@ public class Player : Entity, ITeleportable
         }
 
         inputHandler.ResetRuntimeState();
+        movement.SetDrag(0f);
         movement.SetVelocityZero();
         dashVizualizer.SetActive(false);
 

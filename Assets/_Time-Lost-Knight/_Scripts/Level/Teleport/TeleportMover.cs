@@ -9,6 +9,8 @@ public class TeleportMover
         {
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
+            rb.linearDamping = 0f;
+            rb.angularDamping = 0f;
             rb.position = position;
         }
         else
