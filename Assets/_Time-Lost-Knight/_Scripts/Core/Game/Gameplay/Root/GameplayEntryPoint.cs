@@ -14,6 +14,7 @@ public partial class GameplayEntryPoint : MonoBehaviour
 
     [SerializeField] private Pause m_pause;
     [SerializeField] private PauseWindow m_pauseWindow;
+    [SerializeField] private EndGameWindow m_endGameWindow;
 
     [SerializeField] private PlayerInputHandler m_playerInputHandler;
     [SerializeField] private UIInputHandler m_uIInputHandler;
@@ -36,7 +37,7 @@ public partial class GameplayEntryPoint : MonoBehaviour
                 m_healthBarView, m_pause, 
                 m_pauseWindow, m_playerInputHandler,
                 m_uIInputHandler, m_particleManager,
-                m_interactPrompt),
+                m_interactPrompt, m_endGameWindow),
             new PauseState(fsm));
 
         fsm.ChangeState<BootstrapState>();

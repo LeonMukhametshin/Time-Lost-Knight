@@ -13,6 +13,7 @@ public class GameplayState : IState
     private ParticleManager m_particleManager; 
     private InteractPrompt m_interactPrompt;
     private PlayerInteractor m_interactor;
+    private EndGameWindow m_endGameWindow;
 
     private Player m_player;
 
@@ -23,7 +24,8 @@ public class GameplayState : IState
         PlayerInputHandler playerInputHandler, 
         UIInputHandler uIInputHandler, 
         ParticleManager particleManager, 
-        InteractPrompt interactPrompt) 
+        InteractPrompt interactPrompt,
+        EndGameWindow endGameWindow) 
     {
         m_stateMachine = stateMachine;
         m_cameraManager = cameraManager;
@@ -34,6 +36,7 @@ public class GameplayState : IState
         m_uIInputHandler = uIInputHandler;
         m_particleManager = particleManager;
         m_interactPrompt = interactPrompt;
+        m_endGameWindow = endGameWindow;
     }
 
     public void Enter()
@@ -59,6 +62,7 @@ public class GameplayState : IState
         m_interactor.Initialize(m_playerInputHandler, m_interactPrompt);
 
         m_pauseWindow.Initialize(m_uIInputHandler);
+        m_endGameWindow.Initialize(m_player);
     }
 
     public void Exit() { }
