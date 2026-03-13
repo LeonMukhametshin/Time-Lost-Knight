@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerAirState : PlayerState
 {
@@ -141,7 +142,7 @@ public class PlayerAirState : PlayerState
         else
         {
             flipController.CheckIfShoudFlip(m_xInput);
-            movement.SetVelocityX(data.movementSpeed * m_xInput);
+            movement.SetVelocityXSmooth(data.movementSpeed * m_xInput, data.movementAcceleration, data.movementDeceleration);
 
             player.animator
                 .SetFloat(PlayerAnimationConstants.Y_VELOCITY, movement.currentVelocity.y);
