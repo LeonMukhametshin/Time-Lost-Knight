@@ -1,8 +1,11 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] private TextMeshProUGUI text;
+
     [field: SerializeField] public PlayerInventory inventory { get; private set; }
     [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
 
@@ -43,6 +46,7 @@ public class Player : Entity
             new PlayerWallJumpState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData, false),
 
             new PlayerForwardDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData, false),
+
             new PlayerOmnidirectionalDashState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData, false));
 
         fsm
@@ -54,12 +58,20 @@ public class Player : Entity
 
         fsm.ChangeState<PlayerIdleState>();
 
-        animationToFSM.Initialize(fsm);
+        animationToFSM
+            .Initialize(fsm);
 
         core
             .GetComponent<HealthComponent>()
             .Initialize(data.maxHealth);
 
         m_isInitialized = true; 
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        text.text = fsm.currentState.ToString();
     }
 }

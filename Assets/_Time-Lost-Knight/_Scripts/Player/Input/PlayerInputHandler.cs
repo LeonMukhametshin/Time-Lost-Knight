@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,9 +21,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool[] attackInputs { get; private set; }
 
-    // [SerializeField] private PlayerInput m_playerInput;
-
     [SerializeField] private float m_inputHoldTime;
+
     private Camera m_camera;
 
     private float m_jumpInputStartTime;

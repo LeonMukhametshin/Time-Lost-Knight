@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerGroundState : PlayerState
 {
     protected Movement movement => 
@@ -38,10 +36,11 @@ public class PlayerGroundState : PlayerState
     {
         base.DoCheck();
 
+        isTouchingCeiling = collisionDetector.CheckCeilingCheck();
+        
         m_isGrounded = collisionDetector.CheckGrounded();
         m_isTouchingWall = collisionDetector.CheckWallTouch();
         m_isTouchingLedge = collisionDetector.CheckTouchingLedge();
-        isTouchingCeiling = collisionDetector.CheckCeilingCheck();
         m_isTouchingPlatform = collisionDetector.CheckTouckingPlatform();
     }
 

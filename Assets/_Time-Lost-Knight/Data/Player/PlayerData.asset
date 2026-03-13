@@ -22,7 +22,7 @@ MonoBehaviour:
   <wallJumpTime>k__BackingField: 0.4
   <wallJumpAnge>k__BackingField: {x: 1, y: 3}
   <coyoteTime>k__BackingField: 0.2
-  <jumpHeightMultiplier>k__BackingField: 0.1
+  <jumpHeightMultiplier>k__BackingField: 0.64
   <wallSlideVelocity>k__BackingField: 2
   <wallClimbVelocity>k__BackingField: 3
   <startOffset>k__BackingField: {x: 0.7, y: 1.33}

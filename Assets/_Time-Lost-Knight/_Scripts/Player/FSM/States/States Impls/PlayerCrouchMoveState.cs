@@ -22,8 +22,7 @@ public class PlayerCrouchMoveState : PlayerGroundState
         {
             return;
         }
-
-        movement.SetVelocityX(data.crouchMovementVelocity * xInput);
+        movement.SetVelocityXSmooth(data.crouchMovementVelocity * xInput, data.movementAcceleration, data.movementDeceleration);
         flipController.CheckIfShoudFlip(xInput);
 
         if (xInput == 0)

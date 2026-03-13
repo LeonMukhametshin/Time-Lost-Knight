@@ -1,9 +1,13 @@
 using System;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Movement : CoreComponent, IUpdate, IAcceleration, IEffectable
 {
+    private PlayerCollisionDetector m_collisionDetector;
+
+    private PlayerCollisionDetector collisionDetector =>
+        m_collisionDetector ??= core.GetCoreComponent<PlayerCollisionDetector>();
+
     [field: SerializeField] public Rigidbody2D rb { get; private set; }
     public Vector2 currentVelocity { get; private set; }
     public bool canSetVelocity { get; set; } = true;
@@ -51,6 +55,11 @@ public class Movement : CoreComponent, IUpdate, IAcceleration, IEffectable
 
     public void SetVelocityXSmooth(float targetVelocityX, float acceleration, float deceleration)
     {
+        if(collisionDetector.CheckWallTouch())
+        {
+            return;
+        }
+
         var rate = Mathf.Abs(targetVelocityX) > 0.01f ? acceleration : deceleration;
         var velocityX = Mathf.Lerp(GetComponent<Rigidbody2D>().linearVelocityX, targetVelocityX, rate * Time.deltaTime);
 

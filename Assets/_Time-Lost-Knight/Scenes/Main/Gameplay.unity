@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a3851bdc1f45641bc1119871ebfdad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-  m_inputHoldTime: 0.33
+  m_inputHoldTime: 0.15
 --- !u!114 &1204895403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,7 +2571,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 6
+    OrthographicSize: 7.2
     NearClipPlane: 0.01
     FarClipPlane: 1000
     Dutch: 0

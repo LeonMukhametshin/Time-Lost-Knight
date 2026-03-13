@@ -13,9 +13,9 @@ public class WallAbilitiesUnlock : AbilityUnlock
             return;
         }
 
-        m_playerFSM.UnlockState<PlayerWallGrabState>();
-        m_playerFSM.UnlockState<PlayerWallClimbState>(); 
         m_playerFSM.UnlockState<PlayerWallSlideState>();
+        m_playerFSM.UnlockState<PlayerWallClimbState>(); 
+        m_playerFSM.UnlockState<PlayerWallGrabState>();
         m_playerFSM.UnlockState<PlayerWallJumpState>();
 
         Destroy(gameObject);
