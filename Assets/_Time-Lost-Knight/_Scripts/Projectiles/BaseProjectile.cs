@@ -35,7 +35,7 @@ public abstract class BaseProjectile : MonoBehaviour, IProjectile
             return;
         }
 
-        m_direction = targetPosition.normalized;
+        m_direction = (targetPosition - (Vector2)transform.position).normalized;
         m_speed = speed;
 
         float angle = Mathf.Atan2(m_direction.y, m_direction.x) * Mathf.Rad2Deg; 

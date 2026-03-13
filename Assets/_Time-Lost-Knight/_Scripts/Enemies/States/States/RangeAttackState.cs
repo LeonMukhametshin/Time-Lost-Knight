@@ -33,5 +33,5 @@ public class RangeAttackState : AttackState
     }
 
     protected virtual Vector2 CalculateShotDirection() =>
-        Vector2.right * flipController.facingDirection;
+        new Vector2(playerPosition.Value.x, attackPosition.position.y);
 }

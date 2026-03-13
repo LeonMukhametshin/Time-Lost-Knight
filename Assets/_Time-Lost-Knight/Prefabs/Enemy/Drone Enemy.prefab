@@ -345,7 +345,7 @@ MonoBehaviour:
   m_playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_zone: {x: 8.15, y: 5.79}
+  m_zone: {x: 18.23, y: 16}
   m_minAgroDistance: 0
   m_maxAgroDistance: 0
   m_closeRangeActionDistance: 0.13
@@ -548,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 8594321860637699571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.69, y: -1.36, z: 0}
+  m_LocalPosition: {x: 7.01, y: -5.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

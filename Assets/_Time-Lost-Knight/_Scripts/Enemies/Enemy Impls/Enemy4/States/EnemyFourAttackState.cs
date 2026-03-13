@@ -17,6 +17,7 @@ public class EnemyFourAttackState : RangeAttackState
         base.DoCheck();
 
         isInAgroZone = enemyCollisionDetector.GetPlayerPositionInZone();
+        CheckPlayerPosition();
     }
 
     public override void Update()
@@ -42,4 +43,7 @@ public class EnemyFourAttackState : RangeAttackState
     {
         playerPosition = enemyCollisionDetector.GetPlayerPositionInZone();
     }
+
+    protected override Vector2 CalculateShotDirection() =>
+        playerPosition.Value;
 }
