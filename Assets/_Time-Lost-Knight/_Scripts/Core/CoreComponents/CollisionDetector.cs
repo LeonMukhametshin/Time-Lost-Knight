@@ -42,8 +42,6 @@ public abstract class CollisionDetector : CoreComponent
     private void CheckTouchinMovingPlatform()
     {
         var colliders = Physics2D.OverlapCircleAll(m_groundCheck.position, m_groundCheckRadius, m_groundLayer);
-
-        Debug.Log(colliders.Length > 0);
         if(colliders.Length > 0)
         {
             foreach(var collider in colliders)

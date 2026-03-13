@@ -28,7 +28,7 @@ public class BootstrapState : MonoBehaviour, IState
     private void LoadLevel()
     {
         SceneManager.LoadSceneAsync(
-            SceneNames.LEVEL_EXAMPLE,
+            SceneNames.LEVEL_EXAMPLE_TWO,
             LoadSceneMode.Additive)
             .completed += _ =>
             {
