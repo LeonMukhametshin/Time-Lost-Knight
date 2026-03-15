@@ -572,7 +572,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1, y: -0.504}
+  m_Offset: {x: 0.100000024, y: -0.45743382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -582,7 +582,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.389061, y: 2.529068}
+  m_Size: {x: 1.389061, y: 2.4359353}
   m_EdgeRadius: 0
 --- !u!114 &2085442003821207744
 MonoBehaviour:
@@ -612,7 +612,6 @@ MonoBehaviour:
   <animator>k__BackingField: {fileID: 5650607898821848603}
   <animationToFSM>k__BackingField: {fileID: 1879126478122641460}
   <data>k__BackingField: {fileID: 11400000, guid: a4e83c7e8e6974b448b32b1cedc5446a, type: 2}
-  text: {fileID: 0}
   <inventory>k__BackingField: {fileID: 133324211880808830}
   <dashVizualizer>k__BackingField:
     indecator: {fileID: 6509997452513881350}
