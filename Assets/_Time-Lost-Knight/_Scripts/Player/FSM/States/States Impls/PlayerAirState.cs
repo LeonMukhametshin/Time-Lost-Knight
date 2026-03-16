@@ -104,10 +104,6 @@ namespace Game.Player.FSM.States.Impls
             }
             else if (player.inputHandler.attackInputs[(int)CombatInputs.secondary])
             {
-                fsm.ChangeState<PlayerSecondaryAttackState>();
-            }
-            else if (player.inputHandler.attackInputs[(int)CombatInputs.ranged])
-            {
                 fsm.ChangeState<PlayerRangedAttackState>();
             }
             else if (m_jumpInput && fsm.GetState<PlayerJumpState>().CanJump())

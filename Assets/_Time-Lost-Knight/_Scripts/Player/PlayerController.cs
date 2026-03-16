@@ -1,5 +1,5 @@
 ﻿using Game.Core.CoreComponents;
-using Game.Enemies;
+using Game.Enemies.States.Datas;
 using Game.Entities;
 using Game.Player.Components;
 using Game.Player.FSM;
@@ -17,8 +17,10 @@ namespace Game.Player
     {
         [field: SerializeField] public PlayerInventory inventory { get; private set; }
         [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
-
         [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
+
+        [SerializeField] private RangeAttackData m_rangeAttackData;
+        [SerializeField] private Transform m_rangeAttackPosition;
 
         private bool m_isInitialized;
 
@@ -47,7 +49,7 @@ namespace Game.Player
                 new PlayerDropDownState(fsm, core, PlayerAnimationConstants.IN_AIR, this, playerData, true),
 
                 new PlayerPrimaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, playerData, true),
-                new PlayerSecondaryAttackState(fsm, core, PlayerAnimationConstants.ATTACK, this, playerData, true),
+                new PlayerRangedAttackState(fsm, core, PlayerAnimationConstants.RANGED_ATTACK, this, playerData, m_rangeAttackPosition, m_rangeAttackData, true),
 
                 new PlayerWallSlideState(fsm, core, PlayerAnimationConstants.WALL_SLIDE, this, playerData, false),
                 new PlayerWallClimbState(fsm, core, PlayerAnimationConstants.WALL_CLIMB, this, playerData, false),
@@ -61,9 +63,6 @@ namespace Game.Player
             fsm
                 .GetState<PlayerPrimaryAttackState>()
                 .SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
-            fsm
-                .GetState<PlayerSecondaryAttackState>()
-                .SetWeapon(inventory.weapons[(int)CombatInputs.secondary]);
 
             fsm.ChangeState<PlayerIdleState>();
 

@@ -1,8 +1,7 @@
 ﻿using Game.Core.CoreComponents;
 using Game.Enemies.States;
 using Game.Enemies.States.Datas;
-using Game.Player;
-using Game.Player.FSM;
+using Game.Entities;
 using Game.Player.FSM.Data;
 using Game.Player.FSM.States.Base;
 using Game.Projectiles;
@@ -56,10 +55,15 @@ namespace Game.Player.FSM.States.Impls
         {
             if (m_data == null || m_attackPosition == null)
                 return;
+
             var projectileInstance = Object.Instantiate(m_data.projectile, m_attackPosition.position, m_attackPosition.rotation);
             if (projectileInstance.TryGetComponent(out IProjectile projectile))
             {
-                //projectile.Initialize(m_data);
+                Vector2 direction = Vector2.right * flipController.facingDirection;
+         
+                Vector2 targetPoint = (Vector2)m_attackPosition.position + direction * 100f; 
+
+                projectile.Initialize(targetPoint, m_data.speed);
             }
         }
 
@@ -67,6 +71,9 @@ namespace Game.Player.FSM.States.Impls
         {
             isAbilityDone = true;
         }
+
+        protected void SetLayer(GameObject visualEffect) =>
+            visualEffect.layer = player.gameObject.layer;
     }
 }
 

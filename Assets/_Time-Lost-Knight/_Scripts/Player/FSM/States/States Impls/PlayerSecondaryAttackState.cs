@@ -1,6 +1,4 @@
 ﻿using Game.Core.CoreComponents;
-using Game.Player;
-using Game.Player.FSM;
 using Game.Player.FSM.Data;
 using UnityEngine.Scripting.APIUpdating;
 

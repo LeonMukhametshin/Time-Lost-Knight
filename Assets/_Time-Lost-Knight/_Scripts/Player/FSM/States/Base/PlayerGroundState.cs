@@ -75,10 +75,6 @@ namespace Game.Player.FSM.States.Base
             }
             else if (player.inputHandler.attackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
             {
-                fsm.ChangeState<PlayerSecondaryAttackState>();
-            }
-            else if (player.inputHandler.attackInputs[(int)CombatInputs.ranged] && !isTouchingCeiling)
-            {
                 fsm.ChangeState<PlayerRangedAttackState>();
             }
             else if (m_jumpInput && fsm.GetState<PlayerJumpState>().CanJump() && !isTouchingCeiling)

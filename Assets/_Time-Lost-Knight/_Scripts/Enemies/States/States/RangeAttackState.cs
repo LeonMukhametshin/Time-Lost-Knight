@@ -13,11 +13,6 @@ namespace Game.Enemies.States
     {
         protected RangeAttackData data;
 
-        private FlipContoller flipController =>
-            m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-
-        private FlipContoller m_flipContoller;
-
         protected GameObject projectile;
         protected IProjectile projectileScript;
 
