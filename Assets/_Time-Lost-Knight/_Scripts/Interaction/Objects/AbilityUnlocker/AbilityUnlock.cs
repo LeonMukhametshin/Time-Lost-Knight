@@ -21,9 +21,7 @@ namespace Game.Interaction.Objects.AbilityUnlocker
             }
         }
 
-        public virtual void Unlock() { }
-
-        private void OnDestroy()
+        public virtual void Unlock() 
         {
             ServiceLocator
                 .Get<ParticleManager>()
