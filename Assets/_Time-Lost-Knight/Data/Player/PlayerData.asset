@@ -30,8 +30,8 @@ MonoBehaviour:
   <dashCooldown>k__BackingField: 0.78
   <maxHoldTime>k__BackingField: 0.73
   <holdTimeScale>k__BackingField: 0.1
-  <dashTime>k__BackingField: 0.7
-  <dashVelocity>k__BackingField: 40
+  <dashTime>k__BackingField: 0.2
+  <dashVelocity>k__BackingField: 32.9
   <drag>k__BackingField: 0.79
   <dashEndYMultiplier>k__BackingField: 0.54
   <crouchMovementVelocity>k__BackingField: 10
