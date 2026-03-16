@@ -1,5 +1,3 @@
-using System;
-
 public class PauseState : IState
 {
     private StateMachine m_stateMachine;
@@ -11,11 +9,9 @@ public class PauseState : IState
 
     public void Enter()
     {
-        throw new NotImplementedException();
     }
 
     public void Exit()
     {
-        throw new NotImplementedException();
     }
 }

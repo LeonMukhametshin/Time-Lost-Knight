@@ -8,6 +8,7 @@ public class GameEntryPoint
 
     private CoroutineRunner m_coroutines;
     private UIRootView m_uiRoot;
+    private bool m_isLoading;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void AutostartGame()
@@ -42,7 +43,8 @@ public class GameEntryPoint
 
         if(sceneName == SceneNames.MAIN_MENU)
         {
-            m_coroutines.StartCoroutine(LoadAndStartMainMenu());
+            m_coroutines.StartCoroutine(LoadAndStartMainMenu(false));
+            return;
         }
 
         if (sceneName != SceneNames.BOOT)
@@ -51,39 +53,93 @@ public class GameEntryPoint
         }
 #endif
 
-        m_coroutines.StartCoroutine(LoadAndStartMainMenu());
+        // App startup: show main menu without loading screen
+        m_coroutines.StartCoroutine(LoadAndStartMainMenu(false));
     }
 
     private IEnumerator LoadAndStartGameplay()
     {
-        m_uiRoot.ShowLoadingScreen();
+        if (m_isLoading)
+        {
+            yield break;
+        }
+        m_isLoading = true;
 
-        yield return LoadScene(SceneNames.BOOT);
+        if (m_uiRoot != null)
+        {
+            m_uiRoot.ShowLoadingScreen();
+        }
+
+        if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
+        {
+            yield return LoadScene(SceneNames.BOOT);
+        }
         yield return LoadScene(SceneNames.GAMEPLAY);
 
-        yield return new WaitForSeconds(0.5f);
-
         var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
-        sceneEntryPoint.Run();
+        if (sceneEntryPoint == null)
+        {
+            Debug.LogError("GameplayEntryPoint not found in Gameplay scene");
+            if (m_uiRoot != null)
+            {
+                m_uiRoot.HideLoadingScreen();
+            }
+            m_isLoading = false;
+            yield break;
+        }
+
+        void OnGameplayReady()
+        {
+            sceneEntryPoint.gameplayReady -= OnGameplayReady;
+            if (m_uiRoot != null)
+            {
+                m_uiRoot.HideLoadingScreen();
+            }
+            m_isLoading = false;
+        }
+
+        sceneEntryPoint.gameplayReady -= OnGameplayReady;
+        sceneEntryPoint.gameplayReady += OnGameplayReady;
 
         sceneEntryPoint.goToMainMenuSceneRequested += () =>
         {
-            m_coroutines.StartCoroutine(LoadAndStartMainMenu());
+            m_coroutines.StartCoroutine(LoadAndStartMainMenu(true));
         };
 
-        m_uiRoot.HideLoadingScreen();
+        sceneEntryPoint.Run();
     }
 
-    private IEnumerator LoadAndStartMainMenu()
+    private IEnumerator LoadAndStartMainMenu(bool showLoading)
     {
-        m_uiRoot.ShowLoadingScreen();
+        if (m_isLoading)
+        {
+            yield break;
+        }
+        m_isLoading = true;
 
-        yield return LoadScene(SceneNames.BOOT);
+        if (showLoading && m_uiRoot != null)
+        {
+            m_uiRoot.ShowLoadingScreen();
+        }
+
+        if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
+        {
+            yield return LoadScene(SceneNames.BOOT);
+        }
         yield return LoadScene(SceneNames.MAIN_MENU);
 
-        yield return new WaitForSeconds(0.5f);
-
         var sceneEntryPoint = Object.FindFirstObjectByType<MainMenuEntryPoint>();
+        if (sceneEntryPoint == null)
+        {
+            Debug.LogError("MainMenuEntryPoint not found in MainMenu scene");
+            if (showLoading && m_uiRoot != null)
+            {
+                m_uiRoot.HideLoadingScreen();
+            }
+            m_isLoading = false;
+            yield break;
+        }
+
         sceneEntryPoint.Run();
 
         sceneEntryPoint.GoToGameplaySceneRequested += () =>
@@ -91,7 +147,11 @@ public class GameEntryPoint
             m_coroutines.StartCoroutine(LoadAndStartGameplay());
         };
 
-        m_uiRoot.HideLoadingScreen();
+        if (showLoading && m_uiRoot != null)
+        {
+            m_uiRoot.HideLoadingScreen();
+        }
+        m_isLoading = false;
     }
 
     private IEnumerator LoadScene(string sceneName)

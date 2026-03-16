@@ -4,6 +4,7 @@ using UnityEngine;
 public partial class GameplayEntryPoint : MonoBehaviour
 {
     public event Action goToMainMenuSceneRequested;
+    public event Action gameplayReady;
 
     [SerializeField] private UIGameplayRootBinder m_sceneUIRoot;
 
@@ -23,13 +24,13 @@ public partial class GameplayEntryPoint : MonoBehaviour
 
     public void Run()
     {
-        m_sceneUIRoot.GoToGameplayButtonClicked += () =>
-        {
-            goToMainMenuSceneRequested?.Invoke();
-        };
+        m_sceneUIRoot.GoToGameplayButtonClicked -= OnGoToMainMenuRequested;
+        m_sceneUIRoot.GoToGameplayButtonClicked += OnGoToMainMenuRequested;
 
         var fsm = new StateMachine();
         m_bootstrapState.Initialize(fsm);
+        m_bootstrapState.LevelLoaded -= OnGameplayReady;
+        m_bootstrapState.LevelLoaded += OnGameplayReady;
 
         fsm.Initialize(
             m_bootstrapState,
@@ -41,5 +42,15 @@ public partial class GameplayEntryPoint : MonoBehaviour
             new PauseState(fsm));
 
         fsm.ChangeState<BootstrapState>();
+    }
+
+    private void OnGoToMainMenuRequested()
+    {
+        goToMainMenuSceneRequested?.Invoke();
+    }
+
+    private void OnGameplayReady()
+    {
+        gameplayReady?.Invoke();
     }
 }

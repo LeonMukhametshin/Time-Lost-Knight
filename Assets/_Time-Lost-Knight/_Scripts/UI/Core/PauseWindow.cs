@@ -33,12 +33,16 @@ public class PauseWindow : MonoBehaviour
     {
         m_popup.gameObject.SetActive(true);
         m_popup.Show();
+
+        //TODO remove to pause state (SRP)
         ServiceLocator.Get<Pause>().SetPause(true);
     }
 
     public void ClosePause()
     {
         m_popup.Hide(() => m_popup.gameObject.SetActive(false));
+
+        //TODO remove to pause state (SRP) 
         ServiceLocator.Get<Pause>().SetPause(false);
     }
 }

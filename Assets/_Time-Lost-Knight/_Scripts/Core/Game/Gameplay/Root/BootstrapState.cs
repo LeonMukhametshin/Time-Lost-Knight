@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BootstrapState : MonoBehaviour, IState
 {
+    public event Action LevelLoaded;
+
     [SerializeField] private PlayerSpawnpoint m_playerSpawner;
 
     private StateMachine m_stateMachine;
@@ -32,6 +35,7 @@ public class BootstrapState : MonoBehaviour, IState
             LoadSceneMode.Additive)
             .completed += _ =>
             {
+                LevelLoaded?.Invoke();
                 m_stateMachine.ChangeState<GameplayState>();
             };
     }
