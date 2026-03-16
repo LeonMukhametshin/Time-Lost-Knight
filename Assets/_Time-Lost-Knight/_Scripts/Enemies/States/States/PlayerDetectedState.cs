@@ -1,56 +1,66 @@
+﻿using Game.Core.CoreComponents;
+using Game.Core.FSM;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerDetectedState : EnemyState
+namespace Game.Enemies.States
 {
-    protected PlayerDetectedData data;
-
-    protected bool isPlayerInMinAgroRange;
-    protected bool isPlayerInMaxAgroRange;
-    protected bool performeLongRangeAction;
-    protected bool performeCloseRangeAction;
-    protected bool isDetectingLedge;
-
-    private Movement movement => 
-        m_movement ??= core.GetCoreComponent<Movement>();
-
-    private EnemyCollisionDetector enemyCollisionDetector => 
-        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-
-    private Movement m_movement;
-    private EnemyCollisionDetector m_enemyCollisionDetector;
-
-    public PlayerDetectedState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        PlayerDetectedData data) 
-        : base(fsm, core, animBoolName, entity)
+    [MovedFrom("")]
+    public class PlayerDetectedState : EnemyState
     {
-        this.data = data;
-    }
+        protected PlayerDetectedData data;
 
-    public override void DoCheck()
-    {
-        base.DoCheck();
+        protected bool isPlayerInMinAgroRange;
+        protected bool isPlayerInMaxAgroRange;
+        protected bool performeLongRangeAction;
+        protected bool performeCloseRangeAction;
+        protected bool isDetectingLedge;
 
-        isDetectingLedge = enemyCollisionDetector.CheckLedge();
-        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
-        performeCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
-    }
+        private Movement movement =>
+            m_movement ??= core.GetCoreComponent<Movement>();
 
-    public override void Enter()
-    {
-        base.Enter();
-        performeLongRangeAction = false;
-        movement.SetVelocityX(0f);
-    }
+        private EnemyCollisionDetector enemyCollisionDetector =>
+            m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
-    public override void Update()
-    {
-        base.Update();
+        private Movement m_movement;
+        private EnemyCollisionDetector m_enemyCollisionDetector;
 
-        if(Time.time >= startTime + data.longRangeActionTime)
+        public PlayerDetectedState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            PlayerDetectedData data)
+            : base(fsm, core, animBoolName, entity)
         {
-            performeLongRangeAction = true;
+            this.data = data;
+        }
+
+        public override void DoCheck()
+        {
+            base.DoCheck();
+
+            isDetectingLedge = enemyCollisionDetector.CheckLedge();
+            isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+            isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
+            performeCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+            performeLongRangeAction = false;
+            movement.SetVelocityX(0f);
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if(Time.time >= startTime + data.longRangeActionTime)
+            {
+                performeLongRangeAction = true;
+            }
         }
     }
 }

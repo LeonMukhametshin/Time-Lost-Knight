@@ -1,20 +1,25 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine.Scripting.APIUpdating;
 
-public static class SubjectExtensions
+namespace Game.Observer
 {
-    public static void AddObservers(this Subject subject, IReadOnlyCollection<IObserver> observers)
+    [MovedFrom("")]
+    public static class SubjectExtensions
     {
-        foreach(var observer in observers)
+        public static void AddObservers(this Subject subject, IReadOnlyCollection<IObserver> observers)
         {
-            subject.AddObserver(observer);
+            foreach(var observer in observers)
+            {
+                subject.AddObserver(observer);
+            }
         }
-    }
 
-    public static void RemoveObservers(this Subject subject, IReadOnlyCollection<IObserver> observers)
-    {
-        foreach (var observer in observers)
+        public static void RemoveObservers(this Subject subject, IReadOnlyCollection<IObserver> observers)
         {
-            subject.RemoveObserver(observer);
+            foreach (var observer in observers)
+            {
+                subject.RemoveObserver(observer);
+            }
         }
     }
 }

@@ -1,16 +1,21 @@
-using System;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class DashVizualizer
+namespace Game.Player.Components
 {
-    [SerializeField] private Transform indecator;
+    [Serializable]
+    [MovedFrom("")]
+    public class DashVizualizer
+    {
+        [SerializeField] private Transform indecator;
 
-    private const float deflectionAngle = 45.0f;
+        private const float deflectionAngle = 45.0f;
 
-    public void SetActive(bool active) =>
-        indecator.gameObject.SetActive(active);
+        public void SetActive(bool active) =>
+            indecator.gameObject.SetActive(active);
 
-    public void SetRotation(float angle) =>
-        indecator.rotation = Quaternion.Euler(0f, 0f, angle - deflectionAngle);
+        public void SetRotation(float angle) =>
+            indecator.rotation = Quaternion.Euler(0f, 0f, angle - deflectionAngle);
+    }
 }

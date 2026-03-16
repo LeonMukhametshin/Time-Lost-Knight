@@ -1,40 +1,47 @@
-﻿using System;
+﻿using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class HealthBuff : BaseBuff
+namespace Game.Buffs.Impls
 {
-    [SerializeField][Min(0)] private float m_value;
-
-    private IHealth m_health;
-
-    public HealthBuff() { }
-
-    public HealthBuff(
-        string id, 
-        Sprite icon, 
-        BuffType type,
-        float heal) 
-        : base(id, icon, type)
+    [Serializable]
+    [MovedFrom("")]
+    public class HealthBuff : BaseBuff
     {
-        m_value = heal;
-    }
+        [SerializeField][Min(0)] private float m_value;
 
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
+        private IHealth m_health;
 
-        m_health = container.core.GetCoreComponent<HealthComponent>();
+        public HealthBuff() { }
 
-        if(m_health is null)
+        public HealthBuff(
+            string id,
+            Sprite icon,
+            BuffType type,
+            float heal)
+            : base(id, icon, type)
         {
-            Deinitialize();
-            return;
+            m_value = heal;
         }
 
-        m_health.Heal(m_value);
-    }
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
 
-    public override IBuff Clone() =>
-        new HealthBuff(id, icon, type, m_value);
+            m_health = container.core.GetCoreComponent<HealthComponent>();
+
+            if(m_health is null)
+            {
+                Deinitialize();
+                return;
+            }
+
+            m_health.Heal(m_value);
+        }
+
+        public override IBuff Clone() =>
+            new HealthBuff(id, icon, type, m_value);
+    }
 }

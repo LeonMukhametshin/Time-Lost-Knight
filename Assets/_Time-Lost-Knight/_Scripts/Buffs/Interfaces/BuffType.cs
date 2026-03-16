@@ -1,5 +1,11 @@
-public enum BuffType
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Buffs.Interfaces
 {
-    Buff,
-    Debuff
+    [MovedFrom("")]
+    public enum BuffType
+    {
+        Buff,
+        Debuff
+    }
 }

@@ -1,14 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class InteractionPromptView : MonoBehaviour
+namespace Game.Interaction.UI
 {
-    public void Show()
+    [MovedFrom("")]
+    public class InteractionPromptView : MonoBehaviour
     {
-        gameObject.SetActive(true);
-    }
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
 
-    public void Hide()
-    {
-        gameObject.SetActive(false);
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

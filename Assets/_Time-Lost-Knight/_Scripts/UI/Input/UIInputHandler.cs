@@ -1,16 +1,21 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Scripting.APIUpdating;
 
-public class UIInputHandler : MonoBehaviour
+namespace Game.UI.Input
 {
-    public event Action pausePressed;
-
-    public void OnPause(InputAction.CallbackContext ctx)
+    [MovedFrom("")]
+    public class UIInputHandler : MonoBehaviour
     {
-        if (ctx.started)
+        public event Action pausePressed;
+
+        public void OnPause(InputAction.CallbackContext ctx)
         {
-            pausePressed?.Invoke();
+            if (ctx.started)
+            {
+                pausePressed?.Invoke();
+            }
         }
     }
 }

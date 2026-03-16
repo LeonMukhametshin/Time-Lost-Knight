@@ -1,27 +1,39 @@
-public class EnemyFirstIdleState : IdleState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy1.States
 {
-    public EnemyFirstIdleState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        IdleStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyFirstIdleState : IdleState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isPlayerInMinAgroRange)
+        public EnemyFirstIdleState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            IdleStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
         }
-        else if(isPlayerInMaxAgroRange)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
-        }
-        else if(isIdleTimeOver)
-        {
-            fsm.ChangeState<EnemyFirstMoveState>();
+            base.Update();
+
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+            }
+            else if(isPlayerInMaxAgroRange)
+            {
+                fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+            }
+            else if(isIdleTimeOver)
+            {
+                fsm.ChangeState<EnemyFirstMoveState>();
+            }
         }
     }
 }
+

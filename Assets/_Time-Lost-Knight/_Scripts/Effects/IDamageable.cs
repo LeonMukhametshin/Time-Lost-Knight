@@ -1,4 +1,10 @@
-public interface IDamageable
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Effects
 {
-    void TakeDamage(float damage);
+    [MovedFrom("")]
+    public interface IDamageable
+    {
+        void TakeDamage(float damage);
+    }
 }

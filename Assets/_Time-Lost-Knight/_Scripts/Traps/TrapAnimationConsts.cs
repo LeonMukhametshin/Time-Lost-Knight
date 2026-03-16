@@ -1,4 +1,10 @@
-public class TrapAnimationConsts
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Traps
 {
-    public const string ACTIVATE = "activate";
+    [MovedFrom("")]
+    public class TrapAnimationConsts
+    {
+        public const string ACTIVATE = "activate";
+    }
 }

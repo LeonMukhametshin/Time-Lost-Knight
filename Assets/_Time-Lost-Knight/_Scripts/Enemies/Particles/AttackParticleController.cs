@@ -1,9 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class AttackParticleController : MonoBehaviour
+namespace Game.Enemies.Particles
 {
-    private void FinishAnim()
+    [MovedFrom("")]
+    public class AttackParticleController : MonoBehaviour
     {
-        Destroy(gameObject);
+        private void FinishAnim()
+        {
+            Destroy(gameObject);
+        }
     }
 }

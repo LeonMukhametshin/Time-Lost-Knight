@@ -1,25 +1,30 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "AttackingWeaponData", menuName = "Scriptable Objects/Attacking_Weapon_Data")]
-public class AttackingWeaponData : WeaponData
+namespace Game.ScriptableObjects.Weapons
 {
-    [field: SerializeField] private WeaponAttackDetails[] m_attackDetails;
-
-    public IReadOnlyList<WeaponAttackDetails> attackDetails
-    { 
-        get => m_attackDetails;
-        protected set => attackDetails = value;
-    }
- 
-    private void OnEnable()
+    [CreateAssetMenu(fileName = "AttackingWeaponData", menuName = "Scriptable Objects/Attacking_Weapon_Data")]
+    [MovedFrom("")]
+    public class AttackingWeaponData : WeaponData
     {
-        amountOfAttacks = m_attackDetails.Length;
-        movementSpeed = new float[amountOfAttacks];
+        [field: SerializeField] private WeaponAttackDetails[] m_attackDetails;
 
-        for (int i = 0; i < amountOfAttacks; i++)
+        public IReadOnlyList<WeaponAttackDetails> attackDetails
         {
-            movementSpeed[i] = m_attackDetails[i].movementSpeed;
+            get => m_attackDetails;
+            protected set => attackDetails = value;
+        }
+
+        private void OnEnable()
+        {
+            amountOfAttacks = m_attackDetails.Length;
+            movementSpeed = new float[amountOfAttacks];
+
+            for (int i = 0; i < amountOfAttacks; i++)
+            {
+                movementSpeed[i] = m_attackDetails[i].movementSpeed;
+            }
         }
     }
 }

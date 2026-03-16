@@ -1,8 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Weapon_Data")]
-public abstract class WeaponData : ScriptableObject
+namespace Game.ScriptableObjects.Weapons
 {
-     public int amountOfAttacks {get; protected set;}
-     public float[] movementSpeed { get; protected set; }
+    [CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Weapon_Data")]
+    [MovedFrom("")]
+    public abstract class WeaponData : ScriptableObject
+    {
+         public int amountOfAttacks {get; protected set;}
+         public float[] movementSpeed { get; protected set; }
+    }
 }

@@ -1,8 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using UnityEngine.Scripting.APIUpdating;
 
-public class StatesContainer
+namespace Game.Player.FSM
 {
- 
+    [MovedFrom("")]
+    public class StatesContainer
+    {
 
+
+    }
 }

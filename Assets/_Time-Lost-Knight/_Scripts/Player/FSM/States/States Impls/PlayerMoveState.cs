@@ -1,37 +1,49 @@
-public class PlayerMoveState : PlayerGroundState
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
+using Game.Player.FSM.States.Base;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Player.FSM.States.Impls
 {
-    protected FlipContoller flipController => 
-        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-
-    private FlipContoller m_flipContoller;
-
-    public PlayerMoveState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data, bool active) 
-        : base(fsm, core, animBoolName, 
-            player, data, active)
+    [MovedFrom("")]
+    public class PlayerMoveState : PlayerGroundState
     {
-    }
+        protected FlipContoller flipController =>
+            m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-    public override void Update()
-    {
-        base.Update();
+        private FlipContoller m_flipContoller;
 
-        movement.SetVelocityXSmooth(data.movementSpeed * xInput, data.movementAcceleration, data.movementDeceleration);
-        flipController.CheckIfShoudFlip(xInput);
-
-        if(isExitingState)
+        public PlayerMoveState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core, animBoolName,
+                player, data, active)
         {
-            return;
         }
 
-        if (xInput == 0)
+        public override void Update()
         {
-            fsm.ChangeState<PlayerIdleState>();
-        }
-        else if (yInput == -1)
-        {
-            fsm.ChangeState<PlayerCrouchIdleState>();
+            base.Update();
+
+            movement.SetVelocityXSmooth(data.movementSpeed * xInput, data.movementAcceleration, data.movementDeceleration);
+            flipController.CheckIfShoudFlip(xInput);
+
+            if(isExitingState)
+            {
+                return;
+            }
+
+            if (xInput == 0)
+            {
+                fsm.ChangeState<PlayerIdleState>();
+            }
+            else if (yInput == -1)
+            {
+                fsm.ChangeState<PlayerCrouchIdleState>();
+            }
         }
     }
 }
+

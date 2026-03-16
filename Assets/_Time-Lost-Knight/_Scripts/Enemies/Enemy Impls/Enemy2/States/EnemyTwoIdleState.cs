@@ -1,22 +1,34 @@
-public class EnemyTwoIdleState : IdleState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy2.States
 {
-    public EnemyTwoIdleState(EntityFSM fsm, Core core,
-        string animBoolName, Entity entity, IdleStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyTwoIdleState : IdleState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isPlayerInMinAgroRange)
+        public EnemyTwoIdleState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity, IdleStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
         }
-        else if (isIdleTimeOver)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyTwoMoveState>();
+            base.Update();
+
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyTwoPlayerDetectedState>();
+            }
+            else if (isIdleTimeOver)
+            {
+                fsm.ChangeState<EnemyTwoMoveState>();
+            }
         }
     }
 }
+

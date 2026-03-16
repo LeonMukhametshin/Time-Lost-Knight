@@ -1,17 +1,25 @@
+﻿using Game.Core.ServiceLocatorSpace;
+using Game.Interfaces;
+using Game.UI;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class Trap : MonoBehaviour, IPauseHandler
+namespace Game.Traps
 {
-    [field: SerializeField] protected Animator animator { get; private set; }
+    [MovedFrom("")]
+    public class Trap : MonoBehaviour, IPauseHandler
+    {
+        [field: SerializeField] protected Animator animator { get; private set; }
 
-    public virtual void Activate() =>
-         animator.SetTrigger(TrapAnimationConsts.ACTIVATE);
+        public virtual void Activate() =>
+             animator.SetTrigger(TrapAnimationConsts.ACTIVATE);
 
-    protected virtual void ApplyEffects(Collider2D collision) { }
+        protected virtual void ApplyEffects(Collider2D collision) { }
 
-    private void Start() => 
-        ServiceLocator.Get<Pause>().Add(this);
+        private void Start() =>
+            ServiceLocator.Get<Pause>().Add(this);
 
-    public virtual void IsPuased(bool isPaused) => 
-        animator.enabled = !isPaused;
+        public virtual void IsPuased(bool isPaused) =>
+            animator.enabled = !isPaused;
+    }
 }

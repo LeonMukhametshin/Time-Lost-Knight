@@ -1,90 +1,100 @@
+﻿using Game.Core.CoreComponents;
+using Game.Core.FSM;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class LookForPlayerState : EnemyState
+namespace Game.Enemies.States
 {
-    protected LookForPlayerStateData data;
-
-    protected bool turnImmediately;
-    protected bool isAllTurnsDone;
-    protected bool isAllTurnsTimeDone;
-    protected bool isPlayerInMinAgroRange;
-    protected bool isPlayerInMaxAgroRange;
-
-    protected float lastTurnTime;
-
-    protected int amountOfTurnsDone;
-
-    private Movement movement => 
-        m_movement ??= core.GetCoreComponent<Movement>();
-
-    private FlipContoller flipController => 
-        m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
-
-    protected EnemyCollisionDetector enemyCollisionDetector =>
-        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-
-    private Movement m_movement;
-    private FlipContoller m_flipContoller;
-    private EnemyCollisionDetector m_enemyCollisionDetector;
-
-    public LookForPlayerState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        LookForPlayerStateData data) 
-        : base(fsm, core, animBoolName, entity)
+    [MovedFrom("")]
+    public class LookForPlayerState : EnemyState
     {
-        this.data = data;
-    }
+        protected LookForPlayerStateData data;
 
-    public override void DoCheck()
-    {
-        base.DoCheck();
+        protected bool turnImmediately;
+        protected bool isAllTurnsDone;
+        protected bool isAllTurnsTimeDone;
+        protected bool isPlayerInMinAgroRange;
+        protected bool isPlayerInMaxAgroRange;
 
-        isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
-        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
-    }
+        protected float lastTurnTime;
 
-    public override void Enter()
-    {
-        base.Enter();
+        protected int amountOfTurnsDone;
 
-        isAllTurnsDone = false;
-        isAllTurnsTimeDone = false;
+        private Movement movement =>
+            m_movement ??= core.GetCoreComponent<Movement>();
 
-        lastTurnTime = startTime;
-        amountOfTurnsDone = 0;
+        private FlipContoller flipController =>
+            m_flipContoller ??= core.GetCoreComponent<FlipContoller>();
 
-        movement.SetVelocityX(0);
-    }
+        protected EnemyCollisionDetector enemyCollisionDetector =>
+            m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
-    public override void Update()
-    {
-        base.Update();
+        private Movement m_movement;
+        private FlipContoller m_flipContoller;
+        private EnemyCollisionDetector m_enemyCollisionDetector;
 
-        if (turnImmediately)
+        public LookForPlayerState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            LookForPlayerStateData data)
+            : base(fsm, core, animBoolName, entity)
         {
-            flipController.Flip();
-            lastTurnTime = Time.time;
-            amountOfTurnsDone++;
-            turnImmediately = false;
-        }
-        else if ((Time.time >= lastTurnTime + data.timeBetweenTurns && !isAllTurnsDone))
-        {
-            flipController.Flip();
-            lastTurnTime = Time.time;
-            amountOfTurnsDone++;
+            this.data = data;
         }
 
-        if (amountOfTurnsDone >= data.amountOfTurns)
+        public override void DoCheck()
         {
-            isAllTurnsDone = true;
+            base.DoCheck();
+
+            isPlayerInMinAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+            isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMaxAgroRange();
         }
 
-        if (Time.time >= lastTurnTime + data.timeBetweenTurns && isAllTurnsDone)
+        public override void Enter()
         {
-            isAllTurnsTimeDone = true;
+            base.Enter();
+
+            isAllTurnsDone = false;
+            isAllTurnsTimeDone = false;
+
+            lastTurnTime = startTime;
+            amountOfTurnsDone = 0;
+
+            movement.SetVelocityX(0);
         }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (turnImmediately)
+            {
+                flipController.Flip();
+                lastTurnTime = Time.time;
+                amountOfTurnsDone++;
+                turnImmediately = false;
+            }
+            else if ((Time.time >= lastTurnTime + data.timeBetweenTurns && !isAllTurnsDone))
+            {
+                flipController.Flip();
+                lastTurnTime = Time.time;
+                amountOfTurnsDone++;
+            }
+
+            if (amountOfTurnsDone >= data.amountOfTurns)
+            {
+                isAllTurnsDone = true;
+            }
+
+            if (Time.time >= lastTurnTime + data.timeBetweenTurns && isAllTurnsDone)
+            {
+                isAllTurnsTimeDone = true;
+            }
+        }
+
+        public void SetTurnImmediately(bool flip) =>
+             turnImmediately = flip;
     }
-
-    public void SetTurnImmediately(bool flip) =>
-         turnImmediately = flip;
 }

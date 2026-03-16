@@ -1,48 +1,54 @@
+﻿using Game.Entities;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[RequireComponent(typeof(AudioSource))]
-public class StateAudioPlayer : MonoBehaviour
+namespace Game.Audio
 {
-    [SerializeField] private Entity m_entity;
-    [SerializeField] private StateAudioMapping m_mapping;
-    [SerializeField] private bool m_stopIfNotMapped = true;
-
-    [SerializeField] private AudioSource m_source;
-
-    private string m_lastKey;
-
-    private void Update()
+    [RequireComponent(typeof(AudioSource))]
+    [MovedFrom("")]
+    public class StateAudioPlayer : MonoBehaviour
     {
-        var state = m_entity?.fsm?.currentState;
-        var key = state?.GetType().Name;
+        [SerializeField] private Entity m_entity;
+        [SerializeField] private StateAudioMapping m_mapping;
+        [SerializeField] private bool m_stopIfNotMapped = true;
 
-        if (string.IsNullOrEmpty(key) || key == m_lastKey)
+        [SerializeField] private AudioSource m_source;
+
+        private string m_lastKey;
+
+        private void Update()
         {
-            return;
+            var state = m_entity?.fsm?.currentState;
+            var key = state?.GetType().Name;
+
+            if (string.IsNullOrEmpty(key) || key == m_lastKey)
+            {
+                return;
+            }
+
+            m_lastKey = key;
+
+            if (m_mapping != null && m_mapping.TryGet(key, out var clip))
+            {
+                PlayClip(clip);
+            }
+            else if (m_stopIfNotMapped)
+            {
+                m_source.Stop();
+            }
         }
 
-        m_lastKey = key;
-
-        if (m_mapping != null && m_mapping.TryGet(key, out var clip))
+        private void PlayClip(StateClip clip)
         {
-            PlayClip(clip);
-        }
-        else if (m_stopIfNotMapped)
-        {
-            m_source.Stop();
-        }
-    }
+            if (clip.clip == null)
+            {
+                return;
+            }
 
-    private void PlayClip(StateClip clip)
-    {
-        if (clip.clip == null)
-        {
-            return;
+            m_source.clip = clip.clip;
+            m_source.volume = clip.volume;
+            m_source.loop = clip.loop;
+            m_source.Play();
         }
-
-        m_source.clip = clip.clip;
-        m_source.volume = clip.volume;
-        m_source.loop = clip.loop;
-        m_source.Play();
     }
 }

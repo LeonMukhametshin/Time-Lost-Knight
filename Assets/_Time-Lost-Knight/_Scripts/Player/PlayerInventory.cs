@@ -1,6 +1,12 @@
+﻿using Game.Weapons;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerInventory : MonoBehaviour 
+namespace Game.Player
 {
-    [SerializeField] public Weapon[] weapons;
+    [MovedFrom("")]
+    public class PlayerInventory : MonoBehaviour
+    {
+        [SerializeField] public Weapon[] weapons;
+    }
 }

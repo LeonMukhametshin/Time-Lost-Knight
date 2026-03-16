@@ -1,8 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "RangeAttack", menuName = "Scriptable Objects/Enemy/States/RangeAttack")]
-public class RangeAttackData : ScriptableObject
+namespace Game.Enemies.States.Datas
 {
-    [field: SerializeField] public GameObject projectile { get; private set; }
-    [field: SerializeField][Min(0)] public float speed { get; private set; }
+    [CreateAssetMenu(fileName = "RangeAttack", menuName = "Scriptable Objects/Enemy/States/RangeAttack")]
+    [MovedFrom("")]
+    public class RangeAttackData : ScriptableObject
+    {
+        [field: SerializeField] public GameObject projectile { get; private set; }
+        [field: SerializeField][Min(0)] public float speed { get; private set; }
+    }
 }

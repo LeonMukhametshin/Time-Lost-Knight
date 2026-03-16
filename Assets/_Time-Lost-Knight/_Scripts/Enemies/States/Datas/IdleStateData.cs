@@ -1,9 +1,14 @@
-using System;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "Idle", menuName = "Scriptable Objects/Enemy/States/Idle")]
-public sealed class IdleStateData : ScriptableObject
+namespace Game.Enemies.States.Datas
 {
-    [field: SerializeField][Range(0f, 8f)] public float minIdleTime { get; private set; }
-    [field: SerializeField][Range(0f, 8f)] public float maxIdleTime { get; private set; }
+    [CreateAssetMenu(fileName = "Idle", menuName = "Scriptable Objects/Enemy/States/Idle")]
+    [MovedFrom("")]
+    public sealed class IdleStateData : ScriptableObject
+    {
+        [field: SerializeField][Range(0f, 8f)] public float minIdleTime { get; private set; }
+        [field: SerializeField][Range(0f, 8f)] public float maxIdleTime { get; private set; }
+    }
 }

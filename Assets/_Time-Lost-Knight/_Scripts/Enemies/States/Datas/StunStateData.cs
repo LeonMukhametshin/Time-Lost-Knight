@@ -1,8 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "Stun", menuName = "Scriptable Objects/Enemy/States/Stun")]
-public sealed class StunStateData : ScriptableObject
+namespace Game.Enemies.States.Datas
 {
-    [field: SerializeField] public float stunTime { get; private set; }
-    [field: SerializeField] public float stunKnockbactTime {  get; private set; }
+    [CreateAssetMenu(fileName = "Stun", menuName = "Scriptable Objects/Enemy/States/Stun")]
+    [MovedFrom("")]
+    public sealed class StunStateData : ScriptableObject
+    {
+        [field: SerializeField] public float stunTime { get; private set; }
+        [field: SerializeField] public float stunKnockbactTime {  get; private set; }
+    }
 }

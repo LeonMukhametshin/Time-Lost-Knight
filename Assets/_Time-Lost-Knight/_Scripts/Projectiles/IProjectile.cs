@@ -1,6 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public interface IProjectile 
+namespace Game.Projectiles
 {
-    void Initialize(Vector2 targetPosition, float speed);
+    [MovedFrom("")]
+    public interface IProjectile
+    {
+        void Initialize(Vector2 targetPosition, float speed);
+    }
 }

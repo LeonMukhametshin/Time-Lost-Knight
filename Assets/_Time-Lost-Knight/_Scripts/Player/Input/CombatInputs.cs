@@ -1,6 +1,12 @@
-public enum CombatInputs
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Player.Input
 {
-    primary,
-    secondary,
-    ranged
+    [MovedFrom("")]
+    public enum CombatInputs
+    {
+        primary,
+        secondary,
+        ranged
+    }
 }

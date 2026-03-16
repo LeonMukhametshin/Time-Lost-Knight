@@ -1,7 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "PlayerDetacted", menuName = "Scriptable Objects/Enemy/States/PlayerDetacted")]
-public sealed class PlayerDetectedData : ScriptableObject
+namespace Game.Enemies.States.Datas
 {
-    [field: SerializeField] public float longRangeActionTime { get; private set; }
+    [CreateAssetMenu(fileName = "PlayerDetacted", menuName = "Scriptable Objects/Enemy/States/PlayerDetacted")]
+    [MovedFrom("")]
+    public sealed class PlayerDetectedData : ScriptableObject
+    {
+        [field: SerializeField] public float longRangeActionTime { get; private set; }
+    }
 }

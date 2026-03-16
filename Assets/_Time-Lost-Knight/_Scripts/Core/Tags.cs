@@ -1,4 +1,11 @@
-public class Tags
+﻿using Game.Player;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Core
 {
-    public const string Player = "Player";
+    [MovedFrom("")]
+    public class Tags
+    {
+        public const string Player = "Player";
+    }
 }

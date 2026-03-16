@@ -1,7 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public sealed class CoroutineRunner : MonoBehaviour 
+namespace Game.Core.Services
 {
-    public void Awake() =>
-        DontDestroyOnLoad(this);
+    [MovedFrom("")]
+    public sealed class CoroutineRunner : MonoBehaviour
+    {
+        public void Awake() =>
+            DontDestroyOnLoad(this);
+    }
 }

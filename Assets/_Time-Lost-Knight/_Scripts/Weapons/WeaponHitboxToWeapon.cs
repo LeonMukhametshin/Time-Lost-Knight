@@ -1,12 +1,17 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class WeaponHitboxToWeapon : MonoBehaviour
+namespace Game.Weapons
 {
-    [SerializeField] private AttackingWeapon m_weapon;
+    [MovedFrom("")]
+    public class WeaponHitboxToWeapon : MonoBehaviour
+    {
+        [SerializeField] private AttackingWeapon m_weapon;
 
-    private void OnTriggerEnter2D(Collider2D collision) =>
-          m_weapon.AddToDetected(collision);
+        private void OnTriggerEnter2D(Collider2D collision) =>
+              m_weapon.AddToDetected(collision);
 
-    private void OnTriggerExit2D(Collider2D collision) =>
-         m_weapon.ClearDetectedList(collision);
+        private void OnTriggerExit2D(Collider2D collision) =>
+             m_weapon.ClearDetectedList(collision);
+    }
 }

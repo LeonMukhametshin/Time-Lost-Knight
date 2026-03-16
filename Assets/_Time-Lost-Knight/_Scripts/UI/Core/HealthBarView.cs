@@ -1,20 +1,26 @@
+﻿using Game.Core.CoreComponents;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
 
-public class HealthBarView : MonoBehaviour
+namespace Game.UI.CoreSystem
 {
-    [SerializeField] private Image m_bar;
-    [SerializeField] private HealthComponent m_health;
-
-    public void OnEnable()
+    [MovedFrom("")]
+    public class HealthBarView : MonoBehaviour
     {
-        m_health.valueChanged += SetValue;
-        SetValue();
+        [SerializeField] private Image m_bar;
+        [SerializeField] private HealthComponent m_health;
+
+        public void OnEnable()
+        {
+            m_health.valueChanged += SetValue;
+            SetValue();
+        }
+
+        public void OnDisable() =>
+            m_health.valueChanged -= SetValue;
+
+        private void SetValue() =>
+            m_bar.fillAmount = m_health.value / m_health.maxValue;
     }
-
-    public void OnDisable() => 
-        m_health.valueChanged -= SetValue;
-
-    private void SetValue() => 
-        m_bar.fillAmount = m_health.value / m_health.maxValue;
 }

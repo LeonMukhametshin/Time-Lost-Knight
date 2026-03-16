@@ -1,3 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public sealed class PlayerSpawnpoint : MonoBehaviour { }
+namespace Game.Core.Game.Gameplay.Root
+{
+    [MovedFrom("")]
+    public sealed class PlayerSpawnpoint : MonoBehaviour { }
+}

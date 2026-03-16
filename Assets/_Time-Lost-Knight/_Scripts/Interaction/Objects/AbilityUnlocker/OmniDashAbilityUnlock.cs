@@ -1,19 +1,27 @@
-public class OmniDashAbilityUnlock : AbilityUnlock
+﻿using Game.Player.FSM.States.Impls;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Interaction.Objects.AbilityUnlocker
 {
-    public override void Unlock()
+    [MovedFrom("")]
+    public class OmniDashAbilityUnlock : AbilityUnlock
     {
-        if (m_playerFSM == null)
+        public override void Unlock()
         {
-            return;
-        }
+            if (m_playerFSM == null)
+            {
+                return;
+            }
 
-        if (m_playerFSM.IsStateUnlocked<PlayerOmnidirectionalDashState>())
-        {
+            if (m_playerFSM.IsStateUnlocked<PlayerOmnidirectionalDashState>())
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            m_playerFSM.UnlockState<PlayerOmnidirectionalDashState>();
             Destroy(gameObject);
-            return;
         }
-
-        m_playerFSM.UnlockState<PlayerOmnidirectionalDashState>();
-        Destroy(gameObject);
     }
 }
+

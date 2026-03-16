@@ -1,4 +1,10 @@
-public interface IFixedUpdateState
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Core.FSM
 {
-    void FixedUpdate();
+    [MovedFrom("")]
+    public interface IFixedUpdateState
+    {
+        void FixedUpdate();
+    }
 }

@@ -1,14 +1,19 @@
 ﻿using System;
+using UnityEngine.Scripting.APIUpdating;
 
-public interface IHealth
+namespace Game.Buffs.Interfaces
 {
-    event Action died;
-    event Action valueChanged;
+    [MovedFrom("")]
+    public interface IHealth
+    {
+        event Action died;
+        event Action valueChanged;
 
-    float maxValue { get; }
+        float maxValue { get; }
 
-    float value { get; }
+        float value { get; }
 
-    void TakeDamage(float damage);
-    void Heal(float heal);
+        void TakeDamage(float damage);
+        void Heal(float heal);
+    }
 }

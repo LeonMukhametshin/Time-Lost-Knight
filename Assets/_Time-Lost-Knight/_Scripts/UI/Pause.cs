@@ -1,29 +1,35 @@
+﻿using Game.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class Pause : MonoBehaviour
+namespace Game.UI
 {
-    public bool isPaused { get; private set; }
-
-    public List<IPauseHandler> m_pausedObjectst = new();
-
-    public void SetPause(bool isEnable)
+    [MovedFrom("")]
+    public class Pause : MonoBehaviour
     {
-        isPaused = isEnable;
-        Notify();
-    }
+        public bool isPaused { get; private set; }
 
-    public void Add(IPauseHandler handler) => 
-        m_pausedObjectst.Add(handler);
+        public List<IPauseHandler> m_pausedObjectst = new();
 
-    public void Remove(IPauseHandler handler) => 
-        m_pausedObjectst.Remove(handler);
-
-    private void Notify()
-    {
-        foreach(var handler in m_pausedObjectst)
+        public void SetPause(bool isEnable)
         {
-            handler?.IsPuased(isPaused);
+            isPaused = isEnable;
+            Notify();
+        }
+
+        public void Add(IPauseHandler handler) =>
+            m_pausedObjectst.Add(handler);
+
+        public void Remove(IPauseHandler handler) =>
+            m_pausedObjectst.Remove(handler);
+
+        private void Notify()
+        {
+            foreach(var handler in m_pausedObjectst)
+            {
+                handler?.IsPuased(isPaused);
+            }
         }
     }
 }

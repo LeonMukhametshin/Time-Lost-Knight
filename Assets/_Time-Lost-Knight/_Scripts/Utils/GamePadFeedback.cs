@@ -1,63 +1,69 @@
+﻿using Game.Core.CoreComponents;
 using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 using XInputDotNetPure;
 
-public class GamePadFeedback : MonoBehaviour
+namespace Game.Utils
 {
-    [SerializeField] private HealthComponent m_healSystem;
-    
-    [SerializeField][Min(0)] private float m_duration;
-
-    [SerializeField][Min(0)] private float m_leftMotor;
-    [SerializeField][Min(0)] private float m_rightMotor;
-    
-    private PlayerIndex m_playerIndex;
-
-    private Coroutine m_сoroutine;
-
-    private void OnEnable()
+    [MovedFrom("")]
+    public class GamePadFeedback : MonoBehaviour
     {
-        m_healSystem.valueChanged += StartVibration;
-        m_healSystem.died += StopVibration;
-    }
+        [SerializeField] private HealthComponent m_healSystem;
 
-    private void OnDisable()
-    {
-        m_healSystem.valueChanged -= StartVibration;
-        m_healSystem.died -= StopVibration;
-        StopCoroutine(VibrationRoutine());
-    }
+        [SerializeField][Min(0)] private float m_duration;
 
-    private void StopVibration()
-    {
-        if (m_сoroutine is not null)
+        [SerializeField][Min(0)] private float m_leftMotor;
+        [SerializeField][Min(0)] private float m_rightMotor;
+
+        private PlayerIndex m_playerIndex;
+
+        private Coroutine m_СЃoroutine;
+
+        private void OnEnable()
         {
-            StopCoroutine(m_сoroutine);
-            m_сoroutine = null;
+            m_healSystem.valueChanged += StartVibration;
+            m_healSystem.died += StopVibration;
         }
 
-        GamePad.SetVibration(m_playerIndex, 0f, 0f);
-    }
-
-    private void StartVibration()
-    {
-        if (m_сoroutine is not null)
+        private void OnDisable()
         {
-            StopCoroutine(m_сoroutine);
+            m_healSystem.valueChanged -= StartVibration;
+            m_healSystem.died -= StopVibration;
+            StopCoroutine(VibrationRoutine());
         }
 
-        m_сoroutine = StartCoroutine(VibrationRoutine());
-    }
+        private void StopVibration()
+        {
+            if (m_СЃoroutine is not null)
+            {
+                StopCoroutine(m_СЃoroutine);
+                m_СЃoroutine = null;
+            }
 
-    private IEnumerator VibrationRoutine()
-    {
-        GamePad.SetVibration(m_playerIndex, m_leftMotor, m_rightMotor);
+            GamePad.SetVibration(m_playerIndex, 0f, 0f);
+        }
 
-        yield return new WaitForSeconds(m_duration);
+        private void StartVibration()
+        {
+            if (m_СЃoroutine is not null)
+            {
+                StopCoroutine(m_СЃoroutine);
+            }
 
-        GamePad.SetVibration(m_playerIndex, 0f, 0f);
-        m_сoroutine = null;
+            m_СЃoroutine = StartCoroutine(VibrationRoutine());
+        }
+
+        private IEnumerator VibrationRoutine()
+        {
+            GamePad.SetVibration(m_playerIndex, m_leftMotor, m_rightMotor);
+
+            yield return new WaitForSeconds(m_duration);
+
+            GamePad.SetVibration(m_playerIndex, 0f, 0f);
+            m_СЃoroutine = null;
+        }
     }
 }

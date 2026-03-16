@@ -1,14 +1,21 @@
+﻿using Game.Core.ServiceLocatorSpace;
+using Game.Player;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class CinemachineFollower : MonoBehaviour
+namespace Game.Camera.Cinemachine
 {
-    [SerializeField] private CinemachineCamera m_cinemachineCamera;
-
-    private void Start()
+    [MovedFrom("")]
+    public class CinemachineFollower : MonoBehaviour
     {
-        var target = ServiceLocator.Get<Player>().transform;
-        m_cinemachineCamera.Follow = target;
-        m_cinemachineCamera.Follow = target;
+        [SerializeField] private CinemachineCamera m_cinemachineCamera;
+
+        private void Start()
+        {
+            var target = ServiceLocator.Get<PlayerController>().transform;
+            m_cinemachineCamera.Follow = target;
+            m_cinemachineCamera.Follow = target;
+        }
     }
 }

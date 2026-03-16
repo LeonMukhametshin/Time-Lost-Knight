@@ -1,119 +1,131 @@
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.Components;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
+using Game.Player.FSM.States.Base;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public abstract class PlayerBaseDashState : PlayerAbilytiState
+namespace Game.Player.FSM.States.Impls
 {
-    public bool canDash;
-
-    private bool m_isHolding;
-
-    private float m_lastDashTime;
-    private Vector2 m_dashDirection;
-    private Vector2 m_lastAfterImagePosition;
-
-    protected PlayerBaseDashState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data, bool active) 
-        : base(fsm, core, 
-            animBoolName, player, 
-            data, active)
+    [MovedFrom("")]
+    public abstract class PlayerBaseDashState : PlayerAbilytiState
     {
-    }
+        public bool canDash;
 
-    protected abstract bool canHoldDirection { get; }
-    protected abstract bool showDashVisualizer { get; }
+        private bool m_isHolding;
 
-    public override void Enter()
-    {
-        base.Enter();
+        private float m_lastDashTime;
+        private Vector2 m_dashDirection;
+        private Vector2 m_lastAfterImagePosition;
 
-        canDash = false;
-        player.inputHandler.UseDashInput();
-
-        m_dashDirection = ResolveDashDirection(Vector2.right * flipController.facingDirection);
-
-        m_isHolding = canHoldDirection;
-
-        if (m_isHolding)
+        protected PlayerBaseDashState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core,
+                animBoolName, player,
+                data, active)
         {
-            Time.timeScale = data.holdTimeScale;
-            startTime = Time.unscaledTime;
-        }
-        else
-        {
-            startTime = Time.time;
-            StartDashMove();
         }
 
-        player.dashVizualizer.SetActive(showDashVisualizer);
-    }
+        protected abstract bool canHoldDirection { get; }
+        protected abstract bool showDashVisualizer { get; }
 
-    public override void Exit()
-    {
-        base.Exit();
-
-        Time.timeScale = 1f;
-
-        if (movement.currentVelocity.y > 0)
+        public override void Enter()
         {
-            movement.SetVelocityY(movement.currentVelocity.y * data.dashEndYMultiplier);
-        }
-    }
+            base.Enter();
 
-    public override void Update()
-    {
-        base.Update();
+            canDash = false;
+            player.inputHandler.UseDashInput();
 
-        if (isExitingState)
-        {
-            return;
-        }
+            m_dashDirection = ResolveDashDirection(Vector2.right * flipController.facingDirection);
 
-        player.animator.SetFloat(PlayerAnimationConstants.Y_VELOCITY, movement.currentVelocity.y);
-        player.animator.SetFloat(PlayerAnimationConstants.X_VELOCITY, movement.currentVelocity.x);
+            m_isHolding = canHoldDirection;
 
-        if (m_isHolding)
-        {
-            m_dashDirection = ResolveDashDirection(m_dashDirection);
-
-            float angle = Vector2.SignedAngle(Vector2.right, m_dashDirection);
-            player.dashVizualizer.SetRotation(angle);
-
-            if (player.inputHandler.dashInputStop || Time.unscaledTime >= startTime + data.maxHoldTime)
+            if (m_isHolding)
             {
-                m_isHolding = false;
-                Time.timeScale = 1f;
+                Time.timeScale = data.holdTimeScale;
+                startTime = Time.unscaledTime;
+            }
+            else
+            {
                 startTime = Time.time;
                 StartDashMove();
-                player.dashVizualizer.SetActive(false);
             }
 
-            return;
+            player.dashVizualizer.SetActive(showDashVisualizer);
         }
 
-        movement.SetVelocity(data.dashVelocity, m_dashDirection);
-
-        if (Time.time >= startTime + data.dashTime)
+        public override void Exit()
         {
-            movement.SetDrag(0f);
-            isAbilityDone = true;
-            m_lastDashTime = Time.time;
+            base.Exit();
+
+            Time.timeScale = 1f;
+
+            if (movement.currentVelocity.y > 0)
+            {
+                movement.SetVelocityY(movement.currentVelocity.y * data.dashEndYMultiplier);
+            }
         }
-    }
 
-    protected abstract Vector2 ResolveDashDirection(Vector2 fallbackDirection);
+        public override void Update()
+        {
+            base.Update();
 
-    public bool CheckIfCanDash() =>
-        canDash && Time.time >= (m_lastDashTime + data.dashCooldown);
+            if (isExitingState)
+            {
+                return;
+            }
 
-    public void ResetCanDash() =>
-        canDash = true;
+            player.animator.SetFloat(PlayerAnimationConstants.Y_VELOCITY, movement.currentVelocity.y);
+            player.animator.SetFloat(PlayerAnimationConstants.X_VELOCITY, movement.currentVelocity.x);
 
-    private void StartDashMove()
-    {
-        flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
-        movement.SetDrag(data.drag);
-        movement.SetVelocity(data.dashVelocity, m_dashDirection);
+            if (m_isHolding)
+            {
+                m_dashDirection = ResolveDashDirection(m_dashDirection);
 
-        m_lastAfterImagePosition = player.transform.position;
+                float angle = Vector2.SignedAngle(Vector2.right, m_dashDirection);
+                player.dashVizualizer.SetRotation(angle);
+
+                if (player.inputHandler.dashInputStop || Time.unscaledTime >= startTime + data.maxHoldTime)
+                {
+                    m_isHolding = false;
+                    Time.timeScale = 1f;
+                    startTime = Time.time;
+                    StartDashMove();
+                    player.dashVizualizer.SetActive(false);
+                }
+
+                return;
+            }
+
+            movement.SetVelocity(data.dashVelocity, m_dashDirection);
+
+            if (Time.time >= startTime + data.dashTime)
+            {
+                movement.SetDrag(0f);
+                isAbilityDone = true;
+                m_lastDashTime = Time.time;
+            }
+        }
+
+        protected abstract Vector2 ResolveDashDirection(Vector2 fallbackDirection);
+
+        public bool CheckIfCanDash() =>
+            canDash && Time.time >= (m_lastDashTime + data.dashCooldown);
+
+        public void ResetCanDash() =>
+            canDash = true;
+
+        private void StartDashMove()
+        {
+            flipController.CheckIfShoudFlip(Mathf.RoundToInt(m_dashDirection.x));
+            movement.SetDrag(data.drag);
+            movement.SetVelocity(data.dashVelocity, m_dashDirection);
+
+            m_lastAfterImagePosition = player.transform.position;
+        }
     }
 }
+

@@ -1,39 +1,48 @@
+﻿using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using Game.Core.ServiceLocatorSpace;
+using Game.UI;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class TimedSpikes : Trap
+namespace Game.Traps
 {
-    [SerializeReferenceDropdown]
-    [SerializeReference] private IEffect[] m_effects;
-
-    [SerializeField][Range(0, 10)] private float duration;
-
-    private float m_timer;
-
-    private void Update()
+    [MovedFrom("")]
+    public class TimedSpikes : Trap
     {
-        if (ServiceLocator.Get<Pause>().isPaused)
+        [SerializeReferenceDropdown]
+        [SerializeReference] private IEffect[] m_effects;
+
+        [SerializeField][Range(0, 10)] private float duration;
+
+        private float m_timer;
+
+        private void Update()
         {
-            return;
+            if (ServiceLocator.Get<Pause>().isPaused)
+            {
+                return;
+            }
+
+            if(Time.time >= m_timer + duration)
+            {
+                Activate();
+
+                m_timer = Time.time;
+            }
         }
 
-        if(Time.time >= m_timer + duration)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            Activate();
-
-            m_timer = Time.time;
+            ApplyEffects(collision);
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        ApplyEffects(collision);
-    }
-
-    protected override void ApplyEffects(Collider2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<Core>(out var core))
+        protected override void ApplyEffects(Collider2D collision)
         {
-            m_effects.ApplyEffect(core.effectables);
+            if (collision.gameObject.TryGetComponent<CoreSystem>(out var core))
+            {
+                m_effects.ApplyEffect(core.effectables);
+            }
         }
     }
 }

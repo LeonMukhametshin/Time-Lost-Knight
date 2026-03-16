@@ -1,35 +1,42 @@
+﻿using Game.Core.CoreComponents;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class OneWayPlatformCollisionController : CoreComponent
+namespace Game.Player.FSM.States.Impls
 {
-    [SerializeField] private float m_duration;
-
-    [SerializeField] private int m_playerLayer;
-    [SerializeField] private int m_platformLayer;
-
-    private float m_timer;
-
-    private bool m_ignorePlatform = true;
-
-    private void Update()
+    [MovedFrom("")]
+    public class OneWayPlatformCollisionController : CoreComponent
     {
-        if(Time.time >= m_timer + m_duration && m_ignorePlatform)
+        [SerializeField] private float m_duration;
+
+        [SerializeField] private int m_playerLayer;
+        [SerializeField] private int m_platformLayer;
+
+        private float m_timer;
+
+        private bool m_ignorePlatform = true;
+
+        private void Update()
         {
-            ResetCollision();
+            if(Time.time >= m_timer + m_duration && m_ignorePlatform)
+            {
+                ResetCollision();
+            }
+        }
+
+        public void SetIgnorePlatform()
+        {
+            m_ignorePlatform = true;
+            Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, m_ignorePlatform);
+
+            m_timer = Time.time;
+        }
+
+        private void ResetCollision()
+        {
+            m_ignorePlatform = false;
+            Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, m_ignorePlatform);
         }
     }
-
-    public void SetIgnorePlatform()
-    {
-        m_ignorePlatform = true;
-        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, m_ignorePlatform);
-
-        m_timer = Time.time;
-    }
-
-    private void ResetCollision()
-    {
-        m_ignorePlatform = false;
-        Physics2D.IgnoreLayerCollision(m_platformLayer, m_playerLayer, m_ignorePlatform);
-    }
 }
+

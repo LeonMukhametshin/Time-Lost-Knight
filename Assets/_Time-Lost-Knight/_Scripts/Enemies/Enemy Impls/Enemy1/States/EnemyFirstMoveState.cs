@@ -1,28 +1,40 @@
-public class EnemyFirstMoveState : MoveState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy1.States
 {
-    public EnemyFirstMoveState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        MoveStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyFirstMoveState : MoveState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isPlayerInMinAgroRange)
+        public EnemyFirstMoveState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            MoveStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyFirstIdleState>();
         }
-        else if (isPlayerInMaxAgroRange)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
-        }
-        else if(isDetactingWall || !isDetactingLedge)
-        {
-            fsm.GetState<EnemyFirstIdleState>().SetFlipAfterIdle(true);
-            fsm.ChangeState<EnemyFirstIdleState>();
+            base.Update();
+
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyFirstIdleState>();
+            }
+            else if (isPlayerInMaxAgroRange)
+            {
+                fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+            }
+            else if(isDetactingWall || !isDetactingLedge)
+            {
+                fsm.GetState<EnemyFirstIdleState>().SetFlipAfterIdle(true);
+                fsm.ChangeState<EnemyFirstIdleState>();
+            }
         }
     }
 }
+

@@ -1,25 +1,31 @@
-﻿using UnityEngine;
+﻿using Game.Traps;
+using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class SpikesTeleportCheckpoint : MonoBehaviour
+namespace Game.Level.Teleport
 {
-    [SerializeField] private StaticTeleportSpike[] m_spikes;
-    [SerializeField] private Transform m_checkpointPoint;
-
-    public void SetNewTeleportPoint()
+    [MovedFrom("")]
+    public class SpikesTeleportCheckpoint : MonoBehaviour
     {
-        if (m_checkpointPoint == null)
-        {
-            return;
-        }
+        [SerializeField] private StaticTeleportSpike[] m_spikes;
+        [SerializeField] private Transform m_checkpointPoint;
 
-        foreach (var spikes in m_spikes)
+        public void SetNewTeleportPoint()
         {
-            if (spikes == null)
+            if (m_checkpointPoint == null)
             {
-                continue;
+                return;
             }
 
-            spikes.SetTeleportPoint(m_checkpointPoint.position);
+            foreach (var spikes in m_spikes)
+            {
+                if (spikes == null)
+                {
+                    continue;
+                }
+
+                spikes.SetTeleportPoint(m_checkpointPoint.position);
+            }
         }
     }
 }

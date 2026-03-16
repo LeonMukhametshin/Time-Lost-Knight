@@ -1,4 +1,10 @@
-﻿public interface IObserver
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Observer
 {
-    void Notify();
+    [MovedFrom("")]
+    public interface IObserver
+    {
+        void Notify();
+    }
 }

@@ -1,30 +1,35 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine.Scripting.APIUpdating;
 
-public static class EffectExtensions
+namespace Game.Buffs.Interfaces
 {
-    public static void ApplyEffect(
-        this IReadOnlyCollection<IEffect> effects,
-        IEffectable effectable)
+    [MovedFrom("")]
+    public static class EffectExtensions
     {
-        if (effects is null) return;
-
-        foreach (var effect in effects)
+        public static void ApplyEffect(
+            this IReadOnlyCollection<IEffect> effects,
+            IEffectable effectable)
         {
-            effect?.Apply(effectable);
-        }
-    }
+            if (effects is null) return;
 
-    public static void ApplyEffect(
-        this IReadOnlyCollection<IEffect> effects,
-        IReadOnlyCollection<IEffectable> effectables)
-    {
-        if (effects is null) return;
-
-        foreach (var effect in effects)
-        {
-            foreach (var effectable in effectables)
+            foreach (var effect in effects)
             {
                 effect?.Apply(effectable);
+            }
+        }
+
+        public static void ApplyEffect(
+            this IReadOnlyCollection<IEffect> effects,
+            IReadOnlyCollection<IEffectable> effectables)
+        {
+            if (effects is null) return;
+
+            foreach (var effect in effects)
+            {
+                foreach (var effectable in effectables)
+                {
+                    effect?.Apply(effectable);
+                }
             }
         }
     }

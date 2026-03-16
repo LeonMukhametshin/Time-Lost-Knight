@@ -1,14 +1,20 @@
+﻿using Game.Observer;
 using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class InteractionAnimationHandler : IObserver
+namespace Game.Interaction.Effects
 {
-    [SerializeField] private Animator m_animator;
-    [SerializeField] private string m_triggerName = "Interact";
-
-    public void Notify()
+    [Serializable]
+    [MovedFrom("")]
+    public class InteractionAnimationHandler : IObserver
     {
-        m_animator.SetTrigger(m_triggerName);
+        [SerializeField] private Animator m_animator;
+        [SerializeField] private string m_triggerName = "Interact";
+
+        public void Notify()
+        {
+            m_animator.SetTrigger(m_triggerName);
+        }
     }
 }

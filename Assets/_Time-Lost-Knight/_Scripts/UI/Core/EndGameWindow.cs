@@ -1,25 +1,33 @@
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.UI.PopupWindow;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EndGameWindow : MonoBehaviour
+namespace Game.UI.CoreSystem
 {
-    [SerializeField] private Popup m_popup;
-
-    public void Initialize(Player player)
+    [MovedFrom("")]
+    public class EndGameWindow : MonoBehaviour
     {
-        player.core
-            .GetCoreComponent<HealthComponent>().died += Show;
+        [SerializeField] private Popup m_popup;
 
-        Hide();
-    }
+        public void Initialize(PlayerController player)
+        {
+            player.core
+                .GetCoreComponent<HealthComponent>().died += Show;
 
-    private void Hide()
-    {
-        m_popup.Hide(() => m_popup.gameObject.SetActive(false));
-    }
+            Hide();
+        }
 
-    private void Show()
-    {
-        m_popup.gameObject.SetActive(true);
-        m_popup.Show();
+        private void Hide()
+        {
+            m_popup.Hide(() => m_popup.gameObject.SetActive(false));
+        }
+
+        private void Show()
+        {
+            m_popup.gameObject.SetActive(true);
+            m_popup.Show();
+        }
     }
 }

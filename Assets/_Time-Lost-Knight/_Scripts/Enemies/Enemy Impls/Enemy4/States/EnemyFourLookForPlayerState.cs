@@ -1,34 +1,45 @@
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EnemyFourLookForPlayerState : LookForPlayerState
+namespace Game.Enemies.Impls.Enemy4.States
 {
-    private Vector2? isInAgroZone;
-
-    public EnemyFourLookForPlayerState(EntityFSM fsm, Core core,
-        string animBoolName, Entity entity,
-        LookForPlayerStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyFourLookForPlayerState : LookForPlayerState
     {
-    }
+        private Vector2? isInAgroZone;
 
-    public override void DoCheck()
-    {
-        base.DoCheck();
-
-        isInAgroZone = enemyCollisionDetector.GetPlayerPositionInZone();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isInAgroZone is not null)
+        public EnemyFourLookForPlayerState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            LookForPlayerStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyFourAttackState>();
         }
-        else if(isAllTurnsTimeDone)
+
+        public override void DoCheck()
         {
-            fsm.ChangeState<EnemyFourMoveState>();
+            base.DoCheck();
+
+            isInAgroZone = enemyCollisionDetector.GetPlayerPositionInZone();
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if(isInAgroZone is not null)
+            {
+                fsm.ChangeState<EnemyFourAttackState>();
+            }
+            else if(isAllTurnsTimeDone)
+            {
+                fsm.ChangeState<EnemyFourMoveState>();
+            }
         }
     }
 }
+

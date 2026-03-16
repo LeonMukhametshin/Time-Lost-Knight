@@ -1,28 +1,39 @@
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using Unity.VisualScripting.FullSerializer;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EnemyThreePlayerDetectedState : PlayerDetectedState
+namespace Game.Enemies.Impls.Enemy3.States
 {
-    public EnemyThreePlayerDetectedState(EntityFSM fsm, Core core, string animBoolName, 
-        Entity entity, PlayerDetectedData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyThreePlayerDetectedState : PlayerDetectedState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(performeCloseRangeAction)
+        public EnemyThreePlayerDetectedState(EntityFSM fsm, CoreSystem core, string animBoolName,
+            Entity entity, PlayerDetectedData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyThreeRangeAttackState>();
         }
-        else if(performeLongRangeAction)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyThreeRangeAttackState>();
-        }
-        else if (!isPlayerInMaxAgroRange)
-        {
-            fsm.ChangeState<EnemyThreeLookForPlayerState>();
+            base.Update();
+
+            if(performeCloseRangeAction)
+            {
+                fsm.ChangeState<EnemyThreeRangeAttackState>();
+            }
+            else if(performeLongRangeAction)
+            {
+                fsm.ChangeState<EnemyThreeRangeAttackState>();
+            }
+            else if (!isPlayerInMaxAgroRange)
+            {
+                fsm.ChangeState<EnemyThreeLookForPlayerState>();
+            }
         }
     }
 }
+

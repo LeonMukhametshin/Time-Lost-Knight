@@ -1,11 +1,19 @@
-public abstract class Combat : CoreComponent, IEffectable, IDamageable
-{
-    private HealthComponent m_healthComponent;
-    protected HealthComponent healthComponent =>
-        m_healthComponent ??= core.GetCoreComponent<HealthComponent>();
+﻿using Game.Buffs.Interfaces;
+using Game.Effects;
+using UnityEngine.Scripting.APIUpdating;
 
-    public virtual void TakeDamage(float amount)
+namespace Game.Core.CoreComponents
+{
+    [MovedFrom("")]
+    public abstract class Combat : CoreComponent, IEffectable, IDamageable
     {
-        healthComponent?.TakeDamage(amount);
+        private HealthComponent m_healthComponent;
+        protected HealthComponent healthComponent =>
+            m_healthComponent ??= core.GetCoreComponent<HealthComponent>();
+
+        public virtual void TakeDamage(float amount)
+        {
+            healthComponent?.TakeDamage(amount);
+        }
     }
 }

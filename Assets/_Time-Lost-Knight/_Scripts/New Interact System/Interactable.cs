@@ -1,35 +1,42 @@
+﻿using Game.Interaction.NewSystem.Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Scripting.APIUpdating;
 
-public class Interactable : MonoBehaviour, IInteract
+namespace Game.Interaction.NewSystem
 {
-    [SerializeField] private string m_displayName = "Interact";
-    [SerializeField] private bool m_isEnabled = true;
-
-    [SerializeField] private UnityEvent m_onIntarect;
-
-    public Transform position => transform;
-
-    public string displayName => m_displayName;
-
-    private void Awake()
+    [MovedFrom("")]
+    public class Interactable : MonoBehaviour, IInteract
     {
-        //TODO outline
-    }
+        [SerializeField] private string m_displayName = "Interact";
+        [SerializeField] private bool m_isEnabled = true;
 
-    public bool CanInteract() =>
-        m_isEnabled;
+        [SerializeField] private UnityEvent m_onIntarect;
 
-    public void Interact() => 
-        m_onIntarect?.Invoke();
+        public Transform position => transform;
 
-    public void OnFocusGained()
-    {
-        //TODO outline
-    }
+        public string displayName => m_displayName;
 
-    public void OnFocusLost()
-    {
-        //TODO outline
+        private void Awake()
+        {
+            //TODO outline
+        }
+
+        public bool CanInteract() =>
+            m_isEnabled;
+
+        public void Interact() =>
+            m_onIntarect?.Invoke();
+
+        public void OnFocusGained()
+        {
+            //TODO outline
+        }
+
+        public void OnFocusLost()
+        {
+            //TODO outline
+        }
     }
 }
+

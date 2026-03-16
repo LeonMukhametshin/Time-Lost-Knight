@@ -1,27 +1,39 @@
-public class EnemyFirstLookForPlayerState : LookForPlayerState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy1.States
 {
-    public EnemyFirstLookForPlayerState(EntityFSM fsm, Core core,
-        string animBoolName, Entity entity,
-        LookForPlayerStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyFirstLookForPlayerState : LookForPlayerState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isPlayerInMinAgroRange)
+        public EnemyFirstLookForPlayerState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            LookForPlayerStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
         }
-        else if(isPlayerInMaxAgroRange)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyFirstPlayerDetectedState>();
-        }
-        else if(isAllTurnsTimeDone)
-        {
-            fsm.ChangeState<EnemyFirstMoveState>();
+            base.Update();
+
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+            }
+            else if(isPlayerInMaxAgroRange)
+            {
+                fsm.ChangeState<EnemyFirstPlayerDetectedState>();
+            }
+            else if(isAllTurnsTimeDone)
+            {
+                fsm.ChangeState<EnemyFirstMoveState>();
+            }
         }
     }
 }
+

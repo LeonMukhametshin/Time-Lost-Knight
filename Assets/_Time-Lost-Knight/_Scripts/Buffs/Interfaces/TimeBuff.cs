@@ -1,43 +1,48 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public abstract class TimeBuff : BaseBuff, ITimeBuff
+namespace Game.Buffs.Interfaces
 {
-    [SerializeField] private float m_duration;
-
-    public float duration => m_duration;
-
-    [field: NonSerialized] public float timer { get; private set; }
-
-    protected TimeBuff(string id, Sprite icon, BuffType type, float duration) 
-        : base(id, icon, type)
+    [MovedFrom("")]
+    public abstract class TimeBuff : BaseBuff, ITimeBuff
     {
-        m_duration = duration;
-    }
+        [SerializeField] private float m_duration;
 
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
-        timer = m_duration;
-    }
+        public float duration => m_duration;
 
-    protected override void OnDeinitializing()
-    {
-        timer = 0;
-    }
+        [field: NonSerialized] public float timer { get; private set; }
 
-    public sealed override void Update(float deltaTime)
-    {
-        if(timer > 0f)
+        protected TimeBuff(string id, Sprite icon, BuffType type, float duration)
+            : base(id, icon, type)
         {
-            OnUpdate(deltaTime);
-            timer -= deltaTime;
+            m_duration = duration;
         }
-        else
-        {
-            Deinitialize();
-        }
-    }
 
-    protected virtual void OnUpdate(float deltaTime) { }
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+            timer = m_duration;
+        }
+
+        protected override void OnDeinitializing()
+        {
+            timer = 0;
+        }
+
+        public sealed override void Update(float deltaTime)
+        {
+            if(timer > 0f)
+            {
+                OnUpdate(deltaTime);
+                timer -= deltaTime;
+            }
+            else
+            {
+                Deinitialize();
+            }
+        }
+
+        protected virtual void OnUpdate(float deltaTime) { }
+    }
 }

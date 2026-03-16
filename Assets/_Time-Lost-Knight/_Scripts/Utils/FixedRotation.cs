@@ -1,27 +1,32 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class FixedRotation : MonoBehaviour
+namespace Game.Utils
 {
-    private Transform m_parent;
-    private Vector3 m_worldOffset;
-    private Quaternion m_rotation;
-
-    private void Start()
+    [MovedFrom("")]
+    public class FixedRotation : MonoBehaviour
     {
-        m_parent = transform.parent;
+        private Transform m_parent;
+        private Vector3 m_worldOffset;
+        private Quaternion m_rotation;
 
-        m_rotation = transform.rotation;
-        m_worldOffset = transform.position - m_parent.position;
-    }
-
-    private void LateUpdate()
-    {
-        if (!m_parent)
+        private void Start()
         {
-            return;
+            m_parent = transform.parent;
+
+            m_rotation = transform.rotation;
+            m_worldOffset = transform.position - m_parent.position;
         }
 
-        transform.position = m_parent.position + m_worldOffset;
-        transform.rotation = m_rotation;
+        private void LateUpdate()
+        {
+            if (!m_parent)
+            {
+                return;
+            }
+
+            transform.position = m_parent.position + m_worldOffset;
+            transform.rotation = m_rotation;
+        }
     }
 }

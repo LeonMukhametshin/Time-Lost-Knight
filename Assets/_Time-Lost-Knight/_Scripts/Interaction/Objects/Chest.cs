@@ -1,19 +1,25 @@
+﻿using Game.Observer;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class Chest : Subject
+namespace Game.Interaction.Objects
 {
-    //TODO some logic(((
-    private bool m_isOpen = false;
-    public bool isOpen => m_isOpen;
-
-    public void Open()
+    [MovedFrom("")]
+    public class Chest : Subject
     {
-        if(m_isOpen)
-        {
-            return;
-        }
+        //TODO some logic(((
+        private bool m_isOpen = false;
+        public bool isOpen => m_isOpen;
 
-        m_isOpen = true;
-        Debug.Log("Chest opened");
+        public void Open()
+        {
+            if(m_isOpen)
+            {
+                return;
+            }
+
+            m_isOpen = true;
+            Debug.Log("Chest opened");
+        }
     }
 }

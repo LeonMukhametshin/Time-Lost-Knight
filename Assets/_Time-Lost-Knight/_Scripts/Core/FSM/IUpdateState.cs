@@ -1,4 +1,10 @@
-public interface IUpdateState
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Core.FSM
 {
-    void Update();
+    [MovedFrom("")]
+    public interface IUpdateState
+    {
+        void Update();
+    }
 }

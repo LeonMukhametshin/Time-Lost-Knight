@@ -1,28 +1,33 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class LoadingAnimation : MonoBehaviour
+namespace Game.UI.CoreSystem
 {
-    [SerializeField][Range(0f,5f)] private float m_duration = 2f;
-
-    private Tween m_rotationTween;
-
-    private void OnEnable()
+    [MovedFrom("")]
+    public class LoadingAnimation : MonoBehaviour
     {
-        PlayRotation();
-    }
+        [SerializeField][Range(0f,5f)] private float m_duration = 2f;
 
-    private void OnDisable()
-    {
-        m_rotationTween?.Kill();
-    }
+        private Tween m_rotationTween;
 
-    private void PlayRotation()
-    {
-        m_rotationTween = transform.
-          DORotate(new Vector3(0, 0, -360f), m_duration, RotateMode.FastBeyond360)
-          .SetRelative(true)
-          .SetEase(Ease.Linear)
-          .SetLoops(-1);
+        private void OnEnable()
+        {
+            PlayRotation();
+        }
+
+        private void OnDisable()
+        {
+            m_rotationTween?.Kill();
+        }
+
+        private void PlayRotation()
+        {
+            m_rotationTween = transform.
+              DORotate(new Vector3(0, 0, -360f), m_duration, RotateMode.FastBeyond360)
+              .SetRelative(true)
+              .SetEase(Ease.Linear)
+              .SetLoops(-1);
+        }
     }
 }

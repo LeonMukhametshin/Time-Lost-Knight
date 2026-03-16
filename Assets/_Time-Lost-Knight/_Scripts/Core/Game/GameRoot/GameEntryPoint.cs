@@ -1,161 +1,173 @@
+﻿using Game.Core;
+using Game.Core.Game.Gameplay.Root;
+using Game.Core.Game.MainMenu.Root;
+using Game.Core.Services;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Scripting.APIUpdating;
 
-public class GameEntryPoint
+namespace Game.Core.Game.GameRoot
 {
-    private static GameEntryPoint m_instance;
-
-    private CoroutineRunner m_coroutines;
-    private UIRootView m_uiRoot;
-    private bool m_isLoading;
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static void AutostartGame()
+    [MovedFrom("")]
+    public class GameEntryPoint
     {
-        Application.targetFrameRate = 60;
+        private static GameEntryPoint m_instance;
 
-        m_instance = new GameEntryPoint();
+        private CoroutineRunner m_coroutines;
+        private UIRootView m_uiRoot;
+        private bool m_isLoading;
 
-        m_instance.RunGame();
-    }
-
-    private GameEntryPoint()
-    {
-        m_coroutines = new GameObject("[COROUTINES]").AddComponent<CoroutineRunner>();
-
-        //TODO: adressables
-        var prefabUIRoot = Resources.Load<UIRootView>("UIRoot");
-        m_uiRoot = Object.Instantiate(prefabUIRoot);
-        Object.DontDestroyOnLoad(m_uiRoot.gameObject);
-    }
-
-    private void RunGame()
-    {
-#if UNITY_EDITOR
-        var sceneName = SceneManager.GetActiveScene().name;
-
-        if(sceneName == SceneNames.GAMEPLAY)
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void AutostartGame()
         {
-            m_coroutines.StartCoroutine(LoadAndStartGameplay());
-            return;
+            Application.targetFrameRate = 60;
+
+            m_instance = new GameEntryPoint();
+
+            m_instance.RunGame();
         }
 
-        if(sceneName == SceneNames.MAIN_MENU)
+        private GameEntryPoint()
         {
+            m_coroutines = new GameObject("[COROUTINES]").AddComponent<CoroutineRunner>();
+
+            // TODO: adressables
+            var prefabUIRoot = Resources.Load<UIRootView>("UIRoot");
+            m_uiRoot = Object.Instantiate(prefabUIRoot);
+            Object.DontDestroyOnLoad(m_uiRoot.gameObject);
+        }
+
+        private void RunGame()
+        {
+    #if UNITY_EDITOR
+            var sceneName = SceneManager.GetActiveScene().name;
+
+            if (sceneName == SceneNames.GAMEPLAY)
+            {
+                m_coroutines.StartCoroutine(LoadAndStartGameplay());
+                return;
+            }
+
+            if (sceneName == SceneNames.MAIN_MENU)
+            {
+                m_coroutines.StartCoroutine(LoadAndStartMainMenu(false));
+                return;
+            }
+
+            if (sceneName != SceneNames.BOOT)
+            {
+                return;
+            }
+    #endif
+
+            // App startup: show main menu without loading screen
             m_coroutines.StartCoroutine(LoadAndStartMainMenu(false));
-            return;
         }
 
-        if (sceneName != SceneNames.BOOT)
+        private IEnumerator LoadAndStartGameplay()
         {
-            return;
-        }
-#endif
+            if (m_isLoading)
+            {
+                yield break;
+            }
 
-        // App startup: show main menu without loading screen
-        m_coroutines.StartCoroutine(LoadAndStartMainMenu(false));
-    }
+            m_isLoading = true;
 
-    private IEnumerator LoadAndStartGameplay()
-    {
-        if (m_isLoading)
-        {
-            yield break;
-        }
-        m_isLoading = true;
-
-        if (m_uiRoot != null)
-        {
-            m_uiRoot.ShowLoadingScreen();
-        }
-
-        if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
-        {
-            yield return LoadScene(SceneNames.BOOT);
-        }
-        yield return LoadScene(SceneNames.GAMEPLAY);
-
-        var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
-        if (sceneEntryPoint == null)
-        {
-            Debug.LogError("GameplayEntryPoint not found in Gameplay scene");
             if (m_uiRoot != null)
             {
-                m_uiRoot.HideLoadingScreen();
+                m_uiRoot.ShowLoadingScreen();
             }
-            m_isLoading = false;
-            yield break;
-        }
 
-        void OnGameplayReady()
-        {
+            if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
+            {
+                yield return LoadScene(SceneNames.BOOT);
+            }
+            yield return LoadScene(SceneNames.GAMEPLAY);
+
+            var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
+            if (sceneEntryPoint == null)
+            {
+                Debug.LogError("GameplayEntryPoint not found in Gameplay scene");
+                if (m_uiRoot != null)
+                {
+                    m_uiRoot.HideLoadingScreen();
+                }
+                m_isLoading = false;
+                yield break;
+            }
+
+            void OnGameplayReady()
+            {
+                sceneEntryPoint.gameplayReady -= OnGameplayReady;
+                if (m_uiRoot != null)
+                {
+                    m_uiRoot.HideLoadingScreen();
+                }
+                m_isLoading = false;
+            }
+
             sceneEntryPoint.gameplayReady -= OnGameplayReady;
-            if (m_uiRoot != null)
+            sceneEntryPoint.gameplayReady += OnGameplayReady;
+
+            sceneEntryPoint.goToMainMenuSceneRequested += () =>
             {
-                m_uiRoot.HideLoadingScreen();
+                m_coroutines.StartCoroutine(LoadAndStartMainMenu(true));
+            };
+
+            sceneEntryPoint.Run();
+        }
+
+        private IEnumerator LoadAndStartMainMenu(bool showLoading)
+        {
+            if (m_isLoading)
+            {
+                yield break;
             }
-            m_isLoading = false;
-        }
 
-        sceneEntryPoint.gameplayReady -= OnGameplayReady;
-        sceneEntryPoint.gameplayReady += OnGameplayReady;
+            m_isLoading = true;
 
-        sceneEntryPoint.goToMainMenuSceneRequested += () =>
-        {
-            m_coroutines.StartCoroutine(LoadAndStartMainMenu(true));
-        };
+            if (showLoading && m_uiRoot != null)
+            {
+                m_uiRoot.ShowLoadingScreen();
+            }
 
-        sceneEntryPoint.Run();
-    }
+            if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
+            {
+                yield return LoadScene(SceneNames.BOOT);
+            }
+            yield return LoadScene(SceneNames.MAIN_MENU);
 
-    private IEnumerator LoadAndStartMainMenu(bool showLoading)
-    {
-        if (m_isLoading)
-        {
-            yield break;
-        }
-        m_isLoading = true;
+            var sceneEntryPoint = Object.FindFirstObjectByType<MainMenuEntryPoint>();
+            if (sceneEntryPoint == null)
+            {
+                Debug.LogError("MainMenuEntryPoint not found in MainMenu scene");
+                if (showLoading && m_uiRoot != null)
+                {
+                    m_uiRoot.HideLoadingScreen();
+                }
+                m_isLoading = false;
+                yield break;
+            }
 
-        if (showLoading && m_uiRoot != null)
-        {
-            m_uiRoot.ShowLoadingScreen();
-        }
+            sceneEntryPoint.Run();
 
-        if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
-        {
-            yield return LoadScene(SceneNames.BOOT);
-        }
-        yield return LoadScene(SceneNames.MAIN_MENU);
+            sceneEntryPoint.GoToGameplaySceneRequested += () =>
+            {
+                m_coroutines.StartCoroutine(LoadAndStartGameplay());
+            };
 
-        var sceneEntryPoint = Object.FindFirstObjectByType<MainMenuEntryPoint>();
-        if (sceneEntryPoint == null)
-        {
-            Debug.LogError("MainMenuEntryPoint not found in MainMenu scene");
             if (showLoading && m_uiRoot != null)
             {
                 m_uiRoot.HideLoadingScreen();
             }
+
             m_isLoading = false;
-            yield break;
         }
 
-        sceneEntryPoint.Run();
-
-        sceneEntryPoint.GoToGameplaySceneRequested += () =>
+        private IEnumerator LoadScene(string sceneName)
         {
-            m_coroutines.StartCoroutine(LoadAndStartGameplay());
-        };
-
-        if (showLoading && m_uiRoot != null)
-        {
-            m_uiRoot.HideLoadingScreen();
+            yield return SceneManager.LoadSceneAsync(sceneName);
         }
-        m_isLoading = false;
-    }
-
-    private IEnumerator LoadScene(string sceneName)
-    {
-        yield return SceneManager.LoadSceneAsync(sceneName);
     }
 }

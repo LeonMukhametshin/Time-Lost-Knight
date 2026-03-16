@@ -1,5 +1,11 @@
-public interface IState
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Core.Infrastructure.States
 {
-    void Enter();
-    void Exit();
+    [MovedFrom("")]
+    public interface IState
+    {
+        void Enter();
+        void Exit();
+    }
 }

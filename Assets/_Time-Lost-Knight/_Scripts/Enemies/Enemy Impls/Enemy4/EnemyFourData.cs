@@ -1,11 +1,18 @@
+﻿using Game.Enemies.States.Datas;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "EnemyFour", menuName = "Scriptable Objects/Enemy/EnemyFour")]
-public sealed class EnemyFourData : EntityData
+namespace Game.Enemies.Impls.Enemy4
 {
-    [field: SerializeField] public IdleStateData idle { get; private set; }
-    [field: SerializeField] public MoveStateData move { get; private set; }
-    [field: SerializeField] public LookForPlayerStateData lookForPlayer { get; private set; }
-    [field: SerializeField] public PlayerDetectedData playerDetected { get; private set; }
-    [field: SerializeField] public RangeAttackData rangeAttack { get; private set; }
+    [CreateAssetMenu(fileName = "EnemyFour", menuName = "Scriptable Objects/Enemy/EnemyFour")]
+    [MovedFrom("")]
+    public sealed class EnemyFourData : EntityData
+    {
+        [field: SerializeField] public IdleStateData idle { get; private set; }
+        [field: SerializeField] public MoveStateData move { get; private set; }
+        [field: SerializeField] public LookForPlayerStateData lookForPlayer { get; private set; }
+        [field: SerializeField] public PlayerDetectedData playerDetected { get; private set; }
+        [field: SerializeField] public RangeAttackData rangeAttack { get; private set; }
+    }
 }
+

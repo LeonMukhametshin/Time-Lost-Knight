@@ -1,17 +1,23 @@
-public class PauseState : IState
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Core.Infrastructure.States
 {
-    private StateMachine m_stateMachine;
-
-    public PauseState(StateMachine stateMachine)
+    [MovedFrom("")]
+    public class PauseState : IState
     {
-        m_stateMachine = stateMachine;
-    }
+        private StateMachine m_stateMachine;
 
-    public void Enter()
-    {
-    }
+        public PauseState(StateMachine stateMachine)
+        {
+            m_stateMachine = stateMachine;
+        }
 
-    public void Exit()
-    {
+        public void Enter()
+        {
+        }
+
+        public void Exit()
+        {
+        }
     }
 }

@@ -1,60 +1,67 @@
-﻿using System;
+﻿using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public sealed class PoisonDeBuff : TimeBuff
+namespace Game.Buffs.Impls
 {
-    [SerializeField][Min(0)] private float m_interval = 1f;
-    [SerializeField][Min(0)] private float m_damagePerSeconds = 2f;
-
-    [NonSerialized] private float m_timer;
-    private IHealth m_health;
-
-    public PoisonDeBuff(
-        string id,
-        Sprite sprite,
-        BuffType type,
-        float duration,
-        float interval,
-        float damagePerSeconds) 
-        : base(id, sprite, type, duration)
+    [Serializable]
+    [MovedFrom("")]
+    public sealed class PoisonDeBuff : TimeBuff
     {
-        m_interval = interval;
-        m_damagePerSeconds = damagePerSeconds;
-    }
+        [SerializeField][Min(0)] private float m_interval = 1f;
+        [SerializeField][Min(0)] private float m_damagePerSeconds = 2f;
 
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
-        m_health = container.core.GetCoreComponent<HealthComponent>();
-    }
+        [NonSerialized] private float m_timer;
+        private IHealth m_health;
 
-    protected override void OnDeinitializing()
-    {
-        m_timer = 0;
-        m_health = null;
-        base.OnDeinitializing();
-    }
-
-    protected override void OnUpdate(float deltaTime)
-    {
-        if (m_health is null)
+        public PoisonDeBuff(
+            string id,
+            Sprite sprite,
+            BuffType type,
+            float duration,
+            float interval,
+            float damagePerSeconds)
+            : base(id, sprite, type, duration)
         {
-            Deinitialize();
-            return;
+            m_interval = interval;
+            m_damagePerSeconds = damagePerSeconds;
         }
 
-        if (m_timer < m_interval)
+        protected override void OnInitialize()
         {
-            m_timer += deltaTime;
+            base.OnInitialize();
+            m_health = container.core.GetCoreComponent<HealthComponent>();
         }
-        else
-        {
-            m_timer = 0f;
-            m_health.TakeDamage(m_damagePerSeconds);
-        }
-    }
 
-    public override IBuff Clone() =>
-        new PoisonDeBuff(id, icon, type, duration, m_interval, m_damagePerSeconds);
+        protected override void OnDeinitializing()
+        {
+            m_timer = 0;
+            m_health = null;
+            base.OnDeinitializing();
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            if (m_health is null)
+            {
+                Deinitialize();
+                return;
+            }
+
+            if (m_timer < m_interval)
+            {
+                m_timer += deltaTime;
+            }
+            else
+            {
+                m_timer = 0f;
+                m_health.TakeDamage(m_damagePerSeconds);
+            }
+        }
+
+        public override IBuff Clone() =>
+            new PoisonDeBuff(id, icon, type, duration, m_interval, m_damagePerSeconds);
+    }
 }

@@ -1,23 +1,29 @@
+﻿using Game.Observer;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public sealed class ObserverNotificationSystem : MonoBehaviour
+namespace Game.Core
 {
-    [SerializeField] private Subject m_subject;
-
-    [SerializeReference][SerializeReferenceDropdown]
-    [SerializeField] private IObserver[] observers;
-
-    private void OnEnable() =>
-         m_subject.AddObservers(observers);
-
-    private void OnDisable() =>
-         m_subject.RemoveObservers(observers);
-
-    public void Notify()
+    [MovedFrom("")]
+    public sealed class ObserverNotificationSystem : MonoBehaviour
     {
-        foreach (var observer in observers)
+        [SerializeField] private Subject m_subject;
+
+        [SerializeReference][SerializeReferenceDropdown]
+        [SerializeField] private IObserver[] observers;
+
+        private void OnEnable() =>
+             m_subject.AddObservers(observers);
+
+        private void OnDisable() =>
+             m_subject.RemoveObservers(observers);
+
+        public void Notify()
         {
-            observer.Notify();
+            foreach (var observer in observers)
+            {
+                observer.Notify();
+            }
         }
     }
 }

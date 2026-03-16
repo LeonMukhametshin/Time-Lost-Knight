@@ -1,8 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[CreateAssetMenu(fileName = "Audio Config", menuName = "Scriptable Objects/Interaction/Audio Config")]
-public class InteractionAudioConfig : ScriptableObject
+namespace Game.Audio
 {
-    [field: SerializeField] public AudioClip clip { get; private set; }
-    [field: SerializeField][Range(0f, 1f)] public float volume { get; private set; } = 1f;
+    [CreateAssetMenu(fileName = "Audio Config", menuName = "Scriptable Objects/Interaction/Audio Config")]
+    [MovedFrom("")]
+    public class InteractionAudioConfig : ScriptableObject
+    {
+        [field: SerializeField] public AudioClip clip { get; private set; }
+        [field: SerializeField][Range(0f, 1f)] public float volume { get; private set; } = 1f;
+    }
 }

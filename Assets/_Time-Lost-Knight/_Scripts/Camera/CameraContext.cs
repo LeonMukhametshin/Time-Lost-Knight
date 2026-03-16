@@ -1,13 +1,18 @@
-using System;
+﻿using System;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class CameraContext
+namespace Game.Camera
 {
-    public int facing;
-    public bool isMoving;
+    [Serializable]
+    [MovedFrom("")]
+    public class CameraContext
+    {
+        public int facing;
+        public bool isMoving;
 
-    public bool isLocked;
-    public string lockReason;
+        public bool isLocked;
+        public string lockReason;
 
-    public float timeSinceLastMove;
+        public float timeSinceLastMove;
+    }
 }

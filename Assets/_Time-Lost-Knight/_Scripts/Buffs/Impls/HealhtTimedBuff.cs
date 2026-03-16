@@ -1,60 +1,67 @@
-﻿using System;
+﻿using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class HealhtTimedBuff : TimeBuff
+namespace Game.Buffs.Impls
 {
-
-    [SerializeField][Min(0)] private float m_interval = 1f;
-    [SerializeField][Min(0)] private float m_healthPerIntercal = 1f;
-
-    [NonSerialized] private float m_timer;
-    private IHealth m_health;
-
-    public HealhtTimedBuff(
-        string id, 
-        Sprite icon, 
-        BuffType type, 
-        float duration,
-        float intercal,
-        float healthPerIntercal) 
-        : base(id, icon, type, duration)
+    [MovedFrom("")]
+    public class HealhtTimedBuff : TimeBuff
     {
-        m_interval = intercal;
-        m_healthPerIntercal = healthPerIntercal;
-    }
 
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
-        m_health = container.core.GetCoreComponent<HealthComponent>();
-    }
+        [SerializeField][Min(0)] private float m_interval = 1f;
+        [SerializeField][Min(0)] private float m_healthPerIntercal = 1f;
 
-    protected override void OnDeinitializing()
-    {
-        m_timer = 0;
-        m_health = null;
-        base.OnDeinitializing();
-    }
+        [NonSerialized] private float m_timer;
+        private IHealth m_health;
 
-    protected override void OnUpdate(float deltaTime)
-    {
-        if (m_health is null)
+        public HealhtTimedBuff(
+            string id,
+            Sprite icon,
+            BuffType type,
+            float duration,
+            float intercal,
+            float healthPerIntercal)
+            : base(id, icon, type, duration)
         {
-            Deinitialize();
-            return;
+            m_interval = intercal;
+            m_healthPerIntercal = healthPerIntercal;
         }
-        if (m_timer < m_interval)
-        {
-            m_timer += deltaTime;
-        }
-        else
-        {
-            m_timer = 0f;
-            m_health.Heal(m_healthPerIntercal);
-        }
-    }
 
-    public override IBuff Clone() =>
-        new HealhtTimedBuff(id, icon, type, 
-            duration, m_interval, m_healthPerIntercal);
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+            m_health = container.core.GetCoreComponent<HealthComponent>();
+        }
+
+        protected override void OnDeinitializing()
+        {
+            m_timer = 0;
+            m_health = null;
+            base.OnDeinitializing();
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            if (m_health is null)
+            {
+                Deinitialize();
+                return;
+            }
+            if (m_timer < m_interval)
+            {
+                m_timer += deltaTime;
+            }
+            else
+            {
+                m_timer = 0f;
+                m_health.Heal(m_healthPerIntercal);
+            }
+        }
+
+        public override IBuff Clone() =>
+            new HealhtTimedBuff(id, icon, type,
+                duration, m_interval, m_healthPerIntercal);
+    }
 }

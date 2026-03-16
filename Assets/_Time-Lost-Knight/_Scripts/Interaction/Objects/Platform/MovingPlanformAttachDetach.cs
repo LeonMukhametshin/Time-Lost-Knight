@@ -1,44 +1,51 @@
+﻿using Game.Core;
+using Game.Player;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class MovingPlanformAttachDetach : MonoBehaviour
+namespace Game.Interaction.Objects.Platform
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [MovedFrom("")]
+    public class MovingPlanformAttachDetach : MonoBehaviour
     {
-        if (!collision.gameObject.CompareTag(Tags.Player))
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            return;
+            if (!collision.gameObject.CompareTag(Tags.Player))
+            {
+                return;
+            }
+
+            Attach(collision.transform, collision.rigidbody);
         }
 
-        Attach(collision.transform, collision.rigidbody);
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag(Tags.Player))
+        private void OnCollisionExit2D(Collision2D collision)
         {
-            return;
+            if (!collision.gameObject.CompareTag(Tags.Player))
+            {
+                return;
+            }
+
+            Detach(collision.transform, collision.rigidbody);
         }
 
-        Detach(collision.transform, collision.rigidbody);
-    }
-
-    private void Attach(Transform target, Rigidbody2D rb)
-    {
-        target.SetParent(transform);
-
-        if (rb is not null)
+        private void Attach(Transform target, Rigidbody2D rb)
         {
-            rb.interpolation = RigidbodyInterpolation2D.None;
+            target.SetParent(transform);
+
+            if (rb is not null)
+            {
+                rb.interpolation = RigidbodyInterpolation2D.None;
+            }
         }
-    }
 
-    private void Detach(Transform target, Rigidbody2D rb)
-    {
-        target.SetParent(null);
-
-        if (rb is not null)
+        private void Detach(Transform target, Rigidbody2D rb)
         {
-            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            target.SetParent(null);
+
+            if (rb is not null)
+            {
+                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            }
         }
     }
 }

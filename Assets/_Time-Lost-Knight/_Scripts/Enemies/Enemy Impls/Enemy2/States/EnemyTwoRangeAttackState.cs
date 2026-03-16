@@ -1,30 +1,41 @@
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EnemyTwoRangeAttackState : RangeAttackState
+namespace Game.Enemies.Impls.Enemy2.States
 {
-    public EnemyTwoRangeAttackState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        Transform attackPosition, RangeAttackData data) 
-        : base(fsm, core, animBoolName, entity, attackPosition, data)
+    [MovedFrom("")]
+    public class EnemyTwoRangeAttackState : RangeAttackState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(!isAnimationFinished)
+        public EnemyTwoRangeAttackState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            Transform attackPosition, RangeAttackData data)
+            : base(fsm, core, animBoolName, entity, attackPosition, data)
         {
-            return;
         }
 
-        if (isPlayerInMinAgroRange)
+        public override void Update()
         {
-            fsm.ChangeState<EnemyTwoPlayerDetectedState>();
-        }
-        else
-        {
-            fsm.ChangeState<EnemyTwoLookForPlayerState>();
+            base.Update();
+
+            if(!isAnimationFinished)
+            {
+                return;
+            }
+
+            if (isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyTwoPlayerDetectedState>();
+            }
+            else
+            {
+                fsm.ChangeState<EnemyTwoLookForPlayerState>();
+            }
         }
     }
 }
+

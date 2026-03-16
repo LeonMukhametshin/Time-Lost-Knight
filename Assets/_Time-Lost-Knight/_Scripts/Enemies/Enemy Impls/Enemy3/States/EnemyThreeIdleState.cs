@@ -1,22 +1,34 @@
-public class EnemyThreeIdleState : IdleState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy3.States
 {
-    public EnemyThreeIdleState(EntityFSM fsm, Core core, string animBoolName, 
-        Entity entity, IdleStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyThreeIdleState : IdleState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isPlayerInMinAgroRange)
+        public EnemyThreeIdleState(EntityFSM fsm, CoreSystem core, string animBoolName,
+            Entity entity, IdleStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyThreePlayerDetectedState>();
         }
-        else if (isIdleTimeOver)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyThreeLookForPlayerState>();
+            base.Update();
+
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyThreePlayerDetectedState>();
+            }
+            else if (isIdleTimeOver)
+            {
+                fsm.ChangeState<EnemyThreeLookForPlayerState>();
+            }
         }
     }
 }
+

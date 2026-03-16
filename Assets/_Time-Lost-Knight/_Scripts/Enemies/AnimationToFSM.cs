@@ -1,23 +1,30 @@
+﻿using Game.Enemies.States;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class AnimationToFSM : MonoBehaviour
+namespace Game.Enemies
 {
-    private EntityFSM m_animationState;
-
-    public void Initialize(EntityFSM attackState)
+    [MovedFrom("")]
+    public class AnimationToFSM : MonoBehaviour
     {
-        this.m_animationState = attackState;
-    }
+        private EntityFSM m_animationState;
 
-    private void TriggerAnimation()
-    {
-        var a = m_animationState.currentState as IAnimationTrigger;
-        a.TriggerAnimation();
-    }
+        public void Initialize(EntityFSM attackState)
+        {
+            this.m_animationState = attackState;
+        }
 
-    private void FinishAnimation()
-    {
-        var a = m_animationState.currentState as IAnimationTrigger;
-        a.FinishAnimation();
+        private void TriggerAnimation()
+        {
+            var a = m_animationState.currentState as IAnimationTrigger;
+            a.TriggerAnimation();
+        }
+
+        private void FinishAnimation()
+        {
+            var a = m_animationState.currentState as IAnimationTrigger;
+            a.FinishAnimation();
+        }
     }
 }

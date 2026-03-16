@@ -1,20 +1,27 @@
-public sealed class CameraStateResolver
+﻿using Game.Camera;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Camera.CoreSystem
 {
-    private readonly float m_recenterDelay;
-
-    public CameraStateResolver(float recenterDelay)
+    [MovedFrom("")]
+    public sealed class CameraStateResolver
     {
-        m_recenterDelay = recenterDelay;
-    }
+        private readonly float m_recenterDelay;
 
-    public CameraMode Resolve(CameraContext context)
-    {
-        if (context.isLocked)
-            return CameraMode.Locked;
+        public CameraStateResolver(float recenterDelay)
+        {
+            m_recenterDelay = recenterDelay;
+        }
 
-        if (!context.isMoving && context.timeSinceLastMove >= m_recenterDelay)
-            return CameraMode.Center;
+        public CameraMode Resolve(CameraContext context)
+        {
+            if (context.isLocked)
+                return CameraMode.Locked;
 
-        return context.facing > 0 ? CameraMode.LeftThird : CameraMode.RightThird;
+            if (!context.isMoving && context.timeSinceLastMove >= m_recenterDelay)
+                return CameraMode.Center;
+
+            return context.facing > 0 ? CameraMode.LeftThird : CameraMode.RightThird;
+        }
     }
 }

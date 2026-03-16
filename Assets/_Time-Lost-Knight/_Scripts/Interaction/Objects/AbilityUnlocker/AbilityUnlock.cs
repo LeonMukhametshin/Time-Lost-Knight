@@ -1,18 +1,25 @@
+﻿using Game.Core.ServiceLocatorSpace;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class AbilityUnlock : MonoBehaviour
+namespace Game.Interaction.Objects.AbilityUnlocker
 {
-    protected PlayerFSM m_playerFSM { get; private set; }
-
-    private void Start()
+    [MovedFrom("")]
+    public class AbilityUnlock : MonoBehaviour
     {
-        m_playerFSM = ServiceLocator.Get<PlayerFSM>();
-        if (m_playerFSM == null)
+        protected PlayerFSM m_playerFSM { get; private set; }
+
+        private void Start()
         {
-            throw new System.Exception("PlayerFSM not found in ServiceLocator");
+            m_playerFSM = ServiceLocator.Get<PlayerFSM>();
+            if (m_playerFSM == null)
+            {
+                throw new System.Exception("PlayerFSM not found in ServiceLocator");
+            }
         }
+
+
+        public virtual void Unlock() { }
     }
-
-
-    public virtual void Unlock() { }
 }

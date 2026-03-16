@@ -1,48 +1,57 @@
+﻿using Game.Core.ServiceLocatorSpace;
+using Game.UI;
+using Game.UI.Input;
+using Game.UI.PopupWindow;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PauseWindow : MonoBehaviour
+namespace Game.UI.CoreSystem
 {
-    [SerializeField] private Popup m_popup;
-
-    private UIInputHandler m_inputHandler;
-
-    public void Initialize(UIInputHandler input)
+    [MovedFrom("")]
+    public class PauseWindow : MonoBehaviour
     {
-        m_inputHandler = input;
-        m_inputHandler.pausePressed += OpenOrClose;
-    }
+        [SerializeField] private Popup m_popup;
 
-    public void UnSubscribe()
-    {
-        m_inputHandler.pausePressed -= OpenOrClose;
-    }
+        private UIInputHandler m_inputHandler;
 
-    private void OpenOrClose()
-    {
-        if(m_popup.open)
+        public void Initialize(UIInputHandler input)
         {
-            ClosePause();
+            m_inputHandler = input;
+            m_inputHandler.pausePressed += OpenOrClose;
         }
-        else
+
+        public void UnSubscribe()
         {
-            OpenPause();
+            m_inputHandler.pausePressed -= OpenOrClose;
         }
-    }
 
-    private void OpenPause()
-    {
-        m_popup.gameObject.SetActive(true);
-        m_popup.Show();
+        public void ClosePause()
+        {
+            m_popup.Hide(() => m_popup.gameObject.SetActive(false));
 
-        //TODO remove to pause state (SRP)
-        ServiceLocator.Get<Pause>().SetPause(true);
-    }
+            // TODO remove to pause state (SRP)
+            ServiceLocator.Get<Pause>().SetPause(false);
+        }
 
-    public void ClosePause()
-    {
-        m_popup.Hide(() => m_popup.gameObject.SetActive(false));
+        private void OpenOrClose()
+        {
+            if (m_popup.open)
+            {
+                ClosePause();
+            }
+            else
+            {
+                OpenPause();
+            }
+        }
 
-        //TODO remove to pause state (SRP) 
-        ServiceLocator.Get<Pause>().SetPause(false);
+        private void OpenPause()
+        {
+            m_popup.gameObject.SetActive(true);
+            m_popup.Show();
+
+            // TODO remove to pause state (SRP)
+            ServiceLocator.Get<Pause>().SetPause(true);
+        }
     }
 }

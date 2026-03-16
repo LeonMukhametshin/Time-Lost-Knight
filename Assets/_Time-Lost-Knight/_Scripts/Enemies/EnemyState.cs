@@ -1,6 +1,12 @@
-public enum EnemyStateEnum
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies
 {
-    Moving,
-    Knockback,
-    Dead
+    [MovedFrom("")]
+    public enum EnemyStateEnum
+    {
+        Moving,
+        Knockback,
+        Dead
+    }
 }

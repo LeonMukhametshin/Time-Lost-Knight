@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public interface ITeleportable
+namespace Game.Level.Teleport
 {
-    void OnTeleported(Vector2 newPosition);
+    [MovedFrom("")]
+    public interface ITeleportable
+    {
+        void OnTeleported(Vector2 newPosition);
+    }
 }

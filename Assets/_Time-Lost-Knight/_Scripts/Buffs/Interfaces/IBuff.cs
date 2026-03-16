@@ -1,15 +1,21 @@
+﻿using Game.Buffs;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public interface IBuff
+namespace Game.Buffs.Interfaces
 {
-    public string id { get; }   
-    public Sprite icon { get;  }
-    public BuffType type { get; }
+    [MovedFrom("")]
+    public interface IBuff
+    {
+        public string id { get; }
+        public Sprite icon { get;  }
+        public BuffType type { get; }
 
-    public void Initialize(BuffContainer buffContainer);
-    public void Deinitialize();
+        public void Initialize(BuffContainer buffContainer);
+        public void Deinitialize();
 
-    public void Update(float deltaTime);
+        public void Update(float deltaTime);
 
-    public IBuff Clone();
+        public IBuff Clone();
+    }
 }

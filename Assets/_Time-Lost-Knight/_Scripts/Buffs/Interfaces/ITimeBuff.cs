@@ -1,5 +1,11 @@
-public interface ITimeBuff
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Buffs.Interfaces
 {
-    float duration { get; }
-    float timer { get; }
+    [MovedFrom("")]
+    public interface ITimeBuff
+    {
+        float duration { get; }
+        float timer { get; }
+    }
 }

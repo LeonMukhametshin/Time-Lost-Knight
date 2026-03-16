@@ -1,27 +1,32 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class ExplosionProjectile : BaseProjectile
+namespace Game.Projectiles
 {
-    [SerializeField] private float m_explosionRadius = 2f;
-
-    public override void OnTriggerEnter2D(Collider2D collision)
+    [MovedFrom("")]
+    public class ExplosionProjectile : BaseProjectile
     {
-        DestroyProjectile();
-    }
+        [SerializeField] private float m_explosionRadius = 2f;
 
-    private void HitInRadius()
-    {
-        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, m_explosionRadius);
-
-        foreach (var obj in hitObjects)
+        public override void OnTriggerEnter2D(Collider2D collision)
         {
-            HitObject(obj);
+            DestroyProjectile();
         }
-    }
 
-    protected override void DestroyProjectile()
-    {
-        HitInRadius();
-        base.DestroyProjectile();
+        private void HitInRadius()
+        {
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, m_explosionRadius);
+
+            foreach (var obj in hitObjects)
+            {
+                HitObject(obj);
+            }
+        }
+
+        protected override void DestroyProjectile()
+        {
+            HitInRadius();
+            base.DestroyProjectile();
+        }
     }
 }

@@ -1,23 +1,30 @@
+﻿using Game.Core.FSM;
+using Game.Core.Infrastructure.States;
 using System.Collections.Generic;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EntityFSM : StateMachine
+namespace Game.Player.FSM
 {
-    public void Update()
+    [MovedFrom("")]
+    public class EntityFSM : StateMachine
     {
-        if (m_currentState is IUpdateState updateState)
+        public void Update()
         {
-            updateState.Update();
+            if (m_currentState is IUpdateState updateState)
+            {
+                updateState.Update();
+            }
         }
-    }
 
-    public void FixedUpdate()
-    {
-        if (m_currentState is IFixedUpdateState fixedUpdateState)
+        public void FixedUpdate()
         {
-            fixedUpdateState.FixedUpdate();
+            if (m_currentState is IFixedUpdateState fixedUpdateState)
+            {
+                fixedUpdateState.FixedUpdate();
+            }
         }
-    }
 
-    public T GetState<T>() where T : EntityState
-        => m_states.GetValueOrDefault(typeof(T)) as T;
+        public T GetState<T>() where T : EntityState
+            => m_states.GetValueOrDefault(typeof(T)) as T;
+    }
 }

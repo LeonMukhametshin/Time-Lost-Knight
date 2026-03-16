@@ -1,23 +1,28 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class WidgetDamageValue : MonoBehaviour
+namespace Game.UI.Widgets
 {
-    [SerializeField] private TextMeshPro m_textValue;
-    [SerializeField] private float m_destroyTime = 2f;
-
-    private void OnEnable()
+    [MovedFrom("")]
+    public class WidgetDamageValue : MonoBehaviour
     {
-        Destroy(gameObject, m_destroyTime);
-    }
+        [SerializeField] private TextMeshPro m_textValue;
+        [SerializeField] private float m_destroyTime = 2f;
 
-    public void SetValue(string value)
-    {
-        m_textValue.text = value;
-    }
+        private void OnEnable()
+        {
+            Destroy(gameObject, m_destroyTime);
+        }
 
-    public void SetColor(Color color)
-    {
-        m_textValue.color = color;
+        public void SetValue(string value)
+        {
+            m_textValue.text = value;
+        }
+
+        public void SetColor(Color color)
+        {
+            m_textValue.color = color;
+        }
     }
 }

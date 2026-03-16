@@ -1,62 +1,70 @@
-using UnityEngine;
+﻿using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using Game.ScriptableObjects.Weapons;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class AttackingWeapon : Weapon
+namespace Game.Weapons
 {
-    protected AttackingWeaponData attackingWeaponData;
-
-    private List<IEffectable> m_effectables = new();
-
-    protected override void Awake()
+    [MovedFrom("")]
+    public class AttackingWeapon : Weapon
     {
-        base.Awake();
+        protected AttackingWeaponData attackingWeaponData;
 
-        if(weaponData.GetType() == typeof(AttackingWeaponData))
+        private List<IEffectable> m_effectables = new();
+
+        protected override void Awake()
         {
-            attackingWeaponData = (AttackingWeaponData)weaponData;
-        }
-    }
+            base.Awake();
 
-    public override void AnimationActionTriger()
-    {
-        base.AnimationActionTriger();
-
-        CheckMeleeAttack();
-    }
-
-    private void CheckMeleeAttack()
-    {
-        if(m_effectables is null || m_effectables.Count == 0)
-        {
-            return;
-        }
-
-        var effectablesArray = m_effectables.ToArray();
-        var effects = attackingWeaponData.attackDetails[attackCounter].effects;
-
-        foreach (var effectable in effectablesArray)
-        {
-            if (effectable is null)
+            if(weaponData.GetType() == typeof(AttackingWeaponData))
             {
-                continue;
+                attackingWeaponData = (AttackingWeaponData)weaponData;
+            }
+        }
+
+        public override void AnimationActionTriger()
+        {
+            base.AnimationActionTriger();
+
+            CheckMeleeAttack();
+        }
+
+        private void CheckMeleeAttack()
+        {
+            if(m_effectables is null || m_effectables.Count == 0)
+            {
+                return;
             }
 
-            effects.ApplyEffect(effectable);
-        }
-    }
+            var effectablesArray = m_effectables.ToArray();
+            var effects = attackingWeaponData.attackDetails[attackCounter].effects;
 
-    public void AddToDetected(Collider2D collision)
-    {
-        if(collision.gameObject.TryGetComponent(out Core core))
-        {       
-            m_effectables.AddRange(core.effectables);           
+            foreach (var effectable in effectablesArray)
+            {
+                if (effectable is null)
+                {
+                    continue;
+                }
+
+                effects.ApplyEffect(effectable);
+            }
         }
-        else if(collision.gameObject.TryGetComponent(out IEffectable effectable))
+
+        public void AddToDetected(Collider2D collision)
         {
-            m_effectables.Add(effectable);
+            if(collision.gameObject.TryGetComponent(out CoreSystem core))
+            {
+                m_effectables.AddRange(core.effectables);
+            }
+            else if(collision.gameObject.TryGetComponent(out IEffectable effectable))
+            {
+                m_effectables.Add(effectable);
+            }
         }
-    }
 
-    public void ClearDetectedList(Collider2D collision) => 
-        m_effectables.Clear();
+        public void ClearDetectedList(Collider2D collision) =>
+            m_effectables.Clear();
+    }
 }

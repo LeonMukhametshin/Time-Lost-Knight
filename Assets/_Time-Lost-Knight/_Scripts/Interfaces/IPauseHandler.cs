@@ -1,4 +1,10 @@
-public interface IPauseHandler
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Interfaces
 {
-    void IsPuased(bool isPaused);
+    [MovedFrom("")]
+    public interface IPauseHandler
+    {
+        void IsPuased(bool isPaused);
+    }
 }

@@ -1,9 +1,14 @@
-using NUnit.Framework.Internal;
+﻿using NUnit.Framework.Internal;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public interface IKnockbackable
+namespace Game.Interfaces
 {
-    void Knockback(Vector2 angle, float strength);
+    [MovedFrom("")]
+    public interface IKnockbackable
+    {
+        void Knockback(Vector2 angle, float strength);
 
-    void Knockback(Vector2 angle, float strength, int direction);
+        void Knockback(Vector2 angle, float strength, int direction);
+    }
 }

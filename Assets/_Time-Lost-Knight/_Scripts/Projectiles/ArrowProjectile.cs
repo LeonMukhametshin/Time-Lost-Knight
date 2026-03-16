@@ -1,10 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class ArrowProjectile : BaseProjectile 
+namespace Game.Projectiles
 {
-    protected virtual void UpdateRotation()
+    [MovedFrom("")]
+    public class ArrowProjectile : BaseProjectile
     {
-        float angle = Mathf.Atan2(projectileRigidbody.linearVelocityY, projectileRigidbody.linearVelocityX) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        protected virtual void UpdateRotation()
+        {
+            float angle = Mathf.Atan2(projectileRigidbody.linearVelocityY, projectileRigidbody.linearVelocityX) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
 }

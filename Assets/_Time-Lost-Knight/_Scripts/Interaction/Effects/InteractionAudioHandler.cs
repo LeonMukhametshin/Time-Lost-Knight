@@ -1,14 +1,21 @@
+﻿using Game.Audio;
+using Game.Observer;
 using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class InteractionAudioHandler : IObserver
+namespace Game.Interaction.Effects
 {
-    [SerializeField] private AudioSource m_audioSource;
-    [SerializeField] private InteractionAudioConfig m_audioConfig;
-
-    public void Notify()
+    [Serializable]
+    [MovedFrom("")]
+    public class InteractionAudioHandler : IObserver
     {
-        m_audioSource.PlayOneShot(m_audioConfig.clip, m_audioConfig.volume);
+        [SerializeField] private AudioSource m_audioSource;
+        [SerializeField] private InteractionAudioConfig m_audioConfig;
+
+        public void Notify()
+        {
+            m_audioSource.PlayOneShot(m_audioConfig.clip, m_audioConfig.volume);
+        }
     }
 }

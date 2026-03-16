@@ -1,27 +1,39 @@
-public class EnemyFourIdleState : IdleState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy4.States
 {
-    public EnemyFourIdleState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, 
-        IdleStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyFourIdleState : IdleState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if(isPlayerInMinAgroRange)
+        public EnemyFourIdleState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            IdleStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            fsm.ChangeState<EnemyFourAttackState>();
         }
-        else if(isPlayerInMaxAgroRange)
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyFourLookForPlayerState>();
-        }
-        else if(isIdleTimeOver)
-        {
-            fsm.ChangeState<EnemyFourMoveState>();
+            base.Update();
+
+            if(isPlayerInMinAgroRange)
+            {
+                fsm.ChangeState<EnemyFourAttackState>();
+            }
+            else if(isPlayerInMaxAgroRange)
+            {
+                fsm.ChangeState<EnemyFourLookForPlayerState>();
+            }
+            else if(isIdleTimeOver)
+            {
+                fsm.ChangeState<EnemyFourMoveState>();
+            }
         }
     }
 }
+

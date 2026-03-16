@@ -1,21 +1,26 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public abstract class Subject : MonoBehaviour
+namespace Game.Observer
 {
-    private readonly HashSet<IObserver> m_observers = new HashSet<IObserver>();
+    [MovedFrom("")]
+    public abstract class Subject : MonoBehaviour
+    {
+        private readonly HashSet<IObserver> m_observers = new HashSet<IObserver>();
 
-    public void AddObserver(IObserver observer) =>
-        m_observers.Add(observer);
+        public void AddObserver(IObserver observer) =>
+            m_observers.Add(observer);
 
-    public void RemoveObserver(IObserver observer) =>
-         m_observers.Remove(observer);
+        public void RemoveObserver(IObserver observer) =>
+             m_observers.Remove(observer);
 
-    public void NotifyObservers() 
-    { 
-        foreach (var observer in m_observers)
+        public void NotifyObservers()
         {
-            observer.Notify();
+            foreach (var observer in m_observers)
+            {
+                observer.Notify();
+            }
         }
-    } 
+    }
 }

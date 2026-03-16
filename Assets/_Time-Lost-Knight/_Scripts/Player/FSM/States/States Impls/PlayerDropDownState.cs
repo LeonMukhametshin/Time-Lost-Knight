@@ -1,46 +1,56 @@
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerDropDownState : PlayerState
+namespace Game.Player.FSM.States.Impls
 {
-    protected Movement movement => 
-        m_movement ??= core.GetCoreComponent<Movement>();
-
-    protected OneWayPlatformCollisionController oneWayPlatformCollisionController => 
-        m_oneWayPlatformCollision ??= core.GetCoreComponent<OneWayPlatformCollisionController>();
-    
-    private Movement m_movement;
-    private OneWayPlatformCollisionController m_oneWayPlatformCollision;
-
-    private float m_duration;
-
-    public PlayerDropDownState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data, bool active) 
-        : base(fsm, core, animBoolName, player, data, active)
+    [MovedFrom("")]
+    public class PlayerDropDownState : PlayerState
     {
-        m_duration = data.dropThroughDuration;
-    }
+        protected Movement movement =>
+            m_movement ??= core.GetCoreComponent<Movement>();
 
-    public override void Enter()
-    {
-        base.Enter();
+        protected OneWayPlatformCollisionController oneWayPlatformCollisionController =>
+            m_oneWayPlatformCollision ??= core.GetCoreComponent<OneWayPlatformCollisionController>();
 
-        oneWayPlatformCollisionController.SetIgnorePlatform();
-        movement.SetVelocityY(-data.dropVelocity);
+        private Movement m_movement;
+        private OneWayPlatformCollisionController m_oneWayPlatformCollision;
 
-        startTime = Time.time;
-        m_duration = data.dropThroughDuration;
-    }
+        private float m_duration;
 
-    public override void Update()
-    {
-        base.Update();
-
-        if (Time.time >= startTime + m_duration)
+        public PlayerDropDownState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core, animBoolName, player, data, active)
         {
-            var inAirState = fsm.GetState<PlayerAirState>();
-            inAirState.StartCoyoteTime();
-            fsm.ChangeState<PlayerAirState>();
+            m_duration = data.dropThroughDuration;
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            oneWayPlatformCollisionController.SetIgnorePlatform();
+            movement.SetVelocityY(-data.dropVelocity);
+
+            startTime = Time.time;
+            m_duration = data.dropThroughDuration;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (Time.time >= startTime + m_duration)
+            {
+                var inAirState = fsm.GetState<PlayerAirState>();
+                inAirState.StartCoyoteTime();
+                fsm.ChangeState<PlayerAirState>();
+            }
         }
     }
 }
+

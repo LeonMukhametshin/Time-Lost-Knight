@@ -1,17 +1,24 @@
+﻿using Game.Buffs.Interfaces;
+using Game.Interfaces;
 using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class KnockbackEffect : IEffect
+namespace Game.Effects
 {
-    [SerializeField] private float m_knokbackStringht;
-    [SerializeField] private Vector2 m_angle;
-
-    public void Apply(IEffectable effectable)
+    [Serializable]
+    [MovedFrom("")]
+    public class KnockbackEffect : IEffect
     {
-        if (effectable is IKnockbackable knockbackable)
+        [SerializeField] private float m_knokbackStringht;
+        [SerializeField] private Vector2 m_angle;
+
+        public void Apply(IEffectable effectable)
         {
-            knockbackable.Knockback(m_angle, m_knokbackStringht);
+            if (effectable is IKnockbackable knockbackable)
+            {
+                knockbackable.Knockback(m_angle, m_knokbackStringht);
+            }
         }
     }
 }

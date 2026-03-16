@@ -1,21 +1,26 @@
-using System;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class UIGameplayRootBinder : MonoBehaviour
+namespace Game.Core.Game.Gameplay.Root.View
 {
-    public event Action GoToGameplayButtonClicked;
-
-    public void HangleGoToMainMenuButtonClick()
+    [MovedFrom("")]
+    public class UIGameplayRootBinder : MonoBehaviour
     {
-        GoToGameplayButtonClicked?.Invoke();
-    }
+        public event Action GoToGameplayButtonClicked;
 
-    public void HangleExitGameButtonClick()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.ExitPlaymode();
-#endif
+        public void HangleGoToMainMenuButtonClick()
+        {
+            GoToGameplayButtonClicked?.Invoke();
+        }
 
-        Application.Quit();
+        public void HangleExitGameButtonClick()
+        {
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.ExitPlaymode();
+    #endif
+
+            Application.Quit();
+        }
     }
 }

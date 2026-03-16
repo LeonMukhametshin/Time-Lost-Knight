@@ -1,5 +1,11 @@
-public interface IAnimationTrigger
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.States
 {
-    void TriggerAnimation();
-    void FinishAnimation();
+    [MovedFrom("")]
+    public interface IAnimationTrigger
+    {
+        void TriggerAnimation();
+        void FinishAnimation();
+    }
 }

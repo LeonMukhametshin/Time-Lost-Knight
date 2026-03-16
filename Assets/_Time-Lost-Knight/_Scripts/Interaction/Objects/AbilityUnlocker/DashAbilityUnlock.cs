@@ -1,19 +1,27 @@
-public class DashAbilityUnlock : AbilityUnlock
+﻿using Game.Player.FSM.States.Impls;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Interaction.Objects.AbilityUnlocker
 {
-    public override void Unlock()
+    [MovedFrom("")]
+    public class DashAbilityUnlock : AbilityUnlock
     {
-        if (m_playerFSM is null)
+        public override void Unlock()
         {
-            return;
-        }
+            if (m_playerFSM is null)
+            {
+                return;
+            }
 
-        if (m_playerFSM.IsStateUnlocked<PlayerForwardDashState>())
-        {
+            if (m_playerFSM.IsStateUnlocked<PlayerForwardDashState>())
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            m_playerFSM.UnlockState<PlayerForwardDashState>();
             Destroy(gameObject);
-            return;
         }
-
-        m_playerFSM.UnlockState<PlayerForwardDashState>();
-        Destroy(gameObject);
     }
 }
+

@@ -1,4 +1,10 @@
-public interface IUpdate
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Interfaces
 {
-    void Update();  
+    [MovedFrom("")]
+    public interface IUpdate
+    {
+        void Update();
+    }
 }

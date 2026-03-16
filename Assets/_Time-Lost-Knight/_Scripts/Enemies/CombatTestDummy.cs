@@ -1,21 +1,27 @@
+﻿using Game.Buffs.Interfaces;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class CombatTestDummy : MonoBehaviour, IEffectable
+namespace Game.Enemies
 {
-    [SerializeField] private GameObject m_hitParticles;
-    [SerializeField] private Animator m_animator;
-
-    public void TakeDamage(float amount)
+    [MovedFrom("")]
+    public class CombatTestDummy : MonoBehaviour, IEffectable
     {
-        Debug.Log(amount);
+        [SerializeField] private GameObject m_hitParticles;
+        [SerializeField] private Animator m_animator;
 
-        CreateParticles();
+        public void TakeDamage(float amount)
+        {
+            Debug.Log(amount);
 
-        m_animator.SetTrigger("damage");
-    }
+            CreateParticles();
 
-    private void CreateParticles()
-    {
-        Instantiate(m_hitParticles, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0, 360)));
+            m_animator.SetTrigger("damage");
+        }
+
+        private void CreateParticles()
+        {
+            Instantiate(m_hitParticles, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0, 360)));
+        }
     }
 }

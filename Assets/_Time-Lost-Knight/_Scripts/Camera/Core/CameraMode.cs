@@ -1,9 +1,15 @@
-public enum CameraMode
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Camera.CoreSystem
 {
-    Center,
-    LeftThird,
-    RightThird,
-    Locked,
-    Cinematic,
-    Custom
+    [MovedFrom("")]
+    public enum CameraMode
+    {
+        Center,
+        LeftThird,
+        RightThird,
+        Locked,
+        Cinematic,
+        Custom
+    }
 }

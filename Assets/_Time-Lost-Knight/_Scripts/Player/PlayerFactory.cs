@@ -1,51 +1,58 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerFactory : IPlayerFactory, IPlayerFactorySettings
+namespace Game.Player
 {
-    private readonly string m_path;
-
-    private Player m_playerPrefab;
-    private Player m_playerInstance;
-
-    Vector3 IPlayerFactorySettings.position { get; set; }
-
-    public PlayerFactory(string path)
+    [MovedFrom("")]
+    public class PlayerFactory : IPlayerFactory, IPlayerFactorySettings
     {
-        m_path = path;
-    }
+        private readonly string m_path;
 
-    public Player Create()
-    {
-        if (m_playerInstance is not null)
+        private PlayerController m_playerPrefab;
+        private PlayerController m_playerInstance;
+
+        Vector3 IPlayerFactorySettings.position { get; set; }
+
+        public PlayerFactory(string path)
         {
+            m_path = path;
+        }
+
+        public PlayerController Create()
+        {
+            if (m_playerInstance is not null)
+            {
+                return m_playerInstance;
+            }
+
+            if (m_playerPrefab is null)
+            {
+                var playerPrefab = Resources.Load<GameObject>(m_path);
+                m_playerPrefab = playerPrefab.GetComponent<PlayerController>();
+            }
+
+            m_playerInstance = Object.Instantiate(m_playerPrefab, ((IPlayerFactorySettings)this).position, Quaternion.identity);
+
             return m_playerInstance;
         }
 
-        if (m_playerPrefab is null)
+        public void Release()
         {
-            var playerPrefab = Resources.Load<GameObject>(m_path);
-            m_playerPrefab = playerPrefab.GetComponent<Player>();
+            Object.Destroy(m_playerInstance);
+            m_playerInstance = null;
         }
 
-        m_playerInstance = Object.Instantiate(m_playerPrefab, ((IPlayerFactorySettings)this).position, Quaternion.identity);
-
-        return m_playerInstance;
     }
-
-    public void Release()
+    [MovedFrom("")]
+    public interface IPlayerFactorySettings
     {
-        Object.Destroy(m_playerInstance);
-        m_playerInstance = null;
+        public Vector3 position { get; set; }
     }
 
-}
-public interface IPlayerFactorySettings
-{
-    public Vector3 position { get; set; }
-}
-
-public interface IPlayerFactory
-{
-    public Player Create();
-    public void Release();
+    [MovedFrom("")]
+    public interface IPlayerFactory
+    {
+        public PlayerController Create();
+        public void Release();
+    }
 }

@@ -1,14 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class DamageWidgetObserver : MonoBehaviour
+namespace Game.UI.Widgets
 {
-    [SerializeField] private GameObject m_floatingText;
-    [SerializeField] private Transform m_damageWidgetContainer;
-
-    public void CreateWidgetDamageValue(float damage)
+    [MovedFrom("")]
+    public class DamageWidgetObserver : MonoBehaviour
     {
-        var go = Instantiate(m_floatingText, m_damageWidgetContainer);
-        var text  = go.GetComponent<WidgetDamageValue>();
-        text.SetValue(damage.ToString());
+        [SerializeField] private GameObject m_floatingText;
+        [SerializeField] private Transform m_damageWidgetContainer;
+
+        public void CreateWidgetDamageValue(float damage)
+        {
+            var go = Instantiate(m_floatingText, m_damageWidgetContainer);
+            var text  = go.GetComponent<WidgetDamageValue>();
+            text.SetValue(damage.ToString());
+        }
     }
 }

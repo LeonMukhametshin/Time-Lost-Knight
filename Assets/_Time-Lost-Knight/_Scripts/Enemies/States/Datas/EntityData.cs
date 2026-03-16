@@ -1,6 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public abstract class EntityData : ScriptableObject
+namespace Game.Enemies.States.Datas
 {
-    [field: SerializeField][Min(0)] public float maxHealth { get; private set; }
+    [MovedFrom("")]
+    public abstract class EntityData : ScriptableObject
+    {
+        [field: SerializeField][Min(0)] public float maxHealth { get; private set; }
+    }
 }

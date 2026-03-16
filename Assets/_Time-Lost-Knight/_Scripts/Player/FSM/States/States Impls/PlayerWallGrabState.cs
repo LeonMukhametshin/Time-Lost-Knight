@@ -1,51 +1,62 @@
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
+using Game.Player.FSM.States.Base;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerWallGrabState : PlayerWallTouchingState
+namespace Game.Player.FSM.States.Impls
 {
-    private Vector2 m_holdPosition;
-
-    public PlayerWallGrabState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data, bool active) 
-        : base(fsm, core, 
-            animBoolName, player, 
-            data, active)
+    [MovedFrom("")]
+    public class PlayerWallGrabState : PlayerWallTouchingState
     {
-    }
+        private Vector2 m_holdPosition;
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        m_holdPosition = player.transform.position;
-        HoldPosition();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        HoldPosition();
-
-        if (isExitingState)
+        public PlayerWallGrabState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core,
+                animBoolName, player,
+                data, active)
         {
-            return;   
         }
 
-        if (yInput > 0)
+        public override void Enter()
         {
-            fsm.ChangeState<PlayerWallClimbState>();;
+            base.Enter();
+
+            m_holdPosition = player.transform.position;
+            HoldPosition();
         }
-        else if (yInput < 0 || !grabInput)
+
+        public override void Update()
         {
-            fsm.ChangeState<PlayerWallSlideState>();;
+            base.Update();
+
+            HoldPosition();
+
+            if (isExitingState)
+            {
+                return;
+            }
+
+            if (yInput > 0)
+            {
+                fsm.ChangeState<PlayerWallClimbState>();;
+            }
+            else if (yInput < 0 || !grabInput)
+            {
+                fsm.ChangeState<PlayerWallSlideState>();;
+            }
         }
-    }
 
-    private void HoldPosition()
-    {
-        player.transform.position = m_holdPosition;
+        private void HoldPosition()
+        {
+            player.transform.position = m_holdPosition;
 
-        movement.SetVelocityZero();
+            movement.SetVelocityZero();
+        }
     }
 }
+

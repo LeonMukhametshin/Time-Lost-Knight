@@ -1,23 +1,30 @@
+﻿using Game.Core.ServiceLocatorSpace;
+using Game.Player;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class CameraZone : MonoBehaviour
+namespace Game.Camera.Cinemachine
 {
-    [SerializeField] private CameraState m_state;
-
-    private CameraManager m_cameraManager;
-
-    public void Start()
+    [MovedFrom("")]
+    public class CameraZone : MonoBehaviour
     {
-        m_cameraManager = ServiceLocator.Get<CameraManager>();
-    }
+        [SerializeField] private CameraState m_state;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player"))
+        private CameraManager m_cameraManager;
+
+        public void Start()
         {
-            return;
+            m_cameraManager = ServiceLocator.Get<CameraManager>();
         }
 
-        m_cameraManager.SetCameraState((int)m_state);
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player"))
+            {
+                return;
+            }
+
+            m_cameraManager.SetCameraState((int)m_state);
+        }
     }
 }

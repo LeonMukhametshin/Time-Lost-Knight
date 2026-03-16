@@ -1,18 +1,24 @@
-﻿using System;
+﻿using Game.Observer;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class TeleportPositionCalculator
+namespace Game.Level.Teleport
 {
-    public Vector2 CalculateNewPosition(Collider2D subject, Transform targetSpawn)
+    [Serializable]
+    [MovedFrom("")]
+    public class TeleportPositionCalculator
     {
-        var bounds = subject.bounds;
-        Vector2 currentBottomCenter =
-            new Vector2(bounds.min.x + bounds.size.x * 0.5f, bounds.min.y);
+        public Vector2 CalculateNewPosition(Collider2D subject, Transform targetSpawn)
+        {
+            var bounds = subject.bounds;
+            Vector2 currentBottomCenter =
+                new Vector2(bounds.min.x + bounds.size.x * 0.5f, bounds.min.y);
 
-        Vector2 delta = currentBottomCenter - (Vector2)subject.transform.position;
-        Vector2 safeBottomCenter = targetSpawn.position;
+            Vector2 delta = currentBottomCenter - (Vector2)subject.transform.position;
+            Vector2 safeBottomCenter = targetSpawn.position;
 
-        return safeBottomCenter - delta;
+            return safeBottomCenter - delta;
+        }
     }
 }

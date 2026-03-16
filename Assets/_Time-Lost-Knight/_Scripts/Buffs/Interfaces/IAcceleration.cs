@@ -1,5 +1,11 @@
-﻿public interface IAcceleration
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Buffs.Interfaces
 {
-    void IncreaseAcceleration(float delta);
-    void DecreaseAcceleration(float delta);
+    [MovedFrom("")]
+    public interface IAcceleration
+    {
+        void IncreaseAcceleration(float delta);
+        void DecreaseAcceleration(float delta);
+    }
 }

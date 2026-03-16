@@ -1,49 +1,57 @@
-﻿using System;
+﻿using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class BuffContainer : MonoBehaviour, IEffectable
+namespace Game.Buffs
 {
-    public event Action<IBuff> buffAdded;
-    public event Action<IBuff> buffRemoved;
-    [field: SerializeField] public Core core { get; private set; }
-
-    private HashSet<string> m_ids = new();
-    private Dictionary<string, IBuff> m_buffs = new();
-
-    public void Update()
+    [MovedFrom("")]
+    public class BuffContainer : MonoBehaviour, IEffectable
     {
-        foreach(var buff in m_buffs.Values)
+        public event Action<IBuff> buffAdded;
+        public event Action<IBuff> buffRemoved;
+
+        [field: SerializeField] public CoreSystem core { get; private set; }
+
+        private HashSet<string> m_ids = new();
+        private Dictionary<string, IBuff> m_buffs = new();
+
+        public void Update()
         {
-            buff.Update(Time.deltaTime);
+            foreach (var buff in m_buffs.Values)
+            {
+                buff.Update(Time.deltaTime);
+            }
+
+            foreach (var id in m_ids)
+            {
+                var buff = m_buffs[id];
+                m_buffs.Remove(id);
+
+                buffRemoved?.Invoke(buff);
+            }
+
+            m_ids.Clear();
         }
 
-        foreach(var id in m_ids)
+        public void Add(IBuff buff)
         {
-            var buff = m_buffs[id];
-            m_buffs.Remove(id);
+            if (m_buffs.TryGetValue(buff.id, out IBuff existingBuff))
+            {
+                existingBuff.Refresh(this);
+            }
+            else
+            {
+                m_buffs[buff.id] = buff;
+                buff.Initialize(this);
 
-            buffRemoved?.Invoke(buff);
+                buffAdded?.Invoke(buff);
+            }
         }
 
-        m_ids.Clear();
+        public void Remove(IBuff buff) =>
+            m_ids.Add(buff.id);
     }
-
-    public void Add(IBuff buff) 
-    {
-        if(m_buffs.TryGetValue(buff.id, out IBuff existingBuff))
-        {
-            existingBuff.Refresh(this);
-        }
-        else
-        {
-            m_buffs[buff.id] = buff;
-            buff.Initialize(this);
-
-            buffAdded?.Invoke(buff);
-        }
-    }
-
-    public void Remove(IBuff buff) => 
-        m_ids.Add(buff.id);
 }

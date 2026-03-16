@@ -1,34 +1,40 @@
-﻿using System;
+﻿using Game.Core.Game.MainMenu.Root.View;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class MainMenuEntryPoint : MonoBehaviour
+namespace Game.Core.Game.MainMenu.Root
 {
-    public event Action GoToGameplaySceneRequested;
-
-    [SerializeField] private UIMainMenuRootBinder m_sceneUIRoot;
-    private bool m_isInitialized;
-
-    public void Run()
+    [MovedFrom("")]
+    public class MainMenuEntryPoint : MonoBehaviour
     {
-        if (m_isInitialized)
+        public event Action GoToGameplaySceneRequested;
+
+        [SerializeField] private UIMainMenuRootBinder m_sceneUIRoot;
+        private bool m_isInitialized;
+
+        public void Run()
         {
-            return;
+            if (m_isInitialized)
+            {
+                return;
+            }
+
+            if (m_sceneUIRoot == null)
+            {
+                Debug.LogError("MainMenuEntryPoint has missing references", this);
+                return;
+            }
+
+            m_isInitialized = true;
+
+            m_sceneUIRoot.GoToMainMenuButtonClicked -= OnGoToGameplayRequested;
+            m_sceneUIRoot.GoToMainMenuButtonClicked += OnGoToGameplayRequested;
         }
 
-        if (m_sceneUIRoot == null)
+        private void OnGoToGameplayRequested()
         {
-            Debug.LogError("MainMenuEntryPoint has missing references", this);
-            return;
+            GoToGameplaySceneRequested?.Invoke();
         }
-
-        m_isInitialized = true;
-
-        m_sceneUIRoot.GoToMainMenuButtonClicked -= OnGoToGameplayRequested;
-        m_sceneUIRoot.GoToMainMenuButtonClicked += OnGoToGameplayRequested;
-    }
-
-    private void OnGoToGameplayRequested()
-    {
-        GoToGameplaySceneRequested?.Invoke();
     }
 }

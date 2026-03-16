@@ -1,49 +1,60 @@
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EnemyFourAttackState : RangeAttackState
+namespace Game.Enemies.Impls.Enemy4.States
 {
-    private Vector2? isInAgroZone;
-
-    public EnemyFourAttackState(EntityFSM fsm, Core core,
-        string animBoolName, Entity entity, 
-        Transform attackPosition, RangeAttackData data) 
-        : base(fsm, core, animBoolName, entity,
-            attackPosition, data)
+    [MovedFrom("")]
+    public class EnemyFourAttackState : RangeAttackState
     {
-    }
+        private Vector2? isInAgroZone;
 
-    public override void DoCheck()
-    {
-        base.DoCheck();
-
-        isInAgroZone = enemyCollisionDetector.GetPlayerPositionInZone();
-        CheckPlayerPosition();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if (!isAnimationFinished)
+        public EnemyFourAttackState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity,
+            Transform attackPosition, RangeAttackData data)
+            : base(fsm, core, animBoolName, entity,
+                attackPosition, data)
         {
-            return;
         }
 
-        if (isInAgroZone is not null)
+        public override void DoCheck()
         {
-            fsm.ChangeState<EnemyFourPlayerDetectedState>();
+            base.DoCheck();
+
+            isInAgroZone = enemyCollisionDetector.GetPlayerPositionInZone();
+            CheckPlayerPosition();
         }
-        else
+
+        public override void Update()
         {
-            fsm.ChangeState<EnemyFourLookForPlayerState>();
+            base.Update();
+
+            if (!isAnimationFinished)
+            {
+                return;
+            }
+
+            if (isInAgroZone is not null)
+            {
+                fsm.ChangeState<EnemyFourPlayerDetectedState>();
+            }
+            else
+            {
+                fsm.ChangeState<EnemyFourLookForPlayerState>();
+            }
         }
-    }
 
-    public override void CheckPlayerPosition()
-    {
-        playerPosition = enemyCollisionDetector.GetPlayerPositionInZone();
-    }
+        public override void CheckPlayerPosition()
+        {
+            playerPosition = enemyCollisionDetector.GetPlayerPositionInZone();
+        }
 
-    protected override Vector2 CalculateShotDirection() =>
-        playerPosition.Value;
+        protected override Vector2 CalculateShotDirection() =>
+            playerPosition.Value;
+    }
 }
+

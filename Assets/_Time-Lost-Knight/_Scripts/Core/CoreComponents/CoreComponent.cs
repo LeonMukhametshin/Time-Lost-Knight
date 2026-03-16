@@ -1,11 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class CoreComponent : MonoBehaviour
+namespace Game.Core.CoreComponents
 {
-    [SerializeField] protected Core core;
-
-    public virtual void Awake()
+    [MovedFrom("")]
+    public class CoreComponent : MonoBehaviour
     {
-        //core.AddCoreComponent(this);
+        [SerializeField] protected CoreSystem core;
+
+        public virtual void Awake()
+        {
+            //core.AddCoreComponent(this);
+        }
     }
 }

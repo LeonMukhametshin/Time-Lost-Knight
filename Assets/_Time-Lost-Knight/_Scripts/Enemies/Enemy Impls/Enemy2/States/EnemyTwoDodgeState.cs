@@ -1,31 +1,43 @@
-public class EnemyTwoDodgeState : DodgeState
+﻿using Game.Core.CoreComponents;
+using Game.Enemies.States;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Enemies.Impls.Enemy2.States
 {
-    public EnemyTwoDodgeState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, DodgeStateData data) 
-        : base(fsm, core, animBoolName, entity, data)
+    [MovedFrom("")]
+    public class EnemyTwoDodgeState : DodgeState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if (!isDodgeOver)
+        public EnemyTwoDodgeState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity, DodgeStateData data)
+            : base(fsm, core, animBoolName, entity, data)
         {
-            return;
         }
 
-        if (isPlayerInMaxAgroRange && performCloseRangeAction)
+        public override void Update()
         {
-            fsm.ChangeState<EnemyTwoMeleeAttackState>();
-        }
-        else if (isPlayerInMaxAgroRange && !performCloseRangeAction)
-        {
-            fsm.ChangeState<EnemyTwoRangeAttackState>();
-        }
-        else if (!isPlayerInMaxAgroRange)
-        {
-            fsm.ChangeState<EnemyTwoLookForPlayerState>();
+            base.Update();
+
+            if (!isDodgeOver)
+            {
+                return;
+            }
+
+            if (isPlayerInMaxAgroRange && performCloseRangeAction)
+            {
+                fsm.ChangeState<EnemyTwoMeleeAttackState>();
+            }
+            else if (isPlayerInMaxAgroRange && !performCloseRangeAction)
+            {
+                fsm.ChangeState<EnemyTwoRangeAttackState>();
+            }
+            else if (!isPlayerInMaxAgroRange)
+            {
+                fsm.ChangeState<EnemyTwoLookForPlayerState>();
+            }
         }
     }
 }
+

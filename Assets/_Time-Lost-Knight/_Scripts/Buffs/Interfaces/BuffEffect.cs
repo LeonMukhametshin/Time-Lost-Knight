@@ -1,18 +1,24 @@
+﻿using Game.Buffs;
 using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class BuffEffect : IEffect
+namespace Game.Buffs.Interfaces
 {
-    [SerializeReferenceDropdown] [SerializeReference] private IBuff[] m_buff;
-
-    public void Apply(IEffectable effectable)
+    [Serializable]
+    [MovedFrom("")]
+    public class BuffEffect : IEffect
     {
-        if (effectable is BuffContainer container)
+        [SerializeReferenceDropdown] [SerializeReference] private IBuff[] m_buff;
+
+        public void Apply(IEffectable effectable)
         {
-            foreach (var buff in m_buff)
+            if (effectable is BuffContainer container)
             {
-                container.Add(buff.Clone());
+                foreach (var buff in m_buff)
+                {
+                    container.Add(buff.Clone());
+                }
             }
         }
     }

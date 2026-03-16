@@ -1,8 +1,15 @@
-﻿public static class BuffExtentions
+﻿using Game.Buffs;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Buffs.Interfaces
 {
-    public static void Refresh(this IBuff buff, BuffContainer container)
+    [MovedFrom("")]
+    public static class BuffExtentions
     {
-        buff.Deinitialize();
-        buff.Initialize(container);
+        public static void Refresh(this IBuff buff, BuffContainer container)
+        {
+            buff.Deinitialize();
+            buff.Initialize(container);
+        }
     }
 }

@@ -1,16 +1,22 @@
+﻿using Game.Buffs.Interfaces;
 using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class AttackEffect : IEffect
+namespace Game.Effects
 {
-    [SerializeField][Min(0)] private float m_damage;
-
-    public void Apply(IEffectable effectable)
+    [Serializable]
+    [MovedFrom("")]
+    public class AttackEffect : IEffect
     {
-        if(effectable is IDamageable damageable)
+        [SerializeField][Min(0)] private float m_damage;
+
+        public void Apply(IEffectable effectable)
         {
-            damageable.TakeDamage(m_damage);
+            if(effectable is IDamageable damageable)
+            {
+                damageable.TakeDamage(m_damage);
+            }
         }
     }
 }

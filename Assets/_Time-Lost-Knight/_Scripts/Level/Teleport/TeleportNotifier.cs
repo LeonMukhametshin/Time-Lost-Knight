@@ -1,14 +1,20 @@
-﻿using System;
+﻿using Game.Observer;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-[Serializable]
-public class TeleportNotifier
+namespace Game.Level.Teleport
 {
-    public event Action<GameObject, Vector2> Teleported;
-
-    public void Notify(GameObject subject, Vector2 position)
+    [Serializable]
+    [MovedFrom("")]
+    public class TeleportNotifier
     {
-        subject.SendMessage("OnTeleported", position, SendMessageOptions.DontRequireReceiver);
-        Teleported?.Invoke(subject, position);
+        public event Action<GameObject, Vector2> Teleported;
+
+        public void Notify(GameObject subject, Vector2 position)
+        {
+            subject.SendMessage("OnTeleported", position, SendMessageOptions.DontRequireReceiver);
+            Teleported?.Invoke(subject, position);
+        }
     }
 }

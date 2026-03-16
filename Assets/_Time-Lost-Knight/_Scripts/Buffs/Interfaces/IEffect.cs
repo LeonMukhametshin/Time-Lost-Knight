@@ -1,4 +1,10 @@
-public interface IEffect
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Buffs.Interfaces
 {
-    void Apply(IEffectable effectable);
+    [MovedFrom("")]
+    public interface IEffect
+    {
+        void Apply(IEffectable effectable);
+    }
 }

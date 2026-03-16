@@ -1,25 +1,30 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerAnimationController : MonoBehaviour
+namespace Game.Player.FSM
 {
-    [field: SerializeField] public Animator animator { get; private set; }
-
-    private EntityFSM fsm;
-
-    public void Initialize(EntityFSM fsm)
+    [MovedFrom("")]
+    public class PlayerAnimationController : MonoBehaviour
     {
-        this.fsm = fsm;
-    }
+        [field: SerializeField] public Animator animator { get; private set; }
 
-    private void AnimationTrigger()
-    {
-        var state = fsm.currentState as PlayerState;
-        state.TriggerAnimation();
-    }
+        private EntityFSM fsm;
 
-    private void AnimationFinishTrigger()
-    {
-        var state = fsm.currentState as PlayerState;
-        state.FinishAnimation();
+        public void Initialize(EntityFSM fsm)
+        {
+            this.fsm = fsm;
+        }
+
+        private void AnimationTrigger()
+        {
+            var state = fsm.currentState as PlayerState;
+            state.TriggerAnimation();
+        }
+
+        private void AnimationFinishTrigger()
+        {
+            var state = fsm.currentState as PlayerState;
+            state.FinishAnimation();
+        }
     }
 }

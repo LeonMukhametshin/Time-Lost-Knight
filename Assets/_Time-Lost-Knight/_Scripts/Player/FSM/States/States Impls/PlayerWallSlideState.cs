@@ -1,27 +1,39 @@
-public class PlayerWallSlideState : PlayerWallTouchingState
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
+using Game.Player.FSM.States.Base;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Player.FSM.States.Impls
 {
-    public PlayerWallSlideState(EntityFSM fsm, Core core, 
-        string animBoolName, Player player, 
-        PlayerData data, bool active) 
-        : base(fsm, core, 
-            animBoolName, player, 
-            data, active)
+    [MovedFrom("")]
+    public class PlayerWallSlideState : PlayerWallTouchingState
     {
-    }
-
-    public override void Update()
-    {
-        base.Update();
-        movement.SetVelocityY(-UnityEngine.Mathf.Abs(data.wallSlideVelocity));
-
-        if (isExitingState)
+        public PlayerWallSlideState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core,
+                animBoolName, player,
+                data, active)
         {
-            return;
         }
 
-        if (grabInput && yInput == 0)
+        public override void Update()
         {
-            fsm.ChangeState<PlayerWallGrabState>();
+            base.Update();
+            movement.SetVelocityY(-UnityEngine.Mathf.Abs(data.wallSlideVelocity));
+
+            if (isExitingState)
+            {
+                return;
+            }
+
+            if (grabInput && yInput == 0)
+            {
+                fsm.ChangeState<PlayerWallGrabState>();
+            }
         }
     }
 }
+

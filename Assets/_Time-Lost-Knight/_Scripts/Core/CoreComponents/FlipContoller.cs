@@ -1,21 +1,26 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class FlipContoller : CoreComponent
+namespace Game.Core.CoreComponents
 {
-    [SerializeField] private Transform m_entityTransform;
-    public int facingDirection { get; set; } = 1;
-
-    public void CheckIfShoudFlip(int xInput)
+    [MovedFrom("")]
+    public class FlipContoller : CoreComponent
     {
-        if (xInput != 0 && xInput != facingDirection)
+        [SerializeField] private Transform m_entityTransform;
+        public int facingDirection { get; set; } = 1;
+
+        public void CheckIfShoudFlip(int xInput)
         {
-            Flip();
+            if (xInput != 0 && xInput != facingDirection)
+            {
+                Flip();
+            }
         }
-    }
 
-    public void Flip()
-    {
-        facingDirection *= -1;
-        m_entityTransform.eulerAngles += new Vector3(0f, 180f, 0f);
+        public void Flip()
+        {
+            facingDirection *= -1;
+            m_entityTransform.eulerAngles += new Vector3(0f, 180f, 0f);
+        }
     }
 }

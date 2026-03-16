@@ -1,59 +1,69 @@
+﻿using Game.Core.CoreComponents;
+using Game.Core.FSM;
+using Game.Enemies.States.Datas;
+using Game.Entities;
+using Game.Player.FSM;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class DodgeState : EnemyState
+namespace Game.Enemies.States
 {
-    public DodgeStateData data { get; private set; }
-
-    protected bool performCloseRangeAction;
-    protected bool isPlayerInMaxAgroRange;
-
-    protected bool isGrounded;
-    protected bool isDodgeOver;
-
-    protected Movement movement => 
-        m_movement ??= core.GetCoreComponent<Movement>();
-
-    private FlipContoller flipContoller => 
-        m_flipController ??= core.GetCoreComponent<FlipContoller>();
-
-    private EnemyCollisionDetector enemyCollisionDetector => 
-        m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
-
-    private Movement m_movement;
-    private FlipContoller m_flipController;
-    private EnemyCollisionDetector m_enemyCollisionDetector;
-
-    public DodgeState(EntityFSM fsm, Core core, 
-        string animBoolName, Entity entity, DodgeStateData data) 
-        : base(fsm, core, animBoolName, entity)
+    [MovedFrom("")]
+    public class DodgeState : EnemyState
     {
-        this.data = data;
-    }
+        public DodgeStateData data { get; private set; }
 
-    public override void DoCheck()
-    {
-        base.DoCheck();
+        protected bool performCloseRangeAction;
+        protected bool isPlayerInMaxAgroRange;
 
-        performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
-        isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
-        isGrounded = enemyCollisionDetector.CheckWallTouch();
-    }
+        protected bool isGrounded;
+        protected bool isDodgeOver;
 
-    public override void Enter()
-    {
-        base.Enter();
+        protected Movement movement =>
+            m_movement ??= core.GetCoreComponent<Movement>();
 
-        isDodgeOver = false;
-        movement.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -flipContoller.facingDirection);
-    }
+        private FlipContoller flipContoller =>
+            m_flipController ??= core.GetCoreComponent<FlipContoller>();
 
-    public override void Update()
-    {
-        base.Update();
+        private EnemyCollisionDetector enemyCollisionDetector =>
+            m_enemyCollisionDetector ??= core.GetCoreComponent<EnemyCollisionDetector>();
 
-        if(Time.time >= startTime + data.dodgeTime)
+        private Movement m_movement;
+        private FlipContoller m_flipController;
+        private EnemyCollisionDetector m_enemyCollisionDetector;
+
+        public DodgeState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, Entity entity, DodgeStateData data)
+            : base(fsm, core, animBoolName, entity)
         {
-            isDodgeOver = true;
+            this.data = data;
+        }
+
+        public override void DoCheck()
+        {
+            base.DoCheck();
+
+            performCloseRangeAction = enemyCollisionDetector.CheckPlayerInCloseRangeAction();
+            isPlayerInMaxAgroRange = enemyCollisionDetector.CheckPlayerInMinAgroRange();
+            isGrounded = enemyCollisionDetector.CheckWallTouch();
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            isDodgeOver = false;
+            movement.SetVelocity(data.dodgeSpeed, data.dodgeAngle, -flipContoller.facingDirection);
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if(Time.time >= startTime + data.dodgeTime)
+            {
+                isDodgeOver = true;
+            }
         }
     }
 }

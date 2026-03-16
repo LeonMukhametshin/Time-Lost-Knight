@@ -1,7 +1,13 @@
-﻿public enum AttackSlot
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.UI.CoreSystem
 {
-    Main,
-    Additional,
-    AbilityQ,
-    AbilityE
+    [MovedFrom("")]
+    public enum AttackSlot
+    {
+        Main,
+        Additional,
+        AbilityQ,
+        AbilityE
+    }
 }

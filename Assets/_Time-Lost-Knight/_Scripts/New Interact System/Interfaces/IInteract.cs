@@ -1,12 +1,18 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public interface IInteract
+namespace Game.Interaction.NewSystem.Interfaces
 {
-    Transform position { get; }
-    string displayName { get; }
+    [MovedFrom("")]
+    public interface IInteract
+    {
+        Transform position { get; }
+        string displayName { get; }
 
-    bool CanInteract();
-    void Interact();
-    void OnFocusGained();
-    void OnFocusLost();
+        bool CanInteract();
+        void Interact();
+        void OnFocusGained();
+        void OnFocusLost();
+    }
 }
+

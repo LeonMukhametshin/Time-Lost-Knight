@@ -1,31 +1,37 @@
+﻿using Game.Observer;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class MovingPlatform : Subject
+namespace Game.Interaction.Objects.Platform
 {
-    [SerializeField] private Rigidbody2D m_rigidbody;
-    [SerializeField] private PlanformMover m_movePlatform;
-   
-    private void Awake()
+    [MovedFrom("")]
+    public class MovingPlatform : Subject
     {
-        m_movePlatform?.Initialize(m_rigidbody, transform);
-    }
+        [SerializeField] private Rigidbody2D m_rigidbody;
+        [SerializeField] private PlanformMover m_movePlatform;
 
-    public void FixedUpdate()
-    {
-        m_movePlatform?.FixedTick();
-    }
-
-    public void Interact()
-    {
-        if (!CanInteract())
+        private void Awake()
         {
-            return;
+            m_movePlatform?.Initialize(m_rigidbody, transform);
         }
 
-        m_movePlatform.Activate();
-        NotifyObservers();
-    }
+        public void FixedUpdate()
+        {
+            m_movePlatform?.FixedTick();
+        }
 
-    public bool CanInteract() =>
-        m_movePlatform != null && m_movePlatform.CanMove();
+        public void Interact()
+        {
+            if (!CanInteract())
+            {
+                return;
+            }
+
+            m_movePlatform.Activate();
+            NotifyObservers();
+        }
+
+        public bool CanInteract() =>
+            m_movePlatform != null && m_movePlatform.CanMove();
+    }
 }

@@ -1,14 +1,20 @@
+﻿using Game.Core.ServiceLocatorSpace;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-public class EntityCombat : Combat
+namespace Game.Core.CoreComponents
 {
-    [SerializeField] private GameObject m_damageParticles;
-
-    public override void TakeDamage(float amount)
+    [MovedFrom("")]
+    public class EntityCombat : Combat
     {
-        base.TakeDamage(amount);
-        ServiceLocator
-            .Get<ParticleManager>()
-            .StartParticlesWithRandomRotation(m_damageParticles, transform.position);
+        [SerializeField] private GameObject m_damageParticles;
+
+        public override void TakeDamage(float amount)
+        {
+            base.TakeDamage(amount);
+            ServiceLocator
+                .Get<ParticleManager>()
+                .StartParticlesWithRandomRotation(m_damageParticles, transform.position);
+        }
     }
 }
