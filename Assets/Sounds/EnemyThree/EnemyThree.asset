@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace88b1aeafc5744792dff7d84c2ac8f, type: 3}
+  m_Name: EnemyThree
+  m_EditorClassIdentifier: Assembly-CSharp::StateAudioMapping
+  m_clips:
+  - stateKey: EnemyThreeIdleState
+    clip: {fileID: 8300000, guid: 246729947a077b84bb28014d07ea75ec, type: 3}
+    volume: 1
+    loop: 1
+  - stateKey: EnemyThreeLookForPlayerState
+    clip: {fileID: 8300000, guid: c7bfa504911eede4988fa4daa4b63d5c, type: 3}
+    volume: 1
+    loop: 1
+  - stateKey: EnemyThreePlayerDetectedState
+    clip: {fileID: 8300000, guid: 1594289c74ed2b34ea6a57a7a9d5b929, type: 3}
+    volume: 1
+    loop: 0
+  - stateKey: EnemyThreeRangeAttackState
+    clip: {fileID: 8300000, guid: 7ea3d8bc6a2d96344955587c20260767, type: 3}
+    volume: 1
+    loop: 0
