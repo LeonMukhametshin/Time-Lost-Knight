@@ -246,18 +246,18 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4246215382203011617, guid: 28049138c36bd174e837bcee16bdf920, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_Resource: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  Priority: 16
+  DopplerLevel: 0
+  MinDistance: 20
+  MaxDistance: 25
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -346,7 +346,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateAudioPlayer
   m_entity: {fileID: 9191443764310592023}
   m_mapping: {fileID: 11400000, guid: 56e198224c0f6b24a9f27aa3476959f7, type: 2}
-  m_stopIfNotMapped: 1
+  m_stopIfNotMapped: 0
+  m_useDistanceGate: 0
+  m_listenerTag: Player
+  m_startDistance: 5
+  m_stopDistance: 6
   m_source: {fileID: 4260087984351823793}
 --- !u!1 &3227536592072490686
 GameObject:

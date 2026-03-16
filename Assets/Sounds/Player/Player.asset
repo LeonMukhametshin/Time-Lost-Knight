@@ -15,7 +15,7 @@ MonoBehaviour:
   m_clips:
   - stateKey: PlayerIdleState
     clip: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
-    volume: 1
+    volume: 0.42
     loop: 1
   - stateKey: PlayerMoveState
     clip: {fileID: 8300000, guid: 80d369c4d86225d4e81ede8902f6e200, type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
     loop: 0
   - stateKey: PlayerAirState
     clip: {fileID: 8300000, guid: 47bcc360b84405248849f0cd65af0251, type: 3}
-    volume: 1
+    volume: 0.35
     loop: 1
   - stateKey: PlayerLandState
     clip: {fileID: 8300000, guid: 3bc085dca84a97f4888a70a2dced0524, type: 3}
@@ -38,36 +38,36 @@ MonoBehaviour:
     volume: 1
     loop: 0
   - stateKey: PlayerCrouchIdleState
-    clip: {fileID: 8300000, guid: b7bc62e2e2026e247a0093bee209d349, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
+    volume: 0.22
     loop: 1
   - stateKey: PlayerCrouchMoveState
     clip: {fileID: 8300000, guid: e2a84313acc8d8a4cb1b9b00a58db1aa, type: 3}
-    volume: 1
+    volume: 0.9
     loop: 1
   - stateKey: PlayerDropDownState
     clip: {fileID: 8300000, guid: f52f8f6ca6689a943a38f9c433a1c4cd, type: 3}
-    volume: 1
+    volume: 0.9
     loop: 0
   - stateKey: PlayerPrimaryAttackState
     clip: {fileID: 8300000, guid: 3a39c6503b0d2e9488d19f05f32ae78c, type: 3}
-    volume: 1
+    volume: 0.72
     loop: 0
   - stateKey: PlayerSecondaryAttackState
     clip: {fileID: 8300000, guid: eff5d32f0ed5d294e888c927f00add2c, type: 3}
-    volume: 1
+    volume: 0.88
     loop: 0
   - stateKey: PlayerWallSlideState
     clip: {fileID: 8300000, guid: 1a4d7f215565e5548b5b8d5fbeede232, type: 3}
-    volume: 1
+    volume: 0.9
     loop: 1
   - stateKey: PlayerWallClimbState
     clip: {fileID: 8300000, guid: a9e39a8b08d386045b2f2b6a76e0c950, type: 3}
-    volume: 1
+    volume: 0.95
     loop: 1
   - stateKey: PlayerWallGrabState
     clip: {fileID: 8300000, guid: e4f401e0a4b736647a534744e8e1f097, type: 3}
-    volume: 1
+    volume: 0.85
     loop: 0
   - stateKey: PlayerWallJumpState
     clip: {fileID: 8300000, guid: 17796bc255f2a91478530ba59984afe7, type: 3}
@@ -75,9 +75,9 @@ MonoBehaviour:
     loop: 0
   - stateKey: PlayerForwardDashState
     clip: {fileID: 8300000, guid: c6a1c12f29c0fc34fb5b00878dfc346f, type: 3}
-    volume: 1
+    volume: 0.85
     loop: 0
   - stateKey: PlayerOmnidirectionalDashState
     clip: {fileID: 8300000, guid: 6ad9d392a429bc04db1cdb42ca516f77, type: 3}
-    volume: 1
+    volume: 0.9
     loop: 0
