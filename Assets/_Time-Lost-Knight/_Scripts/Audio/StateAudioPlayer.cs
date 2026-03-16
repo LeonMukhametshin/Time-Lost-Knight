@@ -1,4 +1,8 @@
+using Game.Audio;
+using Game.Entities;
+using Game.Player;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 
 [RequireComponent(typeof(AudioSource))]
 public class StateAudioPlayer : MonoBehaviour
@@ -31,7 +35,7 @@ public class StateAudioPlayer : MonoBehaviour
 
     private void Start()
     {
-        if (m_entity is Player && m_mapping != null && m_mapping.TryGet("PlayerIdleState", out var clip))
+        if (m_entity is PlayerController && m_mapping != null && m_mapping.TryGet("PlayerIdleState", out var clip))
         {
             m_lastKey = "PlayerIdleState";
             PlayClip(clip);
