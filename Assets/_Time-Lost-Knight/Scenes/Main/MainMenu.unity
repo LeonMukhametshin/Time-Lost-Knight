@@ -311,8 +311,8 @@ Canvas:
   m_GameObject: {fileID: 1122508022}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1266841124}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -607,6 +607,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 09bc3a08a5d79834f8b5c33fe2120852, type: 2}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.98755836
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2199614034470611000, guid: 09bc3a08a5d79834f8b5c33fe2120852, type: 2}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294966272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398410554350385915, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -622,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 6284670437725044616, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581464750176417693, guid: 15d3207e9e357ba4290547939c6391b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -682,7 +714,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 5bfb4f912d7f9064099c595597c99927, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 053d278cb0a2316489b56740ee4acf4a, type: 2}
 --- !u!4 &2064256317
 Transform:
   m_ObjectHideFlags: 0
