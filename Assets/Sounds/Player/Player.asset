@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace88b1aeafc5744792dff7d84c2ac8f, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: Assembly-CSharp::StateAudioMapping
+  m_clips:
+  - stateKey: PlayerIdleState
+    clip: {fileID: 8300000, guid: 11c26c37ee3353c488bce13f9552e7b4, type: 3}
+    volume: 1
+    loop: 1
+  - stateKey: PlayerMoveState
+    clip: {fileID: 8300000, guid: 01e7fece31ebb3447ba1d43f5da82803, type: 3}
+    volume: 1
+    loop: 1
+  - stateKey: PlayerJumpState
+    clip: {fileID: 8300000, guid: a0adaa8392935a349a822931ca2be5ac, type: 3}
+    volume: 1
+    loop: 0
+  - stateKey: PlayerAirState
+    clip: {fileID: 8300000, guid: f4fe7464764c5cb468f5b2998fcef66c, type: 3}
+    volume: 1
+    loop: 1
