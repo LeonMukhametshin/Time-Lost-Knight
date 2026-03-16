@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724399f35c1a93b449e4f57b4d960e5f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  <maxHealth>k__BackingField: 50
+  <maxHealth>k__BackingField: 100000
   <movementSpeed>k__BackingField: 16
   <movementAcceleration>k__BackingField: 10000
   <movementDeceleration>k__BackingField: 10000

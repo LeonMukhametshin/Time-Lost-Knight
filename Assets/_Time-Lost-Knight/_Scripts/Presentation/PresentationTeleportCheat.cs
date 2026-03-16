@@ -1,3 +1,5 @@
+using Game.Level.Teleport;
+using Game.Player;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +12,7 @@ public class PresentationTeleportCheat : MonoBehaviour
 
     private readonly Dictionary<int, PresentationTeleportPoint> m_points = new();
 
-    private Player m_player;
+    private PlayerController m_player;
     private Collider2D m_playerCollider;
 
     private TeleportMover m_teleportMover;
@@ -108,7 +110,7 @@ public class PresentationTeleportCheat : MonoBehaviour
         m_teleportNotifier.Notify(player.gameObject, targetPosition);
     }
 
-    private bool TryResolvePlayer(out Player player, out Collider2D playerCollider)
+    private bool TryResolvePlayer(out PlayerController player, out Collider2D playerCollider)
     {
         player = m_player;
         playerCollider = m_playerCollider;
@@ -120,7 +122,7 @@ public class PresentationTeleportCheat : MonoBehaviour
             return true;
         }
 
-        m_player = Object.FindAnyObjectByType<Player>();
+        m_player = Object.FindAnyObjectByType<PlayerController>();
         if (m_player == null)
         {
             player = null;
