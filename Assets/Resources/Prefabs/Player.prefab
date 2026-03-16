@@ -523,6 +523,10 @@ MonoBehaviour:
   m_entity: {fileID: 9191443764310592023}
   m_mapping: {fileID: 11400000, guid: 56e198224c0f6b24a9f27aa3476959f7, type: 2}
   m_stopIfNotMapped: 0
+  m_useDistanceGate: 0
+  m_listenerTag: Player
+  m_startDistance: 5
+  m_stopDistance: 6
   m_source: {fileID: 4260087984351823793}
 --- !u!1 &3508310008479953921
 GameObject:

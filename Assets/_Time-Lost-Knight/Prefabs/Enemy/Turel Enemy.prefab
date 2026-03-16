@@ -46,18 +46,18 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0
-  m_Pitch: 2.36
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 254
-  DopplerLevel: 3.76
-  MinDistance: 0.01
-  MaxDistance: 0.02
+  Priority: 230
+  DopplerLevel: 0
+  MinDistance: 3
+  MaxDistance: 51
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -145,6 +145,10 @@ MonoBehaviour:
   m_entity: {fileID: 234349130561171683}
   m_mapping: {fileID: 11400000, guid: 5a1db312ca614e13bd10343d6fd87dc9, type: 2}
   m_stopIfNotMapped: 1
+  m_useDistanceGate: 1
+  m_listenerTag: Player
+  m_startDistance: 45
+  m_stopDistance: 51
   m_source: {fileID: 901300000000000003}
 --- !u!1 &925644348879156062
 GameObject:

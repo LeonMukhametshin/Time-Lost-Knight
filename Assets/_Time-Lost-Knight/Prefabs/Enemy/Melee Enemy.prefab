@@ -795,8 +795,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 230
   DopplerLevel: 0
-  MinDistance: 0.75
-  MaxDistance: 3
+  MinDistance: 2.25
+  MaxDistance: 48
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -886,4 +886,8 @@ MonoBehaviour:
   m_entity: {fileID: 4676275052497164914}
   m_mapping: {fileID: 11400000, guid: 8ef0f3472b7f4e6aa8d1a48786d8d311, type: 2}
   m_stopIfNotMapped: 1
+  m_useDistanceGate: 1
+  m_listenerTag: Player
+  m_startDistance: 42
+  m_stopDistance: 48
   m_source: {fileID: 901100000000000003}

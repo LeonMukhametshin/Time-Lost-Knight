@@ -15,7 +15,7 @@ MonoBehaviour:
   m_clips:
   - stateKey: PlayerIdleState
     clip: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
-    volume: 1
+    volume: 0.42
     loop: 1
   - stateKey: PlayerMoveState
     clip: {fileID: 8300000, guid: 80d369c4d86225d4e81ede8902f6e200, type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
     loop: 0
   - stateKey: PlayerAirState
     clip: {fileID: 8300000, guid: 47bcc360b84405248849f0cd65af0251, type: 3}
-    volume: 0.9
+    volume: 0.35
     loop: 1
   - stateKey: PlayerLandState
     clip: {fileID: 8300000, guid: 3bc085dca84a97f4888a70a2dced0524, type: 3}
@@ -38,8 +38,8 @@ MonoBehaviour:
     volume: 1
     loop: 0
   - stateKey: PlayerCrouchIdleState
-    clip: {fileID: 8300000, guid: b7bc62e2e2026e247a0093bee209d349, type: 3}
-    volume: 0.8
+    clip: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
+    volume: 0.22
     loop: 1
   - stateKey: PlayerCrouchMoveState
     clip: {fileID: 8300000, guid: e2a84313acc8d8a4cb1b9b00a58db1aa, type: 3}
