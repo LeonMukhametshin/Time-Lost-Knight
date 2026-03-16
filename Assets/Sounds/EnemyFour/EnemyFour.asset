@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateAudioMapping
   m_clips:
   - stateKey: EnemyFourIdleState
-    clip: {fileID: 8300000, guid: 4a25ed66e514f98448ada08a29888269, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFourMoveState
-    clip: {fileID: 8300000, guid: 1f3f5b4a33be7a048866141d5fdbdc65, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFourLookForPlayerState
-    clip: {fileID: 8300000, guid: 18cbf43ff8dc4c240a2034acce87c5f2, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFourPlayerDetectedState
     clip: {fileID: 8300000, guid: eab47d67eefd6184eaa8e27645828040, type: 3}
-    volume: 1
+    volume: 0.06
     loop: 0
   - stateKey: EnemyFourAttackState
     clip: {fileID: 8300000, guid: e89cedb31f6d82c42b9d7b25e971d661, type: 3}
-    volume: 1
+    volume: 0.3
     loop: 0

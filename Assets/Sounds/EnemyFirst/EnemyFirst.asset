@@ -14,30 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateAudioMapping
   m_clips:
   - stateKey: EnemyFirstIdleState
-    clip: {fileID: 8300000, guid: 34426a538c543f547b378db8d395db3a, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFirstMoveState
-    clip: {fileID: 8300000, guid: f0367b44a04526a45bd00119a3702806, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFirstPlayerDetectedState
     clip: {fileID: 8300000, guid: 489c1811bf23f4545907b18a57a575d1, type: 3}
-    volume: 1
+    volume: 0.18
     loop: 0
   - stateKey: EnemyFirstChargeState
-    clip: {fileID: 8300000, guid: 349092fc29b20ad4080c081874a02047, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFirstLookForPlayerState
-    clip: {fileID: 8300000, guid: 6c581616269b7b743b6ed2c64143a41d, type: 3}
-    volume: 1
-    loop: 1
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
   - stateKey: EnemyFirstMeleeAttackState
     clip: {fileID: 8300000, guid: 97b050ff2da896a4e9155e89075c6141, type: 3}
-    volume: 1
+    volume: 0.32
     loop: 0
   - stateKey: EnemyFirstStanState
     clip: {fileID: 8300000, guid: 4d963960741da6a47835988cc70396af, type: 3}
-    volume: 1
+    volume: 0.24
     loop: 0

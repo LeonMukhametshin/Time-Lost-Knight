@@ -11,24 +11,53 @@ public class StateAudioPlayer : MonoBehaviour
 
     private string m_lastKey;
 
+    private void Awake()
+    {
+        if (m_source == null)
+        {
+            m_source = GetComponent<AudioSource>();
+        }
+
+        if (m_entity == null)
+        {
+            m_entity = GetComponentInParent<Entity>();
+        }
+    }
+
+    private void Start()
+    {
+        if (m_entity is Player && m_mapping != null && m_mapping.TryGet("PlayerIdleState", out var clip))
+        {
+            m_lastKey = "PlayerIdleState";
+            PlayClip(clip);
+        }
+    }
+
     private void Update()
     {
         var state = m_entity?.fsm?.currentState;
         var key = state?.GetType().Name;
 
-        if (string.IsNullOrEmpty(key) || key == m_lastKey)
+        if (string.IsNullOrEmpty(key))
         {
             return;
         }
 
-        m_lastKey = key;
-
         if (m_mapping != null && m_mapping.TryGet(key, out var clip))
         {
-            PlayClip(clip);
+            if (key != m_lastKey)
+            {
+                m_lastKey = key;
+                PlayClip(clip);
+            }
+            else if (clip.loop && (m_source.clip != clip.clip || !m_source.isPlaying))
+            {
+                PlayClip(clip);
+            }
         }
         else if (m_stopIfNotMapped)
         {
+            m_lastKey = key;
             m_source.Stop();
         }
     }
