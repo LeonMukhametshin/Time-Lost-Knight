@@ -6,6 +6,7 @@ using Game.Player.FSM;
 using Game.Player.FSM.Data;
 using Game.Player.FSM.States.Impls;
 using Game.Player.Input;
+using Game.Weapons;
 using System;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
@@ -15,12 +16,13 @@ namespace Game.Player
     [MovedFrom("")]
     public class PlayerController : Entity
     {
-        [field: SerializeField] public PlayerInventory inventory { get; private set; }
         [field: SerializeField] public DashVizualizer dashVizualizer { get; private set; }
         [field: NonSerialized] public PlayerInputHandler inputHandler { get; private set; }
 
         [SerializeField] private RangeAttackData m_rangeAttackData;
         [SerializeField] private Transform m_rangeAttackPosition;
+        [SerializeField] private RangedWeapon m_rangedWeapon;
+        [SerializeField] private Weapon m_meleeWeapon;
 
         private bool m_isInitialized;
 
@@ -62,7 +64,10 @@ namespace Game.Player
 
             fsm
                 .GetState<PlayerPrimaryAttackState>()
-                .SetWeapon(inventory.weapons[(int)CombatInputs.primary]);
+                .SetWeapon(m_meleeWeapon);
+            fsm
+                .GetState<PlayerRangedAttackState>()
+                .SetWeapon(m_rangedWeapon);
 
             fsm.ChangeState<PlayerIdleState>();
 

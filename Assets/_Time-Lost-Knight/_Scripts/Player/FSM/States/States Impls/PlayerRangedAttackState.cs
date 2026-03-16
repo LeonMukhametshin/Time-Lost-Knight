@@ -5,6 +5,7 @@ using Game.Entities;
 using Game.Player.FSM.Data;
 using Game.Player.FSM.States.Base;
 using Game.Projectiles;
+using Game.Weapons;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -15,10 +16,12 @@ namespace Game.Player.FSM.States.Impls
     {
         private readonly Transform m_attackPosition;
         private readonly RangeAttackData m_data;
+        private RangedWeapon m_weapon;
 
         private const float FallbackExitTime = 0.5f;
 
         private float m_enterTime;
+        private int m_xInput;
 
         public PlayerRangedAttackState(EntityFSM fsm, CoreSystem core,
            string animBoolName, PlayerController player,
@@ -38,17 +41,38 @@ namespace Game.Player.FSM.States.Impls
 
             m_enterTime = Time.time;
             player.inputHandler.UseRangedAttackInput();
-            TriggerAnimation();
+            m_weapon?.EnterWeapon();
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            m_weapon?.ExitWeapon();
         }
 
         public override void Update()
         {
             base.Update();
 
-            if (!isAbilityDone && Time.time - m_enterTime >= FallbackExitTime)
+            m_xInput = player.inputHandler.normalizedInputX;
+
+            if (!isExitingState)
+            {
+                flipController.CheckIfShoudFlip(m_xInput);
+                movement.SetVelocityXSmooth(data.movementSpeed * m_xInput, data.movementAcceleration, data.movementDeceleration);
+            }
+
+            if (m_weapon == null && !isAbilityDone && Time.time - m_enterTime >= FallbackExitTime)
             {
                 isAbilityDone = true;
             }
+        }
+
+        public void SetWeapon(RangedWeapon weapon)
+        {
+            m_weapon = weapon;
+            m_weapon?.Initialize(this);
         }
 
         public override void TriggerAnimation()
