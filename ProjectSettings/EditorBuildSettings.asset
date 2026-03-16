@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Time-Lost-Knight/Scenes/Egor Level/Egor Level.unity
     guid: d2d475aa8540db04f84e9f2f1b5b7776
+  - enabled: 1
+    path: Assets/_Time-Lost-Knight/Scenes/Main/Titles.unity
+    guid: 1d23c3d5ec8b20d49b613f7a27934315
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 325329de49104b144a608d961333cf93, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: e507892fb37e6ea4fa88b3737982f8dc, type: 3}
