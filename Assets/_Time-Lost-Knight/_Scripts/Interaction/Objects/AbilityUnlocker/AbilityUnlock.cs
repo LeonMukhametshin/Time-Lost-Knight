@@ -1,4 +1,5 @@
-﻿using Game.Core.ServiceLocatorSpace;
+﻿using Game.Core.CoreComponents;
+using Game.Core.ServiceLocatorSpace;
 using Game.Player.FSM;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
@@ -8,6 +9,7 @@ namespace Game.Interaction.Objects.AbilityUnlocker
     [MovedFrom("")]
     public class AbilityUnlock : MonoBehaviour
     {
+        [SerializeField] private GameObject m_endParticles;
         protected PlayerFSM m_playerFSM { get; private set; }
 
         private void Start()
@@ -19,7 +21,13 @@ namespace Game.Interaction.Objects.AbilityUnlocker
             }
         }
 
-
         public virtual void Unlock() { }
+
+        private void OnDestroy()
+        {
+            ServiceLocator
+                .Get<ParticleManager>()
+                .StartParticles(m_endParticles);
+        }
     }
 }
