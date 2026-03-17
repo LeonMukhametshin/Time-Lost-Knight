@@ -1,5 +1,3 @@
-using Game.Core.CoreComponents;
-using Game.Core.ServiceLocatorSpace;
 using UnityEngine;
 
 public class Death : CoreComponent
