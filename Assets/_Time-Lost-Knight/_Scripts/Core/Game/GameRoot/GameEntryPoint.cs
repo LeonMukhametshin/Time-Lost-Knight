@@ -61,7 +61,6 @@ namespace Game.Core.Game.GameRoot
             }
     #endif
 
-            // App startup: show main menu without loading screen
             m_coroutines.StartCoroutine(LoadAndStartMainMenu(false));
         }
 
@@ -77,6 +76,7 @@ namespace Game.Core.Game.GameRoot
             if (m_uiRoot != null)
             {
                 m_uiRoot.ShowLoadingScreen();
+                yield return new WaitForSeconds(5f);
             }
 
             if (SceneManager.GetActiveScene().name != SceneNames.BOOT)
@@ -141,7 +141,6 @@ namespace Game.Core.Game.GameRoot
             var sceneEntryPoint = Object.FindFirstObjectByType<MainMenuEntryPoint>();
             if (sceneEntryPoint == null)
             {
-                Debug.LogError("MainMenuEntryPoint not found in MainMenu scene");
                 if (showLoading && m_uiRoot != null)
                 {
                     m_uiRoot.HideLoadingScreen();

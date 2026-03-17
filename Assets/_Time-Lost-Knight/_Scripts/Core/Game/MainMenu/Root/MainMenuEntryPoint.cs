@@ -22,7 +22,6 @@ namespace Game.Core.Game.MainMenu.Root
 
             if (m_sceneUIRoot == null)
             {
-                Debug.LogError("MainMenuEntryPoint has missing references", this);
                 return;
             }
 
