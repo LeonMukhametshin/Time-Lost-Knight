@@ -1,31 +1,27 @@
-﻿using Game.Core.CoreComponents;
-using Game.Core.ServiceLocatorSpace;
-using Game.Player.FSM;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
-namespace Game.Interaction.Objects.AbilityUnlocker
+public class AbilityUnlock : MonoBehaviour
 {
-    [MovedFrom("")]
-    public class AbilityUnlock : MonoBehaviour
+    protected PlayerFSM m_playerFSM { get; private set; }
+    [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_unlockClip;
+    [SerializeField][Range(0f, 1f)] private float m_unlockVolume = 1f;
+
+    private void Start()
     {
-        [SerializeField] private GameObject m_endParticles;
-        protected PlayerFSM m_playerFSM { get; private set; }
-
-        private void Start()
+        m_playerFSM = ServiceLocator.Get<PlayerFSM>();
+        if (m_playerFSM == null)
         {
-            m_playerFSM = ServiceLocator.Get<PlayerFSM>();
-            if (m_playerFSM == null)
-            {
-                throw new System.Exception("PlayerFSM not found in ServiceLocator");
-            }
-        }
-
-        public virtual void Unlock() 
-        {
-            ServiceLocator
-                .Get<ParticleManager>()
-                .StartParticles(m_endParticles);
+            throw new System.Exception("PlayerFSM not found in ServiceLocator");
         }
     }
+
+
+    public void PickUp() =>
+        Unlock();
+
+    protected void PlayUnlockAudio() =>
+        DetachedAudioPlayer.Play(m_audioSource, m_unlockClip, m_unlockVolume);
+
+    public virtual void Unlock() { }
 }

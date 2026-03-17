@@ -1,27 +1,20 @@
-﻿using Game.Player.FSM.States.Impls;
-using UnityEngine.Scripting.APIUpdating;
-
-namespace Game.Interaction.Objects.AbilityUnlocker
+public class OmniDashAbilityUnlock : AbilityUnlock
 {
-    [MovedFrom("")]
-    public class OmniDashAbilityUnlock : AbilityUnlock
+    public override void Unlock()
     {
-        public override void Unlock()
+        if (m_playerFSM == null)
         {
-            if (m_playerFSM == null)
-            {
-                return;
-            }
-
-            if (m_playerFSM.IsStateUnlocked<PlayerOmnidirectionalDashState>())
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            m_playerFSM.UnlockState<PlayerOmnidirectionalDashState>();
-            Destroy(gameObject);
+            return;
         }
+
+        if (m_playerFSM.IsStateUnlocked<PlayerOmnidirectionalDashState>())
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        m_playerFSM.UnlockState<PlayerOmnidirectionalDashState>();
+        PlayUnlockAudio();
+        Destroy(gameObject);
     }
 }
-

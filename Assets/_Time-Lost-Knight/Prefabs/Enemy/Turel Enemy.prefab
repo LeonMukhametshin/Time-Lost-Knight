@@ -409,6 +409,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCombat
   core: {fileID: 2663534899966985377}
+  m_audioSource: {fileID: 901300000000000003}
+  m_damageClip: {fileID: 8300000, guid: 9d6847361d404fd1a33fdc1a69f81753, type: 3}
+  m_damageVolume: 0.62
   m_damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
 --- !u!114 &2087243500083478998
 MonoBehaviour:
@@ -426,6 +429,9 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
+  m_audioSource: {fileID: 901300000000000003}
+  m_deathClip: {fileID: 8300000, guid: 315ced313c5040aa8c1e2d2e3d8d82da, type: 3}
+  m_deathVolume: 0.72
 --- !u!114 &6076970890962481465
 MonoBehaviour:
   m_ObjectHideFlags: 0

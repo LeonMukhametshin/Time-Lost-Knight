@@ -1,31 +1,24 @@
-﻿using Game.Player.FSM.States.Impls;
-using UnityEngine.Scripting.APIUpdating;
-
-namespace Game.Interaction.Objects.AbilityUnlocker
+public class WallAbilitiesUnlock : AbilityUnlock
 {
-    [MovedFrom("")]
-    public class WallAbilitiesUnlock : AbilityUnlock
+    public override void Unlock()
     {
-        public override void Unlock()
+        if (m_playerFSM == null)
         {
-            if (m_playerFSM == null)
-            {
-                return;
-            }
-
-            if (m_playerFSM.IsStateUnlocked<PlayerWallGrabState>())
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            m_playerFSM.UnlockState<PlayerWallSlideState>();
-            m_playerFSM.UnlockState<PlayerWallClimbState>();
-            m_playerFSM.UnlockState<PlayerWallGrabState>();
-            m_playerFSM.UnlockState<PlayerWallJumpState>();
-
-            Destroy(gameObject);
+            return;
         }
+
+        if (m_playerFSM.IsStateUnlocked<PlayerWallGrabState>())
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        m_playerFSM.UnlockState<PlayerWallSlideState>();
+        m_playerFSM.UnlockState<PlayerWallClimbState>(); 
+        m_playerFSM.UnlockState<PlayerWallGrabState>();
+        m_playerFSM.UnlockState<PlayerWallJumpState>();
+
+        PlayUnlockAudio();
+        Destroy(gameObject);
     }
 }
-
