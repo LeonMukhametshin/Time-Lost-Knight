@@ -365,6 +365,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageableWall
   m_maxHealt: 10
   m_destroyParticle: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
+  m_audioSource: {fileID: 0}
+  m_destroyClip: {fileID: 8300000, guid: b7b4cba3bc0740acb787db9898a4d6ec, type: 3}
+  m_destroyVolume: 1
 --- !u!1 &8842854758679434423
 GameObject:
   m_ObjectHideFlags: 0
