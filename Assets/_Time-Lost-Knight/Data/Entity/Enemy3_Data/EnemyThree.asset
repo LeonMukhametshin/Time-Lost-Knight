@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5332bbb6de069a4585e81acce69c85a, type: 3}
   m_Name: EnemyThree
   m_EditorClassIdentifier: Assembly-CSharp::EnemyThreeData
-  <maxHealth>k__BackingField: 150
+  <maxHealth>k__BackingField: 75
   <idle>k__BackingField: {fileID: 11400000, guid: 43559c0b11399c14b8cb83f3f493458c, type: 2}
   <lookForPlayer>k__BackingField: {fileID: 11400000, guid: 762d9fabcc4f73b42b8775cdc76f2c75, type: 2}
   <playerDetected>k__BackingField: {fileID: 11400000, guid: 0425a0491dd4cfd4eb58521495bf4300, type: 2}

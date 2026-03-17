@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackingWeaponData
   m_attackDetails:
   - attackName: Left slash
-    movementSpeed: 10
+    movementSpeed: 5
     effects:
     - rid: 47934341375590484
     - rid: 47934347748048980
@@ -30,19 +30,19 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 47934341375590484
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
         m_damage: 40
     - rid: 47934341375590485
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
         m_damage: 30
     - rid: 47934341375590486
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_damage: 75
+        m_damage: 60
     - rid: 47934347748048980
-      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      type: {class: KnockbackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_knokbackStringht: 5
+        m_knokbackStringht: 10
         m_angle: {x: 0, y: 1}

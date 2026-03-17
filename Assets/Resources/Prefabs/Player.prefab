@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 3479113568729494546}
   - component: {fileID: 2410072255929011655}
   - component: {fileID: 6199061305274163789}
-  - component: {fileID: 757209414733176199}
+  - component: {fileID: 7569170780392743825}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -993,7 +993,7 @@ MonoBehaviour:
   core: {fileID: 2085442003821207744}
   m_damageParticles: {fileID: 2508979075604653123, guid: e5a84309c188f5f42a1630ab50e80386, type: 3}
   m_maxKnockbackTime: 0.2
---- !u!114 &757209414733176199
+--- !u!114 &7569170780392743825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1007,12 +1007,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Player.Components.DashAfterImageTrail
   m_sources:
   - {fileID: 8108843187731006150}
-  m_spawnRoot: {fileID: 26978464492034638}
+  m_spawnRoot: {fileID: 0}
   m_tint: {r: 0.35, g: 0.35, b: 0.35, a: 1}
-  m_startAlpha: 0.58
-  m_endAlpha: 0.08
-  m_spawnInterval: 0.03
-  m_lifeTime: 0.35
+  m_startAlpha: 0.6
+  m_endAlpha: 0
+  m_spawnInterval: 0.04
+  m_lifeTime: 0.25
   m_useUnscaledTime: 0
   m_sortingOrderOffset: 1
 --- !u!1 &4301977417373514599

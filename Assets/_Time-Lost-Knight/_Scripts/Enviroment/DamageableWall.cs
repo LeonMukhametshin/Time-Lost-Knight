@@ -26,18 +26,17 @@ namespace Game.Environment
             get => m_value;
             private set
             {
-                if (Mathf.Approximately(m_value, value))
+                var clampedValue = maxValue > 0f
+                    ? Mathf.Clamp(value, 0f, maxValue)
+                    : Mathf.Max(0f, value);
+
+                if (Mathf.Approximately(m_value, clampedValue))
                 {
                     return;
                 }
-                m_value = value < 0 ? 0 : value;
+                m_value = clampedValue;
 
                 valueChanged?.Invoke();
-
-                if (value >= maxValue)
-                {
-                    return;
-                }
 
                 if (m_value == 0)
                 {

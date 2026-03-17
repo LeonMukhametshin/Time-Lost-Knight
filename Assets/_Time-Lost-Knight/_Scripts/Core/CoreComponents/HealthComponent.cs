@@ -13,6 +13,7 @@ namespace Game.Core.CoreComponents
 
         private float m_value;
         private bool m_isInitialized;
+        private bool m_isInvincible;
 
         public float maxValue { get; private set; }
 
@@ -21,18 +22,17 @@ namespace Game.Core.CoreComponents
             get => m_value;
             private set
             {
-                if (Mathf.Approximately(m_value, value))
+                var clampedValue = maxValue > 0f
+                    ? Mathf.Clamp(value, 0f, maxValue)
+                    : Mathf.Max(0f, value);
+
+                if (Mathf.Approximately(m_value, clampedValue))
                 {
                     return;
                 }
-                m_value = value < 0 ? 0 : value;
+                m_value = clampedValue;
 
                 valueChanged?.Invoke();
-
-                if (value >= maxValue)
-                {
-                    return;
-                }
 
                 if (m_value == 0)
                 {
@@ -69,7 +69,20 @@ namespace Game.Core.CoreComponents
             {
                 throw new ArgumentOutOfRangeException(nameof(damage), "Heal cannot be hegative");
             }
+            if (m_isInvincible)
+            {
+                return;
+            }
             this.value -= damage;
         }
+
+        public void SetInvincible(bool value) =>
+            m_isInvincible = value;
+
+        public void ToggleInvincible() =>
+            m_isInvincible = !m_isInvincible;
+
+        public bool isInvincible =>
+            m_isInvincible;
     }
 }
