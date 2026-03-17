@@ -42,8 +42,11 @@ public class DamageableWall : MonoBehaviour, IHealth, IEffectable, IDamageable
 
     private bool m_isInitialized;
 
-    private void Awake() => 
+    private void Awake()
+    {
+        EnsureAudioSource();
         Initialize(m_maxHealt);
+    }
 
     private void OnEnable()
     {
@@ -96,5 +99,27 @@ public class DamageableWall : MonoBehaviour, IHealth, IEffectable, IDamageable
             .Get<ParticleManager>()
             .StartParticlesWithRandomRotation(m_destroyParticle, transform.position);
         Destroy(this.gameObject);
+    }
+
+    private void EnsureAudioSource()
+    {
+        if (m_audioSource != null)
+        {
+            return;
+        }
+
+        if (!TryGetComponent(out m_audioSource))
+        {
+            m_audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        m_audioSource.playOnAwake = false;
+        m_audioSource.loop = false;
+        m_audioSource.priority = 160;
+        m_audioSource.dopplerLevel = 0f;
+        m_audioSource.spatialBlend = 0.35f;
+        m_audioSource.minDistance = 8f;
+        m_audioSource.maxDistance = 24f;
+        m_audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
     }
 }
