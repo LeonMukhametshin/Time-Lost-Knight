@@ -447,11 +447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1181897672741161925, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 555.61096
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 1181897672741161925, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -294.74664
+      value: -337.5
       objectReference: {fileID: 0}
     - target: {fileID: 1626026302974183145, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_buttons.Array.size
@@ -503,11 +503,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2503158203163529086, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 555.61096
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 2503158203163529086, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -484.23993
+      value: -612.5
       objectReference: {fileID: 0}
     - target: {fileID: 4023239206960334739, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_SizeDelta.x
@@ -540,6 +540,14 @@ PrefabInstance:
     - target: {fileID: 7432853114276731733, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_text
       value: Game over
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432853114276731733, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
+      propertyPath: m_fontSize
+      value: 31.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432853114276731733, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 31.74
       objectReference: {fileID: 0}
     - target: {fileID: 8062309794153500501, guid: 0641fd9323f67e046a69ed01ba4a7f89, type: 3}
       propertyPath: m_Pivot.x
@@ -730,8 +738,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -118938113
-  m_SortingOrder: 0
+  m_SortingLayerID: -1331101331
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &941953021 stripped
 GameObject:
