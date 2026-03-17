@@ -1,10 +1,7 @@
-using Game.Buffs.Interfaces;
-using Game.Core.CoreComponents;
-using Game.Core.ServiceLocatorSpace;
 using System;
 using UnityEngine;
 
-public class DamageableWall : MonoBehaviour, IHealth, IEffectable, Game.Effects.IDamageable
+public class DamageableWall : MonoBehaviour, IHealth, IEffectable, IDamageable
 {
     public event Action died;
     public event Action valueChanged;

@@ -1,6 +1,3 @@
-using Game.Buffs.Interfaces;
-using Game.Core.CoreComponents;
-using Game.Effects;
 using UnityEngine;
 
 public abstract class Combat : CoreComponent, IEffectable, IDamageable
