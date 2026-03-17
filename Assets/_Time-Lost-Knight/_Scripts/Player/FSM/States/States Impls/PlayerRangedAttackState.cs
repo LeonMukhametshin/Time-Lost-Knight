@@ -17,6 +17,7 @@ namespace Game.Player.FSM.States.Impls
         private readonly Transform m_attackPosition;
         private readonly RangeAttackData m_data;
         private RangedWeapon m_weapon;
+        private StateAudioPlayer m_stateAudioPlayer;
 
         private const float FallbackExitTime = 0.5f;
 
@@ -79,6 +80,9 @@ namespace Game.Player.FSM.States.Impls
         {
             if (m_data == null || m_attackPosition == null)
                 return;
+
+            m_stateAudioPlayer ??= player.GetComponentInChildren<StateAudioPlayer>(true);
+            m_stateAudioPlayer?.PlayOneShot(nameof(PlayerRangedAttackState));
 
             var projectileInstance = Object.Instantiate(m_data.projectile, m_attackPosition.position, m_attackPosition.rotation);
             if (projectileInstance.TryGetComponent(out IProjectile projectile))

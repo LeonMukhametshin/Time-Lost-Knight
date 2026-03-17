@@ -57,6 +57,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: eff5d32f0ed5d294e888c927f00add2c, type: 3}
     volume: 0.68
     loop: 0
+  - stateKey: PlayerRangedAttackState
+    clip: {fileID: 8300000, guid: 810ba28bccef44e7bea3bfd485f5f62e, type: 3}
+    volume: 0.52
+    loop: 0
+    manualTrigger: 1
   - stateKey: PlayerWallSlideState
     clip: {fileID: 8300000, guid: 1a4d7f215565e5548b5b8d5fbeede232, type: 3}
     volume: 0.88

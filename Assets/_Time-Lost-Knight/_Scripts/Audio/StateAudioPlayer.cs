@@ -19,6 +19,7 @@ public class StateAudioPlayer : MonoBehaviour
 
     private string m_lastKey;
     private Transform m_listener;
+    private AudioSource m_oneShotSource;
 
     private void Awake()
     {
@@ -31,6 +32,9 @@ public class StateAudioPlayer : MonoBehaviour
         {
             m_entity = GetComponentInParent<Entity>();
         }
+
+        m_oneShotSource = gameObject.AddComponent<AudioSource>();
+        CopySourceSettings(m_source, m_oneShotSource);
     }
 
     private void Start()
@@ -62,6 +66,21 @@ public class StateAudioPlayer : MonoBehaviour
                 }
 
                 m_lastKey = key;
+                return;
+            }
+
+            if (clip.manualTrigger)
+            {
+                if (key != m_lastKey)
+                {
+                    m_lastKey = key;
+
+                    if (m_source.isPlaying)
+                    {
+                        m_source.Stop();
+                    }
+                }
+
                 return;
             }
 
@@ -110,6 +129,26 @@ public class StateAudioPlayer : MonoBehaviour
         }
 
         m_source.volume = clip.volume * GetDistanceVolumeMultiplier();
+    }
+
+    public void PlayOneShot(string stateKey)
+    {
+        if (m_mapping == null || string.IsNullOrWhiteSpace(stateKey))
+        {
+            return;
+        }
+
+        if (!m_mapping.TryGet(stateKey, out var clip) || clip.clip == null)
+        {
+            return;
+        }
+
+        if (!CanPlayAtCurrentDistance(false))
+        {
+            return;
+        }
+
+        m_oneShotSource.PlayOneShot(clip.clip, clip.volume * GetDistanceVolumeMultiplier());
     }
 
     private bool CanPlayAtCurrentDistance(bool isLoopClip)
@@ -176,5 +215,32 @@ public class StateAudioPlayer : MonoBehaviour
 
         m_listener = listenerObject.transform;
         return true;
+    }
+
+    private static void CopySourceSettings(AudioSource from, AudioSource to)
+    {
+        if (from == null || to == null)
+        {
+            return;
+        }
+
+        to.playOnAwake = false;
+        to.loop = false;
+        to.outputAudioMixerGroup = from.outputAudioMixerGroup;
+        to.mute = from.mute;
+        to.bypassEffects = from.bypassEffects;
+        to.bypassListenerEffects = from.bypassListenerEffects;
+        to.bypassReverbZones = from.bypassReverbZones;
+        to.priority = from.priority;
+        to.pitch = 1f;
+        to.panStereo = from.panStereo;
+        to.spatialBlend = from.spatialBlend;
+        to.reverbZoneMix = from.reverbZoneMix;
+        to.dopplerLevel = from.dopplerLevel;
+        to.spread = from.spread;
+        to.rolloffMode = from.rolloffMode;
+        to.minDistance = from.minDistance;
+        to.maxDistance = from.maxDistance;
+        to.volume = 1f;
     }
 }
