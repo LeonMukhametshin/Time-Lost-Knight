@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace88b1aeafc5744792dff7d84c2ac8f, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: Assembly-CSharp::StateAudioMapping
+  m_clips:
+  - stateKey: PlayerIdleState
+    clip: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
+    volume: 0.5
+    loop: 1
+  - stateKey: PlayerMoveState
+    clip: {fileID: 8300000, guid: 80d369c4d86225d4e81ede8902f6e200, type: 3}
+    volume: 0.22
+    loop: 1
+  - stateKey: PlayerJumpState
+    clip: {fileID: 8300000, guid: a655a424bad44154895004825d49f270, type: 3}
+    volume: 0.23
+    loop: 0
+  - stateKey: PlayerAirState
+    clip: {fileID: 8300000, guid: 47bcc360b84405248849f0cd65af0251, type: 3}
+    volume: 0.29
+    loop: 1
+  - stateKey: PlayerLandState
+    clip: {fileID: 8300000, guid: 3bc085dca84a97f4888a70a2dced0524, type: 3}
+    volume: 1
+    loop: 0
+  - stateKey: PlayerLedgeClibmState
+    clip: {fileID: 8300000, guid: f3db3bea7790ab944a69de51d953d40d, type: 3}
+    volume: 0.55
+    loop: 0
+  - stateKey: PlayerCrouchIdleState
+    clip: {fileID: 8300000, guid: 6b5c086b277d82041af0ead3a94da94d, type: 3}
+    volume: 0.39
+    loop: 1
+  - stateKey: PlayerCrouchMoveState
+    clip: {fileID: 8300000, guid: e2a84313acc8d8a4cb1b9b00a58db1aa, type: 3}
+    volume: 0.17
+    loop: 1
+  - stateKey: PlayerDropDownState
+    clip: {fileID: 8300000, guid: f52f8f6ca6689a943a38f9c433a1c4cd, type: 3}
+    volume: 0.6
+    loop: 0
+  - stateKey: PlayerPrimaryAttackState
+    clip: {fileID: 8300000, guid: 3a39c6503b0d2e9488d19f05f32ae78c, type: 3}
+    volume: 0.56
+    loop: 0
+  - stateKey: PlayerSecondaryAttackState
+    clip: {fileID: 8300000, guid: eff5d32f0ed5d294e888c927f00add2c, type: 3}
+    volume: 0.68
+    loop: 0
+  - stateKey: PlayerRangedAttackState
+    clip: {fileID: 8300000, guid: 810ba28bccef44e7bea3bfd485f5f62e, type: 3}
+    volume: 0.52
+    loop: 0
+    manualTrigger: 1
+  - stateKey: PlayerWallSlideState
+    clip: {fileID: 8300000, guid: 1a4d7f215565e5548b5b8d5fbeede232, type: 3}
+    volume: 0.88
+    loop: 1
+  - stateKey: PlayerWallClimbState
+    clip: {fileID: 8300000, guid: a9e39a8b08d386045b2f2b6a76e0c950, type: 3}
+    volume: 0.57
+    loop: 1
+  - stateKey: PlayerWallGrabState
+    clip: {fileID: 8300000, guid: e4f401e0a4b736647a534744e8e1f097, type: 3}
+    volume: 0.45
+    loop: 0
+  - stateKey: PlayerWallJumpState
+    clip: {fileID: 8300000, guid: 17796bc255f2a91478530ba59984afe7, type: 3}
+    volume: 0.24
+    loop: 0
+  - stateKey: PlayerForwardDashState
+    clip: {fileID: 8300000, guid: c6a1c12f29c0fc34fb5b00878dfc346f, type: 3}
+    volume: 0.52
+    loop: 0
+  - stateKey: PlayerOmnidirectionalDashState
+    clip: {fileID: 8300000, guid: 6ad9d392a429bc04db1cdb42ca516f77, type: 3}
+    volume: 0.56
+    loop: 0

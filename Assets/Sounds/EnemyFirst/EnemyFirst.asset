@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace88b1aeafc5744792dff7d84c2ac8f, type: 3}
+  m_Name: EnemyFirst
+  m_EditorClassIdentifier: Assembly-CSharp::StateAudioMapping
+  m_clips:
+  - stateKey: EnemyFirstIdleState
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - stateKey: EnemyFirstMoveState
+    clip: {fileID: 8300000, guid: f0367b44a04526a45bd00119a3702806, type: 3}
+    volume: 0.34
+    loop: 1
+  - stateKey: EnemyFirstPlayerDetectedState
+    clip: {fileID: 8300000, guid: 489c1811bf23f4545907b18a57a575d1, type: 3}
+    volume: 0.28
+    loop: 0
+  - stateKey: EnemyFirstChargeState
+    clip: {fileID: 8300000, guid: 349092fc29b20ad4080c081874a02047, type: 3}
+    volume: 0.36
+    loop: 1
+  - stateKey: EnemyFirstLookForPlayerState
+    clip: {fileID: 0}
+    volume: 0
+    loop: 0
+  - stateKey: EnemyFirstMeleeAttackState
+    clip: {fileID: 8300000, guid: 97b050ff2da896a4e9155e89075c6141, type: 3}
+    volume: 0.53
+    loop: 0
+  - stateKey: EnemyFirstStanState
+    clip: {fileID: 8300000, guid: 4d963960741da6a47835988cc70396af, type: 3}
+    volume: 0.38
+    loop: 0

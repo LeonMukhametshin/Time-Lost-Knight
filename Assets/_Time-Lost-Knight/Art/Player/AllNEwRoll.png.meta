@@ -1,0 +1,5287 @@
+fileFormatVersion: 2
+guid: 1fabaf2d0a16a6044a231972e1565a4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6935029041943217452
+    second: AllNEwRoll_0
+  - first:
+      213: -3689245883292789308
+    second: AllNEwRoll_1
+  - first:
+      213: 3780738352374004649
+    second: AllNEwRoll_2
+  - first:
+      213: -3449930475571213115
+    second: AllNEwRoll_3
+  - first:
+      213: -5856425015888857639
+    second: AllNEwRoll_4
+  - first:
+      213: 1870552976967887765
+    second: AllNEwRoll_5
+  - first:
+      213: -6992730997644039066
+    second: AllNEwRoll_6
+  - first:
+      213: 2122107219707827342
+    second: AllNEwRoll_7
+  - first:
+      213: -2660937698120287477
+    second: AllNEwRoll_8
+  - first:
+      213: 1447007003162991360
+    second: AllNEwRoll_9
+  - first:
+      213: 3059850622223269310
+    second: AllNEwRoll_10
+  - first:
+      213: -4400072736125545116
+    second: AllNEwRoll_11
+  - first:
+      213: -8010615737962003859
+    second: AllNEwRoll_12
+  - first:
+      213: 4507164726995763759
+    second: AllNEwRoll_13
+  - first:
+      213: 4725160528496751746
+    second: AllNEwRoll_14
+  - first:
+      213: 2391233424997888829
+    second: AllNEwRoll_15
+  - first:
+      213: 6469925966015028086
+    second: AllNEwRoll_16
+  - first:
+      213: -3812745827474309521
+    second: AllNEwRoll_17
+  - first:
+      213: 1761424989674138715
+    second: AllNEwRoll_18
+  - first:
+      213: -5940901481750580701
+    second: AllNEwRoll_19
+  - first:
+      213: 5845259293236568242
+    second: AllNEwRoll_20
+  - first:
+      213: 3847337083832759857
+    second: AllNEwRoll_21
+  - first:
+      213: -739443516285019462
+    second: AllNEwRoll_22
+  - first:
+      213: -7893094469471668850
+    second: AllNEwRoll_23
+  - first:
+      213: -1673239672388690358
+    second: AllNEwRoll_24
+  - first:
+      213: -4135143510741156231
+    second: AllNEwRoll_25
+  - first:
+      213: -878819124684182393
+    second: AllNEwRoll_26
+  - first:
+      213: 6406201169703373730
+    second: AllNEwRoll_27
+  - first:
+      213: 7805675458069662250
+    second: AllNEwRoll_28
+  - first:
+      213: 3091450554666651532
+    second: AllNEwRoll_29
+  - first:
+      213: 6469087572219218650
+    second: AllNEwRoll_30
+  - first:
+      213: 2062591273741523387
+    second: AllNEwRoll_31
+  - first:
+      213: -2692877509848700159
+    second: AllNEwRoll_32
+  - first:
+      213: 584079013672130253
+    second: AllNEwRoll_33
+  - first:
+      213: 5464862767777749322
+    second: AllNEwRoll_34
+  - first:
+      213: 5901624062364214148
+    second: AllNEwRoll_35
+  - first:
+      213: 6649607732644752258
+    second: AllNEwRoll_36
+  - first:
+      213: -6118413163416407268
+    second: AllNEwRoll_37
+  - first:
+      213: -6062568842636250997
+    second: AllNEwRoll_38
+  - first:
+      213: 5837051992402826987
+    second: AllNEwRoll_39
+  - first:
+      213: 8012531721646459424
+    second: AllNEwRoll_40
+  - first:
+      213: -1828975535849223394
+    second: AllNEwRoll_41
+  - first:
+      213: -3827627077276631006
+    second: AllNEwRoll_42
+  - first:
+      213: 6421621475990930325
+    second: AllNEwRoll_43
+  - first:
+      213: -5503650680653157235
+    second: AllNEwRoll_44
+  - first:
+      213: -4597110738904213331
+    second: AllNEwRoll_45
+  - first:
+      213: 6666348661656541099
+    second: AllNEwRoll_46
+  - first:
+      213: 54223918658007564
+    second: AllNEwRoll_47
+  - first:
+      213: -571761034350139271
+    second: AllNEwRoll_48
+  - first:
+      213: 1207430169801842080
+    second: AllNEwRoll_49
+  - first:
+      213: 1121183541371765661
+    second: AllNEwRoll_50
+  - first:
+      213: 8873760265744710531
+    second: AllNEwRoll_51
+  - first:
+      213: -2744272518182547548
+    second: AllNEwRoll_52
+  - first:
+      213: -2460116883298385162
+    second: AllNEwRoll_53
+  - first:
+      213: 2706976287566575697
+    second: AllNEwRoll_54
+  - first:
+      213: -3184040699090049389
+    second: AllNEwRoll_55
+  - first:
+      213: -8765340697817124715
+    second: AllNEwRoll_56
+  - first:
+      213: 5912674465610993252
+    second: AllNEwRoll_57
+  - first:
+      213: -7660789288358108708
+    second: AllNEwRoll_58
+  - first:
+      213: 4507479680011127056
+    second: AllNEwRoll_59
+  - first:
+      213: -4366184313589149860
+    second: AllNEwRoll_60
+  - first:
+      213: -4505644841497779482
+    second: AllNEwRoll_61
+  - first:
+      213: 4072684855553474562
+    second: AllNEwRoll_62
+  - first:
+      213: -7640088515776290153
+    second: AllNEwRoll_63
+  - first:
+      213: 7403453624891500394
+    second: AllNEwRoll_64
+  - first:
+      213: 514558764192634162
+    second: AllNEwRoll_65
+  - first:
+      213: -3985641597183976839
+    second: AllNEwRoll_66
+  - first:
+      213: 9196338010568711454
+    second: AllNEwRoll_67
+  - first:
+      213: -573827535317402550
+    second: AllNEwRoll_68
+  - first:
+      213: 398191516581641988
+    second: AllNEwRoll_69
+  - first:
+      213: -1200678395639283449
+    second: AllNEwRoll_70
+  - first:
+      213: 8151338574963242840
+    second: AllNEwRoll_71
+  - first:
+      213: -8572532706193864876
+    second: AllNEwRoll_72
+  - first:
+      213: -1504224566371159373
+    second: AllNEwRoll_73
+  - first:
+      213: -6153679758090495298
+    second: AllNEwRoll_74
+  - first:
+      213: 4081820728240876916
+    second: AllNEwRoll_75
+  - first:
+      213: -589481206384582694
+    second: AllNEwRoll_76
+  - first:
+      213: 5833884036208242753
+    second: AllNEwRoll_77
+  - first:
+      213: -4960296996241066614
+    second: AllNEwRoll_78
+  - first:
+      213: 1613426509474715911
+    second: AllNEwRoll_79
+  - first:
+      213: -8838524258949244481
+    second: AllNEwRoll_80
+  - first:
+      213: 5000060106538961586
+    second: AllNEwRoll_81
+  - first:
+      213: 954043815876297996
+    second: AllNEwRoll_82
+  - first:
+      213: 395100970656028585
+    second: AllNEwRoll_83
+  - first:
+      213: -8237828232462242152
+    second: AllNEwRoll_84
+  - first:
+      213: -7994517180055559437
+    second: AllNEwRoll_85
+  - first:
+      213: -7723538714966665101
+    second: AllNEwRoll_86
+  - first:
+      213: -8392094579399749700
+    second: AllNEwRoll_87
+  - first:
+      213: 7330491748149756874
+    second: AllNEwRoll_88
+  - first:
+      213: -5660861214062394638
+    second: AllNEwRoll_89
+  - first:
+      213: 3836565505556798832
+    second: AllNEwRoll_90
+  - first:
+      213: 5565611434110645052
+    second: AllNEwRoll_91
+  - first:
+      213: -8697191024803463723
+    second: AllNEwRoll_92
+  - first:
+      213: -503261414529198092
+    second: AllNEwRoll_93
+  - first:
+      213: -4062655418871981873
+    second: AllNEwRoll_94
+  - first:
+      213: -7092674523030613631
+    second: AllNEwRoll_95
+  - first:
+      213: -4422358378660351135
+    second: AllNEwRoll_96
+  - first:
+      213: 4575467434198641297
+    second: AllNEwRoll_97
+  - first:
+      213: 8785449672283430309
+    second: AllNEwRoll_98
+  - first:
+      213: -2208052034522875920
+    second: AllNEwRoll_99
+  - first:
+      213: 8982652567195713927
+    second: AllNEwRoll_100
+  - first:
+      213: 7750263724325378423
+    second: AllNEwRoll_101
+  - first:
+      213: 5752812936364447738
+    second: AllNEwRoll_102
+  - first:
+      213: -3810147662690165425
+    second: AllNEwRoll_103
+  - first:
+      213: 5904124325594375663
+    second: AllNEwRoll_104
+  - first:
+      213: 8594869325394243647
+    second: AllNEwRoll_105
+  - first:
+      213: -3938501470439101761
+    second: AllNEwRoll_106
+  - first:
+      213: 3664492448354502177
+    second: AllNEwRoll_107
+  - first:
+      213: -6526540133464591774
+    second: AllNEwRoll_108
+  - first:
+      213: 4227601418452018066
+    second: AllNEwRoll_109
+  - first:
+      213: -2310908571088837778
+    second: AllNEwRoll_110
+  - first:
+      213: -2688523754547527763
+    second: AllNEwRoll_111
+  - first:
+      213: 4607981751421983296
+    second: AllNEwRoll_112
+  - first:
+      213: -5162614828804733144
+    second: AllNEwRoll_113
+  - first:
+      213: -7460171698209178179
+    second: AllNEwRoll_114
+  - first:
+      213: -2435693334449113399
+    second: AllNEwRoll_115
+  - first:
+      213: -6936204948791545378
+    second: AllNEwRoll_116
+  - first:
+      213: -8855227755938111361
+    second: AllNEwRoll_117
+  - first:
+      213: -2026902241838529991
+    second: AllNEwRoll_118
+  - first:
+      213: -2488266035435478072
+    second: AllNEwRoll_119
+  - first:
+      213: -1527327866095726626
+    second: AllNEwRoll_120
+  - first:
+      213: -1804932756708378689
+    second: AllNEwRoll_121
+  - first:
+      213: -5753509517919009495
+    second: AllNEwRoll_122
+  - first:
+      213: 5024248396299840868
+    second: AllNEwRoll_123
+  - first:
+      213: 7387269686339113509
+    second: AllNEwRoll_124
+  - first:
+      213: 3421444593140695879
+    second: AllNEwRoll_125
+  - first:
+      213: -6377603616104658414
+    second: AllNEwRoll_126
+  - first:
+      213: -8780921430080234670
+    second: AllNEwRoll_127
+  - first:
+      213: 2319748148696009214
+    second: AllNEwRoll_128
+  - first:
+      213: -2173727223548624475
+    second: AllNEwRoll_129
+  - first:
+      213: 8337134597168876286
+    second: AllNEwRoll_130
+  - first:
+      213: 7992803978581236526
+    second: AllNEwRoll_131
+  - first:
+      213: -8051571657112441680
+    second: AllNEwRoll_132
+  - first:
+      213: 5452925172249623881
+    second: AllNEwRoll_133
+  - first:
+      213: -5736148986014202539
+    second: AllNEwRoll_134
+  - first:
+      213: -4032685611449498537
+    second: AllNEwRoll_135
+  - first:
+      213: -8170680585992184141
+    second: AllNEwRoll_136
+  - first:
+      213: -7965779437495226082
+    second: AllNEwRoll_137
+  - first:
+      213: -3315655458711434864
+    second: AllNEwRoll_138
+  - first:
+      213: -7760851570582990816
+    second: AllNEwRoll_139
+  - first:
+      213: -7720428410029271376
+    second: AllNEwRoll_140
+  - first:
+      213: 1518137235685087955
+    second: AllNEwRoll_141
+  - first:
+      213: -2546326286419848058
+    second: AllNEwRoll_142
+  - first:
+      213: -7544673934934818684
+    second: AllNEwRoll_143
+  - first:
+      213: -2980645711643277237
+    second: AllNEwRoll_144
+  - first:
+      213: -5708439200305805993
+    second: AllNEwRoll_145
+  - first:
+      213: 6671492825966428742
+    second: AllNEwRoll_146
+  - first:
+      213: -1268926548850364860
+    second: AllNEwRoll_147
+  - first:
+      213: 5306087139331909220
+    second: AllNEwRoll_148
+  - first:
+      213: 5728875451690057819
+    second: AllNEwRoll_149
+  - first:
+      213: -3979112578826403957
+    second: AllNEwRoll_150
+  - first:
+      213: 7813205385711109991
+    second: AllNEwRoll_151
+  - first:
+      213: -5759831755741658168
+    second: AllNEwRoll_152
+  - first:
+      213: 7941523660418961579
+    second: AllNEwRoll_153
+  - first:
+      213: -3284704858962129589
+    second: AllNEwRoll_154
+  - first:
+      213: 4131527287074290001
+    second: AllNEwRoll_155
+  - first:
+      213: -3322684861938770431
+    second: AllNEwRoll_156
+  - first:
+      213: 213120750467274800
+    second: AllNEwRoll_157
+  - first:
+      213: -6128669830614953060
+    second: AllNEwRoll_158
+  - first:
+      213: -333876022574872498
+    second: AllNEwRoll_159
+  - first:
+      213: -4325799833357390949
+    second: AllNEwRoll_160
+  - first:
+      213: 8567130891004277062
+    second: AllNEwRoll_161
+  - first:
+      213: 4378588024596975563
+    second: AllNEwRoll_162
+  - first:
+      213: 833801024977281589
+    second: AllNEwRoll_163
+  - first:
+      213: -5431046181148788486
+    second: AllNEwRoll_164
+  - first:
+      213: -5995495478673820654
+    second: AllNEwRoll_165
+  - first:
+      213: 1209754073078306453
+    second: AllNEwRoll_166
+  - first:
+      213: 5275897267356228480
+    second: AllNEwRoll_167
+  - first:
+      213: 8770771435559607803
+    second: AllNEwRoll_168
+  - first:
+      213: 8394996799659504712
+    second: AllNEwRoll_169
+  - first:
+      213: -4393522804884075762
+    second: AllNEwRoll_170
+  - first:
+      213: -2912684617251663354
+    second: AllNEwRoll_171
+  - first:
+      213: -2345996636408005243
+    second: AllNEwRoll_172
+  - first:
+      213: 742200703619127770
+    second: AllNEwRoll_173
+  - first:
+      213: -5475792148102245265
+    second: AllNEwRoll_174
+  - first:
+      213: 6527395769626576877
+    second: AllNEwRoll_175
+  - first:
+      213: 9127371633436788342
+    second: AllNEwRoll_176
+  - first:
+      213: 2720679441307410311
+    second: AllNEwRoll_177
+  - first:
+      213: -8687580924233916845
+    second: AllNEwRoll_178
+  - first:
+      213: -3026135568673311470
+    second: AllNEwRoll_179
+  - first:
+      213: -7773428877699044396
+    second: AllNEwRoll_180
+  - first:
+      213: 3517698815993380491
+    second: AllNEwRoll_181
+  - first:
+      213: -5071869016175249427
+    second: AllNEwRoll_182
+  - first:
+      213: -2982836991785061677
+    second: AllNEwRoll_183
+  - first:
+      213: 7643347136862897038
+    second: AllNEwRoll_184
+  - first:
+      213: 3168449171820300536
+    second: AllNEwRoll_185
+  - first:
+      213: -7061772652933920230
+    second: AllNEwRoll_186
+  - first:
+      213: -639474110939475468
+    second: AllNEwRoll_187
+  - first:
+      213: 8999671567695153666
+    second: AllNEwRoll_188
+  - first:
+      213: -7552824180577811173
+    second: AllNEwRoll_189
+  - first:
+      213: -8896227961985756749
+    second: AllNEwRoll_190
+  - first:
+      213: -6890641112760863640
+    second: AllNEwRoll_191
+  - first:
+      213: 680213593175907676
+    second: AllNEwRoll_192
+  - first:
+      213: -8876361394151542802
+    second: AllNEwRoll_193
+  - first:
+      213: -2877810858684787504
+    second: AllNEwRoll_194
+  - first:
+      213: -8999779535033824247
+    second: AllNEwRoll_195
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AllNEwRoll_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c250b089b2c2e3060800000000000000
+      internalID: 6935029041943217452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5d2456a6a2dccc0800000000000000
+      internalID: -3689245883292789308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9abb2f11081e77430800000000000000
+      internalID: 3780738352374004649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc88cfc2826f10d0800000000000000
+      internalID: -3449930475571213115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5bb3a0a7cc9bea0800000000000000
+      internalID: -5856425015888857639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b68bd950a85f910800000000000000
+      internalID: 1870552976967887765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c609be434d4fe90800000000000000
+      internalID: -6992730997644039066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e841afdd54d337d10800000000000000
+      internalID: 2122107219707827342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b38160343721bd0800000000000000
+      internalID: -2660937698120287477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b580be33dc41410800000000000000
+      internalID: 1447007003162991360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd306bdde5c67a20800000000000000
+      internalID: 3059850622223269310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4651b59b82dcfe2c0800000000000000
+      internalID: -4400072736125545116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d620f9aad6394d090800000000000000
+      internalID: -8010615737962003859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22c0c0707aac8e30800000000000000
+      internalID: 4507164726995763759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 284feb73774239140800000000000000
+      internalID: 4725160528496751746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d333a08712e5f2120800000000000000
+      internalID: 2391233424997888829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bd66f036bc9c950800000000000000
+      internalID: 6469925966015028086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_17
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e7a86eed7661bc0800000000000000
+      internalID: -3812745827474309521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_18
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ce50812b6d17810800000000000000
+      internalID: 1761424989674138715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_19
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3223aae149dad8da0800000000000000
+      internalID: -5940901481750580701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_20
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0aa619b588e1150800000000000000
+      internalID: 5845259293236568242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_21
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136f90591bc746530800000000000000
+      internalID: 3847337083832759857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_22
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba9d582a08fcb5f0800000000000000
+      internalID: -739443516285019462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_23
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e857a804668167290800000000000000
+      internalID: -7893094469471668850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_24
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e5e27126577c8e0800000000000000
+      internalID: -1673239672388690358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_25
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97ef20bc2e40d96c0800000000000000
+      internalID: -4135143510741156231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_26
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c216b89aecdc3f0800000000000000
+      internalID: -878819124684182393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab8cd7b50667e850800000000000000
+      internalID: 6406201169703373730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a0a3e0974535c60800000000000000
+      internalID: 7805675458069662250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f079776e907ea20800000000000000
+      internalID: 3091450554666651532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada450b4fd0d6c950800000000000000
+      internalID: 6469087572219218650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_31
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb91f2cd5dbcf9c10800000000000000
+      internalID: 2062591273741523387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_32
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b64d91c2af0aad0800000000000000
+      internalID: -2692877509848700159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc610b2b4c01b1800800000000000000
+      internalID: 584079013672130253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_34
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4996a3bbb717db40800000000000000
+      internalID: 5464862767777749322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_35
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483ed1b01d7c6e150800000000000000
+      internalID: 5901624062364214148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_36
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b2bff6007284c50800000000000000
+      internalID: 6649607732644752258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13bd7505a7071ba0800000000000000
+      internalID: -6118413163416407268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_38
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b80b05c22cd6ddba0800000000000000
+      internalID: -6062568842636250997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be618ae6cdf510150800000000000000
+      internalID: 5837051992402826987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_40
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a494c062b323f60800000000000000
+      internalID: 8012531721646459424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1bc3d2c07c2e96e0800000000000000
+      internalID: -1828975535849223394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220824ee37981eac0800000000000000
+      internalID: -3827627077276631006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_43
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593857e85be2e1950800000000000000
+      internalID: 6421621475990930325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_44
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ce4d39dda1f93b0800000000000000
+      internalID: -5503650680653157235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_45
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da81b76b328c330c0800000000000000
+      internalID: -4597110738904213331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_46
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba750f6b9c0a38c50800000000000000
+      internalID: 6666348661656541099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_47
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02b0f1ed54a0c000800000000000000
+      internalID: 54223918658007564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_48
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978662b5e52b018f0800000000000000
+      internalID: -571761034350139271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_49
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0add02a9757a1c010800000000000000
+      internalID: 1207430169801842080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_50
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d938a779d7e3f8f00800000000000000
+      internalID: 1121183541371765661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_51
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b70bd42fde52b70800000000000000
+      internalID: 8873760265744710531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_52
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afccda3fa26ae9d0800000000000000
+      internalID: -2744272518182547548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_53
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f20f099ab8ebddd0800000000000000
+      internalID: -2460116883298385162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_54
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158bfc3679c119520800000000000000
+      internalID: 2706976287566575697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_55
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 396e95c9ad300d3d0800000000000000
+      internalID: -3184040699090049389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590f55b73114b5680800000000000000
+      internalID: -8765340697817124715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46e044b891a0e0250800000000000000
+      internalID: 5912674465610993252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5242138, y: 0.6013932}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd12c481bb86fa590800000000000000
+      internalID: -7660789288358108708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_59
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019ca5723e8cd8e30800000000000000
+      internalID: 4507479680011127056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_60
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5923176, y: 0.5858021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5fc2a4ff723863c0800000000000000
+      internalID: -4366184313589149860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_61
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.59661245, y: 0.59344435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e2247a73ebb871c0800000000000000
+      internalID: -4505644841497779482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_62
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.56881523, y: 0.6146927}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 200c0615c45158830800000000000000
+      internalID: 4072684855553474562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_63
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5946207, y: 0.59175396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792ec9c49f3f8f590800000000000000
+      internalID: -7640088515776290153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_64
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5602131, y: 0.5172038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a676cbeb8d95eb660800000000000000
+      internalID: 7403453624891500394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_65
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23514c34874142700800000000000000
+      internalID: 514558764192634162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_66
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a14dd851820b8c0800000000000000
+      internalID: -3985641597183976839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_67
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1dde5242b4ff9f70800000000000000
+      internalID: 9196338010568711454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_68
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c711b95ea5908f0800000000000000
+      internalID: -573827535317402550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_69
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40f3c6a1319a68500800000000000000
+      internalID: 398191516581641988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_70
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7014f625c55565fe0800000000000000
+      internalID: -1200678395639283449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_71
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8577f9c0f3f5f1170800000000000000
+      internalID: 8151338574963242840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45785e54cee380980800000000000000
+      internalID: -8572532706193864876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_73
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2f7030abbef1be0800000000000000
+      internalID: -1504224566371159373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_74
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba11851ddcb99aa0800000000000000
+      internalID: -6153679758090495298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_75
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47daf9f635a85a830800000000000000
+      internalID: 4081820728240876916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_76
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf9dab47fdb1d7f0800000000000000
+      internalID: -589481206384582694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_77
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140b3072f9e16f050800000000000000
+      internalID: 5833884036208242753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_78
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a853d96a92c792bb0800000000000000
+      internalID: -4960296996241066614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_79
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7095070bcda046610800000000000000
+      internalID: 1613426509474715911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_80
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb958a6d301475580800000000000000
+      internalID: -8838524258949244481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_81
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba4bd9ec28c36540800000000000000
+      internalID: 5000060106538961586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_82
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c050779bbc17d3d00800000000000000
+      internalID: 954043815876297996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_83
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a75d5e4d3eab7500800000000000000
+      internalID: 395100970656028585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_84
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e67635eda5dad80800000000000000
+      internalID: -8237828232462242152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_85
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f2e7044bf4cd0190800000000000000
+      internalID: -7994517180055559437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_86
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3785f65b57a70d490800000000000000
+      internalID: -7723538714966665101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_87
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf8569717a498b80800000000000000
+      internalID: -8392094579399749700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_88
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3066508632bb560800000000000000
+      internalID: 7330491748149756874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f24605e7b49071b0800000000000000
+      internalID: -5660861214062394638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_90
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07dda3410083e3530800000000000000
+      internalID: 3836565505556798832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_91
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3374088c160d3d40800000000000000
+      internalID: 5565611434110645052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_92
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddbfd6b7de5d4780800000000000000
+      internalID: -8697191024803463723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_93
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f793dde86e0409f0800000000000000
+      internalID: -503261414529198092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_94
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8d151eb6c8e97c0800000000000000
+      internalID: -4062655418871981873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_95
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1811c439912c19d90800000000000000
+      internalID: -7092674523030613631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_96
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1633a7a3c70a0a2c0800000000000000
+      internalID: -4422358378660351135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_97
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a27c8b3635f7f30800000000000000
+      internalID: 4575467434198641297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_98
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad968cfdef2ce970800000000000000
+      internalID: 8785449672283430309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_99
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f77fa49f5c6b51e0800000000000000
+      internalID: -2208052034522875920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_100
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7818370faeac8ac70800000000000000
+      internalID: 8982652567195713927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_101
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779920c6bc77e8b60800000000000000
+      internalID: 7750263724325378423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_102
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7564bc2e816df40800000000000000
+      internalID: 5752812936364447738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_103
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d519743e2af1bc0800000000000000
+      internalID: -3810147662690165425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_104
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5abc0fac9afe150800000000000000
+      internalID: 5904124325594375663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_105
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3076072d1c174770800000000000000
+      internalID: 8594869325394243647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_106
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbaaf1b97c1a759c0800000000000000
+      internalID: -3938501470439101761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_107
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126854a6774ead230800000000000000
+      internalID: 3664492448354502177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_108
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2623384e3521d65a0800000000000000
+      internalID: -6526540133464591774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_109
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29325ce57157baa30800000000000000
+      internalID: 4227601418452018066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_110
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6328d7f5e00eefd0800000000000000
+      internalID: -2310908571088837778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_111
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dafbeffb3e170bad0800000000000000
+      internalID: -2688523754547527763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_112
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a5df02df6d2ff30800000000000000
+      internalID: 4607981751421983296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_113
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8270ee87a25ba58b0800000000000000
+      internalID: -5162614828804733144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_114
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbdb1dcbd55287890800000000000000
+      internalID: -7460171698209178179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_115
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c6bf5231dda23ed0800000000000000
+      internalID: -2435693334449113399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_116
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed139f14956adbf90800000000000000
+      internalID: -6936204948791545378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_117
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f702122e549eb1580800000000000000
+      internalID: -8855227755938111361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_118
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93285c8662ffed3e0800000000000000
+      internalID: -2026902241838529991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_119
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3e2336937e77dd0800000000000000
+      internalID: -2488266035435478072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_120
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf0fcdd567ddcae0800000000000000
+      internalID: -1527327866095726626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_121
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb73ee0883793f6e0800000000000000
+      internalID: -1804932756708378689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_122
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925cb9ca39d6720b0800000000000000
+      internalID: -5753509517919009495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_123
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d27ccfb47b9b540800000000000000
+      internalID: 5024248396299840868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_124
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522114ae3aad48660800000000000000
+      internalID: 7387269686339113509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_125
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74305d8dab96b7f20800000000000000
+      internalID: 3421444593140695879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_126
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ac5d71d433e77a0800000000000000
+      internalID: -6377603616104658414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_127
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25bd37f8b76e32680800000000000000
+      internalID: -8780921430080234670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_128
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef9456396a6613020800000000000000
+      internalID: 2319748148696009214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_129
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1c9c96b9e55d1e0800000000000000
+      internalID: -2173727223548624475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_130
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efacedc7eb373b370800000000000000
+      internalID: 8337134597168876286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_131
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2bd9aeeed42cee60800000000000000
+      internalID: 7992803978581236526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_132
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bca536ac32134090800000000000000
+      internalID: -8051571657112441680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_133
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d79b6ad8eacab40800000000000000
+      internalID: 5452925172249623881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_134
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55508ed73ea1560b0800000000000000
+      internalID: -5736148986014202539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_135
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75449be6dc50908c0800000000000000
+      internalID: -4032685611449498537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_136
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be51c21c49eb9e80800000000000000
+      internalID: -8170680585992184141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_137
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e117cfc5ecdd37190800000000000000
+      internalID: -7965779437495226082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_138
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0998be96dec6cf1d0800000000000000
+      internalID: -3315655458711434864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_139
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0205ed48d9aeb4490800000000000000
+      internalID: -7760851570582990816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_140
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b61f5204478bd490800000000000000
+      internalID: -7720428410029271376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_141
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da9d4db5c1811510800000000000000
+      internalID: 1518137235685087955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_142
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68494b7cbb1a9acd0800000000000000
+      internalID: -2546326286419848058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_143
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 480cf02970feb4790800000000000000
+      internalID: -7544673934934818684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_144
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b480634748e92a6d0800000000000000
+      internalID: -2980645711643277237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_145
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7558bdbbacc87c0b0800000000000000
+      internalID: -5708439200305805993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_146
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642cb4dc067e59c50800000000000000
+      internalID: 6671492825966428742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_147
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e26b1e60ed36ee0800000000000000
+      internalID: -1268926548850364860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_148
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 466a52fe32203a940800000000000000
+      internalID: 5306087139331909220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_149
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b500174dedd018f40800000000000000
+      internalID: 5728875451690057819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_150
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f73c9113a57c8c0800000000000000
+      internalID: -3979112578826403957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_151
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767ca74f6e41e6c60800000000000000
+      internalID: 7813205385711109991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_152
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c30109f887f010b0800000000000000
+      internalID: -5759831755741658168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_153
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0d1a271b5f53e60800000000000000
+      internalID: 7941523660418961579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_154
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d009975526a62d0800000000000000
+      internalID: -3284704858962129589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_155
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15975e58d22265930800000000000000
+      internalID: 4131527287074290001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_156
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e529fe8b373e1d0800000000000000
+      internalID: -3322684861938770431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_157
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038ddd1813825f200800000000000000
+      internalID: 213120750467274800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_158
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c93da88924792faa0800000000000000
+      internalID: -6128669830614953060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_159
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e488763c685dd5bf0800000000000000
+      internalID: -333876022574872498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_160
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9be94b78fba7f3c0800000000000000
+      internalID: -4325799833357390949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_161
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641f59e972094e670800000000000000
+      internalID: 8567130891004277062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_162
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcfc1ef0c9ed3cc30800000000000000
+      internalID: 4378588024596975563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_163
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532a0235d91429b00800000000000000
+      internalID: 833801024977281589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_164
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af872ede54c01a4b0800000000000000
+      internalID: -5431046181148788486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_165
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214bf2da0a8bbcca0800000000000000
+      internalID: -5995495478673820654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_166
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5961a6f7be8e9c010800000000000000
+      internalID: 1209754073078306453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_167
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08bd83c9c90c73940800000000000000
+      internalID: 5275897267356228480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_168
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd5caea62a08b970800000000000000
+      internalID: 8770771435559607803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_169
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844fe365c15018470800000000000000
+      internalID: 8394996799659504712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_170
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b8e4e69421703c0800000000000000
+      internalID: -4393522804884075762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_171
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60258fdc5c01497d0800000000000000
+      internalID: -2912684617251663354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_172
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58db3a22d78517fd0800000000000000
+      internalID: -2345996636408005243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_173
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9534b8b93dc4a00800000000000000
+      internalID: 742200703619127770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_174
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f641e74ad041204b0800000000000000
+      internalID: -5475792148102245265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_175
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7cafc6ed7f59a50800000000000000
+      internalID: 6527395769626576877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_176
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6760af74420faae70800000000000000
+      internalID: 9127371633436788342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_177
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f16de798bc1c520800000000000000
+      internalID: 2720679441307410311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_178
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ed39d9d238f6780800000000000000
+      internalID: -8687580924233916845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_179
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2157d03cbb10106d0800000000000000
+      internalID: -3026135568673311470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_180
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db2cf10f9b3f1490800000000000000
+      internalID: -7773428877699044396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_181
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ef8128f6061d030800000000000000
+      internalID: 3517698815993380491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_182
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7709f600a1d99b0800000000000000
+      internalID: -5071869016175249427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_183
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2b1c94f85da96d0800000000000000
+      internalID: -2982836991785061677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_184
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8346bb89bf921a60800000000000000
+      internalID: 7643347136862897038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_185
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8ca3f0cb798fb20800000000000000
+      internalID: 3168449171820300536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_186
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1a4e41ef2b8ffd90800000000000000
+      internalID: -7061772652933920230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_187
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1d4662fa12027f0800000000000000
+      internalID: -639474110939475468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_188
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a07a7cb9145ec70800000000000000
+      internalID: 8999671567695153666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_189
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15cda1ac6afe2790800000000000000
+      internalID: -7552824180577811173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_190
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b111f48dcf3a8480800000000000000
+      internalID: -8896227961985756749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_191
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864bf278a668f50a0800000000000000
+      internalID: -6890641112760863640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_192
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d54a8b8aa907900800000000000000
+      internalID: 680213593175907676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_193
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef2b9b4754d0d480800000000000000
+      internalID: -8876361394151542802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_194
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4d4557546ff08d0800000000000000
+      internalID: -2877810858684787504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_195
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c8a7d123c5a1380800000000000000
+      internalID: -8999779535033824247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_196
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badb1b6dad0a3854ebd8dc5daa40bffe
+      internalID: -962513367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllNEwRoll_197
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 895
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa29f3c9eb8535a498fa113b271e2fac
+      internalID: 376071938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 324cf4d0f4dcd1045af23fcb5d0d71ef
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AllNEwRoll_0: 6935029041943217452
+      AllNEwRoll_1: -3689245883292789308
+      AllNEwRoll_10: 3059850622223269310
+      AllNEwRoll_100: 8982652567195713927
+      AllNEwRoll_101: 7750263724325378423
+      AllNEwRoll_102: 5752812936364447738
+      AllNEwRoll_103: -3810147662690165425
+      AllNEwRoll_104: 5904124325594375663
+      AllNEwRoll_105: 8594869325394243647
+      AllNEwRoll_106: -3938501470439101761
+      AllNEwRoll_107: 3664492448354502177
+      AllNEwRoll_108: -6526540133464591774
+      AllNEwRoll_109: 4227601418452018066
+      AllNEwRoll_11: -4400072736125545116
+      AllNEwRoll_110: -2310908571088837778
+      AllNEwRoll_111: -2688523754547527763
+      AllNEwRoll_112: 4607981751421983296
+      AllNEwRoll_113: -5162614828804733144
+      AllNEwRoll_114: -7460171698209178179
+      AllNEwRoll_115: -2435693334449113399
+      AllNEwRoll_116: -6936204948791545378
+      AllNEwRoll_117: -8855227755938111361
+      AllNEwRoll_118: -2026902241838529991
+      AllNEwRoll_119: -2488266035435478072
+      AllNEwRoll_12: -8010615737962003859
+      AllNEwRoll_120: -1527327866095726626
+      AllNEwRoll_121: -1804932756708378689
+      AllNEwRoll_122: -5753509517919009495
+      AllNEwRoll_123: 5024248396299840868
+      AllNEwRoll_124: 7387269686339113509
+      AllNEwRoll_125: 3421444593140695879
+      AllNEwRoll_126: -6377603616104658414
+      AllNEwRoll_127: -8780921430080234670
+      AllNEwRoll_128: 2319748148696009214
+      AllNEwRoll_129: -2173727223548624475
+      AllNEwRoll_13: 4507164726995763759
+      AllNEwRoll_130: 8337134597168876286
+      AllNEwRoll_131: 7992803978581236526
+      AllNEwRoll_132: -8051571657112441680
+      AllNEwRoll_133: 5452925172249623881
+      AllNEwRoll_134: -5736148986014202539
+      AllNEwRoll_135: -4032685611449498537
+      AllNEwRoll_136: -8170680585992184141
+      AllNEwRoll_137: -7965779437495226082
+      AllNEwRoll_138: -3315655458711434864
+      AllNEwRoll_139: -7760851570582990816
+      AllNEwRoll_14: 4725160528496751746
+      AllNEwRoll_140: -7720428410029271376
+      AllNEwRoll_141: 1518137235685087955
+      AllNEwRoll_142: -2546326286419848058
+      AllNEwRoll_143: -7544673934934818684
+      AllNEwRoll_144: -2980645711643277237
+      AllNEwRoll_145: -5708439200305805993
+      AllNEwRoll_146: 6671492825966428742
+      AllNEwRoll_147: -1268926548850364860
+      AllNEwRoll_148: 5306087139331909220
+      AllNEwRoll_149: 5728875451690057819
+      AllNEwRoll_15: 2391233424997888829
+      AllNEwRoll_150: -3979112578826403957
+      AllNEwRoll_151: 7813205385711109991
+      AllNEwRoll_152: -5759831755741658168
+      AllNEwRoll_153: 7941523660418961579
+      AllNEwRoll_154: -3284704858962129589
+      AllNEwRoll_155: 4131527287074290001
+      AllNEwRoll_156: -3322684861938770431
+      AllNEwRoll_157: 213120750467274800
+      AllNEwRoll_158: -6128669830614953060
+      AllNEwRoll_159: -333876022574872498
+      AllNEwRoll_16: 6469925966015028086
+      AllNEwRoll_160: -4325799833357390949
+      AllNEwRoll_161: 8567130891004277062
+      AllNEwRoll_162: 4378588024596975563
+      AllNEwRoll_163: 833801024977281589
+      AllNEwRoll_164: -5431046181148788486
+      AllNEwRoll_165: -5995495478673820654
+      AllNEwRoll_166: 1209754073078306453
+      AllNEwRoll_167: 5275897267356228480
+      AllNEwRoll_168: 8770771435559607803
+      AllNEwRoll_169: 8394996799659504712
+      AllNEwRoll_17: -3812745827474309521
+      AllNEwRoll_170: -4393522804884075762
+      AllNEwRoll_171: -2912684617251663354
+      AllNEwRoll_172: -2345996636408005243
+      AllNEwRoll_173: 742200703619127770
+      AllNEwRoll_174: -5475792148102245265
+      AllNEwRoll_175: 6527395769626576877
+      AllNEwRoll_176: 9127371633436788342
+      AllNEwRoll_177: 2720679441307410311
+      AllNEwRoll_178: -8687580924233916845
+      AllNEwRoll_179: -3026135568673311470
+      AllNEwRoll_18: 1761424989674138715
+      AllNEwRoll_180: -7773428877699044396
+      AllNEwRoll_181: 3517698815993380491
+      AllNEwRoll_182: -5071869016175249427
+      AllNEwRoll_183: -2982836991785061677
+      AllNEwRoll_184: 7643347136862897038
+      AllNEwRoll_185: 3168449171820300536
+      AllNEwRoll_186: -7061772652933920230
+      AllNEwRoll_187: -639474110939475468
+      AllNEwRoll_188: 8999671567695153666
+      AllNEwRoll_189: -7552824180577811173
+      AllNEwRoll_19: -5940901481750580701
+      AllNEwRoll_190: -8896227961985756749
+      AllNEwRoll_191: -6890641112760863640
+      AllNEwRoll_192: 680213593175907676
+      AllNEwRoll_193: -8876361394151542802
+      AllNEwRoll_194: -2877810858684787504
+      AllNEwRoll_195: -8999779535033824247
+      AllNEwRoll_196: -962513367
+      AllNEwRoll_197: 376071938
+      AllNEwRoll_2: 3780738352374004649
+      AllNEwRoll_20: 5845259293236568242
+      AllNEwRoll_21: 3847337083832759857
+      AllNEwRoll_22: -739443516285019462
+      AllNEwRoll_23: -7893094469471668850
+      AllNEwRoll_24: -1673239672388690358
+      AllNEwRoll_25: -4135143510741156231
+      AllNEwRoll_26: -878819124684182393
+      AllNEwRoll_27: 6406201169703373730
+      AllNEwRoll_28: 7805675458069662250
+      AllNEwRoll_29: 3091450554666651532
+      AllNEwRoll_3: -3449930475571213115
+      AllNEwRoll_30: 6469087572219218650
+      AllNEwRoll_31: 2062591273741523387
+      AllNEwRoll_32: -2692877509848700159
+      AllNEwRoll_33: 584079013672130253
+      AllNEwRoll_34: 5464862767777749322
+      AllNEwRoll_35: 5901624062364214148
+      AllNEwRoll_36: 6649607732644752258
+      AllNEwRoll_37: -6118413163416407268
+      AllNEwRoll_38: -6062568842636250997
+      AllNEwRoll_39: 5837051992402826987
+      AllNEwRoll_4: -5856425015888857639
+      AllNEwRoll_40: 8012531721646459424
+      AllNEwRoll_41: -1828975535849223394
+      AllNEwRoll_42: -3827627077276631006
+      AllNEwRoll_43: 6421621475990930325
+      AllNEwRoll_44: -5503650680653157235
+      AllNEwRoll_45: -4597110738904213331
+      AllNEwRoll_46: 6666348661656541099
+      AllNEwRoll_47: 54223918658007564
+      AllNEwRoll_48: -571761034350139271
+      AllNEwRoll_49: 1207430169801842080
+      AllNEwRoll_5: 1870552976967887765
+      AllNEwRoll_50: 1121183541371765661
+      AllNEwRoll_51: 8873760265744710531
+      AllNEwRoll_52: -2744272518182547548
+      AllNEwRoll_53: -2460116883298385162
+      AllNEwRoll_54: 2706976287566575697
+      AllNEwRoll_55: -3184040699090049389
+      AllNEwRoll_56: -8765340697817124715
+      AllNEwRoll_57: 5912674465610993252
+      AllNEwRoll_58: -7660789288358108708
+      AllNEwRoll_59: 4507479680011127056
+      AllNEwRoll_6: -6992730997644039066
+      AllNEwRoll_60: -4366184313589149860
+      AllNEwRoll_61: -4505644841497779482
+      AllNEwRoll_62: 4072684855553474562
+      AllNEwRoll_63: -7640088515776290153
+      AllNEwRoll_64: 7403453624891500394
+      AllNEwRoll_65: 514558764192634162
+      AllNEwRoll_66: -3985641597183976839
+      AllNEwRoll_67: 9196338010568711454
+      AllNEwRoll_68: -573827535317402550
+      AllNEwRoll_69: 398191516581641988
+      AllNEwRoll_7: 2122107219707827342
+      AllNEwRoll_70: -1200678395639283449
+      AllNEwRoll_71: 8151338574963242840
+      AllNEwRoll_72: -8572532706193864876
+      AllNEwRoll_73: -1504224566371159373
+      AllNEwRoll_74: -6153679758090495298
+      AllNEwRoll_75: 4081820728240876916
+      AllNEwRoll_76: -589481206384582694
+      AllNEwRoll_77: 5833884036208242753
+      AllNEwRoll_78: -4960296996241066614
+      AllNEwRoll_79: 1613426509474715911
+      AllNEwRoll_8: -2660937698120287477
+      AllNEwRoll_80: -8838524258949244481
+      AllNEwRoll_81: 5000060106538961586
+      AllNEwRoll_82: 954043815876297996
+      AllNEwRoll_83: 395100970656028585
+      AllNEwRoll_84: -8237828232462242152
+      AllNEwRoll_85: -7994517180055559437
+      AllNEwRoll_86: -7723538714966665101
+      AllNEwRoll_87: -8392094579399749700
+      AllNEwRoll_88: 7330491748149756874
+      AllNEwRoll_89: -5660861214062394638
+      AllNEwRoll_9: 1447007003162991360
+      AllNEwRoll_90: 3836565505556798832
+      AllNEwRoll_91: 5565611434110645052
+      AllNEwRoll_92: -8697191024803463723
+      AllNEwRoll_93: -503261414529198092
+      AllNEwRoll_94: -4062655418871981873
+      AllNEwRoll_95: -7092674523030613631
+      AllNEwRoll_96: -4422358378660351135
+      AllNEwRoll_97: 4575467434198641297
+      AllNEwRoll_98: 8785449672283430309
+      AllNEwRoll_99: -2208052034522875920
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

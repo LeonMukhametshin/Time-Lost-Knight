@@ -1,0 +1,56 @@
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
+using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Player.FSM.States.Impls
+{
+    [MovedFrom("")]
+    public class PlayerDropDownState : PlayerState
+    {
+        protected Movement movement =>
+            m_movement ??= core.GetCoreComponent<Movement>();
+
+        protected OneWayPlatformCollisionController oneWayPlatformCollisionController =>
+            m_oneWayPlatformCollision ??= core.GetCoreComponent<OneWayPlatformCollisionController>();
+
+        private Movement m_movement;
+        private OneWayPlatformCollisionController m_oneWayPlatformCollision;
+
+        private float m_duration;
+
+        public PlayerDropDownState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core, animBoolName, player, data, active)
+        {
+            m_duration = data.dropThroughDuration;
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            oneWayPlatformCollisionController.SetIgnorePlatform();
+            movement.SetVelocityY(-data.dropVelocity);
+
+            startTime = Time.time;
+            m_duration = data.dropThroughDuration;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (Time.time >= startTime + m_duration)
+            {
+                var inAirState = fsm.GetState<PlayerAirState>();
+                inAirState.StartCoyoteTime();
+                fsm.ChangeState<PlayerAirState>();
+            }
+        }
+    }
+}
+

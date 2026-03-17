@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3b4f20a3706644d98f892dee7d02d6, type: 3}
+  m_Name: EnemyFirst_Data
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFirstData
+  <maxHealth>k__BackingField: 75
+  <idle>k__BackingField: {fileID: 11400000, guid: 08ad3944ac781de44bac9ef96feb5c6b, type: 2}
+  <move>k__BackingField: {fileID: 11400000, guid: e4e2467a12aeabd4fa2ccc5a74292939, type: 2}
+  <playerDetected>k__BackingField: {fileID: 11400000, guid: ae84519425e013644a7cbcbba7350709, type: 2}
+  <chargeState>k__BackingField: {fileID: 11400000, guid: e1843e454edfa8247a2088dc2a87c9c9, type: 2}
+  <lookForPlayer>k__BackingField: {fileID: 11400000, guid: 2fa37a310b078ed4eb70737328c10133, type: 2}
+  <meleeAttackState>k__BackingField: {fileID: 11400000, guid: 450fdc3cd6c2e3c4aaf62229befa7933, type: 2}
+  <stanState>k__BackingField: {fileID: 11400000, guid: 53cf054478b751149b5c2b0dbe265ead, type: 2}

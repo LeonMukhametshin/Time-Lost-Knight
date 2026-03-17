@@ -1,0 +1,11 @@
+﻿using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Buffs.Interfaces
+{
+    [MovedFrom("")]
+    public interface ITimeBuff
+    {
+        float duration { get; }
+        float timer { get; }
+    }
+}

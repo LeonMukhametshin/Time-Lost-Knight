@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724399f35c1a93b449e4f57b4d960e5f, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  <maxHealth>k__BackingField: 130
+  <movementSpeed>k__BackingField: 16
+  <movementAcceleration>k__BackingField: 20
+  <movementDeceleration>k__BackingField: 50
+  <jumpVelocity>k__BackingField: 13
+  <amountOfJumps>k__BackingField: 2
+  <wallJumpVelocity>k__BackingField: 19
+  <wallJumpTime>k__BackingField: 0.4
+  <wallJumpAnge>k__BackingField: {x: 1, y: 3}
+  <coyoteTime>k__BackingField: 0.2
+  <jumpHeightMultiplier>k__BackingField: 0.64
+  <wallSlideVelocity>k__BackingField: 1.78
+  <wallClimbVelocity>k__BackingField: 3
+  <startOffset>k__BackingField: {x: 0.7, y: 1.33}
+  <stopOffset>k__BackingField: {x: 0, y: 1.33}
+  <dashCooldown>k__BackingField: 0.78
+  <maxHoldTime>k__BackingField: 0.73
+  <holdTimeScale>k__BackingField: 0.1
+  <dashTime>k__BackingField: 0.2
+  <dashVelocity>k__BackingField: 32.9
+  <drag>k__BackingField: 0.79
+  <dashEndYMultiplier>k__BackingField: 0.54
+  <crouchMovementVelocity>k__BackingField: 7.75
+  <dropThroughDuration>k__BackingField: 0.46
+  <dropVelocity>k__BackingField: 8.52

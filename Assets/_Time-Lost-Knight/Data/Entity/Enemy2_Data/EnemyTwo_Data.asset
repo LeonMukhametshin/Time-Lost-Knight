@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbfddcda55c9274a9023cdfa4e95dd5, type: 3}
+  m_Name: EnemyTwo_Data
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyTwoData
+  <maxHealth>k__BackingField: 50
+  <idle>k__BackingField: {fileID: 11400000, guid: 4e508d4aa1c70684b81af7001386751b, type: 2}
+  <move>k__BackingField: {fileID: 11400000, guid: f196890cb2260b84a8f01c15fe9c22dc, type: 2}
+  <playerDetected>k__BackingField: {fileID: 11400000, guid: 52330a9bdbd0c374f99ca6edd02db785, type: 2}
+  <meleeAttackState>k__BackingField: {fileID: 11400000, guid: c84c914a732765241a981fa604f8d186, type: 2}
+  <lookForPlayer>k__BackingField: {fileID: 11400000, guid: a6dc89cf72da21448add21f5a582e00e, type: 2}
+  <stanState>k__BackingField: {fileID: 11400000, guid: f966d468a39475a45825da9d3d5a7070, type: 2}
+  <rangeAttack>k__BackingField: {fileID: 11400000, guid: cf94b3199ee84854aa8636b26522329f, type: 2}
+  <dodgeState>k__BackingField: {fileID: 11400000, guid: ee3a7b8147295fc4b80e223d0203401b, type: 2}

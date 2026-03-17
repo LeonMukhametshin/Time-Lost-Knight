@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5332bbb6de069a4585e81acce69c85a, type: 3}
+  m_Name: EnemyThree
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyThreeData
+  <maxHealth>k__BackingField: 75
+  <idle>k__BackingField: {fileID: 11400000, guid: 43559c0b11399c14b8cb83f3f493458c, type: 2}
+  <lookForPlayer>k__BackingField: {fileID: 11400000, guid: 762d9fabcc4f73b42b8775cdc76f2c75, type: 2}
+  <playerDetected>k__BackingField: {fileID: 11400000, guid: 0425a0491dd4cfd4eb58521495bf4300, type: 2}
+  <rangeAttack>k__BackingField: {fileID: 11400000, guid: f52437dd63b3620499de48bcd5ea4e34, type: 2}

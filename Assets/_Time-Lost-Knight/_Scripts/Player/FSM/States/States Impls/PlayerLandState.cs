@@ -1,0 +1,46 @@
+﻿using Game.Core.CoreComponents;
+using Game.Player;
+using Game.Player.FSM;
+using Game.Player.FSM.Data;
+using Game.Player.FSM.States.Base;
+using UnityEngine.Scripting.APIUpdating;
+
+namespace Game.Player.FSM.States.Impls
+{
+    [MovedFrom("")]
+    public class PlayerLandState : PlayerGroundState
+    {
+        public PlayerLandState(EntityFSM fsm, CoreSystem core,
+            string animBoolName, PlayerController player,
+            PlayerData data, bool active)
+            : base(fsm, core,
+                animBoolName, player,
+                data, active)
+        {
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (isExitingState)
+            {
+                return;
+            }
+
+            if (xInput != 0)
+            {
+                fsm.ChangeState<PlayerMoveState>();
+            }
+            else if(movement.rb.linearVelocityY < 0.05f)
+            {
+                fsm.ChangeState<PlayerIdleState>();
+            }
+            else if (isAnimationFinished)
+            {
+                fsm.ChangeState<PlayerIdleState>();
+            }
+        }
+    }
+}
+
