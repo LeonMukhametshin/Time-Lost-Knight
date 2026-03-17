@@ -19,6 +19,7 @@ namespace Game.Player.FSM.States.Impls
         private float m_lastDashTime;
         private Vector2 m_dashDirection;
         private Vector2 m_lastAfterImagePosition;
+        private DashAfterImageTrail m_afterImageTrail;
 
         protected PlayerBaseDashState(EntityFSM fsm, CoreSystem core,
             string animBoolName, PlayerController player,
@@ -42,6 +43,7 @@ namespace Game.Player.FSM.States.Impls
             m_dashDirection = ResolveDashDirection(Vector2.right * flipController.facingDirection);
 
             m_isHolding = canHoldDirection;
+            ResolveAfterImageTrail();
 
             if (m_isHolding)
             {
@@ -62,6 +64,7 @@ namespace Game.Player.FSM.States.Impls
             base.Exit();
 
             Time.timeScale = 1f;
+            m_afterImageTrail?.StopTrail();
 
             if (movement.currentVelocity.y > 0)
             {
@@ -125,6 +128,15 @@ namespace Game.Player.FSM.States.Impls
             movement.SetVelocity(data.dashVelocity, m_dashDirection);
 
             m_lastAfterImagePosition = player.transform.position;
+            m_afterImageTrail?.StartTrail();
+        }
+
+        private void ResolveAfterImageTrail()
+        {
+            if (m_afterImageTrail == null)
+            {
+                m_afterImageTrail = player.GetComponentInChildren<DashAfterImageTrail>();
+            }
         }
     }
 }
