@@ -495,8 +495,8 @@ MonoBehaviour:
     m_Bits: 64
   m_zone: {x: 0, y: 0}
   m_minAgroDistance: 0.99
-  m_maxAgroDistance: 16.5
-  m_closeRangeActionDistance: 1.46
+  m_maxAgroDistance: 18.9
+  m_closeRangeActionDistance: 1.38
 --- !u!114 &2741610626574594857
 MonoBehaviour:
   m_ObjectHideFlags: 0
