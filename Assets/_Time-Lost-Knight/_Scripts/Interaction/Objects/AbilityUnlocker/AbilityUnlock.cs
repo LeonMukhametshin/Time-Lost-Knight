@@ -1,3 +1,5 @@
+using Game.Core.ServiceLocatorSpace;
+using Game.Player.FSM;
 using UnityEngine;
 
 public class AbilityUnlock : MonoBehaviour

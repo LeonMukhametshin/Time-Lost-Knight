@@ -1,8 +1,11 @@
+using Game.Buffs;
+using Game.Buffs.Interfaces;
+using Game.Core.ServiceLocatorSpace;
 using UnityEngine;
 
 public class FirstAidKit : MonoBehaviour 
 {
-    [SerializeField] private BuffEffect[] buff;
+    [SerializeField] private Game.Buffs.Interfaces.BuffEffect[] buff;
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private AudioClip m_healClip;
     [SerializeField][Range(0f, 1f)] private float m_healVolume = 1f;
@@ -12,7 +15,7 @@ public class FirstAidKit : MonoBehaviour
     private void Start()
     {
         health = ServiceLocator
-            .Get<IPlayerFactory>().Create()
+            .Get<Game.Player.IPlayerFactory>().Create()
             .GetComponent<BuffContainer>();
     }
 
