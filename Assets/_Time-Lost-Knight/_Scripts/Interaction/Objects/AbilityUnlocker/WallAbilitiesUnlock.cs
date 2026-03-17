@@ -18,6 +18,7 @@ public class WallAbilitiesUnlock : AbilityUnlock
         m_playerFSM.UnlockState<PlayerWallGrabState>();
         m_playerFSM.UnlockState<PlayerWallJumpState>();
 
+        PlayUnlockAudio();
         Destroy(gameObject);
     }
 }

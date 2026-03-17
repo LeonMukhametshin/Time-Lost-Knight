@@ -14,6 +14,7 @@ public class OmniDashAbilityUnlock : AbilityUnlock
         }
 
         m_playerFSM.UnlockState<PlayerOmnidirectionalDashState>();
+        PlayUnlockAudio();
         Destroy(gameObject);
     }
 }

@@ -14,6 +14,7 @@ public class DashAbilityUnlock : AbilityUnlock
         }
 
         m_playerFSM.UnlockState<PlayerForwardDashState>();
+        PlayUnlockAudio();
         Destroy(gameObject);
     }
 }

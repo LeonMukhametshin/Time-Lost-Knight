@@ -8,6 +8,9 @@ public class DamageableWall : MonoBehaviour, IHealth, IEffectable, IDamageable
 
     [SerializeField][Min(0)] private float m_maxHealt;
     [SerializeField] private GameObject m_destroyParticle;
+    [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_destroyClip;
+    [SerializeField][Range(0f, 1f)] private float m_destroyVolume = 1f;
     public float maxValue { get; private set; }
 
     public float value
@@ -87,6 +90,8 @@ public class DamageableWall : MonoBehaviour, IHealth, IEffectable, IDamageable
 
     private void Destroy()
     {
+        DetachedAudioPlayer.Play(m_audioSource, m_destroyClip, m_destroyVolume);
+
         ServiceLocator
             .Get<ParticleManager>()
             .StartParticlesWithRandomRotation(m_destroyParticle, transform.position);

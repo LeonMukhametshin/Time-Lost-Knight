@@ -482,6 +482,9 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 1058296087471755544, guid: 39309ff1b5e25ca42a1d6cb2b2ed7c78, type: 3}
   - {fileID: 8192522283883185435, guid: 643d49a70c2ef4c4e9e145151672c833, type: 3}
+  m_audioSource: {fileID: 901100000000000003}
+  m_deathClip: {fileID: 8300000, guid: 7597ac46f9664684b7ea41c67e7a8040, type: 3}
+  m_deathVolume: 0.8
 --- !u!114 &7131587219891041132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +540,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityKnockbackableCombat
   core: {fileID: 3542286832004251390}
+  m_audioSource: {fileID: 901100000000000003}
+  m_damageClip: {fileID: 8300000, guid: 8b58a278f3f1456daea2c52a8d9cbebf, type: 3}
+  m_damageVolume: 1
   m_damageParticles: {fileID: 2508979075604653123, guid: 0606fb16001a8ef449b6b59974783a5c, type: 3}
   m_maxKnockbackTime: 0.2
 --- !u!1 &7639000968619851487
