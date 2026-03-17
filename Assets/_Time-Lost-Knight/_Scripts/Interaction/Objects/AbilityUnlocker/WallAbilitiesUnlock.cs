@@ -1,3 +1,5 @@
+using Game.Player.FSM.States.Impls;
+
 public class WallAbilitiesUnlock : AbilityUnlock
 {
     public override void Unlock()

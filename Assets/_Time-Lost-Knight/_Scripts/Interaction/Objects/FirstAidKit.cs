@@ -1,3 +1,7 @@
+using Game.Buffs;
+using Game.Buffs.Interfaces;
+using Game.Core.ServiceLocatorSpace;
+using Game.Player;
 using UnityEngine;
 
 public class FirstAidKit : MonoBehaviour 

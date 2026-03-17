@@ -1,3 +1,7 @@
+using Game.Buffs.Interfaces;
+using Game.Core.CoreComponents;
+using Game.Core.ServiceLocatorSpace;
+using Game.Effects;
 using System;
 using UnityEngine;
 
@@ -89,7 +93,6 @@ public class DamageableWall : MonoBehaviour, IHealth, IEffectable, IDamageable
 
         this.value -= damage;
     }
-
 
     private void Destroy()
     {
