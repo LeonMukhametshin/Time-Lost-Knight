@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Value: 111
   redOutGreenIn:
     m_OverrideState: 1
-    m_Value: 18
+    m_Value: -7
   redOutBlueIn:
     m_OverrideState: 1
     m_Value: -7
@@ -244,7 +244,7 @@ MonoBehaviour:
     m_Value: 7
   scatter:
     m_OverrideState: 1
-    m_Value: 0.454
+    m_Value: 0.62
   clamp:
     m_OverrideState: 0
     m_Value: 65472

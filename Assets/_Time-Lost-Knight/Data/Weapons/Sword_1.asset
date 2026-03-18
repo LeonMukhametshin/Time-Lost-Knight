@@ -22,6 +22,7 @@ MonoBehaviour:
     movementSpeed: 10
     effects:
     - rid: 47934341375590485
+    - rid: 47934737263099904
   - attackName: Up slash
     movementSpeed: 10
     effects:
@@ -32,17 +33,22 @@ MonoBehaviour:
     - rid: 47934341375590484
       type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_damage: 40
+        m_damage: 100
     - rid: 47934341375590485
       type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_damage: 30
+        m_damage: 100
     - rid: 47934341375590486
       type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_damage: 60
+        m_damage: 100
     - rid: 47934347748048980
       type: {class: KnockbackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_knokbackStringht: 10
-        m_angle: {x: 0, y: 1}
+        m_knokbackStringht: 30
+        m_angle: {x: 1, y: 1}
+    - rid: 47934737263099904
+      type: {class: KnockbackEffect, ns: Game.Effects, asm: Assembly-CSharp}
+      data:
+        m_knokbackStringht: 30
+        m_angle: {x: 1, y: 3}
