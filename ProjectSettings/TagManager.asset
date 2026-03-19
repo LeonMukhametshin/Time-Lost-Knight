@@ -56,11 +56,11 @@ TagManager:
   - name: Enemy
     uniqueID: 3005879761
     locked: 0
-  - name: Player
-    uniqueID: 4176029183
-    locked: 0
   - name: Particles
     uniqueID: 796815003
+    locked: 0
+  - name: Player
+    uniqueID: 4176029183
     locked: 0
   - name: Ground
     uniqueID: 2963865965

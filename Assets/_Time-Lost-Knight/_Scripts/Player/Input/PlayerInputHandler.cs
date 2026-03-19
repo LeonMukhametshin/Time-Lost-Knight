@@ -8,7 +8,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 rawMovementInput { get; private set; }
     public Vector2 rawDashDirectionInput { get; private set; }
-    public Vector2Int dashDirectionInput { get; private set; }
+    public Vector2 dashDirectionInput { get; private set; }
 
     public int normalizedInputX { get; private set; }    
     public int normalizedInputY { get; private set; }
@@ -109,7 +109,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnDashDirectionInput(InputAction.CallbackContext context)
     {
         rawDashDirectionInput = context.ReadValue<Vector2>();
-        dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
+        dashDirectionInput = rawDashDirectionInput.normalized;
     }
 
     public void OnDropDownInput(InputAction.CallbackContext contex)
@@ -140,7 +140,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawMovementInput = Vector2.zero;
         rawDashDirectionInput = Vector2.zero;
-        dashDirectionInput = Vector2Int.zero;
+        dashDirectionInput = Vector2.zero;
 
         normalizedInputX = 0;
         normalizedInputY = 0;

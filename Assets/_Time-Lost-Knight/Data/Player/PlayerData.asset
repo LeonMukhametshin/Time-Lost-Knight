@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   <maxHealth>k__BackingField: 130
-  <movementSpeed>k__BackingField: 16
+  <movementSpeed>k__BackingField: 12
   <movementAcceleration>k__BackingField: 20
   <movementDeceleration>k__BackingField: 50
   <jumpVelocity>k__BackingField: 13
