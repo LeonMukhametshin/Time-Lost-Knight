@@ -649,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FallDamage
   m_entitnyRigidbody: {fileID: 1443340695227760855}
   m_healthSystem: {fileID: 2623214605480921905}
-  m_timeToDamage: 20
+  m_timeToDamage: 60
   m_fallVelocity: 5
 --- !u!114 &2623214605480921905
 MonoBehaviour:

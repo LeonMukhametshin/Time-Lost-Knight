@@ -8,7 +8,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 rawMovementInput { get; private set; }
     public Vector2 rawDashDirectionInput { get; private set; }
-    public Vector2Int dashDirectionInput { get; private set; }
+    public Vector2 dashDirectionInput { get; private set; }
 
     public int normalizedInputX { get; private set; }    
     public int normalizedInputY { get; private set; }
@@ -27,6 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     [SerializeField] private float m_inputHoldTime;
     private Camera m_camera;
+    private bool m_isDashDirectionMouse;
 
     private float m_jumpInputStartTime;
     private float m_dashInputStartTime;
@@ -109,7 +110,46 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnDashDirectionInput(InputAction.CallbackContext context)
     {
         rawDashDirectionInput = context.ReadValue<Vector2>();
-        dashDirectionInput = Vector2Int.RoundToInt(rawDashDirectionInput.normalized);
+        if (context.control?.device is Mouse)
+        {
+            m_isDashDirectionMouse = true;
+            dashDirectionInput = Vector2.zero;
+            return;
+        }
+
+        m_isDashDirectionMouse = false;
+        dashDirectionInput = rawDashDirectionInput.normalized;
+    }
+
+    public bool IsDashDirectionMouse() =>
+        m_isDashDirectionMouse;
+
+    public Vector2 GetMouseDashDirection(Transform origin, Vector2 fallbackDirection)
+    {
+        if (!m_isDashDirectionMouse)
+        {
+            return fallbackDirection;
+        }
+
+        if (!m_camera)
+        {
+            m_camera = Camera.main;
+        }
+
+        if (!m_camera)
+        {
+            return fallbackDirection;
+        }
+
+        var mouseScreen = new Vector3(rawDashDirectionInput.x, rawDashDirectionInput.y,
+            origin.position.z - m_camera.transform.position.z);
+
+        var mouseWorld = m_camera.ScreenToWorldPoint(mouseScreen);
+        var worldDirection = (Vector2)(mouseWorld - origin.position);
+
+        return worldDirection.sqrMagnitude > 0.0001f
+            ? worldDirection.normalized
+            : fallbackDirection;
     }
 
     public void OnDropDownInput(InputAction.CallbackContext contex)
@@ -140,7 +180,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         rawMovementInput = Vector2.zero;
         rawDashDirectionInput = Vector2.zero;
-        dashDirectionInput = Vector2Int.zero;
+        dashDirectionInput = Vector2.zero;
+        m_isDashDirectionMouse = false;
 
         normalizedInputX = 0;
         normalizedInputY = 0;

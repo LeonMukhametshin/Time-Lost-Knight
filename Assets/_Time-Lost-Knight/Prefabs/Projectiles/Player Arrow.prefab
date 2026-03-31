@@ -180,7 +180,7 @@ MonoBehaviour:
     - rid: 2014469502205165677
       type: {class: AttackEffect, ns: Game.Effects, asm: Assembly-CSharp}
       data:
-        m_damage: 20
+        m_damage: 100
 --- !u!95 &4053533888207642666
 Animator:
   serializedVersion: 7

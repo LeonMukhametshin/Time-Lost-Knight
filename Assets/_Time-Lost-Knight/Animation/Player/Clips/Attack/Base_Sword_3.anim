@@ -21,29 +21,29 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
+      value: {fileID: 4725160528496751746, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - time: 0.05
+      value: {fileID: 2391233424997888829, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - time: 0.1
+      value: {fileID: 6469925966015028086, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - time: 0.15
+      value: {fileID: -3812745827474309521, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - time: 0.2
       value: {fileID: 1761424989674138715, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.041666668
+    - time: 0.3
       value: {fileID: -5940901481750580701, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.125
+    - time: 0.35
       value: {fileID: 5845259293236568242, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.16666667
+    - time: 0.4
       value: {fileID: 3847337083832759857, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.20833333
+    - time: 0.45
       value: {fileID: -739443516285019462, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.25
-      value: {fileID: -7893094469471668850, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.29166666
-      value: {fileID: -1673239672388690358, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.33333334
-      value: {fileID: -4135143510741156231, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.375
-      value: {fileID: -878819124684182393, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 24
+  m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -60,21 +60,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
+    - {fileID: 4725160528496751746, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - {fileID: 2391233424997888829, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - {fileID: 6469925966015028086, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - {fileID: -3812745827474309521, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
     - {fileID: 1761424989674138715, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
     - {fileID: -5940901481750580701, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
     - {fileID: 5845259293236568242, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
     - {fileID: 3847337083832759857, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
     - {fileID: -739443516285019462, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: -7893094469471668850, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: -1673239672388690358, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: -4135143510741156231, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: -878819124684182393, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.41666666
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -94,42 +94,42 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.125
+  - time: 0.15
     functionName: AnimationStartMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.125
+  - time: 0.15
     functionName: AnimationTurnOffFlipTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.125
+  - time: 0.15
     functionName: AnimationActionTriger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
+  - time: 0.4
     functionName: AnimationStopMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.375
+  - time: 0.45
     functionName: AnimationTurnOnFlipTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.5
     functionName: AnimationFinishTrigger
     data: 
     objectReferenceParameter: {fileID: 0}

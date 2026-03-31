@@ -76,7 +76,7 @@ namespace Game.Core.Game.GameRoot
             if (m_uiRoot != null)
             {
                 m_uiRoot.ShowLoadingScreen();
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(1f);
             }
 
             if (SceneManager.GetActiveScene().name != SceneNames.BOOT)

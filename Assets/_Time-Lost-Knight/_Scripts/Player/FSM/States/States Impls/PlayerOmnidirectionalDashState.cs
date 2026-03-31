@@ -24,6 +24,11 @@ namespace Game.Player.FSM.States.Impls
 
         protected override Vector2 ResolveDashDirection(Vector2 fallbackDirection)
         {
+            if (player.inputHandler.IsDashDirectionMouse())
+            {
+                return player.inputHandler.GetMouseDashDirection(player.transform, fallbackDirection);
+            }
+
             Vector2 inputDirection = player.inputHandler.dashDirectionInput;
 
             if (inputDirection != Vector2.zero)
