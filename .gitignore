@@ -98,13 +98,4 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 .vsconfig
-.vscode/extensions.json
-.vscode/launch.json
-.vscode/settings.json
-Assets/Resources/DOTweenSettings.asset
-ProjectSettings/EditorBuildSettings.asset
-Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta
-Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta
-Assets/Plugins/Zenject/OptionalExtras/Signals/Zenject-Signals.csproj.meta
-Assets/Plugins/Zenject/Source/Zenject.csproj.meta
-Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+Assets/Plugins/XInputDotNet/Plugins/x86_64/XInputInterface.dll
