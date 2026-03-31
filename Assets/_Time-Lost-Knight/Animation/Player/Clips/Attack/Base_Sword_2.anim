@@ -21,23 +21,33 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2660937698120287477, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.1
-      value: {fileID: 1447007003162991360, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.2
-      value: {fileID: 3059850622223269310, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.25
-      value: {fileID: -4400072736125545116, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.35
-      value: {fileID: -8010615737962003859, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - time: 0.45
-      value: {fileID: 4507164726995763759, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+      value: {fileID: 1898841556542972663, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.055555556
+      value: {fileID: 1539218682040903757, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.11111111
+      value: {fileID: -1299726392917630398, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.16666667
+      value: {fileID: 3280735592612616178, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.22222222
+      value: {fileID: -7385636635760209515, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.2777778
+      value: {fileID: 1114166205790154135, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.33333334
+      value: {fileID: 7878573481127250964, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.3888889
+      value: {fileID: 3828128887438406709, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.44444445
+      value: {fileID: -5770977820540830616, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.5
+      value: {fileID: -8415882738708276719, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - time: 0.5555556
+      value: {fileID: -5452268675402015499, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 20
+  m_SampleRate: 18
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -54,18 +64,23 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2660937698120287477, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: 1447007003162991360, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: 3059850622223269310, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: -4400072736125545116, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: -8010615737962003859, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
-    - {fileID: 4507164726995763759, guid: 1fabaf2d0a16a6044a231972e1565a4e, type: 3}
+    - {fileID: 1898841556542972663, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: 1539218682040903757, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: -1299726392917630398, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: 3280735592612616178, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: -7385636635760209515, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: 1114166205790154135, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: 7878573481127250964, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: 3828128887438406709, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: -5770977820540830616, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: -8415882738708276719, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
+    - {fileID: -5452268675402015499, guid: 119636cb91cbfcf40b80605d57ab86bb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.61111116
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,42 +100,42 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.15
+  - time: 0
     functionName: AnimationTurnOffFlipTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.15
+  - time: 0
     functionName: AnimationStartMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.15
+  - time: 0
     functionName: AnimationActionTriger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
+  - time: 0.16666667
     functionName: AnimationStopMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.45
+  - time: 0.2777778
     functionName: AnimationTurnOnFlipTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.5555556
     functionName: AnimationFinishTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
